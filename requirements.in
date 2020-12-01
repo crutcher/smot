@@ -7,6 +7,8 @@ jupyter
 pip-tools
 
 pytest
+PyHamcrest
+
 mypy
 
 

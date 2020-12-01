@@ -69,6 +69,7 @@ pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
 pycparser==2.20           # via cffi
 pygments==2.7.2           # via ipython, jupyter-console, jupyterlab-pygments, nbconvert, qtconsole
+pyhamcrest==2.0.2         # via -r requirements.in
 pyparsing==2.4.7          # via packaging
 pyrsistent==0.17.3        # via jsonschema
 pytest==6.1.2             # via -r requirements.in
