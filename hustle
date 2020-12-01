@@ -86,15 +86,16 @@ function main() {
   while true; do
     if [ "$#" -eq "0" ]; then
       echo -n | group_help "$group_path";
-      exit 1;
+      exit 0;
+    fi
 
-    elif [ -d "$COMMAND_DIR/$group_path/$1" ]; then
-      group_path="$group_path/$1"
-      shift;
+    target="$1"
+    shift;
+
+    if [ -d "$WORKSPACE_ROOT_DIR/$group_path/$target" ]; then
+      group_path="$group_path/$target"
 
     else
-      target="$1"
-      shift;
       break;
     fi
   done
