@@ -6,7 +6,7 @@ jupyter
 # Python
 pip-tools
 
-pyformat
+yapf
 isort
 
 pytest

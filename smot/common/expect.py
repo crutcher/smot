@@ -7,6 +7,7 @@ __unittest = True
 # py.test integration; hide these frames from tracebacks
 __tracebackhide__ = True
 
+
 class Expect:
   """
   Contract Programming Expectations.
@@ -14,10 +15,10 @@ class Expect:
 
   @staticmethod
   def truthy(
-      test: bool,
-      msg: str="Value is not truthy.",
-      cls: Type[Exception]=AssertionError,
-      **kwargs: Any,
+    test: bool,
+    msg: str = "Value is not truthy.",
+    cls: Type[Exception] = AssertionError,
+    **kwargs: Any,
   ) -> None:
     """
     Expect that a value is truthy.
@@ -28,6 +29,4 @@ class Expect:
     :param kwargs: any additional keyword args for the message.
     """
     if not test:
-      raise cls(
-        msg % dict(kwargs)
-      )
+      raise cls(msg % dict(kwargs))
