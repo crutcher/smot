@@ -7,4 +7,6 @@ jupyter
 pip-tools
 
 pytest
+mypy
+
 
