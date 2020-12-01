@@ -6,6 +6,9 @@ jupyter
 # Python
 pip-tools
 
+pyformat
+isort
+
 pytest
 PyHamcrest
 

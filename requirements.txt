@@ -9,6 +9,8 @@ argon2-cffi==20.1.0       # via notebook
 astunparse==1.6.3         # via tensorflow
 async-generator==1.10     # via nbclient
 attrs==20.3.0             # via jsonschema, pytest
+autoflake==1.4            # via pyformat
+autopep8==1.5.4           # via pyformat
 backcall==0.2.0           # via ipython
 bleach==3.2.1             # via nbconvert
 cachetools==4.1.1         # via google-auth
@@ -18,6 +20,7 @@ chardet==3.0.4            # via requests
 click==7.1.2              # via pip-tools
 decorator==4.4.2          # via ipython
 defusedxml==0.6.0         # via nbconvert
+docformatter==1.3.1       # via pyformat
 entrypoints==0.3          # via nbconvert
 gast==0.3.3               # via tensorflow
 google-auth-oauthlib==0.4.2  # via tensorboard
@@ -31,6 +34,7 @@ ipykernel==5.3.4          # via ipywidgets, jupyter, jupyter-console, notebook, 
 ipython-genutils==0.2.0   # via nbformat, notebook, qtconsole, traitlets
 ipython==7.19.0           # via ipykernel, ipywidgets, jupyter-console
 ipywidgets==7.5.1         # via jupyter
+isort==5.6.4              # via -r requirements.in
 jedi==0.17.2              # via ipython
 jinja2==2.11.2            # via nbconvert, notebook
 jsonschema==3.2.0         # via nbformat
@@ -67,7 +71,10 @@ ptyprocess==0.6.0         # via pexpect, terminado
 py==1.9.0                 # via pytest
 pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
+pycodestyle==2.6.0        # via autopep8
 pycparser==2.20           # via cffi
+pyflakes==2.2.0           # via autoflake
+pyformat==0.7             # via -r requirements.in
 pygments==2.7.2           # via ipython, jupyter-console, jupyterlab-pygments, nbconvert, qtconsole
 pyhamcrest==2.0.2         # via -r requirements.in
 pyparsing==2.4.7          # via packaging
@@ -89,11 +96,13 @@ tensorflow==2.3.1         # via -r requirements.in
 termcolor==1.1.0          # via tensorflow
 terminado==0.9.1          # via notebook
 testpath==0.4.4           # via nbconvert
-toml==0.10.2              # via pytest
+toml==0.10.2              # via autopep8, pytest
 tornado==6.1              # via ipykernel, jupyter-client, notebook, terminado
 traitlets==5.0.5          # via ipykernel, ipython, ipywidgets, jupyter-client, jupyter-core, nbclient, nbconvert, nbformat, notebook, qtconsole
 typed-ast==1.4.1          # via mypy
 typing-extensions==3.7.4.3  # via mypy
+unify==0.5                # via pyformat
+untokenize==0.1.1         # via docformatter, unify
 urllib3==1.26.2           # via requests
 wcwidth==0.2.5            # via prompt-toolkit
 webencodings==0.5.1       # via bleach
