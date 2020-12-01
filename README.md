@@ -1,4 +1,6 @@
-# smotnet
+# SMOT: Simple Matter of Training
+
+Example models I'm building to help me explore modern AI.
 
 ## Requirements
 
