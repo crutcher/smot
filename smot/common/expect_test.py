@@ -1,4 +1,5 @@
 import unittest
+
 import hamcrest
 
 from smot.common import expect
