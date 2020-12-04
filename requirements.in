@@ -1,7 +1,10 @@
 # AI
 tensorflow
 numpy
+
+# Notebooks
 jupyter
+matplotlib
 
 # Python
 pip-tools
