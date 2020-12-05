@@ -1,9 +1,10 @@
 import inspect
 import os.path
+import sys
 from types import ModuleType
 from typing import Optional
 
-import sys
+import IPython
 
 import smot
 
@@ -19,43 +20,79 @@ def repository_source_root() -> str:
 
   :return: the source root.
   """
-  return module_directory(smot)
+  return os.path.dirname(module_directory(smot))
 
 
-def calling_module(stack_depth: int = 1) -> ModuleType:
+def this_module() -> ModuleType:
+  """
+  Return the calling module.
+
+  :return: the module.
+  """
+  return calling_module()
+
+
+def calling_module(
+  *,
+  module: Optional[ModuleType] = None,
+  stack_depth: int = 1,
+) -> ModuleType:
   """
   Extract the calling module from the frame at depth ``stack_depth``.
 
   stack_depth is measured relative to the caller, so ``stack_depth == 0`` is the caller.
 
+  :param module: if present, the module to use.
   :param stack_depth: the stack depth, relative to the caller.
   :return: the module.
   :raises ValueError: if stack_depth is too deep or module not found.
   """
-  frame = sys._getframe(stack_depth + 1)
-
-  if module := inspect.getmodule(frame):
+  if module is not None:
     return module
 
-  raise ValueError("No Calling Module")
+  frame = sys._getframe(stack_depth + 1)
+
+  try:
+    return sys.modules[frame.f_globals["__name__"]]
+
+  except KeyError:
+    raise ValueError("No Calling Module")
 
 
-def module_directory(
-  module: Optional[ModuleType] = None,
-  *,
-  stack_depth: int = 1,
-) -> str:
+def module_directory(module: ModuleType) -> str:
   """
   Return a module's directory.
 
-  stack_depth is measured relative to the caller, so ``stack_depth == 0`` is the caller.
-
-  :param module: if not-None, the module to use; ignore stack_depth.
-  :param stack_depth: the stack depth, relative to the caller.
+  :param module: the module.
   :return: the directory path.
   :raises ValueError: if stack_depth is too deep or module not found.
   """
-  if not module:
-    module = calling_module(stack_depth + 1)
-
   return str(os.path.dirname(module.__file__))
+
+
+def module_name_as_relative_path(module: ModuleType) -> str:
+  """
+  Return the module's name as a relative path.
+
+  Special cases
+
+  Example module "foo.bar.baz" => "foo/bar/baz"
+
+  Note, this is not a path to a file (no ".py") or directory.
+
+  :param module: the module.
+  :return: the path.
+  """
+  name = module.__name__
+
+  # Special case the name of a running IPython session.
+  if ipy := IPython.get_ipython():
+    if ipy.__class__.__name__ == 'ZMQInteractiveShell':
+      if dh := getattr(module, '_dh', None):
+        if isinstance(dh, list):
+          notebook_path = str(dh[0])
+
+          if notebook_path.startswith(repository_source_root()):
+            name = notebook_path[len(repository_source_root()) + 1:]
+
+  return name.replace('.', '/')

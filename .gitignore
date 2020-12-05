@@ -1,9 +1,15 @@
 
+# Ignore vim swap files.
 .*.swp
 
+# Ignore the IntelliJ directory.
 /.idea
 
+# Ignore python virtual enviornment.
 /venv
-
+# Ignore python cache directories.
 __pycache__
+
+# Ignore the repo training output directory.
+/training
 
