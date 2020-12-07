@@ -85,14 +85,4 @@ def module_name_as_relative_path(module: ModuleType) -> str:
   """
   name = module.__name__
 
-  # Special case the name of a running IPython session.
-  if ipy := IPython.get_ipython():
-    if ipy.__class__.__name__ == 'ZMQInteractiveShell':
-      if dh := getattr(module, '_dh', None):
-        if isinstance(dh, list):
-          notebook_path = str(dh[0])
-
-          if notebook_path.startswith(repository_source_root()):
-            name = notebook_path[len(repository_source_root()) + 1:]
-
   return name.replace('.', '/')
