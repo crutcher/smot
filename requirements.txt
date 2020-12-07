@@ -12,7 +12,7 @@ attrs==20.3.0             # via jsonschema, pytest
 backcall==0.2.0           # via ipython
 bleach==3.2.1             # via nbconvert
 cachetools==4.1.1         # via google-auth
-certifi==2020.11.8        # via requests
+certifi==2020.12.5        # via requests
 cffi==1.14.4              # via argon2-cffi
 chardet==3.0.4            # via requests
 click==7.1.2              # via pip-tools
@@ -29,7 +29,6 @@ h5py==2.10.0              # via tensorflow
 idna==2.10                # via requests
 iniconfig==1.1.1          # via pytest
 ipykernel==5.3.4          # via ipywidgets, jupyter, jupyter-console, notebook, qtconsole
-ipyparams==0.2.1          # via -r requirements.in
 ipython-genutils==0.2.0   # via nbformat, notebook, qtconsole, traitlets
 ipython==7.19.0           # via ipykernel, ipywidgets, jupyter-console
 ipywidgets==7.5.1         # via jupyter
@@ -74,7 +73,7 @@ py==1.9.0                 # via pytest
 pyasn1-modules==0.2.8     # via google-auth
 pyasn1==0.4.8             # via pyasn1-modules, rsa
 pycparser==2.20           # via cffi
-pygments==2.7.2           # via ipython, jupyter-console, jupyterlab-pygments, nbconvert, qtconsole
+pygments==2.7.3           # via ipython, jupyter-console, jupyterlab-pygments, nbconvert, qtconsole
 pyhamcrest==2.0.2         # via -r requirements.in
 pyparsing==2.4.7          # via matplotlib, packaging
 pyrsistent==0.17.3        # via jsonschema
