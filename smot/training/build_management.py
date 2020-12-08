@@ -17,6 +17,62 @@ def model_build_dir() -> str:
   )
 
 
+class ModelBuildTarget:
+  """
+  Build target for paths to model files.
+  """
+  _build_root: str
+  _target_id: str
+
+  def __init__(
+    self,
+    *,
+    build_root: str,
+    target_id: str,
+  ):
+    """
+    :param build_root: the build root.
+    :param target_id: the target id.
+    """
+    self._build_root = build_root
+    self._target_id = target_id
+
+  def build_root(self) -> str:
+    """The build root of this target."""
+    return self._build_root
+
+  def target_id(self) -> str:
+    """The id of this target."""
+    return self._target_id
+
+  def model_save_path(self) -> str:
+    """
+    Path to the model save files.
+    """
+    return os.path.join(
+      self._build_root,
+      self._target_id,
+    )
+
+  def save(
+    self,
+    model: tf.keras.Model,
+  ) -> str:
+    """
+    Save a tensorflow keras model.
+
+    :param model: the model.
+    :return: the path.
+    """
+    path = self.model_save_path()
+
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    model.save(filepath=path)
+
+    return path
+
+
 class ModelBuildCache:
   """
   Handle for managing reading and writing the model cache.
@@ -33,72 +89,40 @@ class ModelBuildCache:
     """The root directory of builds."""
     return self._build_root
 
-  def model_path(
+  def target(
     self,
     *,
     name: str,
     relative: bool = False,
     module: Optional[ModuleType] = None,
     stack_depth: int = 0,
-  ) -> str:
+  ) -> ModelBuildTarget:
     """
-    Model path.
+    Build a ModelBuildTarget.
 
     :param name: the model name.
     :param relative: should we extend the name relative to the module?
     :param module: (optional) the module by reference, implies ``relative``.
     :param stack_depth: the stack depth to module, relative to the caller.
-    :return: the path.
+    :return: the ModelBuildTarget.
     """
-    relative_path = name
+    target_id = name
 
     if relative or module:
-      relative_path = os.path.join(
+      target_id = os.path.join(
         reflection.module_name_as_relative_path(
           reflection.calling_module(
             module=module,
             stack_depth=stack_depth + 1,
           ),
         ),
-        relative_path,
+        target_id,
       )
 
-    return os.path.join(
-      self._build_root,
-      relative_path,
+    return ModelBuildTarget(
+      build_root=self._build_root,
+      target_id=target_id,
     )
-
-  def save(
-    self,
-    *,
-    model: tf.keras.Model,
-    name: str,
-    relative: bool = False,
-    module: Optional[ModuleType] = None,
-    stack_depth: int = 0,
-  ) -> str:
-    """
-    Save a tensorflow keras model.
-
-    :param model: the model.
-    :param name: the model name.
-    :param relative: should we extend the name relative to the module?
-    :param module: (optional) the module by reference, implies ``relative``.
-    :param stack_depth: the stack depth to module, relative to the caller.
-    :return: the path.
-    """
-    path = self.model_path(
-      module=module,
-      relative=relative,
-      stack_depth=stack_depth + 1,
-      name=name,
-    )
-
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-
-    model.save(filepath=path)
-
-    return path
 
 
 _model_build_cache: Optional[ModelBuildCache] = None
