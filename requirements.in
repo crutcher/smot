@@ -12,9 +12,11 @@ pip-tools
 yapf
 isort
 
+mypy
+
+# Testing
 pytest
 PyHamcrest
-
-mypy
+testfixtures
 
 

@@ -1,6 +1,6 @@
 import os
 from types import ModuleType
-from typing import Optional
+from typing import Callable, Optional
 
 import tensorflow as tf
 
@@ -54,7 +54,7 @@ class ModelBuildTarget:
       self._target_id,
     )
 
-  def save(
+  def save_model(
     self,
     model: tf.keras.Model,
   ) -> str:
@@ -71,6 +71,19 @@ class ModelBuildTarget:
     model.save(filepath=path)
 
     return path
+
+  def load_model(
+    self,
+    *,
+    _loader: Callable[..., tf.keras.Model] = tf.keras.models.load_model,
+  ) -> tf.keras.Model:
+    """
+    Load a tf.keras.Model from the target files.
+
+    :param _loader: test param for over-riding the load function.
+    :return: a Model.
+    """
+    return _loader(filepath=self.model_save_path())
 
 
 class ModelBuildCache:
