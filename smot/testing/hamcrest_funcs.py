@@ -4,6 +4,11 @@ import hamcrest
 from hamcrest.core.assert_that import _assert_bool, _assert_match
 from hamcrest.core.matcher import Matcher
 
+# unittest integration; hide these frames from tracebacks
+__unittest = True
+# py.test integration; hide these frames from tracebacks
+__tracebackhide__ = True
+
 
 def assert_match(actual: Any, matcher: Any, reason: str = "") -> None:
   """
