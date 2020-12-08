@@ -50,6 +50,19 @@ function group_help() {
 
     local cmds=( $(find -mindepth 1 -maxdepth 1 -type f -executable | sort | sed 's/^\.\///') )
     if (( ${#cmds[@]} )); then
+      echo "# Commands:"
+      for cmd in "${cmds[@]}"; do
+        echo -n "  * \`$cmd\`"
+
+	local readme="$cmd.md"
+	if [ -f "$readme" ]; then
+	  echo -n " - "
+          head -1 "$readme"
+        else
+	  echo
+	fi
+      done
+
       for cmd in "${cmds[@]}"; do
         echo "# Command: \`$cmd\`"
 

@@ -13,3 +13,10 @@ See: [glow](https://github.com/charmbracelet/glow)
 
 Run `./hustle repo bootstrap`
 
+
+## Hustle
+
+`./hustle` provides a hook to run many different repository commands.
+
+See: [hustle README](commands/README.md)
+
