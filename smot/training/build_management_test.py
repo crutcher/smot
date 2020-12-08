@@ -1,13 +1,13 @@
 import unittest
 
 from smot.common.runtime import reflection
-from smot.training import model_cache
+from smot.training import build_management
 
 
 class CacheRootTest(unittest.TestCase):
 
   def test(self) -> None:
     self.assertEqual(
-      model_cache.default_cache_root(),
-      reflection.repository_source_root() + '/training/cache',
+      build_management.model_build_dir(),
+      reflection.repository_source_root() + '/build/models',
     )

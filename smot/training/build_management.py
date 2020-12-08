@@ -7,17 +7,17 @@ import tensorflow as tf
 from smot.common.runtime import reflection
 
 
-def default_cache_root() -> str:
+def model_build_dir() -> str:
   """
   Default cache root.
   """
   return os.path.join(
     reflection.repository_source_root(),
-    'training/cache',
+    'build/models',
   )
 
 
-class SavedModelCache:
+class ModelBuildCache:
   """
   Handle for managing reading and writing the model cache.
   """
@@ -25,7 +25,7 @@ class SavedModelCache:
 
   def __init__(self, *, cache_root: Optional[str] = None):
     if cache_root is None:
-      cache_root = default_cache_root()
+      cache_root = model_build_dir()
 
     self._cache_root = cache_root
 

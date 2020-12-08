@@ -10,6 +10,6 @@
 # Ignore python cache directories.
 __pycache__
 
-# Ignore the repo training output directory.
-/training
+# Ignore the build directory.
+/build
 
