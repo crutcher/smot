@@ -58,7 +58,7 @@ class ExpectTest(unittest.TestCase):
     hamcrest_funcs.assert_raises(
       hamcrest.calling(lambda: expect.Expect.is_eq("abc", 1)),
       AssertionError,
-      "Value \(abc\) != \(1\)",
+      r"Value \(abc\) != \(1\)",
     )
 
     hamcrest_funcs.assert_raises(
