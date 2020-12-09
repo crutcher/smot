@@ -2,6 +2,10 @@
 tensorflow
 numpy
 
+# todo: numpy.typing in numpy1.19
+# blocked by: tensorflow requires numpy<1.19.0
+nptyping
+
 # Notebooks
 jupyter
 matplotlib
@@ -13,6 +17,7 @@ yapf
 isort
 
 mypy
+mypy-extras
 
 # Testing
 pytest
