@@ -94,7 +94,7 @@ def model_fit_report(
   eval_result = model.evaluate(x_test, y_test)
   test_loss, test_accuracy = eval_result
 
-  print(f"Test loss: {test_loss}, Test accuracy: {test_accuracy}")
+  print(f"Test loss: {test_loss}, Test accuracy: {test_accuracy}, Error rate: {1.0 - test_accuracy}")
 
   _plot_model_fit(history, (test_loss, test_accuracy))
 
