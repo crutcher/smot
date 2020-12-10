@@ -86,7 +86,7 @@ def construct_LeNet5_model() -> tf.keras.Model:
 
 def build_LeNet5_model(
   *,
-  optimizer: Union[str, tf.keras.optimizers.Optimizer] = 'sgd',
+  optimizer: Union[str, tf.keras.optimizers.Optimizer] = 'adam',
 ) -> tf.keras.Model:
   """
   Return a compiled LeNet-5 model.
