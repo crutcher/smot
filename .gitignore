@@ -2,6 +2,8 @@
 # Ignore vim swap files.
 .*.swp
 
+.ipynb_checkpoints
+
 # Ignore the IntelliJ directory.
 /.idea
 
