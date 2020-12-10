@@ -1,8 +1,8 @@
-from typing import Tuple, Optional
+from typing import Optional, Tuple
 
+from matplotlib import pyplot as plt
 import nptyping
 import tensorflow as tf
-from matplotlib import pyplot as plt
 
 
 def _plot_model_fit(
@@ -68,10 +68,10 @@ def _plot_model_fit(
 
 
 def model_fit_report(
-    *,
-    model: tf.keras.models.Model,
-    history: tf.keras.callbacks.History,
-    test_data: Tuple[nptyping.NDArray, nptyping.NDArray],
+  *,
+  model: tf.keras.models.Model,
+  history: tf.keras.callbacks.History,
+  test_data: Tuple[nptyping.NDArray, nptyping.NDArray],
 ) -> Tuple[float, float]:
   """
   Evaluate a model against its test data, and graph the results.
@@ -94,7 +94,8 @@ def model_fit_report(
   eval_result = model.evaluate(x_test, y_test)
   test_loss, test_accuracy = eval_result
 
-  print(f"Test loss: {test_loss}, Test accuracy: {test_accuracy}, Error rate: {1.0 - test_accuracy}")
+  print(
+    f"Test loss: {test_loss}, Test accuracy: {test_accuracy}, Error rate: {1.0 - test_accuracy}")
 
   _plot_model_fit(history, (test_loss, test_accuracy))
 

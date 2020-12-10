@@ -7,7 +7,7 @@ cd $WORKSPACE_ROOT_DIR
 
 rm -rf venv
 
-virtualenv -p python3.8 -prompt "\n(venv)" venv
+virtualenv -p python3.8 --prompt "\n(venv)" venv
 
 source venv/bin/activate
 
