@@ -1,5 +1,6 @@
 # AI
-tensorflow
+#tensorflow
+tf-nightly
 numpy
 
 # used by tf.imagedatagen
