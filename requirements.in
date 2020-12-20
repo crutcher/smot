@@ -25,6 +25,7 @@ matplotlib
 # Python
 pip-tools
 
+nbqa  # run python code tests on .ipynb
 
 black_nbconvert  # for formatting .ipynb
 yapf
