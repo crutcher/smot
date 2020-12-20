@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+cd $WORKSPACE_ROOT_DIR
+
+source venv/bin/activate
+
+export PYTHONPATH=$WORKSPACE_ROOT_DIR:$PYTHONPATH
+
+exec jupyter notebook
+
