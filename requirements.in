@@ -1,14 +1,22 @@
 # AI
+
 #tensorflow
 tf-nightly
+tf-nightly-gpu
+tensorboard
+
 numpy
+# todo: numpy.typing in numpy1.19
+# blocked by: tensorflow requires numpy<1.19.0
+nptyping
+
 
 # used by tf.imagedatagen
 scipy
 
-# todo: numpy.typing in numpy1.19
-# blocked by: tensorflow requires numpy<1.19.0
-nptyping
+
+# tf benchmarking
+ai-benchmark
 
 # Notebooks
 jupyter
