@@ -1,7 +1,7 @@
 import os
 import unittest.mock
 
-import hamcrest
+import testfixtures
 
 from smot.common.runtime import reflection, reflection_testlib
 from smot.testing import hamcrest_funcs
@@ -30,33 +30,36 @@ class ModelBuildTargetTest(unittest.TestCase):
     hamcrest_funcs.assert_match(target.model_save_path(), 'foo/bar')
 
   def test_save(self) -> None:
-    target = build_management.ModelBuildTarget(
-      build_root='foo',
-      target_id='bar',
-    )
+    with testfixtures.TempDirectory() as temp_dir:
+      target = build_management.ModelBuildTarget(
+        build_root=temp_dir.getpath('foo'),
+        target_id='bar',
+      )
 
-    mock_model = unittest.mock.Mock()
-    expected_path = 'foo/bar'
-    hamcrest_funcs.assert_match(
-      target.save_model(model=mock_model),
-      expected_path,
-    )
-    mock_model.save.assert_called_with(filepath=expected_path)
+      mock_model = unittest.mock.Mock()
+      expected_path = temp_dir.getpath('foo/bar')
+
+      hamcrest_funcs.assert_match(
+        target.save_model(model=mock_model),
+        expected_path,
+      )
+      mock_model.save.assert_called_with(filepath=expected_path)
 
   def test_load(self) -> None:
-    target = build_management.ModelBuildTarget(
-      build_root='foo',
-      target_id='bar',
-    )
+    with testfixtures.TempDirectory() as temp_dir:
+      target = build_management.ModelBuildTarget(
+        build_root=temp_dir.getpath('foo'),
+        target_id='bar',
+      )
 
-    mock_model = unittest.mock.Mock()
-    mock_loader = unittest.mock.Mock(return_value=mock_model)
+      mock_model = unittest.mock.Mock()
+      mock_loader = unittest.mock.Mock(return_value=mock_model)
 
-    hamcrest_funcs.assert_match(
-      target.load_model(_loader=mock_loader),
-      mock_model,
-    )
-    mock_loader.assert_called_with(filepath=target.model_save_path())
+      hamcrest_funcs.assert_match(
+        target.load_model(_loader=mock_loader),
+        mock_model,
+      )
+      mock_loader.assert_called_with(filepath=target.model_save_path())
 
 
 class ModelBuildCacheTest(unittest.TestCase):
