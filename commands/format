@@ -9,7 +9,7 @@ source venv/bin/activate
 if (( $# )) ; then
   TARGETS=( $@ )
 else
-  TARGETS=( smot )
+  TARGETS=( $( $HUSTLE changed ) )
 fi
 
 PY_TARGETS=()
