@@ -34,15 +34,16 @@ for x in "${TARGETS[@]}"; do
 done
 
 if (( ${#PY_TARGETS[@]} )); then
-  echo "Reformatting Python ..."
-
   isort "${PY_TARGETS[@]}"
   yapf -i -r "${PY_TARGETS[@]}"
 fi
 
 if (( ${#NB_TARGETS[@]} )); then
-  echo "Reformatting Jupyter ..."
-
-  black_nbconvert "${NB_TARGETS[@]}"
+  for f in $( find "${NB_TARGETS[@]}" -name '*.ipynb' ); do
+    # black_nbconvert makes trivial file changes if you don't do this.
+    if ! black_nbconvert --check "$f" > /dev/null; then
+      black_nbconvert "$f"
+    fi
+  done
 fi
 
