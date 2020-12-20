@@ -25,6 +25,8 @@ matplotlib
 # Python
 pip-tools
 
+
+black_nbconvert  # for formatting .ipynb
 yapf
 isort
 

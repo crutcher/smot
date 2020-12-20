@@ -6,15 +6,43 @@ cd $WORKSPACE_ROOT_DIR
 
 source venv/bin/activate
 
-echo "Reformatting Python ..."
-
 if (( $# )) ; then
   TARGETS=( $@ )
 else
   TARGETS=( smot )
 fi
 
-isort "${TARGETS[@]}"
+PY_TARGETS=()
+NB_TARGETS=()
 
-yapf -i -r "${TARGETS[@]}"
+for x in "${TARGETS[@]}"; do
+  if [[ -d "$x" ]]; then
+    PY_TARGETS+=( "$x" )
+    NB_TARGETS+=( "$x" )
+
+  else 
+    case "$x" in
+      *.py)
+        PY_TARGETS+=( "$x" )
+	;;
+
+      *.ipynb)
+        NB_TARGETS+=( "$x" )
+	;;
+    esac
+  fi
+done
+
+if (( ${#PY_TARGETS[@]} )); then
+  echo "Reformatting Python ..."
+
+  isort "${PY_TARGETS[@]}"
+  yapf -i -r "${PY_TARGETS[@]}"
+fi
+
+if (( ${#NB_TARGETS[@]} )); then
+  echo "Reformatting Jupyter ..."
+
+  black_nbconvert "${NB_TARGETS[@]}"
+fi
 
