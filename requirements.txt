@@ -13,7 +13,7 @@ async-generator==1.10     # via nbclient
 attrs==20.3.0             # via jsonschema, pytest
 backcall==0.2.0           # via ipython
 black-nbconvert==0.2.0    # via -r requirements.in
-black==20.8b1             # via black-nbconvert
+black==20.8b1             # via -r requirements.in, black-nbconvert
 bleach==3.2.1             # via nbconvert
 cachetools==4.2.0         # via google-auth
 certifi==2020.12.5        # via requests
@@ -123,7 +123,6 @@ werkzeug==1.0.1           # via tb-nightly, tensorboard
 wheel==0.36.2             # via astunparse, tb-nightly, tensorboard, tf-nightly, tf-nightly-gpu
 widgetsnbextension==3.5.1  # via ipywidgets
 wrapt==1.12.1             # via tf-nightly, tf-nightly-gpu
-yapf==0.30.0              # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

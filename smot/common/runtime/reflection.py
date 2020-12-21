@@ -15,74 +15,74 @@ __tracebackhide__ = True
 
 
 def repository_source_root() -> str:
-  """
-  Return the source root of the repository.
+    """
+    Return the source root of the repository.
 
-  :return: the source root.
-  """
-  return os.path.dirname(module_directory(smot))
+    :return: the source root.
+    """
+    return os.path.dirname(module_directory(smot))
 
 
 def this_module() -> ModuleType:
-  """
-  Return the calling module.
+    """
+    Return the calling module.
 
-  :return: the module.
-  """
-  return calling_module()
+    :return: the module.
+    """
+    return calling_module()
 
 
 def calling_module(
-  *,
-  module: Optional[ModuleType] = None,
-  stack_depth: int = 1,
+    *,
+    module: Optional[ModuleType] = None,
+    stack_depth: int = 1,
 ) -> ModuleType:
-  """
-  Extract the calling module from the frame at depth ``stack_depth``.
+    """
+    Extract the calling module from the frame at depth ``stack_depth``.
 
-  stack_depth is measured relative to the caller, so ``stack_depth == 0`` is the caller.
+    stack_depth is measured relative to the caller, so ``stack_depth == 0`` is the caller.
 
-  :param module: if present, the module to use.
-  :param stack_depth: the stack depth, relative to the caller.
-  :return: the module.
-  :raises ValueError: if stack_depth is too deep or module not found.
-  """
-  if module is not None:
-    return module
+    :param module: if present, the module to use.
+    :param stack_depth: the stack depth, relative to the caller.
+    :return: the module.
+    :raises ValueError: if stack_depth is too deep or module not found.
+    """
+    if module is not None:
+        return module
 
-  frame = sys._getframe(stack_depth + 1)
+    frame = sys._getframe(stack_depth + 1)
 
-  try:
-    return sys.modules[frame.f_globals["__name__"]]
+    try:
+        return sys.modules[frame.f_globals["__name__"]]
 
-  except KeyError:
-    raise ValueError("No Calling Module")
+    except KeyError:
+        raise ValueError("No Calling Module")
 
 
 def module_directory(module: ModuleType) -> str:
-  """
-  Return a module's directory.
+    """
+    Return a module's directory.
 
-  :param module: the module.
-  :return: the directory path.
-  :raises ValueError: if stack_depth is too deep or module not found.
-  """
-  return str(os.path.dirname(module.__file__))
+    :param module: the module.
+    :return: the directory path.
+    :raises ValueError: if stack_depth is too deep or module not found.
+    """
+    return str(os.path.dirname(module.__file__))
 
 
 def module_name_as_relative_path(module: ModuleType) -> str:
-  """
-  Return the module's name as a relative path.
+    """
+    Return the module's name as a relative path.
 
-  Special cases
+    Special cases
 
-  Example module "foo.bar.baz" => "foo/bar/baz"
+    Example module "foo.bar.baz" => "foo/bar/baz"
 
-  Note, this is not a path to a file (no ".py") or directory.
+    Note, this is not a path to a file (no ".py") or directory.
 
-  :param module: the module.
-  :return: the path.
-  """
-  name = module.__name__
+    :param module: the module.
+    :return: the path.
+    """
+    name = module.__name__
 
-  return name.replace('.', '/')
+    return name.replace(".", "/")

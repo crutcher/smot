@@ -35,7 +35,7 @@ done
 
 if (( ${#PY_TARGETS[@]} )); then
   isort "${PY_TARGETS[@]}"
-  yapf -i -r "${PY_TARGETS[@]}"
+  black "${PY_TARGETS[@]}"
 fi
 
 if (( ${#NB_TARGETS[@]} )); then

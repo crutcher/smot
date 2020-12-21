@@ -27,8 +27,8 @@ pip-tools
 
 nbqa  # run python code tests on .ipynb
 
+black
 black_nbconvert  # for formatting .ipynb
-yapf
 isort
 
 mypy
