@@ -1,7 +1,8 @@
-from typing import Any, Tuple, Union
+from typing import Any, Tuple, Type, Union
 
 import nptyping
 import tensorflow as tf
+from tensorflow.python.keras.layers.pooling import Pooling2D
 
 INPUT_SHAPE = (28, 28, 1)
 CLASSES = 10
@@ -40,9 +41,13 @@ def load_LeNet5_datasets() -> Tuple[
     return ((x_train, y_train), (x_test, y_test))
 
 
-def construct_LeNet5_model() -> tf.keras.Model:
+def construct_LeNet5_model(
+    pooling: Type[Pooling2D] = tf.keras.layers.AveragePooling2D,
+) -> tf.keras.Model:
     """
     Construct a LeNet-5 model.
+
+    :param pooling: pooling layer class.
 
     Model is not compiled.
 
@@ -65,7 +70,7 @@ def construct_LeNet5_model() -> tf.keras.Model:
                 activation="tanh",
                 padding="same",
             ),  # C1
-            tf.keras.layers.AveragePooling2D(),  # S2
+            pooling(),
             tf.keras.layers.Conv2D(
                 16,
                 kernel_size=5,
@@ -73,7 +78,7 @@ def construct_LeNet5_model() -> tf.keras.Model:
                 activation="tanh",
                 padding="valid",
             ),  # C3
-            tf.keras.layers.AveragePooling2D(),  # S4
+            pooling(),
             tf.keras.layers.Flatten(),  # Flatten
             tf.keras.layers.Dense(120, activation="tanh"),  # C5
             tf.keras.layers.Dense(84, activation="tanh"),  # F6
@@ -86,6 +91,7 @@ def construct_LeNet5_model() -> tf.keras.Model:
 
 def build_LeNet5_model(
     *,
+    pooling: Type[Pooling2D] = tf.keras.layers.AveragePooling2D,
     optimizer: Union[str, tf.keras.optimizers.Optimizer] = "adam",
 ) -> tf.keras.Model:
     """
@@ -93,7 +99,9 @@ def build_LeNet5_model(
 
     :return: the model.
     """
-    model = construct_LeNet5_model()
+    model = construct_LeNet5_model(
+        pooling=pooling,
+    )
 
     # Compile using 'Adam'
     model.compile(
