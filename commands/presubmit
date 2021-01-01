@@ -2,7 +2,8 @@
 
 set -e
 
-$HUSTLE pretest
+$HUSTLE format
+$HUSTLE test
 
 # todo: check for un-staged or un-commited files.
 
