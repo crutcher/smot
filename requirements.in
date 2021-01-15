@@ -40,3 +40,7 @@ PyHamcrest
 testfixtures
 
 
+# Keras libs
+keras_gradient_noise
+
+
