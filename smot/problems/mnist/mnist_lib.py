@@ -188,12 +188,14 @@ def build_ijcal2011_mnist_model(
     *,
     pooling: Type[Pooling2D] = tf.keras.layers.MaxPooling2D,
     optimizer: Union[str, tf.keras.optimizers.Optimizer] = "adam",
+    loss: Union[str, tf.keras.losses.Loss] = "categorical_crossentropy",
 ) -> tf.keras.Model:
     """
     Return a compiled LeNet-5 model.
 
     :param pooling: the pooling layer type.
     :param optimizer: the optimizer.
+    :param loss: the loss function.
 
     :return: the model.
     """
@@ -205,7 +207,7 @@ def build_ijcal2011_mnist_model(
     model.compile(
         optimizer=optimizer,
         # Needed for the categorical softmax layer.
-        loss=tf.keras.losses.categorical_crossentropy,
+        loss=loss,
         metrics=["accuracy"],
     )
 

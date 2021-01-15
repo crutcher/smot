@@ -41,6 +41,7 @@ testfixtures
 
 
 # Keras libs
+tensorflow_addons  # tfa
 keras_gradient_noise
 
 
