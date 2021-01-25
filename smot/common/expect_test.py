@@ -1,6 +1,7 @@
 import unittest
 
 import hamcrest
+import testfixtures
 
 from smot.common import expect
 from smot.testing import hamcrest_funcs
@@ -71,3 +72,30 @@ class ExpectTest(unittest.TestCase):
             KeyError,
             "abc xyz frog",
         )
+
+
+class ExpectPathTest(unittest.TestCase):
+    def test_is_file(self) -> None:
+        with testfixtures.TempDirectory() as tempdir:
+            p = tempdir.getpath("foo.txt")
+
+            hamcrest_funcs.assert_raises(
+                lambda: expect.ExpectPath.is_file(p),
+                AssertionError,
+                matching=hamcrest.has_string(f"Path ({p}) is not a file."),
+            )
+
+            hamcrest_funcs.assert_raises(
+                lambda: expect.ExpectPath.is_file(
+                    p,
+                    msg="%(path)s %(zzz)s",
+                    zzz="abc",
+                ),
+                AssertionError,
+                matching=hamcrest.has_string(f"{p} abc"),
+            )
+
+            with open(p, "w") as f:
+                f.write("abc")
+
+            expect.ExpectPath.is_file(p)

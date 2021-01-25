@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+cd $WORKSPACE_ROOT_DIR
+
+kaggle competitions download -p build/kaggle titanic
+
+unzip build/kaggle/titanic.zip -d build/kaggle/titanic
+
+

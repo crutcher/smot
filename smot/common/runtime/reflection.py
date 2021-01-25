@@ -1,10 +1,7 @@
-import inspect
 import os.path
 import sys
 from types import ModuleType
 from typing import Optional
-
-import IPython
 
 import smot
 

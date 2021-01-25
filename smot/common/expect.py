@@ -1,3 +1,4 @@
+import os
 from typing import Any, Type, TypeVar
 
 T = TypeVar("T")
@@ -87,3 +88,36 @@ class Expect:
                     **kwargs,
                 )
             )
+
+
+class ExpectPath:
+    """
+    Path Contract Programming Expectations.
+    """
+
+    @staticmethod
+    def is_file(
+        path: str,
+        msg: str = "Path (%(path)s) is not a file.",
+        cls: Type[Exception] = AssertionError,
+        **kwargs: Any,
+    ) -> str:
+        """
+        Expect that a path exists as a file.
+
+        :param path: the value to test.
+        :param msg: the message template.
+        :param cls: the exception class.
+        :param kwargs: any additional keyword args for the message.
+        :return: the path.
+        """
+        if not os.path.isfile(path):
+            raise cls(
+                msg
+                % dict(
+                    path=path,
+                    **kwargs,
+                )
+            )
+
+        return path
