@@ -27,6 +27,12 @@ ai-benchmark
 jupyter
 matplotlib
 
+# There's a bug in 7.19.0 on completion.
+# See: https://github.com/ipython/ipython/issues/12745
+jedi==0.17.2
+parso==0.7.1
+
+
 # Python
 pip-tools
 
