@@ -45,3 +45,7 @@ tensorflow_addons  # tfa
 keras_gradient_noise
 
 
+# Kaggle API
+kaggle
+
+
