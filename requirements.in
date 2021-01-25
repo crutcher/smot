@@ -15,6 +15,11 @@ nptyping
 scipy
 
 
+# Pandas stuff
+pandas
+
+
+
 # tf benchmarking
 ai-benchmark
 

@@ -210,6 +210,7 @@ numpy==1.19.5
     #   matplotlib
     #   nptyping
     #   opt-einsum
+    #   pandas
     #   scipy
     #   tb-nightly
     #   tensorboard
@@ -225,6 +226,8 @@ packaging==20.8
     # via
     #   bleach
     #   pytest
+pandas==1.2.1
+    # via -r requirements.in
 pandocfilters==1.4.3
     # via nbconvert
 parso==0.8.1
@@ -295,8 +298,11 @@ python-dateutil==2.8.1
     #   jupyter-client
     #   kaggle
     #   matplotlib
+    #   pandas
 python-slugify==4.0.1
     # via kaggle
+pytz==2020.5
+    # via pandas
 pyyaml==5.4.1
     # via keras
 pyzmq==21.0.1
