@@ -34,7 +34,7 @@ black==20.8b1
     # via
     #   -r requirements.in
     #   black-nbconvert
-bleach==3.2.2
+bleach==3.3.0
     # via nbconvert
 cachetools==4.2.1
     # via google-auth
@@ -70,7 +70,7 @@ google-auth-oauthlib==0.4.2
     # via
     #   tb-nightly
     #   tensorboard
-google-auth==1.24.0
+google-auth==1.25.0
     # via
     #   google-auth-oauthlib
     #   tb-nightly
@@ -107,7 +107,7 @@ ipython-genutils==0.2.0
     #   notebook
     #   qtconsole
     #   traitlets
-ipython==7.19.0
+ipython==7.20.0
     # via
     #   ipykernel
     #   ipywidgets
@@ -121,7 +121,7 @@ jedi==0.17.2
     # via
     #   -r requirements.in
     #   ipython
-jinja2==2.11.2
+jinja2==2.11.3
     # via
     #   nbconvert
     #   notebook
@@ -136,7 +136,7 @@ jupyter-client==6.1.11
     #   qtconsole
 jupyter-console==6.2.0
     # via jupyter
-jupyter-core==4.7.0
+jupyter-core==4.7.1
     # via
     #   jupyter-client
     #   nbconvert
@@ -167,7 +167,7 @@ markdown==3.3.3
     #   tensorboard
 markupsafe==1.1.1
     # via jinja2
-matplotlib==3.3.3
+matplotlib==3.3.4
     # via -r requirements.in
 mistune==0.8.4
     # via nbconvert
@@ -192,9 +192,9 @@ nbformat==5.1.2
     #   nbclient
     #   nbconvert
     #   notebook
-nbqa==0.5.6
+nbqa==0.5.7
     # via -r requirements.in
-nest-asyncio==1.4.3
+nest-asyncio==1.5.1
     # via nbclient
 notebook==6.2.0
     # via
@@ -224,7 +224,7 @@ opt-einsum==3.3.0
     # via
     #   tf-nightly
     #   tf-nightly-gpu
-packaging==20.8
+packaging==20.9
     # via
     #   bleach
     #   pytest
@@ -305,11 +305,11 @@ python-dateutil==2.8.1
     #   pandas
 python-slugify==4.0.1
     # via kaggle
-pytz==2020.5
+pytz==2021.1
     # via pandas
 pyyaml==5.4.1
     # via keras
-pyzmq==21.0.1
+pyzmq==22.0.2
     # via
     #   jupyter-client
     #   notebook
@@ -355,7 +355,7 @@ six==1.15.0
     #   tensorboard
     #   tf-nightly
     #   tf-nightly-gpu
-tb-nightly==2.5.0a20210125
+tb-nightly==2.5.0a20210204
     # via
     #   tf-nightly
     #   tf-nightly-gpu
@@ -365,7 +365,7 @@ tensorboard-plugin-wit==1.8.0
     #   tensorboard
 tensorboard==2.4.1
     # via -r requirements.in
-tensorflow-addons==0.12.0
+tensorflow-addons==0.12.1
     # via -r requirements.in
 termcolor==1.1.0
     # via
@@ -379,13 +379,13 @@ testpath==0.4.4
     # via nbconvert
 text-unidecode==1.3
     # via python-slugify
-tf-estimator-nightly==2.5.0.dev2021012501
+tf-estimator-nightly==2.5.0.dev2021020301
     # via
     #   tf-nightly
     #   tf-nightly-gpu
-tf-nightly-gpu==2.5.0.dev20210125
+tf-nightly-gpu==2.5.0.dev20210203
     # via -r requirements.in
-tf-nightly==2.5.0.dev20210125
+tf-nightly==2.5.0.dev20210203
     # via -r requirements.in
 toml==0.10.2
     # via
@@ -426,7 +426,7 @@ typing-extensions==3.7.4.3
     #   tf-nightly-gpu
 typish==1.9.1
     # via nptyping
-urllib3==1.26.2
+urllib3==1.26.3
     # via
     #   kaggle
     #   requests
