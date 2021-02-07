@@ -79,6 +79,8 @@ google-pasta==0.2.0
     # via
     #   tf-nightly
     #   tf-nightly-gpu
+graphviz==0.16
+    # via -r requirements.in
 grpcio==1.34.1
     # via
     #   tb-nightly
@@ -280,6 +282,8 @@ pyasn1==0.4.8
     #   rsa
 pycparser==2.20
     # via cffi
+pydot==1.4.1
+    # via -r requirements.in
 pygments==2.7.4
     # via
     #   ipython
@@ -293,6 +297,7 @@ pyparsing==2.4.7
     # via
     #   matplotlib
     #   packaging
+    #   pydot
 pyrsistent==0.17.3
     # via jsonschema
 pytest==6.2.2

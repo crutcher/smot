@@ -19,6 +19,10 @@ scipy
 pandas
 
 
+# graphviz stuff
+graphviz
+pydot
+
 
 # tf benchmarking
 ai-benchmark
