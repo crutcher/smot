@@ -360,7 +360,7 @@ six==1.15.0
     #   tensorboard
     #   tf-nightly
     #   tf-nightly-gpu
-tb-nightly==2.5.0a20210204
+tb-nightly==2.5.0a20210207
     # via
     #   tf-nightly
     #   tf-nightly-gpu
@@ -384,13 +384,13 @@ testpath==0.4.4
     # via nbconvert
 text-unidecode==1.3
     # via python-slugify
-tf-estimator-nightly==2.5.0.dev2021020301
+tf-estimator-nightly==2.5.0.dev2021020701
     # via
     #   tf-nightly
     #   tf-nightly-gpu
-tf-nightly-gpu==2.5.0.dev20210203
+tf-nightly-gpu==2.5.0.dev20210204
     # via -r requirements.in
-tf-nightly==2.5.0.dev20210203
+tf-nightly==2.5.0.dev20210204
     # via -r requirements.in
 toml==0.10.2
     # via
