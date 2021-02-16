@@ -42,7 +42,7 @@ certifi==2020.12.5
     # via
     #   kaggle
     #   requests
-cffi==1.14.4
+cffi==1.14.5
     # via argon2-cffi
 chardet==4.0.0
     # via requests
@@ -70,7 +70,7 @@ google-auth-oauthlib==0.4.2
     # via
     #   tb-nightly
     #   tensorboard
-google-auth==1.25.0
+google-auth==1.26.1
     # via
     #   google-auth-oauthlib
     #   tb-nightly
@@ -181,7 +181,7 @@ mypy-extras==0.1.0
     # via -r requirements.in
 mypy==0.800
     # via -r requirements.in
-nbclient==0.5.1
+nbclient==0.5.2
     # via nbconvert
 nbconvert==6.0.7
     # via
@@ -230,7 +230,7 @@ packaging==20.9
     # via
     #   bleach
     #   pytest
-pandas==1.2.1
+pandas==1.2.2
     # via -r requirements.in
 pandocfilters==1.4.3
     # via nbconvert
@@ -254,7 +254,7 @@ pluggy==0.13.1
     # via pytest
 prometheus-client==0.9.0
     # via notebook
-prompt-toolkit==3.0.14
+prompt-toolkit==3.0.16
     # via
     #   ipython
     #   jupyter-console
@@ -282,9 +282,9 @@ pyasn1==0.4.8
     #   rsa
 pycparser==2.20
     # via cffi
-pydot==1.4.1
+pydot==1.4.2
     # via -r requirements.in
-pygments==2.7.4
+pygments==2.8.0
     # via
     #   ipython
     #   jupyter-console
@@ -314,7 +314,7 @@ pytz==2021.1
     # via pandas
 pyyaml==5.4.1
     # via keras
-pyzmq==22.0.2
+pyzmq==22.0.3
     # via
     #   jupyter-client
     #   notebook
@@ -334,7 +334,7 @@ requests==2.25.1
     #   requests-oauthlib
     #   tb-nightly
     #   tensorboard
-rsa==4.7
+rsa==4.7.1
     # via google-auth
 scipy==1.6.0
     # via
@@ -360,10 +360,12 @@ six==1.15.0
     #   tensorboard
     #   tf-nightly
     #   tf-nightly-gpu
-tb-nightly==2.5.0a20210207
+tb-nightly==2.5.0a20210215
     # via
     #   tf-nightly
     #   tf-nightly-gpu
+tensorboard-data-server==0.3.0
+    # via tb-nightly
 tensorboard-plugin-wit==1.8.0
     # via
     #   tb-nightly
@@ -384,13 +386,13 @@ testpath==0.4.4
     # via nbconvert
 text-unidecode==1.3
     # via python-slugify
-tf-estimator-nightly==2.5.0.dev2021020701
+tf-estimator-nightly==2.5.0.dev2021021501
     # via
     #   tf-nightly
     #   tf-nightly-gpu
-tf-nightly-gpu==2.5.0.dev20210204
+tf-nightly-gpu==2.5.0.dev20210215
     # via -r requirements.in
-tf-nightly==2.5.0.dev20210204
+tf-nightly==2.5.0.dev20210215
     # via -r requirements.in
 toml==0.10.2
     # via
@@ -403,7 +405,7 @@ tornado==6.1
     #   jupyter-client
     #   notebook
     #   terminado
-tqdm==4.56.0
+tqdm==4.56.2
     # via kaggle
 traitlets==5.0.5
     # via
