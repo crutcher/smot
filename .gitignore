@@ -4,6 +4,8 @@
 
 .ipynb_checkpoints
 
+logs/
+
 # Ignore the IntelliJ directory.
 /.idea
 

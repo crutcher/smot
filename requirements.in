@@ -3,7 +3,7 @@
 #tensorflow
 tf-nightly
 tf-nightly-gpu
-tensorboard
+tb-nightly
 jupyter-tensorboard
 
 numpy
