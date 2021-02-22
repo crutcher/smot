@@ -145,6 +145,8 @@ jupyter-core==4.7.1
     #   nbformat
     #   notebook
     #   qtconsole
+jupyter-tensorboard==0.2.0
+    # via -r requirements.in
 jupyter==1.0.0
     # via -r requirements.in
 jupyterlab-pygments==0.1.2
@@ -201,6 +203,7 @@ nest-asyncio==1.5.1
 notebook==6.2.0
     # via
     #   jupyter
+    #   jupyter-tensorboard
     #   widgetsnbextension
 nptyping==1.4.0
     # via -r requirements.in

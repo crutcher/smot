@@ -4,6 +4,7 @@
 tf-nightly
 tf-nightly-gpu
 tensorboard
+jupyter-tensorboard
 
 numpy
 # todo: numpy.typing in numpy1.19
