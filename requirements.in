@@ -1,5 +1,10 @@
 # AI
 
+# pytorch
+torch
+torchvision
+torchaudio
+
 #tensorflow
 tf-nightly
 tf-nightly-gpu

@@ -227,6 +227,8 @@ numpy==1.19.5
     #   tensorflow-datasets
     #   tf-nightly
     #   tf-nightly-gpu
+    #   torch
+    #   torchvision
 oauthlib==3.1.0
     # via requests-oauthlib
 opt-einsum==3.3.0
@@ -255,6 +257,7 @@ pillow==8.1.2
     # via
     #   ai-benchmark
     #   matplotlib
+    #   torchvision
 pip-tools==5.5.0
     # via -r requirements.in
 pluggy==0.13.1
@@ -413,6 +416,15 @@ toml==0.10.2
     #   black
     #   nbqa
     #   pytest
+torch==1.8.0
+    # via
+    #   -r requirements.in
+    #   torchaudio
+    #   torchvision
+torchaudio==0.8.0
+    # via -r requirements.in
+torchvision==0.9.0
+    # via -r requirements.in
 tornado==6.1
     # via
     #   ipykernel
@@ -447,6 +459,7 @@ typing-extensions==3.7.4.3
     #   mypy
     #   tf-nightly
     #   tf-nightly-gpu
+    #   torch
 typish==1.9.1
     # via nptyping
 urllib3==1.26.3
