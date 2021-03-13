@@ -9,6 +9,7 @@ torchaudio
 tf-nightly
 tf-nightly-gpu
 tb-nightly
+tensorflow-io-nightly
 jupyter-tensorboard
 tensorflow-datasets
 

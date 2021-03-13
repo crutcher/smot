@@ -406,6 +406,8 @@ tensorflow-addons==0.12.1
     # via -r requirements.in
 tensorflow-datasets==4.2.0
     # via -r requirements.in
+tensorflow-io-nightly==0.18.0.dev20210307160140
+    # via -r requirements.in
 tensorflow-metadata==0.28.0
     # via tensorflow-datasets
 termcolor==1.1.0
@@ -430,7 +432,9 @@ tf-estimator-nightly==2.5.0.dev2021031001
 tf-nightly-gpu==2.5.0.dev20210310
     # via -r requirements.in
 tf-nightly==2.5.0.dev20210310
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   tensorflow-io-nightly
 threadpoolctl==2.1.0
     # via scikit-learn
 toml==0.10.2
