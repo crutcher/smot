@@ -12,6 +12,8 @@ tb-nightly
 jupyter-tensorboard
 tensorflow-datasets
 
+keras-tuner
+
 numpy
 # todo: numpy.typing in numpy1.19
 # blocked by: tensorflow requires numpy<1.19.0
