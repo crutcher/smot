@@ -6,15 +6,18 @@ torchvision
 torchaudio
 
 #tensorflow
-tf-nightly==2.5.0.dev20210301
-tf-nightly-gpu==2.5.0.dev20210301
-tb-nightly==2.5.0.0a20210301
+#tf-nightly==2.5.0.dev20210301
+tensorflow
+#tf-nightly
+#tf-nightly-gpu
+#tb-nightly
 
 #tensorflow
 #tensorflow-gpu
-#tensorboard
+tensorboard
 #tensorflow-io
 
+tensorboard-plugin-profile
 jupyter-tensorboard
 tensorflow-datasets
 
