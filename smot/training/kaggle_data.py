@@ -2,6 +2,7 @@ import os
 
 from smot.common.expect import ExpectPath
 from smot.common.runtime import reflection
+from smot.common.runtime.data_cache import data_root
 
 
 def kaggle_data_root() -> str:
@@ -9,8 +10,8 @@ def kaggle_data_root() -> str:
     The configured source root for kaggle data.
     """
     return os.path.join(
-        reflection.repository_source_root(),
-        "build/kaggle",
+        data_root(),
+        "kaggle",
     )
 
 
