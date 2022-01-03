@@ -5,6 +5,7 @@ import unittest
 import hamcrest
 
 import smot
+from smot.common.expect import Expect
 from smot.common.runtime import reflection, reflection_testlib
 
 this_module = sys.modules[__name__]
@@ -74,7 +75,7 @@ class ModuleDirectoryTest(unittest.TestCase):
     def test(self) -> None:
         hamcrest.assert_that(
             reflection.module_directory(this_module),
-            hamcrest.is_(os.path.dirname(this_module.__file__)),
+            hamcrest.is_(os.path.dirname(Expect.not_none(this_module.__file__))),
         )
 
         hamcrest.assert_that(

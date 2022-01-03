@@ -2,7 +2,7 @@ import os
 
 from smot.common.expect import ExpectPath
 from smot.common.runtime import reflection
-from smot.common.runtime.data_cache import data_root
+from smot.common.runtime.build_paths import data_root
 
 
 def kaggle_data_root() -> str:

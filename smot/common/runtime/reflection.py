@@ -6,6 +6,8 @@ from typing import Optional
 import smot
 
 # unittest integration; hide these frames from tracebacks
+from smot.common.expect import Expect
+
 __unittest = True
 # py.test integration; hide these frames from tracebacks
 __tracebackhide__ = True
@@ -64,7 +66,11 @@ def module_directory(module: ModuleType) -> str:
     :return: the directory path.
     :raises ValueError: if stack_depth is too deep or module not found.
     """
-    return str(os.path.dirname(module.__file__))
+    return str(
+        os.path.dirname(
+            Expect.not_none(module.__file__),
+        )
+    )
 
 
 def module_name_as_relative_path(module: ModuleType) -> str:

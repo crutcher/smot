@@ -1,5 +1,5 @@
 import os
-from typing import Any, Type, TypeVar
+from typing import Any, Optional, Type, TypeVar
 
 T = TypeVar("T")
 
@@ -13,6 +13,22 @@ class Expect:
     """
     Contract Programming Expectations.
     """
+
+    @staticmethod
+    def not_none(
+        actual: Optional[T],
+        msg: str = "Value is not None",
+        cls: Type[Exception] = AssertionError,
+        **kwargs: Any,
+    ) -> T:
+        if actual is None:
+            raise cls(
+                msg
+                % dict(
+                    **kwargs,
+                )
+            )
+        return actual
 
     @staticmethod
     def is_truthy(
