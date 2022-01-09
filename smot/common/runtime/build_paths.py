@@ -27,12 +27,21 @@ def data_root() -> str:
 
 
 def module_output_path(
-    path: str = None,
+    filename: str = None,
     *,
     module: Optional[ModuleType] = None,
     stack_depth: int = 1,
     create: bool = True,
 ) -> str:
+    """
+    Path in the build tree for module output.
+
+    :param filename: the filename.
+    :param module: the (optional) module to base the path on.
+    :param stack_depth: the stack depth to find the calling module.
+    :param create: create the enclosing directory.
+    :return: the resolved path.
+    """
     module = reflection.calling_module(module=module, stack_depth=stack_depth)
 
     p = os.path.join(
@@ -43,7 +52,7 @@ def module_output_path(
     if create:
         os.makedirs(p, exist_ok=True)
 
-    if path:
-        p = os.path.join(p, path)
+    if filename:
+        p = os.path.join(p, filename)
 
     return p
