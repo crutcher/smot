@@ -4,13 +4,38 @@ import math
 import unittest
 
 import hamcrest
+from hamcrest.core.base_matcher import BaseMatcher
 import numpy as np
 import torch
 
 from smot.testing import hamcrest_funcs
 
 
-class TorchTest(unittest.TestCase):
+class TensorMatcher(BaseMatcher[torch.Tensor]):
+    expected: torch.Tensor
+
+    def __init__(self, expected):
+        if torch.is_tensor(expected):
+            self.expected = expected.clone().detach()
+        else:
+            self.expected = torch.tensor(expected)
+
+    def _matches(self, item) -> bool:
+        return torch.equal(item, self.expected)
+
+
+def expect_tensor(expected) -> TensorMatcher:
+    return TensorMatcher(expected)
+
+
+def assert_tensor(actual, expected):
+    hamcrest.assert_that(
+        actual,
+        expect_tensor(expected),
+    )
+
+
+class TensorOpsTest(unittest.TestCase):
     def test_is_tensor(self):
         """torch.is_tensor(obj)
 
@@ -366,56 +391,54 @@ class TorchTest(unittest.TestCase):
             t = torch.tensor(1 / 3.0, dtype=torch.float32)
             for p in [1, 2, 4]:
                 torch.set_printoptions(precision=p)
-                hamcrest.assert_that(
+                hamcrest_funcs.assert_match(
                     repr(t),
-                    hamcrest.equal_to(f"tensor(0.{'3' * p})"),
+                    f"tensor(0.{'3' * p})",
                 )
 
             torch.set_printoptions(threshold=4)
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor([1, 2, 3])),
-                hamcrest.equal_to(f"tensor([1, 2, 3])"),
+                f"tensor([1, 2, 3])",
             )
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5])),
-                hamcrest.equal_to(f"tensor([1, 2, 3, 4, 5])"),
+                f"tensor([1, 2, 3, 4, 5])",
             )
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 6])),
-                hamcrest.equal_to(f"tensor([1, 2, 3, 4, 5, 6])"),
+                f"tensor([1, 2, 3, 4, 5, 6])",
             )
             # Summarization begins at: (2*threshold)-1
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 6, 7])),
-                hamcrest.equal_to(f"tensor([1, 2, 3,  ..., 5, 6, 7])"),
+                f"tensor([1, 2, 3,  ..., 5, 6, 7])",
             )
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 7, 8, 9])),
-                hamcrest.equal_to(f"tensor([1, 2, 3,  ..., 7, 8, 9])"),
+                f"tensor([1, 2, 3,  ..., 7, 8, 9])",
             )
 
             torch.set_printoptions(precision=2)
             torch.set_printoptions(sci_mode=False)
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor(10000.0)),
-                hamcrest.equal_to("tensor(10000.)"),
+                "tensor(10000.)",
             )
             torch.set_printoptions(sci_mode=True)
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.tensor(100000.0)),
-                hamcrest.equal_to("tensor(1.00e+05)"),
+                "tensor(1.00e+05)",
             )
 
             torch.set_printoptions(linewidth=15)
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 repr(torch.ones([4])),
-                hamcrest.equal_to(
-                    "\n".join(
-                        [
-                            "tensor([1., 1.,",
-                            "        1., 1.])",
-                        ]
-                    ),
+                "\n".join(
+                    [
+                        "tensor([1., 1.,",
+                        "        1., 1.])",
+                    ]
                 ),
             )
 
@@ -444,9 +467,9 @@ class TorchTest(unittest.TestCase):
             return
 
         try:
-            hamcrest.assert_that(
+            hamcrest_funcs.assert_match(
                 torch.tensor(1e-323, dtype=torch.float64).item(),
-                hamcrest.equal_to(0.0),
+                0.0,
             )
 
             torch.set_flush_denormal(False)
@@ -462,5 +485,51 @@ class TorchTest(unittest.TestCase):
             torch.set_flush_denormal(False)
 
 
-if __name__ == "__main__":
-    unittest.main()
+class TensorConstructorTest(unittest.TestCase):
+    def test_scalar(self):
+        t = torch.tensor(1)
+
+        hamcrest_funcs.assert_match(
+            t.item(),
+            1,
+        )
+
+        hamcrest_funcs.assert_match(
+            t.shape,
+            torch.Size([]),
+        )
+
+        hamcrest_funcs.assert_match(
+            t.numel(),
+            1,
+        )
+
+    def test_copy(self):
+        source = [1, 2]
+        t = torch.tensor(source)
+        assert_tensor(t, source)
+        hamcrest_funcs.assert_match(
+            t.data,
+            hamcrest.not_(hamcrest.same_instance(source)),
+        )
+
+        source = torch.tensor([1, 2])
+        # t = torch.tensor(source)
+        t = source.clone().detach()
+        assert_tensor(t, source)
+        hamcrest_funcs.assert_match(
+            t.data,
+            hamcrest.not_(hamcrest.same_instance(source)),
+        )
+
+        source = np.array([1, 2])
+        assert_tensor(t, source)
+        hamcrest_funcs.assert_match(
+            t.data,
+            hamcrest.not_(hamcrest.same_instance(source)),
+        )
+
+    def disable_test_create_pinned(self):
+        # this is expensive.
+        t = torch.tensor([1], pin_memory=True)
+        hamcrest_funcs.assert_truthy(t.is_pinned())
