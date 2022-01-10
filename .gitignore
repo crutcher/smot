@@ -6,6 +6,11 @@
 
 logs/
 
+# `pytest --testmon` database.
+.testmondata
+
+.pytest_cache
+
 # Ignore the IntelliJ directory.
 /.idea
 

@@ -70,6 +70,8 @@ mypy
 
 # Testing
 pytest
+pytest-testmon
+# pytest-xdist
 PyHamcrest
 testfixtures
 

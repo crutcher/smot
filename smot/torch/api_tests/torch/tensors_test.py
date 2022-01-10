@@ -4,35 +4,10 @@ import math
 import unittest
 
 import hamcrest
-from hamcrest.core.base_matcher import BaseMatcher
 import numpy as np
 import torch
 
-from smot.testing import hamcrest_funcs
-
-
-class TensorMatcher(BaseMatcher[torch.Tensor]):
-    expected: torch.Tensor
-
-    def __init__(self, expected):
-        if torch.is_tensor(expected):
-            self.expected = expected.clone().detach()
-        else:
-            self.expected = torch.tensor(expected)
-
-    def _matches(self, item) -> bool:
-        return torch.equal(item, self.expected)
-
-
-def expect_tensor(expected) -> TensorMatcher:
-    return TensorMatcher(expected)
-
-
-def assert_tensor(actual, expected):
-    hamcrest.assert_that(
-        actual,
-        expect_tensor(expected),
-    )
+from smot.testing import eggs
 
 
 class TensorOpsTest(unittest.TestCase):
@@ -48,21 +23,21 @@ class TensorOpsTest(unittest.TestCase):
         """
         # True:
         # =======
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             torch.is_tensor(torch.tensor([1, 2])),
         )
 
         # False:
         # =======
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_tensor("abc"),
         )
 
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_tensor([1, 2]),
         )
 
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_tensor(np.array([1, 2])),
         )
 
@@ -76,13 +51,13 @@ class TensorOpsTest(unittest.TestCase):
         t = torch.tensor([1, 2])
         ts = t.data.storage()
 
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             torch.is_storage(ts),
         )
 
         # Errors:
         # =======
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_storage(t),
         )
 
@@ -100,23 +75,23 @@ class TensorOpsTest(unittest.TestCase):
         # =======
         complex_t = torch.tensor([1j])
 
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             torch.is_complex(complex_t),
         )
 
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             complex_t.is_complex(),
         )
 
         # False:
         # =======
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_complex(torch.tensor([1], dtype=torch.float32)),
         )
 
         # Errors:
         # =======
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: torch.is_complex([1j]),
             TypeError,
         )
@@ -139,41 +114,41 @@ class TensorOpsTest(unittest.TestCase):
         complex_conj_t = torch.conj(complex_t)
 
         # both torch.is_conj(t) and <tensor>.is_conj()
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             torch.is_conj(complex_conj_t),
         )
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             complex_conj_t.is_conj(),
         )
 
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             torch.is_conj(conj_t),
         )
-        hamcrest_funcs.assert_truthy(
+        eggs.assert_truthy(
             conj_t.is_conj(),
         )
 
         # False:
         # =======
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_conj(t),
         )
 
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             t.is_conj(),
         )
 
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_conj(complex_t),
         )
 
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             complex_t.is_conj(),
         )
 
         # Errors:
         # =======
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: torch.is_conj([1j]),
             TypeError,
         )
@@ -192,22 +167,22 @@ class TensorOpsTest(unittest.TestCase):
         # =====
         for dtype in [torch.float16, torch.float32, torch.float64, torch.bfloat16]:
             t = torch.ones([1], dtype=dtype)
-            hamcrest_funcs.assert_truthy(torch.is_floating_point(t))
-            hamcrest_funcs.assert_truthy(t.is_floating_point())
+            eggs.assert_truthy(torch.is_floating_point(t))
+            eggs.assert_truthy(t.is_floating_point())
 
         # False
         # =====
         int_t = torch.tensor([1], dtype=torch.int8)
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             torch.is_floating_point(int_t),
         )
-        hamcrest_funcs.assert_falsey(
+        eggs.assert_falsey(
             int_t.is_floating_point(),
         )
 
         # Errors:
         # =======
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: torch.is_floating_point([1j]),
             TypeError,
         )
@@ -227,10 +202,10 @@ class TensorOpsTest(unittest.TestCase):
         for s in [1, [1], [1.0], [[1]], [[1.0]]]:
             t = torch.tensor(s)
             hamcrest.assert_that(t.numel(), 1)
-            hamcrest_funcs.assert_truthy(
+            eggs.assert_truthy(
                 torch.is_nonzero(t),
             )
-            hamcrest_funcs.assert_truthy(
+            eggs.assert_truthy(
                 t.is_nonzero(),
             )
 
@@ -239,10 +214,10 @@ class TensorOpsTest(unittest.TestCase):
         for s in [0, [0], [0.0], [[0]], [[0.0]]]:
             t = torch.tensor(s)
             hamcrest.assert_that(t.numel(), 1)
-            hamcrest_funcs.assert_falsey(
+            eggs.assert_falsey(
                 torch.is_nonzero(t),
             )
-            hamcrest_funcs.assert_falsey(
+            eggs.assert_falsey(
                 t.is_nonzero(),
             )
 
@@ -252,17 +227,17 @@ class TensorOpsTest(unittest.TestCase):
         for s in [[], [1, 1]]:
             t = torch.tensor(s)
             hamcrest.assert_that(t.numel(), hamcrest.is_not(1))
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: torch.is_nonzero(t),
                 RuntimeError,
             )
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: t.is_nonzero(),
                 RuntimeError,
             )
 
         # Throws TypeError if input isn't a Tensor
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: torch.is_nonzero("abc"),
             TypeError,
         )
@@ -291,7 +266,7 @@ class TensorOpsTest(unittest.TestCase):
             # Errors:
             # =======
             # Throws RuntimeError if type is not floating point.
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: torch.set_default_dtype(torch.int8),
                 TypeError,
             )
@@ -321,7 +296,7 @@ class TensorOpsTest(unittest.TestCase):
         # Errors:
         # =======
         # Throws RuntimeError if type is not floating point.
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: torch.numel([1, 2]),
             TypeError,
         )
@@ -391,48 +366,48 @@ class TensorOpsTest(unittest.TestCase):
             t = torch.tensor(1 / 3.0, dtype=torch.float32)
             for p in [1, 2, 4]:
                 torch.set_printoptions(precision=p)
-                hamcrest_funcs.assert_match(
+                eggs.assert_match(
                     repr(t),
                     f"tensor(0.{'3' * p})",
                 )
 
             torch.set_printoptions(threshold=4)
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor([1, 2, 3])),
                 f"tensor([1, 2, 3])",
             )
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5])),
                 f"tensor([1, 2, 3, 4, 5])",
             )
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 6])),
                 f"tensor([1, 2, 3, 4, 5, 6])",
             )
             # Summarization begins at: (2*threshold)-1
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 6, 7])),
                 f"tensor([1, 2, 3,  ..., 5, 6, 7])",
             )
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor([1, 2, 3, 4, 5, 7, 8, 9])),
                 f"tensor([1, 2, 3,  ..., 7, 8, 9])",
             )
 
             torch.set_printoptions(precision=2)
             torch.set_printoptions(sci_mode=False)
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor(10000.0)),
                 "tensor(10000.)",
             )
             torch.set_printoptions(sci_mode=True)
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.tensor(100000.0)),
                 "tensor(1.00e+05)",
             )
 
             torch.set_printoptions(linewidth=15)
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 repr(torch.ones([4])),
                 "\n".join(
                     [
@@ -467,7 +442,7 @@ class TensorOpsTest(unittest.TestCase):
             return
 
         try:
-            hamcrest_funcs.assert_match(
+            eggs.assert_match(
                 torch.tensor(1e-323, dtype=torch.float64).item(),
                 0.0,
             )
@@ -483,53 +458,3 @@ class TensorOpsTest(unittest.TestCase):
 
         finally:
             torch.set_flush_denormal(False)
-
-
-class TensorConstructorTest(unittest.TestCase):
-    def test_scalar(self):
-        t = torch.tensor(1)
-
-        hamcrest_funcs.assert_match(
-            t.item(),
-            1,
-        )
-
-        hamcrest_funcs.assert_match(
-            t.shape,
-            torch.Size([]),
-        )
-
-        hamcrest_funcs.assert_match(
-            t.numel(),
-            1,
-        )
-
-    def test_copy(self):
-        source = [1, 2]
-        t = torch.tensor(source)
-        assert_tensor(t, source)
-        hamcrest_funcs.assert_match(
-            t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
-        )
-
-        source = torch.tensor([1, 2])
-        # t = torch.tensor(source)
-        t = source.clone().detach()
-        assert_tensor(t, source)
-        hamcrest_funcs.assert_match(
-            t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
-        )
-
-        source = np.array([1, 2])
-        assert_tensor(t, source)
-        hamcrest_funcs.assert_match(
-            t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
-        )
-
-    def disable_test_create_pinned(self):
-        # this is expensive.
-        t = torch.tensor([1], pin_memory=True)
-        hamcrest_funcs.assert_truthy(t.is_pinned())

@@ -3,7 +3,7 @@ import unittest
 
 import hamcrest
 
-from smot.testing import hamcrest_funcs
+from smot.testing import eggs
 
 
 def throw(exception: Exception) -> NoReturn:
@@ -17,10 +17,10 @@ def throw(exception: Exception) -> NoReturn:
 
 class AssertMatchTest(unittest.TestCase):
     def test(self) -> None:
-        hamcrest_funcs.assert_match("abc", "abc")
+        eggs.assert_match("abc", "abc")
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_match("abc", "xyz"),
+            lambda: eggs.assert_match("abc", "xyz"),
             hamcrest.raises(
                 AssertionError,
                 "Expected: 'xyz'",
@@ -30,20 +30,20 @@ class AssertMatchTest(unittest.TestCase):
 
 class AssertTruthyTest(unittest.TestCase):
     def test(self) -> None:
-        hamcrest_funcs.assert_truthy(True)
-        hamcrest_funcs.assert_truthy("abc")
-        hamcrest_funcs.assert_truthy(1)
-        hamcrest_funcs.assert_truthy([1])
+        eggs.assert_truthy(True)
+        eggs.assert_truthy("abc")
+        eggs.assert_truthy(1)
+        eggs.assert_truthy([1])
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_truthy(False),
+            lambda: eggs.assert_truthy(False),
             hamcrest.raises(
                 AssertionError,
             ),
         )
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_truthy("", reason="meh"),
+            lambda: eggs.assert_truthy("", reason="meh"),
             hamcrest.raises(
                 AssertionError,
                 "meh",
@@ -53,20 +53,20 @@ class AssertTruthyTest(unittest.TestCase):
 
 class AssertFalseyTest(unittest.TestCase):
     def test(self) -> None:
-        hamcrest_funcs.assert_falsey(False)
-        hamcrest_funcs.assert_falsey("")
-        hamcrest_funcs.assert_falsey(0)
-        hamcrest_funcs.assert_falsey([])
+        eggs.assert_falsey(False)
+        eggs.assert_falsey("")
+        eggs.assert_falsey(0)
+        eggs.assert_falsey([])
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_falsey(True),
+            lambda: eggs.assert_falsey(True),
             hamcrest.raises(
                 AssertionError,
             ),
         )
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_falsey("abc", reason="meh"),
+            lambda: eggs.assert_falsey("abc", reason="meh"),
             hamcrest.raises(
                 AssertionError,
                 "meh",
@@ -76,18 +76,16 @@ class AssertFalseyTest(unittest.TestCase):
 
 class AssertRaisesTest(unittest.TestCase):
     def test_simple(self) -> None:
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: throw(ValueError("abc")),
             ValueError,
         )
 
-        hamcrest_funcs.assert_raises(
-            lambda: throw(ValueError("abc")), ValueError, "abc"
-        )
+        eggs.assert_raises(lambda: throw(ValueError("abc")), ValueError, "abc")
 
         # No exception.
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_raises(
+            lambda: eggs.assert_raises(
                 lambda: (),
                 ValueError,
             ),
@@ -99,7 +97,7 @@ class AssertRaisesTest(unittest.TestCase):
 
         # Wrong exception type.
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_raises(
+            lambda: eggs.assert_raises(
                 lambda: throw(ValueError("abc 123")), IndexError, "abc [0-9]+"
             ),
             hamcrest.raises(
@@ -109,12 +107,12 @@ class AssertRaisesTest(unittest.TestCase):
         )
 
     def test_regex(self) -> None:
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: throw(ValueError("abc 123")), ValueError, "abc [0-9]+"
         )
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_raises(
+            lambda: eggs.assert_raises(
                 lambda: throw(ValueError("abc xyz")), ValueError, "abc [0-9]+"
             ),
             hamcrest.raises(
@@ -130,14 +128,14 @@ class AssertRaisesTest(unittest.TestCase):
         e = ExampleException("abc 123")
         e.code = 123
 
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: throw(e),
             ValueError,
             matching=hamcrest.has_properties(code=123),
         )
 
         hamcrest.assert_that(
-            lambda: hamcrest_funcs.assert_raises(
+            lambda: eggs.assert_raises(
                 lambda: throw(e),
                 ValueError,
                 matching=hamcrest.has_properties(code=9),

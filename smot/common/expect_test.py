@@ -4,7 +4,7 @@ import hamcrest
 import testfixtures
 
 from smot.common import expect
-from smot.testing import hamcrest_funcs
+from smot.testing import eggs
 
 
 class ExpectTest(unittest.TestCase):
@@ -13,13 +13,13 @@ class ExpectTest(unittest.TestCase):
             expect.Expect.is_truthy(val)
 
         for val in [False, 0, [], ""]:
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: expect.Expect.is_truthy(val),
                 AssertionError,
                 matching=hamcrest.has_string(f"Value is not truthy: {val}"),
             )
 
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: expect.Expect.is_truthy(
                 False,
                 msg="%(abc)s 123",
@@ -35,13 +35,13 @@ class ExpectTest(unittest.TestCase):
             expect.Expect.is_falsey(val)
 
         for val in [True, 1, [1], "abc"]:
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: expect.Expect.is_falsey(val),
                 AssertionError,
                 matching=hamcrest.has_string(f"Value is not falsey: {val}"),
             )
 
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: expect.Expect.is_falsey(
                 True,
                 msg="%(abc)s 123",
@@ -55,13 +55,13 @@ class ExpectTest(unittest.TestCase):
     def test_is_eq(self) -> None:
         expect.Expect.is_eq("abc", "abc")
 
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             hamcrest.calling(lambda: expect.Expect.is_eq("abc", 1)),
             AssertionError,
             r"Value \(abc\) != \(1\)",
         )
 
-        hamcrest_funcs.assert_raises(
+        eggs.assert_raises(
             lambda: expect.Expect.is_eq(
                 "abc",
                 "xyz",
@@ -79,13 +79,13 @@ class ExpectPathTest(unittest.TestCase):
         with testfixtures.TempDirectory() as tempdir:
             p = tempdir.getpath("foo.txt")
 
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: expect.ExpectPath.is_file(p),
                 AssertionError,
                 matching=hamcrest.has_string(f"Path ({p}) is not a file."),
             )
 
-            hamcrest_funcs.assert_raises(
+            eggs.assert_raises(
                 lambda: expect.ExpectPath.is_file(
                     p,
                     msg="%(path)s %(zzz)s",
