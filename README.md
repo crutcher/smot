@@ -15,7 +15,8 @@ See: [glow](https://github.com/charmbracelet/glow)
 
 ## Setup
 
-Run `./hustle repo bootstrap`
+  * Run `./hustle repo install_packages`
+  * Run `./hustle repo bootstrap`
 
 
 ## Hustle
