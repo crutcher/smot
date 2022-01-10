@@ -1,7 +1,6 @@
 import os
 
 from smot.common.expect import ExpectPath
-from smot.common.runtime import reflection
 from smot.common.runtime.build_paths import data_root
 
 

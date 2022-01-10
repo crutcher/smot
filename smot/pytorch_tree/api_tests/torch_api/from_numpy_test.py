@@ -1,9 +1,5 @@
-import copy
-import logging
-import math
 import unittest
 
-import hamcrest
 import numpy as np
 import torch
 

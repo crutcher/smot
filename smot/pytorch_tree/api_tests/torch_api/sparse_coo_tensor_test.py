@@ -1,6 +1,5 @@
 import unittest
 
-import hamcrest
 import torch
 
 from smot.pytorch_tree.testlib import torch_eggs

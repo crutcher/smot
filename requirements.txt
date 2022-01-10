@@ -34,6 +34,8 @@ attrs==21.4.0
     #   jsonschema
     #   pytest
     #   tensorflow-datasets
+autoflake==1.4
+    # via -r requirements.in
 backcall==0.2.0
     # via ipython
 black==21.12b0
@@ -359,6 +361,8 @@ pydeprecate==0.3.1
     # via pytorch-lightning
 pydot==1.4.2
     # via -r requirements.in
+pyflakes==2.4.0
+    # via autoflake
 pygments==2.11.1
     # via
     #   ipython

@@ -1,4 +1,4 @@
-from typing import NoReturn, Type
+from typing import NoReturn
 import unittest
 
 import hamcrest

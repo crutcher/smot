@@ -1,6 +1,5 @@
-from typing import Any, Tuple, Type, Union
+from typing import Tuple, Type, Union
 
-import nptyping
 import tensorflow as tf
 from tensorflow.python.keras.layers.pooling import Pooling2D
 

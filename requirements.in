@@ -62,6 +62,8 @@ pip-tools
 
 nbqa  # run python code tests on .ipynb
 
+autoflake
+
 black
 black_nbconvert  # for formatting .ipynb
 isort

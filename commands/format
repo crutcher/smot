@@ -38,6 +38,7 @@ for x in "${TARGETS[@]}"; do
 done
 
 if (( ${#PY_TARGETS[@]} )); then
+  autoflake -i --remove-all-unused-imports "${PY_TARGETS[@]}"
   isort "${PY_TARGETS[@]}"
   black "${PY_TARGETS[@]}"
 fi
