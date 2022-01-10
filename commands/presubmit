@@ -2,8 +2,8 @@
 
 set -e
 
-$HUSTLE format
-$HUSTLE test --slow
+$GRIND format
+$GRIND test --slow
 
 # todo: check for un-staged or un-commited files.
 

@@ -10,7 +10,7 @@ source venv/bin/activate
 if (( $# )) ; then
   TARGETS=( $@ )
 else
-  TARGETS=( $( $HUSTLE changed ) )
+  TARGETS=( $( $GRIND changed ) )
 fi
 
 # TARGETS may contain file or directories that were deleted or moved;

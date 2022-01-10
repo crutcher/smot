@@ -15,13 +15,13 @@ See: [glow](https://github.com/charmbracelet/glow)
 
 ## Setup
 
-  * Run `./hustle repo install_packages`
-  * Run `./hustle repo bootstrap`
+  * Run `./grind repo install_packages`
+  * Run `./grind repo bootstrap`
 
 
 ## Hustle
 
-`./hustle` provides a hook to run many different repository commands.
+`./grind` provides a hook to run many different repository commands.
 
-See: [hustle README](commands/README.md)
+See: [grind README](commands/README.md)
 

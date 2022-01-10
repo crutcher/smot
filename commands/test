@@ -4,7 +4,7 @@ set -e
 
 cd $WORKSPACE_ROOT_DIR
 
-$HUSTLE check
+$GRIND check
 
 source venv/bin/activate
 

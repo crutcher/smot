@@ -9,7 +9,7 @@
 # We guarantee that subcommands will have access to:
 # - WORKSPACE_ROOT_DIR
 # - WORKSPACE_VENV_DIR
-# - HUSTLE
+# - GRIND
 # - MARKDOWN_READER
 
 # Standard trick to resolve the 'real' location of
@@ -20,7 +20,7 @@ export WORKSPACE_ROOT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>
 export WORKSPACE_VENV_DIR="$WORKSPACE_ROOT_DIR/venv"
 
 # If we want to re-invoke this target; where is it?
-export HUSTLE="$WORKSPACE_ROOT_DIR/hustle"
+export GRIND="$WORKSPACE_ROOT_DIR/grind"
 
 COMMAND_DIR="$WORKSPACE_ROOT_DIR/commands"
 
@@ -41,7 +41,7 @@ function group_help() {
 
     cat
 
-    echo "# hustle $group_path"
+    echo "# grind $group_path"
 
     if [ -f README.md ]; then
       # Directory README
