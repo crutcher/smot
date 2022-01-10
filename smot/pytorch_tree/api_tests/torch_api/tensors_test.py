@@ -7,7 +7,7 @@ import hamcrest
 import numpy as np
 import torch
 
-from smot.testing import eggs
+from smot.testlib import eggs
 
 
 class TensorOpsTest(unittest.TestCase):

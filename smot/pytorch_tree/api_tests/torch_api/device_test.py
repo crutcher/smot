@@ -1,10 +1,10 @@
 import unittest
 
 import hamcrest
-import torch
 import pytest
+import torch
 
-from smot.testing import eggs
+from smot.testlib import eggs
 
 
 class DeviceTest(unittest.TestCase):

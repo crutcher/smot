@@ -3,7 +3,7 @@ import unittest
 
 import hamcrest
 
-from smot.testing import eggs
+from smot.testlib import eggs
 
 
 def throw(exception: Exception) -> NoReturn:

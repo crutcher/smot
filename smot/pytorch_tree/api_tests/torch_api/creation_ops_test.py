@@ -1,12 +1,12 @@
 import unittest
-import pytest
 
 import hamcrest
 import numpy as np
+import pytest
 import torch
 
-from smot.pytorch_tree.testing import torch_eggs
-from smot.testing import eggs
+from smot.pytorch_tree.testlib import torch_eggs
+from smot.testlib import eggs
 
 
 class TensorTest(unittest.TestCase):

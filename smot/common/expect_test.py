@@ -4,7 +4,7 @@ import hamcrest
 import testfixtures
 
 from smot.common import expect
-from smot.testing import eggs
+from smot.testlib import eggs
 
 
 class ExpectTest(unittest.TestCase):

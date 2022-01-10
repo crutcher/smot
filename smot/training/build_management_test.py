@@ -4,7 +4,7 @@ import unittest.mock
 import testfixtures
 
 from smot.common.runtime import reflection, reflection_testlib
-from smot.testing import eggs
+from smot.testlib import eggs
 from smot.training import build_management
 
 
