@@ -330,7 +330,10 @@ pyrsistent==0.18.0
 pytest==6.2.5
     # via
     #   -r requirements.in
+    #   pytest-skip-slow
     #   pytest-testmon
+pytest-skip-slow==0.0.2
+    # via -r requirements.in
 pytest-testmon==1.2.2
     # via -r requirements.in
 python-dateutil==2.8.2

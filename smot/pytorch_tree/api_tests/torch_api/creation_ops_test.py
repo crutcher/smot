@@ -1,11 +1,12 @@
 import unittest
+import pytest
 
 import hamcrest
 import numpy as np
 import torch
 
+from smot.pytorch_tree.testing import torch_eggs
 from smot.testing import eggs
-from smot.torch.testing import torch_eggs
 
 
 class TensorTest(unittest.TestCase):
@@ -67,8 +68,18 @@ class TensorTest(unittest.TestCase):
             RuntimeError,
         )
 
-    # TODO: test tags for slow tests.
-    def disable_test_create_pinned(self):
+    @pytest.mark.slow
+    def test_tensor_device(self):
+        devices = ["cpu"]
+        if torch.cuda.is_available():
+            devices += [f"cuda:{i}" for i in range(torch.cuda.device_count())]
+
+        for d in devices:
+            t = torch.tensor([1], device=d)
+            eggs.assert_match(t.device, torch.device(d))
+
+    @pytest.mark.slow
+    def test_create_pinned(self):
         # this is expensive.
         t = torch.tensor([1], pin_memory=True)
         eggs.assert_true(t.is_pinned())

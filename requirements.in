@@ -71,6 +71,7 @@ mypy
 # Testing
 pytest
 pytest-testmon
+pytest-skip-slow
 # pytest-xdist
 PyHamcrest
 testfixtures
