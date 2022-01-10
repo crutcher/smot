@@ -1,5 +1,6 @@
 import hamcrest
 from hamcrest.core.base_matcher import BaseMatcher
+from hamcrest.core.description import Description
 import torch
 
 
@@ -14,6 +15,9 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
 
     def _matches(self, item) -> bool:
         return torch.equal(item, self.expected)
+
+    def describe_to(self, description: Description) -> None:
+        description.append_description_of(self.expected)
 
 
 def expect_tensor(expected) -> TensorMatcher:
