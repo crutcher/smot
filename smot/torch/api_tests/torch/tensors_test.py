@@ -23,21 +23,21 @@ class TensorOpsTest(unittest.TestCase):
         """
         # True:
         # =======
-        eggs.assert_truthy(
+        eggs.assert_true(
             torch.is_tensor(torch.tensor([1, 2])),
         )
 
         # False:
         # =======
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_tensor("abc"),
         )
 
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_tensor([1, 2]),
         )
 
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_tensor(np.array([1, 2])),
         )
 
@@ -51,13 +51,13 @@ class TensorOpsTest(unittest.TestCase):
         t = torch.tensor([1, 2])
         ts = t.data.storage()
 
-        eggs.assert_truthy(
+        eggs.assert_true(
             torch.is_storage(ts),
         )
 
         # Errors:
         # =======
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_storage(t),
         )
 
@@ -75,17 +75,17 @@ class TensorOpsTest(unittest.TestCase):
         # =======
         complex_t = torch.tensor([1j])
 
-        eggs.assert_truthy(
+        eggs.assert_true(
             torch.is_complex(complex_t),
         )
 
-        eggs.assert_truthy(
+        eggs.assert_true(
             complex_t.is_complex(),
         )
 
         # False:
         # =======
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_complex(torch.tensor([1], dtype=torch.float32)),
         )
 
@@ -114,35 +114,35 @@ class TensorOpsTest(unittest.TestCase):
         complex_conj_t = torch.conj(complex_t)
 
         # both torch.is_conj(t) and <tensor>.is_conj()
-        eggs.assert_truthy(
+        eggs.assert_true(
             torch.is_conj(complex_conj_t),
         )
-        eggs.assert_truthy(
+        eggs.assert_true(
             complex_conj_t.is_conj(),
         )
 
-        eggs.assert_truthy(
+        eggs.assert_true(
             torch.is_conj(conj_t),
         )
-        eggs.assert_truthy(
+        eggs.assert_true(
             conj_t.is_conj(),
         )
 
         # False:
         # =======
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_conj(t),
         )
 
-        eggs.assert_falsey(
+        eggs.assert_false(
             t.is_conj(),
         )
 
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_conj(complex_t),
         )
 
-        eggs.assert_falsey(
+        eggs.assert_false(
             complex_t.is_conj(),
         )
 
@@ -167,16 +167,16 @@ class TensorOpsTest(unittest.TestCase):
         # =====
         for dtype in [torch.float16, torch.float32, torch.float64, torch.bfloat16]:
             t = torch.ones([1], dtype=dtype)
-            eggs.assert_truthy(torch.is_floating_point(t))
-            eggs.assert_truthy(t.is_floating_point())
+            eggs.assert_true(torch.is_floating_point(t))
+            eggs.assert_true(t.is_floating_point())
 
         # False
         # =====
         int_t = torch.tensor([1], dtype=torch.int8)
-        eggs.assert_falsey(
+        eggs.assert_false(
             torch.is_floating_point(int_t),
         )
-        eggs.assert_falsey(
+        eggs.assert_false(
             int_t.is_floating_point(),
         )
 
@@ -202,10 +202,10 @@ class TensorOpsTest(unittest.TestCase):
         for s in [1, [1], [1.0], [[1]], [[1.0]]]:
             t = torch.tensor(s)
             hamcrest.assert_that(t.numel(), 1)
-            eggs.assert_truthy(
+            eggs.assert_true(
                 torch.is_nonzero(t),
             )
-            eggs.assert_truthy(
+            eggs.assert_true(
                 t.is_nonzero(),
             )
 
@@ -214,10 +214,10 @@ class TensorOpsTest(unittest.TestCase):
         for s in [0, [0], [0.0], [[0]], [[0.0]]]:
             t = torch.tensor(s)
             hamcrest.assert_that(t.numel(), 1)
-            eggs.assert_falsey(
+            eggs.assert_false(
                 torch.is_nonzero(t),
             )
-            eggs.assert_falsey(
+            eggs.assert_false(
                 t.is_nonzero(),
             )
 

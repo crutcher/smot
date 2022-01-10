@@ -30,20 +30,20 @@ class AssertMatchTest(unittest.TestCase):
 
 class AssertTruthyTest(unittest.TestCase):
     def test(self) -> None:
-        eggs.assert_truthy(True)
-        eggs.assert_truthy("abc")
-        eggs.assert_truthy(1)
-        eggs.assert_truthy([1])
+        eggs.assert_true(True)
+        eggs.assert_true("abc")
+        eggs.assert_true(1)
+        eggs.assert_true([1])
 
         hamcrest.assert_that(
-            lambda: eggs.assert_truthy(False),
+            lambda: eggs.assert_true(False),
             hamcrest.raises(
                 AssertionError,
             ),
         )
 
         hamcrest.assert_that(
-            lambda: eggs.assert_truthy("", reason="meh"),
+            lambda: eggs.assert_true("", reason="meh"),
             hamcrest.raises(
                 AssertionError,
                 "meh",
@@ -53,20 +53,20 @@ class AssertTruthyTest(unittest.TestCase):
 
 class AssertFalseyTest(unittest.TestCase):
     def test(self) -> None:
-        eggs.assert_falsey(False)
-        eggs.assert_falsey("")
-        eggs.assert_falsey(0)
-        eggs.assert_falsey([])
+        eggs.assert_false(False)
+        eggs.assert_false("")
+        eggs.assert_false(0)
+        eggs.assert_false([])
 
         hamcrest.assert_that(
-            lambda: eggs.assert_falsey(True),
+            lambda: eggs.assert_false(True),
             hamcrest.raises(
                 AssertionError,
             ),
         )
 
         hamcrest.assert_that(
-            lambda: eggs.assert_falsey("abc", reason="meh"),
+            lambda: eggs.assert_false("abc", reason="meh"),
             hamcrest.raises(
                 AssertionError,
                 "meh",

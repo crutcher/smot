@@ -31,7 +31,7 @@ def assert_match(actual: Any, matcher: Any, reason: str = "") -> None:
     )
 
 
-def assert_truthy(actual: Any, reason: str = "") -> None:
+def assert_true(actual: Any, reason: str = "") -> None:
     """
     Asserts that the actual value is truthy.
 
@@ -41,7 +41,7 @@ def assert_truthy(actual: Any, reason: str = "") -> None:
     _assert_bool(actual, reason=reason)
 
 
-def assert_falsey(actual: Any, reason: str = "") -> None:
+def assert_false(actual: Any, reason: str = "") -> None:
     """
     Asserts that the actual value is falsey.
 

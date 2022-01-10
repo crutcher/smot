@@ -52,7 +52,23 @@ class TensorTest(unittest.TestCase):
             hamcrest.not_(hamcrest.same_instance(source)),
         )
 
+    def test_requires_grad(self):
+        for dtype in [torch.float32, torch.complex32]:
+            eggs.assert_false(
+                torch.tensor([1], dtype=dtype).requires_grad,
+            )
+            eggs.assert_true(
+                torch.tensor([1], dtype=dtype, requires_grad=True).requires_grad,
+            )
+
+        # Error: Only float and complex types can require a gradiant.
+        eggs.assert_raises(
+            lambda: torch.tensor([1], dtype=torch.int8, requires_grad=True),
+            RuntimeError,
+        )
+
+    # TODO: test tags for slow tests.
     def disable_test_create_pinned(self):
         # this is expensive.
         t = torch.tensor([1], pin_memory=True)
-        eggs.assert_truthy(t.is_pinned())
+        eggs.assert_true(t.is_pinned())
