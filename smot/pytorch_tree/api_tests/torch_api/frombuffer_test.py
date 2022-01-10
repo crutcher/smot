@@ -31,14 +31,6 @@ class FrombufferTest(unittest.TestCase):
             torch.tensor([8, 2, 3], dtype=torch.int8),
         )
 
-        # weird mutations mutate the other.
-        source.pop(1)
-
-        torch_eggs.assert_tensor(
-            view,
-            torch.tensor([2, 3, 4], dtype=torch.int8),
-        )
-
         # anything that re-allocates the buffer is not safe:
         source.extend([20, 21, 22, 23] * 250)
         try:
