@@ -1,8 +1,12 @@
 # SMOT: Simple Matter of Training
 
-Example models I'm building to help me explore modern AI.
+AI api experiments.
 
 ## Requirements
+
+Packages
+  * [apt.txt](./apt.txt)
+  * [snap.txt](./snap.txt)
 
 ### glow CLI markdown reader
 
