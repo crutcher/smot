@@ -81,5 +81,6 @@ class TensorTest(unittest.TestCase):
     @pytest.mark.slow
     def test_create_pinned(self):
         # this is expensive.
-        t = torch.tensor([1], pin_memory=True)
-        eggs.assert_true(t.is_pinned())
+        if torch.cuda.is_available():
+            t = torch.tensor([1], pin_memory=True)
+            eggs.assert_true(t.is_pinned())
