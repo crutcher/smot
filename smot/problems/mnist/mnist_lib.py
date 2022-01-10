@@ -10,10 +10,7 @@ INPUT_SHAPE = (28, 28, 1)
 N_CLASSES = 10
 
 
-def load_mnist_data_28x28x1() -> Tuple[
-    Tuple[nptyping.NDArray[(Any, 28, 28, 1)], nptyping.NDArray[(Any, 10)]],
-    Tuple[nptyping.NDArray[(Any, 28, 28, 1)], nptyping.NDArray[(Any, 10)]],
-]:
+def load_mnist_data_28x28x1() -> Tuple[Tuple, Tuple]:
     """
     load the MNIST data as (..., 28, 28, 1) [0, 1.0] data sets.
 
@@ -50,7 +47,7 @@ def load_mnist_data_28x28x1() -> Tuple[
 
 
 def construct_LeNet5_mnist_model(
-    pooling: Type[Pooling2D] = tf.keras.layers.AveragePooling2D,
+    pooling=tf.keras.layers.AveragePooling2D,
 ) -> tf.keras.Model:
     """
     Construct a LeNet-5 model.
@@ -123,7 +120,7 @@ def build_LeNet5_mnist_model(
 
 
 def construct_ijcai2011_mnist_model(
-    pooling: Type[Pooling2D] = tf.keras.layers.MaxPooling2D,
+    pooling=tf.keras.layers.MaxPooling2D,
 ) -> tf.keras.Model:
     """
     Construct a ijcai2011 model.
@@ -186,7 +183,7 @@ def construct_ijcai2011_mnist_model(
 
 def build_ijcal2011_mnist_model(
     *,
-    pooling: Type[Pooling2D] = tf.keras.layers.MaxPooling2D,
+    pooling=tf.keras.layers.MaxPooling2D,
     optimizer: Union[str, tf.keras.optimizers.Optimizer] = "adam",
     loss: Union[str, tf.keras.losses.Loss] = "categorical_crossentropy",
 ) -> tf.keras.Model:

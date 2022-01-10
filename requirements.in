@@ -66,6 +66,8 @@ black
 black_nbconvert  # for formatting .ipynb
 isort
 
+pyre-check
+
 mypy
 # mypy-extras
 

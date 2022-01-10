@@ -14,7 +14,8 @@ fi
 
 echo "Code Quality Scans ..."
 
-mypy "${TARGETS[@]}"
-
 MYPYPATH=$PWD nbqa mypy smot
 
+mypy "${TARGETS[@]}"
+
+pyre incremental

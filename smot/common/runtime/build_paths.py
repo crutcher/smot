@@ -27,7 +27,7 @@ def data_root() -> str:
 
 
 def module_output_path(
-    filename: str = None,
+    filename: Optional[str] = None,
     *,
     module: Optional[ModuleType] = None,
     stack_depth: int = 1,
