@@ -27,8 +27,8 @@ class FromNumpyTest(unittest.TestCase):
 
         # both objects share the same underlying data pointer.
         eggs.assert_match(
-            source.ctypes.data,
             view.data_ptr(),
+            source.ctypes.data,
         )
 
         # mutations to one mutate the other.
