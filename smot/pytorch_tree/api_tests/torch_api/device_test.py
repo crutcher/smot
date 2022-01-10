@@ -20,7 +20,3 @@ class DeviceTest(unittest.TestCase):
             device = torch.device(d)
             hamcrest.assert_that(device, hamcrest.instance_of(torch.device))
             eggs.assert_match(str(device), d)
-
-
-if __name__ == "__main__":
-    unittest.main()

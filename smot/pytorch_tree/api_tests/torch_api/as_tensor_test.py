@@ -65,7 +65,3 @@ class AsTensorTest(unittest.TestCase):
                 x,
                 torch.tensor([1, 2], device="cuda"),
             )
-
-
-if __name__ == "__main__":
-    unittest.main()
