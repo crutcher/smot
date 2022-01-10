@@ -11,6 +11,9 @@ logs/
 
 .pytest_cache
 
+# pyre database
+/.pyre
+
 # Ignore the IntelliJ directory.
 /.idea
 

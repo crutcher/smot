@@ -1,0 +1,9 @@
+{
+  "source_directories": [
+    {
+      "import_root": ".",
+      "source": "smot"
+    }
+  ],
+  "taint_models_path": "/home/crutcher/git/smot/venv/lib"
+}
