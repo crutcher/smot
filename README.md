@@ -6,11 +6,11 @@ AI api experiments.
 
 Packages
   * [apt.txt](./apt.txt)
+    * python3.9
+    * python3.9-dev
+    * virtualenv
   * [snap.txt](./snap.txt)
-
-### glow CLI markdown reader
-
-See: [glow](https://github.com/charmbracelet/glow)
+    * [glow](https://github.com/charmbracelet/glow)
 
 
 ## Setup
