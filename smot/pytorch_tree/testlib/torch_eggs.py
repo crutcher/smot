@@ -11,7 +11,11 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
         self.expected = torch.as_tensor(expected)
 
     def _matches(self, item) -> bool:
-        return torch.equal(item, self.expected)
+        try:
+            return torch.equal(item, self.expected)
+        except RuntimeError:
+            # thrown on dtype miss-match.
+            return False
 
     def describe_to(self, description: Description) -> None:
         description.append_description_of(self.expected)
