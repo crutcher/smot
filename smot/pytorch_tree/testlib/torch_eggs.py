@@ -8,10 +8,7 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
     expected: torch.Tensor
 
     def __init__(self, expected):
-        if torch.is_tensor(expected):
-            self.expected = expected.clone().detach()
-        else:
-            self.expected = torch.tensor(expected)
+        self.expected = torch.as_tensor(expected)
 
     def _matches(self, item) -> bool:
         return torch.equal(item, self.expected)
