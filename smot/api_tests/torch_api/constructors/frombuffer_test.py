@@ -39,5 +39,5 @@ class FrombufferTest(unittest.TestCase):
                 torch.tensor([2, 3, 4], dtype=torch.int8),
             )
         except AssertionError:
-            # this is expected to fail.
+            # This is expected to fail.
             pass
