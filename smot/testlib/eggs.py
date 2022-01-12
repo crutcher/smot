@@ -1,4 +1,6 @@
+import contextlib
 from typing import Any, Callable, Optional, Type
+import warnings
 
 import hamcrest
 from hamcrest.core.assert_that import _assert_bool, _assert_match
@@ -74,3 +76,10 @@ def assert_raises(
             matching=matching,
         ),
     )
+
+
+@contextlib.contextmanager
+def ignore_warnings():
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        yield

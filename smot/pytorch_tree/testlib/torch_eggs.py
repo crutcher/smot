@@ -6,6 +6,11 @@ import torch
 from smot.pytorch_tree.testlib import torch_eggs
 from smot.testlib import eggs
 
+# unittest integration; hide these frames from tracebacks
+__unittest = True
+# py.test integration; hide these frames from tracebacks
+__tracebackhide__ = True
+
 
 class TensorMatcher(BaseMatcher[torch.Tensor]):
     expected: torch.Tensor

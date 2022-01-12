@@ -16,7 +16,7 @@ class OnesTest(unittest.TestCase):
 
         torch_eggs.assert_tensor(
             t,
-            torch.tensor([[1.0, 1.0]]),
+            [[1.0, 1.0]],
         )
 
     def test_scalar(self):
@@ -35,7 +35,7 @@ class OnesTest(unittest.TestCase):
         # verify that the original has the data we think.
         torch_eggs.assert_tensor(
             out,
-            torch.tensor([[3.0, 4.0]]),
+            [[3.0, 4.0]],
         )
 
         # using out=<tensor> writes the ones to the target tensor.
@@ -45,7 +45,7 @@ class OnesTest(unittest.TestCase):
 
         torch_eggs.assert_tensor(
             out,
-            torch.tensor([[1.0, 1.0]]),
+            [[1.0, 1.0]],
         )
 
         eggs.assert_match(
@@ -58,7 +58,7 @@ class OnesTest(unittest.TestCase):
 
         torch_eggs.assert_tensor(
             out,
-            torch.tensor([[1.0, 1.0, 1.0]]),
+            [[1.0, 1.0, 1.0]],
         )
 
         eggs.assert_match(
