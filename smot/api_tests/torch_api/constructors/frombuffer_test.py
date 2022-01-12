@@ -23,7 +23,7 @@ class FrombufferTest(unittest.TestCase):
             torch.tensor([1, 2, 3], dtype=torch.int8),
         )
 
-        # mutations to one mutate the other.
+        # Mutations to one mutate the other.
         source[1] = 8
 
         torch_eggs.assert_tensor(
