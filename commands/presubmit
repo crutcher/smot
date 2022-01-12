@@ -3,7 +3,7 @@
 set -e
 
 $GRIND format
-$GRIND test --slow
+$GRIND test --testmon --slow
 
 # todo: check for un-staged or un-commited files.
 
