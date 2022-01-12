@@ -1,6 +1,10 @@
+import numbers
+import typing
+
 import hamcrest
 from hamcrest.core.base_matcher import BaseMatcher
 from hamcrest.core.description import Description
+import nptyping
 import torch
 
 from smot.testlib import eggs
@@ -66,11 +70,26 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
         description.append_description_of(self.expected)
 
 
-def expect_tensor(expected) -> TensorMatcher:
+def expect_tensor(
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+) -> TensorMatcher:
     return TensorMatcher(expected)
 
 
-def assert_tensor(actual, expected):
+def assert_tensor(
+    actual: torch.Tensor,
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+):
     hamcrest.assert_that(
         actual,
         expect_tensor(expected),
