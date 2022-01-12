@@ -78,10 +78,9 @@ class ZerosLikeTest(unittest.TestCase):
                 dtype=dtype,
                 device=device,
             )
-            z = torch.zeros_like(source)
 
             torch_eggs.assert_tensor(
-                z,
+                torch.zeros_like(source),
                 torch.zeros(
                     *source.size(),
                     dtype=source.dtype,
@@ -101,18 +100,16 @@ class ZerosLikeTest(unittest.TestCase):
                 dtype=dtype,
             )
 
-            z = torch.zeros_like(source)
-            c = z.coalesce()
-
-            expected = torch.sparse_coo_tensor(
-                indices=torch.zeros(size=(2, 0)),
-                values=torch.zeros(size=(0,)),
-                size=source.size(),
-                dtype=source.dtype,
-                device=source.device,
-            ).coalesce()
-
-            torch_eggs.assert_tensor(c, expected)
+            torch_eggs.assert_tensor(
+                torch.zeros_like(source),
+                torch.sparse_coo_tensor(
+                    indices=torch.zeros(size=(2, 0)),
+                    values=torch.zeros(size=(0,)),
+                    size=source.size(),
+                    dtype=source.dtype,
+                    device=source.device,
+                ),
+            )
 
     def test_cpu(self):
         self.impl("cpu")

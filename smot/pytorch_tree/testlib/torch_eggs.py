@@ -13,12 +13,22 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
     def __init__(self, expected):
         self.expected = torch.as_tensor(expected)
 
+        if self.expected.is_sparse and not self.expected.is_coalesced():
+            self.expected = self.expected.coalesce()
+
     def _matches(self, item) -> bool:
         try:
             if not self.expected.is_sparse:
                 return torch.equal(item, self.expected)
 
             else:
+                # torch.equal() doesn't handle sparse tensors correctly.
+
+                if not item.is_coalesced():
+                    # non-coalesced tensors do not have observable indices,
+                    # so we assume the user wanted to coalesce the values.
+                    item = item.coalesce()
+
                 eggs.assert_match(
                     item.device,
                     self.expected.device,
