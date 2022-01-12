@@ -31,7 +31,8 @@ class FrombufferTest(unittest.TestCase):
             torch.tensor([8, 2, 3], dtype=torch.int8),
         )
 
-        # anything that re-allocates the buffer is not safe:
+        # Anything that re-allocates the buffer is not safe,
+        # it the torch pointer won't get updated to the new buffer.
         source.extend([20, 21, 22, 23] * 250)
         try:
             torch_eggs.assert_tensor(
