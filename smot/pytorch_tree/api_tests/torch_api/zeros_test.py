@@ -98,6 +98,7 @@ class ZerosLikeTest(unittest.TestCase):
                 indices=coo,
                 values=vals,
                 device=device,
+                dtype=dtype,
             )
 
             z = torch.zeros_like(source)
