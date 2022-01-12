@@ -97,33 +97,25 @@ class OnesLikeTest(unittest.TestCase):
         if torch.cuda.is_available():
             self.dense("cuda")
 
-    def sparse(self, device):
-        # Sparse COO Tensors
-        for dtype in [torch.int8, torch.float32]:
-            coo = torch.tensor([[0, 0], [2, 2]])
-            vals = torch.tensor([3, 4])
-            source = torch.sparse_coo_tensor(
-                indices=coo,
-                values=vals,
-                device=device,
-                dtype=dtype,
-            )
+    def test_sparse(self):
+        coo = torch.tensor([[0, 0], [2, 2]])
+        vals = torch.tensor([3, 4])
+        source = torch.sparse_coo_tensor(
+            indices=coo,
+            values=vals,
+        )
 
-            # This is broken.
-            torch_eggs.assert_tensor(
-                torch.ones_like(source),
-                torch.sparse_coo_tensor(
-                    indices=torch.ones(size=(2, 0)),
-                    values=torch.ones(size=(0,)),
-                    size=source.size(),
-                    dtype=source.dtype,
-                    device=source.device,
-                ),
-            )
-
-    def test_cpu_sparse(self):
+        # torch.ones_like() refuses to play nice with sparse coo tensors.
+        #
+        # Arguably, this makes sense. There would only be two valid answers:
+        #  1. a sparse-ones tensor, filled in at places the source had presence.
+        #  2. an entirely filled in tensor (which ... why sparse at that point)?
+        #
+        # However, rather than just throwing an AssertionError telling you
+        # that you can't do this, it throws a NotImplementedError complaining
+        # about the tensor backend provider not supporting the operation.
         eggs.assert_raises(
-            lambda: self.sparse("cpu"),
+            lambda: torch.ones_like(source),
             NotImplementedError,
             "with arguments from the 'SparseCPU' backend",
         )
