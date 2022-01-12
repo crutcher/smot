@@ -3,8 +3,7 @@ import unittest
 import numpy as np
 import torch
 
-from smot.pytorch_tree.testlib import torch_eggs
-from smot.testlib import eggs
+from smot.testlib import eggs, torch_eggs
 
 
 class FromNumpyTest(unittest.TestCase):

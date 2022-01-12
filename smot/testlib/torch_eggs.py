@@ -3,7 +3,6 @@ from hamcrest.core.base_matcher import BaseMatcher
 from hamcrest.core.description import Description
 import torch
 
-from smot.pytorch_tree.testlib import torch_eggs
 from smot.testlib import eggs
 
 # unittest integration; hide these frames from tracebacks
@@ -52,12 +51,12 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
             item.layout,
             self.expected.layout,
         )
-        torch_eggs.assert_tensor(
+        assert_tensor(
             item.indices(),
             self.expected.indices(),
         )
 
-        torch_eggs.assert_tensor(
+        assert_tensor(
             item.values(),
             self.expected.values(),
         )

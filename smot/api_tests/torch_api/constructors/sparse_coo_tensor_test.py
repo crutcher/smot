@@ -2,8 +2,7 @@ import unittest
 
 import torch
 
-from smot.pytorch_tree.testlib import torch_eggs
-from smot.testlib import eggs
+from smot.testlib import eggs, torch_eggs
 
 
 class SparseCooTensorTest(unittest.TestCase):

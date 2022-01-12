@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from smot.pytorch_tree.testlib import torch_eggs
+from smot.testlib import torch_eggs
 from smot.testlib.eggs import ignore_warnings
 
 

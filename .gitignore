@@ -11,6 +11,8 @@ logs/
 
 .pytest_cache
 
+/.mypy_cache
+
 # pyre database
 /.pyre
 
