@@ -17,48 +17,46 @@ class TensorMatcher(BaseMatcher[torch.Tensor]):
             self.expected = self.expected.coalesce()
 
     def _matches(self, item) -> bool:
-        try:
-            if not self.expected.is_sparse:
+        if not self.expected.is_sparse:
+            try:
                 return torch.equal(item, self.expected)
+            except RuntimeError:
+                # thrown on dtype miss-match.
+                return False
 
-            else:
-                # torch.equal() doesn't handle sparse tensors correctly.
+        # torch.equal() doesn't handle sparse tensors correctly.
 
-                if not item.is_coalesced():
-                    # non-coalesced tensors do not have observable indices,
-                    # so we assume the user wanted to coalesce the values.
-                    item = item.coalesce()
+        if not item.is_coalesced():
+            # non-coalesced tensors do not have observable indices,
+            # so we assume the user wanted to coalesce the values.
+            item = item.coalesce()
 
-                eggs.assert_match(
-                    item.device,
-                    self.expected.device,
-                )
-                eggs.assert_match(
-                    item.size(),
-                    self.expected.size(),
-                )
-                eggs.assert_match(
-                    item.dtype,
-                    self.expected.dtype,
-                )
-                eggs.assert_match(
-                    item.layout,
-                    self.expected.layout,
-                )
-                torch_eggs.assert_tensor(
-                    item.indices(),
-                    self.expected.indices(),
-                )
+        eggs.assert_match(
+            item.device,
+            self.expected.device,
+        )
+        eggs.assert_match(
+            item.size(),
+            self.expected.size(),
+        )
+        eggs.assert_match(
+            item.dtype,
+            self.expected.dtype,
+        )
+        eggs.assert_match(
+            item.layout,
+            self.expected.layout,
+        )
+        torch_eggs.assert_tensor(
+            item.indices(),
+            self.expected.indices(),
+        )
 
-                torch_eggs.assert_tensor(
-                    item.values(),
-                    self.expected.values(),
-                )
-                return True
-
-        except RuntimeError:
-            # thrown on dtype miss-match.
-            return False
+        torch_eggs.assert_tensor(
+            item.values(),
+            self.expected.values(),
+        )
+        return True
 
     def describe_to(self, description: Description) -> None:
         description.append_description_of(self.expected)
