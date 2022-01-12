@@ -167,3 +167,41 @@ class GlobalOptionsTest(unittest.TestCase):
 
         finally:
             torch.set_flush_denormal(False)
+
+    def test_default_dtype(self):
+        """torch.set_default_dtype(input: Tensor)
+
+        Set the default dtype for new tensors.
+        Must be a floating point type.
+
+        .. _Online Doc:
+            https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html
+        """
+        original = torch.get_default_dtype()
+        try:
+            for dtype in [torch.float32, torch.float64, torch.bfloat16]:
+                torch.set_default_dtype(dtype)
+                eggs.assert_match(
+                    torch.get_default_dtype(),
+                    dtype,
+                )
+
+                t = torch.tensor([1.0])
+                eggs.assert_match(t.dtype, dtype)
+
+                # NOTE:
+                # Tensors constructed with no dtype and an int value
+                # do not use the default dtype!
+                t = torch.tensor([1])
+                eggs.assert_match(t.dtype, torch.int64)
+
+                # Errors:
+                # =======
+                # Throws RuntimeError if type is not floating point.
+                eggs.assert_raises(
+                    lambda: torch.set_default_dtype(torch.int8),
+                    TypeError,
+                )
+
+        finally:
+            torch.set_default_dtype(original)
