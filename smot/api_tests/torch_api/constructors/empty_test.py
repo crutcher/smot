@@ -29,17 +29,18 @@ class EmptyTest(unittest.TestCase):
 
     @pytest.mark.slow
     def test_empty_cuda(self):
-        for dtype in [torch.int8, torch.float32]:
-            torch_eggs.assert_tensor_structure(
-                torch.empty(
-                    3,
-                    dtype=dtype,
-                    device="cuda",
-                ),
-                torch.tensor(
-                    # random data ...
-                    [0.0, 0.0, 0.0],
-                    dtype=dtype,
-                    device="cuda",
-                ),
-            )
+        if torch.cuda.is_available():
+            for dtype in [torch.int8, torch.float32]:
+                torch_eggs.assert_tensor_structure(
+                    torch.empty(
+                        3,
+                        dtype=dtype,
+                        device="cuda",
+                    ),
+                    torch.tensor(
+                        # random data ...
+                        [0.0, 0.0, 0.0],
+                        dtype=dtype,
+                        device="cuda",
+                    ),
+                )
