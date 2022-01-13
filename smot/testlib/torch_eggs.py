@@ -15,6 +15,61 @@ __unittest = True
 __tracebackhide__ = True
 
 
+class TensorStructureMatcher(BaseMatcher[torch.Tensor]):
+    expected: torch.Tensor
+
+    def __init__(self, expected):
+        self.expected = torch.as_tensor(expected)
+
+    def _matches(self, item) -> bool:
+        eggs.assert_match(
+            item.device,
+            self.expected.device,
+        )
+        eggs.assert_match(
+            item.size(),
+            self.expected.size(),
+        )
+        eggs.assert_match(
+            item.dtype,
+            self.expected.dtype,
+        )
+        eggs.assert_match(
+            item.layout,
+            self.expected.layout,
+        )
+        return True
+
+    def describe_to(self, description: Description) -> None:
+        description.append_description_of(self.expected)
+
+
+def expect_tensor_structure(
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+) -> TensorStructureMatcher:
+    return TensorStructureMatcher(expected)
+
+
+def assert_tensor_structure(
+    actual: torch.Tensor,
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+):
+    hamcrest.assert_that(
+        actual,
+        expect_tensor_structure(expected),
+    )
+
+
 class TensorMatcher(BaseMatcher[torch.Tensor]):
     expected: torch.Tensor
 
