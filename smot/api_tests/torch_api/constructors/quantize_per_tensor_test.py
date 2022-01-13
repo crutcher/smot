@@ -7,8 +7,10 @@ from smot.testlib import torch_eggs
 
 class QuantizePerTensorTest(unittest.TestCase):
     def test_quantize_per_tensor(self):
+        source = torch.tensor([-1.0, 0.0, 1.0, 2.0])
+
         t = torch.quantize_per_tensor(
-            input=torch.tensor([-1.0, 0.0, 1.0, 2.0]),
+            input=source,
             scale=0.1,
             zero_point=10,
             dtype=torch.qint8,
@@ -19,6 +21,11 @@ class QuantizePerTensorTest(unittest.TestCase):
         torch_eggs.assert_tensor(
             t.int_repr(),
             torch.tensor([0, 10, 20, 30], dtype=torch.int8),
+        )
+
+        torch_eggs.assert_tensor(
+            torch.dequantize(t),
+            source,
         )
 
     def test_quantize_per_tensor_list(self):

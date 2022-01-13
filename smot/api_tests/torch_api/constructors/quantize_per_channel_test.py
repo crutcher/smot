@@ -7,13 +7,14 @@ from smot.testlib import torch_eggs
 
 class QuantizePerChannelTest(unittest.TestCase):
     def test_quantize_per_channel(self):
+        source = torch.tensor(
+            [
+                [-1.0, 0.0],
+                [1.0, 2.0],
+            ],
+        )
         t = torch.quantize_per_channel(
-            input=torch.tensor(
-                [
-                    [-1.0, 0.0],
-                    [1.0, 2.0],
-                ],
-            ),
+            input=source,
             scales=torch.tensor([0.1, 0.01]),
             zero_points=torch.tensor([10, 0]),
             axis=0,
@@ -31,4 +32,9 @@ class QuantizePerChannelTest(unittest.TestCase):
                 ],
                 dtype=torch.uint8,
             ),
+        )
+
+        torch_eggs.assert_tensor(
+            torch.dequantize(t),
+            source,
         )
