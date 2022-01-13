@@ -1,12 +1,10 @@
 #!/bin/bash
 
-set -e
 
 cd $WORKSPACE_ROOT_DIR
 
-$GRIND check
+$GRIND check || exit
 
 source venv/bin/activate
 
-pytest "$@"
-
+pytest --suppress-no-test-exit-code "$@"

@@ -76,6 +76,7 @@ mypy
 # Testing
 pytest
 pytest-testmon
+pytest-custom-exit-code  # --suppress-no-test-exit-code
 pytest-skip-slow
 # pytest-xdist
 PyHamcrest
