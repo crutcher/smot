@@ -29,6 +29,6 @@ class ShapeOpsTest(unittest.TestCase):
         # =======
         # Throws RuntimeError if type is not floating point.
         eggs.assert_raises(
-            lambda: torch.numel([1, 2]),
+            lambda: torch.numel([1, 2]),  # type: ignore
             TypeError,
         )

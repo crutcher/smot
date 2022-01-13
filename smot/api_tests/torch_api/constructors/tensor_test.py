@@ -28,27 +28,27 @@ class TensorTest(unittest.TestCase):
         )
 
     def test_copy(self):
-        source = [1, 2]
-        t = torch.tensor(source)
-        torch_eggs.assert_tensor(t, source)
+        source_list = [1, 2]
+        t = torch.tensor(source_list)
+        torch_eggs.assert_tensor(t, source_list)
         eggs.assert_match(
             t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
+            hamcrest.not_(hamcrest.same_instance(source_list)),
         )
 
-        source = torch.tensor([1, 2])
-        t = source.clone().detach()
-        torch_eggs.assert_tensor(t, source)
+        source_t = torch.tensor([1, 2])
+        t = source_t.clone().detach()
+        torch_eggs.assert_tensor(t, source_t)
         eggs.assert_match(
             t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
+            hamcrest.not_(hamcrest.same_instance(source_t)),
         )
 
-        source = np.array([1, 2])
-        torch_eggs.assert_tensor(t, source)
+        source_nd = np.array([1, 2])
+        torch_eggs.assert_tensor(t, source_nd)
         eggs.assert_match(
             t.data,
-            hamcrest.not_(hamcrest.same_instance(source)),
+            hamcrest.not_(hamcrest.same_instance(source_nd)),
         )
 
     def test_requires_grad(self):
@@ -80,5 +80,5 @@ class TensorTest(unittest.TestCase):
     def test_create_pinned(self):
         # this is expensive.
         if torch.cuda.is_available():
-            t = torch.tensor([1], pin_memory=True)
+            t = torch.tensor([1], pin_memory=True)  # type: ignore
             eggs.assert_true(t.is_pinned())

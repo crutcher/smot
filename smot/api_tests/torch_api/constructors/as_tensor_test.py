@@ -56,11 +56,11 @@ class AsTensorTest(unittest.TestCase):
             t = torch.tensor([1.0, 2.0], device="cpu")
 
             hamcrest.assert_that(
-                torch.as_tensor(t, device="cpu"),
+                torch.as_tensor(t, device="cpu"),  # type: ignore
                 hamcrest.same_instance(t),
             )
 
-            x = torch.as_tensor(t, device="cuda")
+            x = torch.as_tensor(t, device="cuda")  # type: ignore
             torch_eggs.assert_tensor(
                 x,
                 torch.tensor([1.0, 2.0], device="cuda"),

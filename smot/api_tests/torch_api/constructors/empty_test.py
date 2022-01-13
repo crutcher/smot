@@ -84,7 +84,7 @@ class EmptyStridedTest(unittest.TestCase):
 
     def test_empty_strided_scalar(self):
         eggs.assert_raises(
-            lambda: torch.empty_strided(1, 1),
+            lambda: torch.empty_strided(1, 1),  # type: ignore
             TypeError,
             "must be tuple of ints, not int",
         )

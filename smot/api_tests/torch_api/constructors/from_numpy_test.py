@@ -10,14 +10,14 @@ class FromNumpyTest(unittest.TestCase):
     # https://pytorch.org/docs/stable/generated/torch.from_numpy.html
 
     def test_from_numpy(self):
-        source = np.array([[1, 2], [3, 4]], dtype=float)
+        source = np.array([[1.0, 2.0], [3.0, 4.0]], dtype=float)
 
         # build a tensor that shares memory with the numpy array.
         view = torch.from_numpy(source)
 
         torch_eggs.assert_tensor(
             view,
-            torch.tensor([[1, 2], [3, 4]], dtype=float),
+            torch.tensor([[1.0, 2.0], [3.0, 4.0]], dtype=torch.float64),  # type: ignore
         )
 
         # both objects share the same underlying data pointer.
@@ -31,5 +31,5 @@ class FromNumpyTest(unittest.TestCase):
 
         torch_eggs.assert_tensor(
             view,
-            torch.tensor([[8, 2], [3, 4]], dtype=float),
+            torch.tensor([[8, 2], [3, 4]], dtype=torch.float64),
         )

@@ -89,7 +89,7 @@ class TypeOpsTest(unittest.TestCase):
         # Errors:
         # =======
         eggs.assert_raises(
-            lambda: torch.is_complex([1j]),
+            lambda: torch.is_complex([1j]),  # type: ignore
             TypeError,
         )
 
@@ -146,7 +146,7 @@ class TypeOpsTest(unittest.TestCase):
         # Errors:
         # =======
         eggs.assert_raises(
-            lambda: torch.is_conj([1j]),
+            lambda: torch.is_conj([1j]),  # type: ignore
             TypeError,
         )
 
@@ -180,7 +180,7 @@ class TypeOpsTest(unittest.TestCase):
         # Errors:
         # =======
         eggs.assert_raises(
-            lambda: torch.is_floating_point([1j]),
+            lambda: torch.is_floating_point([1j]),  # type: ignore
             TypeError,
         )
 
@@ -235,6 +235,6 @@ class TypeOpsTest(unittest.TestCase):
 
         # Throws TypeError if input isn't a Tensor
         eggs.assert_raises(
-            lambda: torch.is_nonzero("abc"),
+            lambda: torch.is_nonzero("abc"),  # type: ignore
             TypeError,
         )

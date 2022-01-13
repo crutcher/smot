@@ -7,8 +7,8 @@ from smot.testlib import eggs, torch_eggs
 
 class AsStridedTest(unittest.TestCase):
     def test_as_strided(self):
-        t = torch.rand(3, 3)
-        v = t.data.storage()
+        t = torch.rand(9)
+        v = t.data
 
         x = torch.as_strided(t, (2, 2), (1, 2))
 
@@ -26,8 +26,8 @@ class AsStridedTest(unittest.TestCase):
         )
 
     def test_storage_offset(self):
-        t = torch.rand(3, 3, dtype=torch.float32)
-        v = t.data.storage()
+        t = torch.rand(9, dtype=torch.float32)
+        v = t.data
         offset = 2
 
         x = torch.as_strided(t, (2, 2), (1, 2), 2)
