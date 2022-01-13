@@ -70,56 +70,56 @@ def assert_tensor_structure(
     )
 
 
-class TensorMatcher(BaseMatcher[torch.Tensor]):
-    expected: torch.Tensor
+class TensorMatcher(TensorStructureMatcher):
+    close: bool = False
 
-    def __init__(self, expected):
-        self.expected = torch.as_tensor(expected)
+    def __init__(
+        self,
+        expected,
+        *,
+        close: bool = False,
+    ):
+        super().__init__(expected=expected)
+        self.close = close
 
         if self.expected.is_sparse and not self.expected.is_coalesced():
             self.expected = self.expected.coalesce()
 
     def _matches(self, item) -> bool:
-        if not self.expected.is_sparse:
-            try:
-                return torch.equal(item, self.expected)
-            except RuntimeError:
-                # thrown on dtype miss-match.
-                return False
-
-        # torch.equal() doesn't handle sparse tensors correctly.
-
-        if not item.is_coalesced():
-            # non-coalesced tensors do not have observable indices,
-            # so we assume the user wanted to coalesce the values.
+        if item.is_sparse and not item.is_coalesced():
             item = item.coalesce()
 
-        eggs.assert_match(
-            item.device,
-            self.expected.device,
-        )
-        eggs.assert_match(
-            item.size(),
-            self.expected.size(),
-        )
-        eggs.assert_match(
-            item.dtype,
-            self.expected.dtype,
-        )
-        eggs.assert_match(
-            item.layout,
-            self.expected.layout,
-        )
-        assert_tensor(
-            item.indices(),
-            self.expected.indices(),
-        )
+        if not super()._matches(item):
+            return False
 
-        assert_tensor(
-            item.values(),
-            self.expected.values(),
-        )
-        return True
+        if self.expected.is_sparse:
+            # TODO: it may be necessary to sort the indices and values.
+            assert_tensor(
+                item.indices(),
+                self.expected.indices(),
+            )
+            if self.close:
+                return torch.allclose(
+                    item.values(),
+                    self.expected.values(),
+                    equal_nan=True,
+                )
+            else:
+                assert_tensor(
+                    item.values(),
+                    self.expected.values(),
+                )
+                return True
+        else:
+            if self.close:
+                return torch.allclose(
+                    item,
+                    self.expected,
+                    equal_nan=True,
+                )
+
+            else:
+                return torch.equal(item, self.expected)
 
     def describe_to(self, description: Description) -> None:
         description.append_description_of(self.expected)
@@ -133,7 +133,7 @@ def expect_tensor(
         nptyping.NDArray,
     ],
 ) -> TensorMatcher:
-    return TensorMatcher(expected)
+    return TensorMatcher(expected, close=False)
 
 
 def assert_tensor(
@@ -148,4 +148,30 @@ def assert_tensor(
     hamcrest.assert_that(
         actual,
         expect_tensor(expected),
+    )
+
+
+def expect_tensor_close(
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+) -> TensorMatcher:
+    return TensorMatcher(expected, close=True)
+
+
+def assert_tensor_close(
+    actual: torch.Tensor,
+    expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+):
+    hamcrest.assert_that(
+        actual,
+        expect_tensor_close(expected),
     )

@@ -21,7 +21,7 @@ class EmptyTest(unittest.TestCase):
                 torch.empty(3, dtype=dtype),
                 torch.tensor(
                     # random data ...
-                    [0.0, 0.0, 0.0],
+                    [0, 0, 0],
                     dtype=dtype,
                 ),
             )
@@ -38,7 +38,7 @@ class EmptyTest(unittest.TestCase):
                     ),
                     torch.tensor(
                         # random data ...
-                        [0.0, 0.0, 0.0],
+                        [0, 0, 0],
                         dtype=dtype,
                         device="cuda",
                     ),

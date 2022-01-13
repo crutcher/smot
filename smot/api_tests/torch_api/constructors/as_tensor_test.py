@@ -53,7 +53,7 @@ class AsTensorTest(unittest.TestCase):
     @pytest.mark.slow
     def test_tensor_cuda_conversion(self):
         if torch.cuda.is_available():
-            t = torch.tensor([1, 2], dtype=torch.float32, device="cpu")
+            t = torch.tensor([1.0, 2.0], device="cpu")
 
             hamcrest.assert_that(
                 torch.as_tensor(t, device="cpu"),
@@ -63,5 +63,5 @@ class AsTensorTest(unittest.TestCase):
             x = torch.as_tensor(t, device="cuda")
             torch_eggs.assert_tensor(
                 x,
-                torch.tensor([1, 2], device="cuda"),
+                torch.tensor([1.0, 2.0], device="cuda"),
             )
