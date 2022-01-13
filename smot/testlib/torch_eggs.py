@@ -86,38 +86,34 @@ class TensorMatcher(TensorStructureMatcher):
             self.expected = self.expected.coalesce()
 
     def _matches(self, item) -> bool:
-        if item.is_sparse and not item.is_coalesced():
-            item = item.coalesce()
-
         if not super()._matches(item):
             return False
 
-        if self.expected.is_sparse:
-            # TODO: it may be necessary to sort the indices and values.
-            assert_tensor(
-                item.indices(),
-                self.expected.indices(),
+        if self.close:
+            torch.testing.assert_close(
+                item,
+                self.expected,
+                equal_nan=True,
             )
-            if self.close:
-                return torch.allclose(
-                    item.values(),
-                    self.expected.values(),
-                    equal_nan=True,
+            return True
+
+        else:
+            if self.expected.is_sparse:
+                eggs.assert_true(item.is_sparse)
+
+                # TODO: it may be necessary to sort the indices and values.
+                if not item.is_coalesced():
+                    item = item.coalesce()
+
+                assert_tensor(
+                    item.indices(),
+                    self.expected.indices(),
                 )
-            else:
                 assert_tensor(
                     item.values(),
                     self.expected.values(),
                 )
                 return True
-        else:
-            if self.close:
-                return torch.allclose(
-                    item,
-                    self.expected,
-                    equal_nan=True,
-                )
-
             else:
                 return torch.equal(item, self.expected)
 
