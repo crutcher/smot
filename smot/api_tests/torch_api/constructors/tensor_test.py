@@ -37,7 +37,6 @@ class TensorTest(unittest.TestCase):
         )
 
         source = torch.tensor([1, 2])
-        # t = torch.tensor(source)
         t = source.clone().detach()
         torch_eggs.assert_tensor(t, source)
         eggs.assert_match(
