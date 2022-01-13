@@ -11,7 +11,10 @@ class PolarTest(unittest.TestCase):
 
     def test_polar(self):
         abs = torch.tensor([1, 2, 1], dtype=torch.float64)
-        angle = torch.tensor([np.pi / 2, 2 * np.pi, 5 * np.pi / 2], dtype=torch.float64)
+        angle = torch.tensor(
+            [np.pi / 2, 2 * np.pi, 5 * np.pi / 2],
+            dtype=torch.float64,
+        )
 
         torch_eggs.assert_tensor_close(
             torch.polar(abs, angle),
