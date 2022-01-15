@@ -39,6 +39,26 @@ class ChunkTest(unittest.TestCase):
             [88, 66, 3, 99, 77, 6],
         )
 
+    def test_chunk_dims(self):
+        source = torch.tensor([[1, 2, 3], [4, 5, 6]])
+
+        eggs.assert_match(
+            torch.chunk(source, 3, dim=1),
+            hamcrest.contains_exactly(
+                torch_eggs.expect_tensor([[1], [4]]),
+                torch_eggs.expect_tensor([[2], [5]]),
+                torch_eggs.expect_tensor([[3], [6]]),
+            ),
+        )
+
+        eggs.assert_match(
+            torch.chunk(source, 2, dim=1),
+            hamcrest.contains_exactly(
+                torch_eggs.expect_tensor([[1, 2], [4, 5]]),
+                torch_eggs.expect_tensor([[3], [6]]),
+            ),
+        )
+
     def test_trailing_chunk(self):
         source = torch.tensor([1, 2, 3, 4, 5, 6])
 
