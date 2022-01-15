@@ -5,12 +5,12 @@ import torch
 from smot.testlib import eggs, torch_eggs
 
 
-class CatTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.cat.html
+class ConconcatTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.concat.html
 
     def test_scalar(self):
         eggs.assert_raises(
-            lambda: torch.cat(
+            lambda: torch.concat(
                 (
                     torch.tensor(1),
                     torch.tensor(2),
@@ -22,7 +22,7 @@ class CatTest(unittest.TestCase):
 
     def test_1d(self):
         torch_eggs.assert_tensor(
-            torch.cat(
+            torch.concat(
                 (
                     torch.tensor([]),
                     torch.tensor([1.0, 2.0]),
@@ -37,7 +37,7 @@ class CatTest(unittest.TestCase):
 
     def test_2d(self):
         torch_eggs.assert_tensor(
-            torch.cat(
+            torch.concat(
                 (
                     torch.tensor([[1, 2], [3, 4]]),
                     torch.tensor([], dtype=torch.int),
@@ -49,7 +49,7 @@ class CatTest(unittest.TestCase):
         )
 
         torch_eggs.assert_tensor(
-            torch.cat(
+            torch.concat(
                 (
                     torch.tensor([[1, 2], [3, 4]]),
                     torch.tensor([], dtype=torch.int),
