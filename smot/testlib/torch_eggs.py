@@ -15,30 +15,35 @@ __unittest = True
 __tracebackhide__ = True
 
 
-class TensorStructureMatcher(BaseMatcher[torch.Tensor]):
+class TensorStructureMatcher(BaseMatcher):
     expected: torch.Tensor
 
     def __init__(self, expected):
         self.expected = torch.as_tensor(expected)
 
     def _matches(self, item) -> bool:
-        eggs.assert_match(
-            item.device,
-            self.expected.device,
-        )
-        eggs.assert_match(
-            item.size(),
-            self.expected.size(),
-        )
-        eggs.assert_match(
-            item.dtype,
-            self.expected.dtype,
-        )
-        eggs.assert_match(
-            item.layout,
-            self.expected.layout,
-        )
-        return True
+        # Todo: structural miss-match that still shows expected tensor.
+
+        try:
+            eggs.assert_match(
+                item.device,
+                self.expected.device,
+            )
+            eggs.assert_match(
+                item.size(),
+                self.expected.size(),
+            )
+            eggs.assert_match(
+                item.dtype,
+                self.expected.dtype,
+            )
+            eggs.assert_match(
+                item.layout,
+                self.expected.layout,
+            )
+            return True
+        except AssertionError:
+            return False
 
     def describe_to(self, description: Description) -> None:
         description.append_description_of(self.expected)

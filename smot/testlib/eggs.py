@@ -11,6 +11,10 @@ __unittest = True
 # py.test integration; hide these frames from tracebacks
 __tracebackhide__ = True
 
+# Monkey patch BaseMatcher
+hamcrest.core.base_matcher.__unittest = True
+hamcrest.core.base_matcher.__tracebackhide__ = True
+
 
 def assert_match(actual: Any, matcher: Any, reason: str = "") -> None:
     """
