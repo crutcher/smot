@@ -16,6 +16,13 @@ __unittest = True
 __tracebackhide__ = True
 
 
+def assert_view(tensor: torch.Tensor, source: torch.Tensor):
+    eggs.assert_match(
+        tensor.data_ptr(),
+        source.data_ptr(),
+    )
+
+
 class TensorStructureMatcher(BaseMatcher):
     expected: torch.Tensor
 
