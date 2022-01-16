@@ -124,7 +124,18 @@ class TensorMatcher(TensorStructureMatcher):
                 return torch.equal(item, self.expected)
 
     def describe_to(self, description: Description) -> None:
+        description.append_text("\n")
         description.append_description_of(self.expected)
+
+    def describe_match(self, item: typing.Any, match_description: Description) -> None:
+        match_description.append_text("was \n")
+        match_description.append_description_of(item)
+
+    def describe_mismatch(
+        self, item: typing.Any, mismatch_description: Description
+    ) -> None:
+        mismatch_description.append_text("was \n")
+        mismatch_description.append_description_of(item)
 
 
 def expect_tensor(
