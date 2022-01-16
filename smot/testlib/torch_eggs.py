@@ -18,8 +18,8 @@ __tracebackhide__ = True
 
 def assert_view(tensor: torch.Tensor, source: torch.Tensor):
     eggs.assert_match(
-        tensor.data_ptr(),
-        source.data_ptr(),
+        tensor.storage().data_ptr(),  # type: ignore
+        source.storage().data_ptr(),  # type: ignore
     )
 
 

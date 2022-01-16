@@ -12,6 +12,8 @@ class ConjTest(unittest.TestCase):
         source = torch.tensor([-1 + 1j, -2 + 2j, 3 - 3j])
         conj_view = torch.conj(source)
 
+        torch_eggs.assert_view(conj_view, source)
+
         torch_eggs.assert_tensor(
             conj_view,
             torch.tensor([-1 - 1j, -2 - 2j, 3 + 3j]),
