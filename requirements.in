@@ -1,4 +1,41 @@
-# AI
+# Python
+pip-tools
+nbqa  # run python code tests on .ipynb
+autoflake
+black
+black[d]
+black_nbconvert  # for formatting .ipynb
+isort
+
+# ipython
+ipython
+jedi
+parso
+# Note, there was a bug in ipython <tab> completion.
+# See: https://github.com/ipython/ipython/issues/12745
+# jedi==0.17.2
+# parso==0.7.1
+
+# python typing
+pyre-check
+mypy
+
+# Testing
+pytest
+pytest-testmon
+pytest-custom-exit-code  # --suppress-no-test-exit-code
+pytest-skip-slow
+# pytest-xdist
+PyHamcrest
+testfixtures
+
+# numpy
+numpy
+nptyping
+scipy
+
+# Pandas
+pandas
 
 # pytorch
 # pytorch with cu111 builds.
@@ -17,49 +54,9 @@ tensorboard-plugin-profile
 jupyter
 jupyter-tensorboard
 
-
-# numpy
-numpy
-# todo: numpy.typing in numpy1.19
-# blocked by: tensorflow requires numpy<1.19.0
-nptyping
-scipy
-
-# Pandas
-pandas
-
 # graphviz stuff
 graphviz
 pydot
 
 # graphing
 matplotlib
-
-
-# There's a bug in 7.19.0 on completion.
-# See: https://github.com/ipython/ipython/issues/12745
-jedi==0.17.2
-parso==0.7.1
-
-# Python
-pip-tools
-nbqa  # run python code tests on .ipynb
-autoflake
-black
-black[d]
-black_nbconvert  # for formatting .ipynb
-isort
-
-# python typing
-pyre-check
-mypy
-
-# Testing
-pytest
-pytest-testmon
-pytest-custom-exit-code  # --suppress-no-test-exit-code
-pytest-skip-slow
-# pytest-xdist
-PyHamcrest
-testfixtures
-
