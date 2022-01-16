@@ -26,7 +26,7 @@ class DsplitTest(unittest.TestCase):
             ),
         )
 
-        # dsplit(input, indices) => tensor_split(input, indicies, dim=2)
+        # dsplit(input, indices) => tensor_split(input, indices, dim=2)
         splits = torch.dsplit(source, 2)
         torch_eggs.assert_tensor_seq(
             splits,
