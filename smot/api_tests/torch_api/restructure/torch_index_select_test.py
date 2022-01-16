@@ -6,6 +6,8 @@ from smot.testlib import eggs, torch_eggs
 
 
 class IndexSelectTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.index_select.html
+
     def source_tensor(self) -> torch.Tensor:
         source = torch.arange(9).reshape(3, 3)
         torch_eggs.assert_tensor(

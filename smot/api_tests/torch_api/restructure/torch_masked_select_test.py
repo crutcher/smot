@@ -6,6 +6,8 @@ from smot.testlib import torch_eggs
 
 
 class MaskedSelectTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.masked_select.html
+
     def test_select(self):
         source = torch.arange(9).reshape(3, 3)
 

@@ -5,10 +5,11 @@ import torch
 from smot.testlib import eggs, torch_eggs
 
 
-class MovedimTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.movedim.html
+class MoveaxisTest(unittest.TestCase):
+    # alias for movedim
+    # https://pytorch.org/docs/stable/generated/torch.moveaxis.html
 
-    def test_movedim_int(self):
+    def test_moveaxis_int(self):
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],
@@ -22,7 +23,7 @@ class MovedimTest(unittest.TestCase):
             torch.Size([3, 2, 2]),
         )
 
-        view = torch.movedim(source, 1, 0)
+        view = torch.moveaxis(source, 1, 0)
 
         torch_eggs.assert_view(view, source)
 
@@ -39,7 +40,7 @@ class MovedimTest(unittest.TestCase):
             torch.Size([2, 3, 2]),
         )
 
-    def test_movedim_tuples(self):
+    def test_moveaxis_tuples(self):
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],
@@ -53,7 +54,7 @@ class MovedimTest(unittest.TestCase):
             torch.Size([3, 2, 2]),
         )
 
-        view = torch.movedim(source, (1, 2), (0, 1))
+        view = torch.moveaxis(source, (1, 2), (0, 1))
 
         torch_eggs.assert_view(view, source)
 

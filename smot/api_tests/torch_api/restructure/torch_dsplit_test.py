@@ -6,6 +6,8 @@ from smot.testlib import torch_eggs
 
 
 class DsplitTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.dsplit.html
+
     def test_view(self):
         source = torch.arange(16.0).reshape(2, 2, 4)
         torch_eggs.assert_tensor(

@@ -6,6 +6,8 @@ from smot.testlib import torch_eggs
 
 
 class HsplitTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.hsplit.html
+
     def test_view(self):
         source = torch.arange(16.0).reshape(4, 4)
         torch_eggs.assert_tensor(
