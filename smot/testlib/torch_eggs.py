@@ -4,6 +4,7 @@ import typing
 import hamcrest
 from hamcrest.core.base_matcher import BaseMatcher
 from hamcrest.core.description import Description
+from hamcrest.core.matcher import Matcher
 import nptyping
 import torch
 
@@ -137,6 +138,17 @@ def expect_tensor(
     return TensorMatcher(expected, close=False)
 
 
+def expect_tensor_seq(
+    *expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+) -> Matcher:
+    return hamcrest.contains_exactly(*[expect_tensor(e) for e in expected])
+
+
 def assert_tensor(
     actual: torch.Tensor,
     expected: typing.Union[
@@ -149,6 +161,21 @@ def assert_tensor(
     hamcrest.assert_that(
         actual,
         expect_tensor(expected),
+    )
+
+
+def assert_tensor_seq(
+    actual: typing.Sequence[torch.Tensor],
+    *expected: typing.Union[
+        torch.Tensor,
+        numbers.Number,
+        typing.Sequence,
+        nptyping.NDArray,
+    ],
+):
+    hamcrest.assert_that(
+        actual,
+        expect_tensor_seq(*expected),
     )
 
 
