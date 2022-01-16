@@ -64,3 +64,19 @@ to your bash environment:
 ```bash
 source <$REPO_DIR>/tools/grind_completion
 ```
+
+
+## Fancy Tests (eggs)
+
+Tests are written using `hamcrest`, the most flexible pytest fluent testing framework I'm currently aware of
+is [PyHamcrest](https://github.com/hamcrest/PyHamcrest)
+
+Hamcrest is great, but it doesn't really dig into structural comparison
+over tensor-like objects, so tests are also written in local hamcrest
+extension libraries,  generally under the name `eggs`, `torch_eggs`, `np_eggs`, etc.
+
+"Eggs and Ham", you see.
+
+With some additional evolution, `eggs` may become a standalone package,
+but I'll co-develop it against these api tests, and extract it once
+I've got a solid usage corpus to iterate designs against.
