@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from smot.testlib import torch_eggs
+from smot.testlib import eggs, torch_eggs
 
 
 class IndexSelectTest(unittest.TestCase):
@@ -72,4 +72,19 @@ class IndexSelectTest(unittest.TestCase):
                 ],
                 dtype=source.dtype,
             ),
+        )
+
+    def test_errors(self):
+        source = self.source_tensor()
+
+        eggs.assert_raises(
+            lambda: torch.index_select(source, 4, torch.tensor([0])),
+            IndexError,
+            "Dimension out of range",
+        )
+
+        eggs.assert_raises(
+            lambda: torch.index_select(source, 1, torch.tensor([4])),
+            RuntimeError,
+            "INDICES element is out of DATA bounds",
         )
