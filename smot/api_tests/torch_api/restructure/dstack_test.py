@@ -6,6 +6,8 @@ from smot.testlib import eggs, torch_eggs
 
 
 class DstackTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.dstack.html
+
     def test_dstack(self):
         torch_eggs.assert_tensor(
             torch.dstack(

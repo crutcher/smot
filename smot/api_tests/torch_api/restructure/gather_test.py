@@ -6,6 +6,8 @@ from smot.testlib import eggs, torch_eggs
 
 
 class GatherTest(unittest.TestCase):
+    # https://pytorch.org/docs/stable/generated/torch.gather.html
+
     def test_gather(self):
         source = torch.tensor(
             [
