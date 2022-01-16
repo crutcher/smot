@@ -1,78 +1,58 @@
 # AI
 
 # pytorch
+# pytorch with cu111 builds.
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.10.1+cu111
 torchvision==0.11.2+cu111
 torchaudio==0.10.1+cu111
+
 pytorch-lightning
 
-#tensorflow
-#tf-nightly==2.5.0.dev20210301
-tensorflow
-#tf-nightly
-#tf-nightly-gpu
-#tb-nightly
-
-#tensorflow
-#tensorflow-gpu
+# tensorboard
 tensorboard
-#tensorflow-io
-
 tensorboard-plugin-profile
+
+# jupyter
+jupyter
 jupyter-tensorboard
-tensorflow-datasets
 
-keras-tuner
 
+# numpy
 numpy
 # todo: numpy.typing in numpy1.19
 # blocked by: tensorflow requires numpy<1.19.0
 nptyping
-
-
-# used by tf.imagedatagen
 scipy
 
-
-# Pandas stuff
+# Pandas
 pandas
-
 
 # graphviz stuff
 graphviz
 pydot
 
-
-# tf benchmarking
-ai-benchmark
-
-# Notebooks
-jupyter
+# graphing
 matplotlib
+
 
 # There's a bug in 7.19.0 on completion.
 # See: https://github.com/ipython/ipython/issues/12745
 jedi==0.17.2
 parso==0.7.1
 
-
 # Python
 pip-tools
-
 nbqa  # run python code tests on .ipynb
-
 autoflake
-
 black
 black[d]
 black_nbconvert  # for formatting .ipynb
 isort
 
+# python typing
 pyre-check
-
 mypy
-# mypy-extras
 
 # Testing
 pytest
@@ -82,14 +62,4 @@ pytest-skip-slow
 # pytest-xdist
 PyHamcrest
 testfixtures
-
-
-# Keras libs
-tensorflow_addons  # tfa
-keras_gradient_noise
-
-
-# Kaggle API
-kaggle
-
 
