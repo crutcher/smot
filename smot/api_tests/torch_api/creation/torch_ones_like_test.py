@@ -3,7 +3,7 @@ import unittest
 import pytest
 import torch
 
-from smot.testlib import torch_eggs, eggs
+from smot.testlib import eggs, torch_eggs
 
 
 class OnesLikeTest(unittest.TestCase):
