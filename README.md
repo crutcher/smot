@@ -5,12 +5,11 @@ AI api experiments.
 ## Requirements
 
 Packages
-  * [apt.txt](./apt.txt)
-    * python3.9
-    * python3.9-dev
-    * virtualenv
-  * [snap.txt](./snap.txt)
-    * [glow](https://github.com/charmbracelet/glow)
+  * Apt Packages [apt.txt](./apt.txt)
+  * Snap Packages [snap.txt](./snap.txt)
+  * Python `virtualenv` Packages (`pip-compile` / `pip-sync`)
+    - [requirements.in](./requirements.in)
+    - [requirements.txt](./requirements.txt)
 
 
 ## Setup
