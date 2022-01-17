@@ -2,6 +2,8 @@
 
 A repository of datascience / ai apis explored in far too much detail.
 
+[API Test Links](./API.md)
+
 You're probably most interested in the public api unittests in [api_tests](./smot/api_tests):
   * [numpy_api](./smot/api_tests/numpy_api)
   * [pandas_api](./smot/api_tests/pandas_api)

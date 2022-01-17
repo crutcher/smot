@@ -22,6 +22,10 @@ def repository_source_root() -> str:
     return os.path.dirname(module_directory(smot))
 
 
+def root_relative_path(path: str) -> str:
+    return path.removeprefix(repository_source_root() + "/")
+
+
 def this_module() -> ModuleType:
     """
     Return the calling module.

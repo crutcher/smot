@@ -3,7 +3,7 @@
 set -e
 
 $GRIND format
-$GRIND test --testmon --slow
+$GRIND test --testmon --slow --gen_api_ref=API.md
 
 # todo: check for un-staged or un-commited files.
 
