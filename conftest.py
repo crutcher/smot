@@ -53,3 +53,5 @@ def pytest_collection_finish(session):
                 parts += ["", ""]
 
                 print("\n".join(parts), file=fh)
+
+        pytest.exit("Doc Gen Complete", 0)
