@@ -2,12 +2,14 @@
 
 A repository of datascience / ai apis explored in far too much detail.
 
-[API Test Links](./API.md)
+[Quick Links to API Tests](./API.md)
 
 You're probably most interested in the public api unittests in [api_tests](./smot/api_tests):
+  * [torch_api](./smot/api_tests/torch_api) (20%?)
+
+These exist, but they're mostly empty at the moment.
   * [numpy_api](./smot/api_tests/numpy_api)
   * [pandas_api](./smot/api_tests/pandas_api)
-  * [torch_api](./smot/api_tests/torch_api)
  
 ## Test Naming
 
