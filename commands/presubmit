@@ -7,8 +7,3 @@ cd $WORKSPACE_ROOT_DIR
 $GRIND format
 $GRIND test --testmon --slow
 
-source venv/bin/activate
-pytest --gen_api_ref=API.md smot
-
-# todo: check for un-staged or un-commited files.
-
