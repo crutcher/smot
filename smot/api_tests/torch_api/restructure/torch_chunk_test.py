@@ -7,7 +7,7 @@ from smot.testlib import eggs, torch_eggs
 
 
 class ChunkTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.chunk.html
+    "https://pytorch.org/docs/stable/generated/torch.chunk.html"
 
     def test_chunk(self):
         source = torch.tensor([1, 2, 3, 4, 5, 6])
