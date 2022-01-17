@@ -292,6 +292,24 @@ https://pytorch.org/docs/stable/generated/torch.stack.html
     stack(tensors, dim=0, *, out=None) -> Tensor
 
 
+### [torch.swapaxes](smot/api_tests/torch_api/restructure/torch_swapaxes_test.py)
+https://pytorch.org/docs/stable/torch.html
+
+    swapaxes(input, axis0, axis1) -> Tensor
+
+
+### [torch.swapdims](smot/api_tests/torch_api/restructure/torch_swapdims_test.py)
+https://pytorch.org/docs/stable/torch.html
+
+    swapdims(input, dim0, dim1) -> Tensor
+
+
+### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
+https://pytorch.org/docs/stable/torch.html
+
+    transpose(input, dim0, dim1) -> Tensor
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
