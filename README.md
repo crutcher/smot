@@ -52,7 +52,7 @@ This will:
 
 See: [grind README](commands/README.md)
 
-`grind` provides a hook to run many different repository commands.
+`grind` provides a hook to run many repository commands.
 
   * `grind check`
   * `grind format`
