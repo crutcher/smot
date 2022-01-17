@@ -9,14 +9,14 @@ class EyeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.eye.html"
     TARGET = torch.eye
 
-    def test_eye_zero(self):
+    def test_eye_zero(self) -> None:
         # eye(0) still returns a (0,0) tensor.
         torch_eggs.assert_tensor(
             torch.eye(0),
             torch.ones(0, 0),
         )
 
-    def test_eye(self):
+    def test_eye(self) -> None:
         torch_eggs.assert_tensor(
             torch.eye(3),
             [
@@ -44,7 +44,7 @@ class EyeTest(TorchApiTestCase):
             ],
         )
 
-    def test_eye_out(self):
+    def test_eye_out(self) -> None:
         t = torch.ones(9)
         original_data = t.data_ptr()
 

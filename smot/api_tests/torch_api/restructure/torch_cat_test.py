@@ -8,7 +8,7 @@ class CatTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.cat.html"
     TARGET = torch.cat
 
-    def test_scalar(self):
+    def test_scalar(self) -> None:
         eggs.assert_raises(
             lambda: torch.cat(
                 (
@@ -20,7 +20,7 @@ class CatTest(TorchApiTestCase):
             "zero-dimensional tensor .* cannot be",
         )
 
-    def test_1d(self):
+    def test_1d(self) -> None:
         torch_eggs.assert_tensor(
             torch.cat(
                 (
@@ -35,7 +35,7 @@ class CatTest(TorchApiTestCase):
             torch.tensor([1.0, 2.0, 3.0, 4.0]),
         )
 
-    def test_2d(self):
+    def test_2d(self) -> None:
         torch_eggs.assert_tensor(
             torch.cat(
                 (

@@ -9,13 +9,13 @@ class EmptyTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.empty.html"
     TARGET = torch.empty
 
-    def test_empty_zero(self):
+    def test_empty_zero(self) -> None:
         torch_eggs.assert_tensor(
             torch.empty(0),
             torch.ones(0),
         )
 
-    def test_empty(self):
+    def test_empty(self) -> None:
         for dtype in [torch.int8, torch.float32]:
             torch_eggs.assert_tensor_structure(
                 torch.empty(3, dtype=dtype),
@@ -27,7 +27,7 @@ class EmptyTest(TorchApiTestCase):
             )
 
     @pytest.mark.slow
-    def test_empty_cuda(self):
+    def test_empty_cuda(self) -> None:
         if torch.cuda.is_available():
             for dtype in [torch.int8, torch.float32]:
                 torch_eggs.assert_tensor_structure(

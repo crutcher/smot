@@ -11,7 +11,7 @@ class RowStackTest(TorchApiTestCase):
     TARGET = torch.row_stack
     ALIAS_FOR = torch.vstack
 
-    def test_row_stack(self):
+    def test_row_stack(self) -> None:
         a = torch.tensor([1, 2, 3])
         b = torch.tensor([4, 5, 6])
 

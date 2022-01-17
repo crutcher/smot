@@ -8,7 +8,7 @@ class ColumnStackTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.column_stack.html"
     TARGET = torch.column_stack
 
-    def test_column_stack(self):
+    def test_column_stack(self) -> None:
         torch_eggs.assert_tensor(
             torch.column_stack(
                 (
@@ -40,7 +40,7 @@ class ColumnStackTest(TorchApiTestCase):
             ],
         )
 
-    def test_scalar_error(self):
+    def test_scalar_error(self) -> None:
         eggs.assert_raises(
             lambda: torch.column_stack(
                 (
@@ -66,7 +66,7 @@ class ColumnStackTest(TorchApiTestCase):
             [[3, 4, 5, 6]],
         )
 
-    def test_out(self):
+    def test_out(self) -> None:
         target = torch.arange(6)
         orig_data_ptr = target.data_ptr()
 

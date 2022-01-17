@@ -8,7 +8,7 @@ class DstackTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.dstack.html"
     TARGET = torch.dstack
 
-    def test_dstack(self):
+    def test_dstack(self) -> None:
         torch_eggs.assert_tensor(
             torch.dstack(
                 (
@@ -52,7 +52,7 @@ class DstackTest(TorchApiTestCase):
             ],
         )
 
-    def test_out(self):
+    def test_out(self) -> None:
         target = torch.arange(6)
         orig_data_ptr = target.data_ptr()
 

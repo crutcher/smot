@@ -8,7 +8,7 @@ class NarrowTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.narrow.html"
     TARGET = torch.narrow
 
-    def test_narrow(self):
+    def test_narrow(self) -> None:
         source = torch.tensor(
             [
                 [1, 2, 3],

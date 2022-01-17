@@ -8,7 +8,7 @@ from smot.testlib import eggs, np_eggs
 class ZerosTest(unittest.TestCase):
     # https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
 
-    def test_default(self):
+    def test_default(self) -> None:
         t = np.zeros((1, 2))
 
         np_eggs.assert_ndarray(
@@ -16,7 +16,7 @@ class ZerosTest(unittest.TestCase):
             [[0.0, 0.0]],
         )
 
-    def test_scalar(self):
+    def test_scalar(self) -> None:
         # np.zeros(size) doesn't have a default;
         # but you can still construct a scalar.
         t = np.zeros([])

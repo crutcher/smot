@@ -8,7 +8,7 @@ class QuantizePerTensorTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html"
     TARGET = torch.quantize_per_tensor
 
-    def test_quantize_per_tensor(self):
+    def test_quantize_per_tensor(self) -> None:
         source = torch.tensor([-1.0, 0.0, 1.0, 2.0])
 
         t = torch.quantize_per_tensor(
@@ -30,7 +30,7 @@ class QuantizePerTensorTest(TorchApiTestCase):
             source,
         )
 
-    def test_quantize_per_tensor_list(self):
+    def test_quantize_per_tensor_list(self) -> None:
         # NOTE!
         # when used on multiple inputs, the keywords change:
         #  * input => tensors

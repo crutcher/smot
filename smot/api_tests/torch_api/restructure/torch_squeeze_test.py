@@ -8,7 +8,7 @@ class SqueezeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.squeeze.html"
     TARGET = torch.squeeze
 
-    def test_squeeze(self):
+    def test_squeeze(self) -> None:
         source = torch.zeros(2, 1, 3, 1, 4)
         eggs.assert_match(source.size(), torch.Size([2, 1, 3, 1, 4]))
 

@@ -20,7 +20,7 @@ class IndexSelectTest(TorchApiTestCase):
         )
         return source
 
-    def test_index_select(self):
+    def test_index_select(self) -> None:
         source = self.source_tensor()
 
         torch_eggs.assert_tensor(
@@ -61,7 +61,7 @@ class IndexSelectTest(TorchApiTestCase):
             ],
         )
 
-    def test_index_degenerate(self):
+    def test_index_degenerate(self) -> None:
         source = self.source_tensor()
 
         torch_eggs.assert_tensor(
@@ -76,7 +76,7 @@ class IndexSelectTest(TorchApiTestCase):
             ),
         )
 
-    def test_errors(self):
+    def test_errors(self) -> None:
         source = self.source_tensor()
 
         eggs.assert_raises(

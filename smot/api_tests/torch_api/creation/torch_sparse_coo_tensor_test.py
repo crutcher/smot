@@ -8,7 +8,7 @@ class SparseCooTensorTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html"
     TARGET = torch.sparse_coo_tensor
 
-    def test_coalesce_add(self):
+    def test_coalesce_add(self) -> None:
         # duplicate indexes add under .coalesce()
         coo = torch.tensor([[0, 0], [2, 2]])
         vals = torch.tensor([3, 4])
@@ -25,7 +25,7 @@ class SparseCooTensorTest(TorchApiTestCase):
             ),
         )
 
-    def test_explicit_size(self):
+    def test_explicit_size(self) -> None:
         coo = torch.tensor([[0, 1, 1], [2, 0, 2]])
         vals = torch.tensor([3, 4, 5])
         size = [2, 4]
@@ -52,7 +52,7 @@ class SparseCooTensorTest(TorchApiTestCase):
             ),
         )
 
-    def test_infered_size(self):
+    def test_infered_size(self) -> None:
         coo = torch.tensor([[0, 1, 1], [2, 0, 2]])
         vals = torch.tensor([3, 4, 5])
 

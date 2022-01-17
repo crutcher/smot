@@ -11,7 +11,7 @@ class TensorTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.tensor.html"
     TARGET = torch.tensor
 
-    def test_scalar_tensor(self):
+    def test_scalar_tensor(self) -> None:
         t = torch.tensor(1)
 
         eggs.assert_match(
@@ -29,7 +29,7 @@ class TensorTest(TorchApiTestCase):
             1,
         )
 
-    def test_copy(self):
+    def test_copy(self) -> None:
         source_list = [1, 2]
         t = torch.tensor(source_list)
         torch_eggs.assert_tensor(t, source_list)
@@ -46,14 +46,14 @@ class TensorTest(TorchApiTestCase):
             hamcrest.not_(hamcrest.same_instance(source_t)),
         )
 
-        source_nd = np.array([1, 2])
+        source_nd: np.typing.ArrayLike = np.array([1, 2])
         torch_eggs.assert_tensor(t, source_nd)
         eggs.assert_match(
             t.data,
             hamcrest.not_(hamcrest.same_instance(source_nd)),
         )
 
-    def test_requires_grad(self):
+    def test_requires_grad(self) -> None:
         for dtype in [torch.float32, torch.complex32]:
             eggs.assert_false(
                 torch.tensor([1], dtype=dtype).requires_grad,
@@ -69,7 +69,7 @@ class TensorTest(TorchApiTestCase):
         )
 
     @pytest.mark.slow
-    def test_tensor_device(self):
+    def test_tensor_device(self) -> None:
         devices = ["cpu"]
         if torch.cuda.is_available():
             devices += [f"cuda:{i}" for i in range(torch.cuda.device_count())]
@@ -79,7 +79,7 @@ class TensorTest(TorchApiTestCase):
             eggs.assert_match(t.device, torch.device(d))
 
     @pytest.mark.slow
-    def test_create_pinned(self):
+    def test_create_pinned(self) -> None:
         # this is expensive.
         if torch.cuda.is_available():
             t = torch.tensor([1], pin_memory=True)  # type: ignore

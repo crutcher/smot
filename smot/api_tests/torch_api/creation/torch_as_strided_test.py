@@ -8,7 +8,7 @@ class AsStridedTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.as_strided.html"
     TARGET = torch.as_strided
 
-    def test_as_strided(self):
+    def test_as_strided(self) -> None:
         t = torch.rand(9)
         v = t.data
 
@@ -27,7 +27,7 @@ class AsStridedTest(TorchApiTestCase):
             ],
         )
 
-    def test_storage_offset(self):
+    def test_storage_offset(self) -> None:
         t = torch.rand(9, dtype=torch.float32)
         v = t.data
         offset = 2

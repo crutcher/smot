@@ -9,7 +9,7 @@ class ZerosLikeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.zeros_like.html"
     TARGET = torch.zeros_like
 
-    def impl(self, device):
+    def impl(self, device: str) -> None:
         # Dense Tensors
         for dtype in [torch.int8, torch.float32]:
             source = torch.tensor(
@@ -50,10 +50,10 @@ class ZerosLikeTest(TorchApiTestCase):
                 ),
             )
 
-    def test_cpu(self):
+    def test_cpu(self) -> None:
         self.impl("cpu")
 
     @pytest.mark.slow
-    def test_cuda(self):
+    def test_cuda(self) -> None:
         if torch.cuda.is_available():
             self.impl("cuda")

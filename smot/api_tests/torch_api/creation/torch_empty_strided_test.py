@@ -8,14 +8,14 @@ class EmptyStridedTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.empty_strided.html"
     TARGET = torch.empty_strided
 
-    def test_empty_strided_scalar(self):
+    def test_empty_strided_scalar(self) -> None:
         eggs.assert_raises(
             lambda: torch.empty_strided(1, 1),  # type: ignore
             TypeError,
             "must be tuple of ints, not int",
         )
 
-    def test_empty_strided(self):
+    def test_empty_strided(self) -> None:
         torch_eggs.assert_tensor_structure(
             torch.empty_strided((2, 3), (1, 2)),
             torch.ones(2, 3),

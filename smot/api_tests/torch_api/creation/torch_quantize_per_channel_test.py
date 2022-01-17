@@ -10,7 +10,7 @@ class QuantizePerChannelTest(TorchApiTestCase):
     )
     TARGET = torch.quantize_per_channel
 
-    def test_quantize_per_channel(self):
+    def test_quantize_per_channel(self) -> None:
         source = torch.tensor(
             [
                 [-1.0, 0.0],

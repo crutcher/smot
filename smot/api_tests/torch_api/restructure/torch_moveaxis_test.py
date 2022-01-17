@@ -8,7 +8,7 @@ class MoveaxisTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.moveaxis.html"
     TARGET = torch.moveaxis
 
-    def test_moveaxis_int(self):
+    def test_moveaxis_int(self) -> None:
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],
@@ -39,7 +39,7 @@ class MoveaxisTest(TorchApiTestCase):
             torch.Size([2, 3, 2]),
         )
 
-    def test_moveaxis_tuples(self):
+    def test_moveaxis_tuples(self) -> None:
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],

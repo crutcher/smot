@@ -10,7 +10,7 @@ from smot.testlib import eggs
 
 
 class GlobalOptionsTest(unittest.TestCase):
-    def test_set_printoptions(self):
+    def test_set_printoptions(self) -> None:
         """torch.set_printoptions(...)
 
         Set global print options for pytorch.
@@ -135,7 +135,7 @@ class GlobalOptionsTest(unittest.TestCase):
                 sci_mode=original.sci_mode,
             )
 
-    def test_set_flush_denormal(self):
+    def test_set_flush_denormal(self) -> None:
         """torch.set_flush_denormal(mode)
 
         Disables denormal floating numbers on the CPU.
@@ -168,7 +168,7 @@ class GlobalOptionsTest(unittest.TestCase):
         finally:
             torch.set_flush_denormal(False)
 
-    def test_default_dtype(self):
+    def test_default_dtype(self) -> None:
         """torch.set_default_dtype(input: Tensor)
 
         Set the default dtype for new tensors.

@@ -9,7 +9,7 @@ class LogspaceTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.logspace.html"
     TARGET = torch.logspace
 
-    def test_logspace(self):
+    def test_logspace(self) -> None:
         torch_eggs.assert_tensor(
             torch.logspace(-10, 10, steps=5),
             [1.0e-10, 1.0e-05, 1.0e00, 1.0e05, 1.0e10],
@@ -21,7 +21,7 @@ class LogspaceTest(TorchApiTestCase):
             [1.0e10, 1.0e05, 1.0e00, 1.0e-05, 1.0e-10],
         )
 
-    def test_logspace_out(self):
+    def test_logspace_out(self) -> None:
         t = torch.ones(5)
         original_data = t.data_ptr()
 
@@ -58,7 +58,7 @@ class LogspaceTest(TorchApiTestCase):
             hamcrest.not_(original_data),
         )
 
-    def test_logspace_100(self):
+    def test_logspace_100(self) -> None:
         # steps=100 as a default is deprecated.
         with eggs.ignore_warnings():
             torch_eggs.assert_tensor(

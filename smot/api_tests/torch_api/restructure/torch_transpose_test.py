@@ -8,7 +8,7 @@ class TransposeTest(TorchApiTestCase):
     API_DOCS = "https://pytorch.org/docs/stable/generated/torch.transpose.html"
     TARGET = torch.transpose
 
-    def test_transpose(self):
+    def test_transpose(self) -> None:
         source = torch.tensor(
             [
                 [0, 1, 2],
@@ -25,7 +25,7 @@ class TransposeTest(TorchApiTestCase):
             ],
         )
 
-    def test_error(self):
+    def test_error(self) -> None:
         source = torch.ones(2, 3)
         eggs.assert_raises(
             lambda: torch.transpose(source, 0, 3),
@@ -33,7 +33,7 @@ class TransposeTest(TorchApiTestCase):
             "Dimension out of range",
         )
 
-    def test_transpose_3d(self):
+    def test_transpose_3d(self) -> None:
         source = torch.tensor(
             [
                 [

@@ -8,7 +8,7 @@ from smot.testlib import eggs
 
 
 class TypeOpsTest(unittest.TestCase):
-    def test_is_tensor(self):
+    def test_is_tensor(self) -> None:
         """torch.is_tensor(obj)
 
         Returns True if obj is a PyTorch tensor.
@@ -38,7 +38,7 @@ class TypeOpsTest(unittest.TestCase):
             torch.is_tensor(np.array([1, 2])),
         )
 
-    def test_is_storage(self):
+    def test_is_storage(self) -> None:
         """torch.is_storage(obj)
 
         .. _Online Doc:
@@ -58,7 +58,7 @@ class TypeOpsTest(unittest.TestCase):
             torch.is_storage(t),
         )
 
-    def test_is_complex(self):
+    def test_is_complex(self) -> None:
         """torch.is_complex(input: Tensor)
         Also: `<tensor>.is_complex()`
 
@@ -93,7 +93,7 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
-    def test_is_conj(self):
+    def test_is_conj(self) -> None:
         """torch.is_conj(input: Tensor)
         Also: `<tensor>.is_complex()`
 
@@ -150,7 +150,7 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
-    def test_is_floating_point(self):
+    def test_is_floating_point(self) -> None:
         """torch.is_floating_point(input: Tensor)
         Also: `<tensor>.is_floating_point()`
 
@@ -184,7 +184,7 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
-    def test_is_nonzero(self):
+    def test_is_nonzero(self) -> None:
         """torch.is_nonzero(input: Tensor)
         Also: `<tensor>.is_nonzero()`
 

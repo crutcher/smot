@@ -8,7 +8,7 @@ from smot.testlib import np_eggs
 class ZerosLikeTest(unittest.TestCase):
     # https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html
 
-    def test_zeros_like(self):
+    def test_zeros_like(self) -> None:
         # Dense ndarrays
         for dtype in [int, float]:
             source = np.ndarray(  # type: ignore

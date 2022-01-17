@@ -8,7 +8,7 @@ class PermuteTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.permute.html"
     TARGET = torch.permute
 
-    def test_permute(self):
+    def test_permute(self) -> None:
         source = torch.tensor(
             [
                 [

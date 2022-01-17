@@ -9,7 +9,7 @@ class PolarTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.polar.html"
     TARGET = torch.polar
 
-    def test_polar(self):
+    def test_polar(self) -> None:
         abs = torch.tensor([1, 2, 1], dtype=torch.float64)
         angle = torch.tensor(
             [np.pi / 2, 2 * np.pi, 5 * np.pi / 2],

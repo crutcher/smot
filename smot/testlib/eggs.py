@@ -1,6 +1,6 @@
 import contextlib
 from dataclasses import dataclass
-from typing import Any, Callable, Dict, Optional, Sequence, Tuple, Type
+from typing import Any, Callable, Dict, Generator, Optional, Sequence, Tuple, Type
 import warnings
 
 import hamcrest
@@ -21,7 +21,7 @@ hamcrest.core.base_matcher.__tracebackhide__ = True
 
 
 @dataclass
-class WhenCalledMatcher(BaseMatcher):
+class WhenCalledMatcher(BaseMatcher[Callable[..., Any]]):
     args: Tuple[Any, ...]
     kwargs: Dict[str, Any]
     method: Optional[str] = None
@@ -32,16 +32,16 @@ class WhenCalledMatcher(BaseMatcher):
         kwargs: Dict[str, Any],
         matcher: Matcher,
         method: Optional[str] = None,
-    ):
+    ) -> None:
         self.args = tuple(args)
         self.kwargs = dict(kwargs)
         self.matcher = matcher
         self.method = method
 
-    def _matches(self, item) -> bool:
+    def _matches(self, item: Callable) -> bool:
         return self.matcher.matches(self._call_item(item))
 
-    def _call_item(self, item) -> Any:
+    def _call_item(self, item: Callable) -> Any:
         if self.method is None:
             f = item
         else:
@@ -64,7 +64,9 @@ class WhenCalledMatcher(BaseMatcher):
 
         description.append_description_of(self.matcher)
 
-    def describe_mismatch(self, item: Any, mismatch_description: Description) -> None:
+    def describe_mismatch(
+        self, item: Callable, mismatch_description: Description
+    ) -> None:
         val = self._call_item(item)
         mismatch_description.append_text("was =>").append_description_of(val)
 
@@ -75,7 +77,7 @@ class WhenCalledBuilder:
     kwargs: Dict[str, Any]
     method: Optional[str] = None
 
-    def matches(self, matcher) -> WhenCalledMatcher:
+    def matches(self, matcher: Any) -> WhenCalledMatcher:
         return WhenCalledMatcher(
             args=self.args,
             kwargs=self.kwargs,
@@ -84,15 +86,15 @@ class WhenCalledBuilder:
         )
 
 
-def when_called(*args, **kwargs) -> WhenCalledBuilder:
+def when_called(*args: Any, **kwargs: Any) -> WhenCalledBuilder:
     return WhenCalledBuilder(args, kwargs)
 
 
-def calling_method(method, *args, **kwargs) -> WhenCalledBuilder:
+def calling_method(method: str, *args: Any, **kwargs: Any) -> WhenCalledBuilder:
     return WhenCalledBuilder(args, kwargs, method=method)
 
 
-def _as_matcher(matcher) -> Matcher:
+def _as_matcher(matcher: Any) -> Matcher:
     if not isinstance(matcher, Matcher):
         matcher = hamcrest.is_(matcher)
 
@@ -163,7 +165,7 @@ def assert_raises(
 
 
 @contextlib.contextmanager
-def ignore_warnings():
+def ignore_warnings() -> Generator[None, None, None]:
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         yield

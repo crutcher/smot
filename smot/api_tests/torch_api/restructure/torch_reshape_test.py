@@ -8,7 +8,7 @@ class ReshapeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.reshape.html"
     TARGET = torch.reshape
 
-    def test_reshape_view(self):
+    def test_reshape_view(self) -> None:
         source = torch.arange(4)
 
         # Contiguous reshapes produce views
@@ -26,7 +26,7 @@ class ReshapeTest(TorchApiTestCase):
             [[0, 1], [2, 3]],
         )
 
-    def test_reshape_copy(self):
+    def test_reshape_copy(self) -> None:
         source = torch.arange(9).reshape(3, 3).narrow(1, 0, 2)
 
         # Contiguous reshapes produce copies

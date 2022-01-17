@@ -19,10 +19,10 @@ __tracebackhide__ = True
 class NDArrayStructureMatcher(BaseMatcher):
     expected: np.ndarray
 
-    def __init__(self, expected):
+    def __init__(self, expected: typing.Any) -> None:
         self.expected = np.asarray(expected)
 
-    def _matches(self, item) -> bool:
+    def _matches(self, item: typing.Any) -> bool:
         # Todo: structural miss-match that still shows expected ndarray.
 
         try:
@@ -59,7 +59,7 @@ def assert_ndarray_structure(
         typing.Sequence,
         nptyping.NDArray,
     ],
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_ndarray_structure(expected),
@@ -71,14 +71,14 @@ class NDArrayMatcher(NDArrayStructureMatcher):
 
     def __init__(
         self,
-        expected,
+        expected: typing.Any,
         *,
         close: bool = False,
-    ):
+    ) -> None:
         super().__init__(expected=expected)
         self.close = close
 
-    def _matches(self, item) -> bool:
+    def _matches(self, item: typing.Any) -> bool:
         if not super()._matches(item):
             return False
 
@@ -136,7 +136,7 @@ def assert_ndarray(
         typing.Sequence,
         nptyping.NDArray,
     ],
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_ndarray(expected),
@@ -150,7 +150,7 @@ def assert_ndarray_seq(
         typing.Sequence,
         nptyping.NDArray,
     ],
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_ndarray_seq(*expected),
@@ -174,7 +174,7 @@ def assert_ndarray_close(
         typing.Sequence,
         nptyping.NDArray,
     ],
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_ndarray_close(expected),

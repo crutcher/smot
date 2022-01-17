@@ -8,7 +8,7 @@ class FrombufferTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.frombuffer.html"
     TARGET = torch.frombuffer
 
-    def test_frombuffer(self):
+    def test_frombuffer(self) -> None:
         source = bytearray([0, 1, 2, 3, 4])
 
         view = torch.frombuffer(

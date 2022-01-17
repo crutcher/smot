@@ -8,7 +8,7 @@ class TakeAlongDimTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.take_along_dim.html"
     TARGET = torch.take_along_dim
 
-    def test_take(self):
+    def test_take(self) -> None:
         src = torch.tensor([[10, 30, 20], [60, 40, 50]])
 
         max_idx = torch.argmax(src)
@@ -32,7 +32,7 @@ class TakeAlongDimTest(TorchApiTestCase):
             [[10, 20, 30], [40, 50, 60]],
         )
 
-    def test_error(self):
+    def test_error(self) -> None:
         src = torch.tensor([[10, 30, 20], [60, 40, 50]])
 
         eggs.assert_raises(

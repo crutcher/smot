@@ -8,7 +8,7 @@ class MovedimTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.movedim.html"
     TARGET = torch.movedim
 
-    def test_movedim_int(self):
+    def test_movedim_int(self) -> None:
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],
@@ -39,7 +39,7 @@ class MovedimTest(TorchApiTestCase):
             torch.Size([2, 3, 2]),
         )
 
-    def test_movedim_tuples(self):
+    def test_movedim_tuples(self) -> None:
         source = torch.tensor(
             [
                 [[1, 2], [3, 4]],

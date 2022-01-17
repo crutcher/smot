@@ -6,13 +6,13 @@ from smot.testlib import np_eggs
 
 
 class EmptyTest(unittest.TestCase):
-    def test_empty_zero(self):
+    def test_empty_zero(self) -> None:
         np_eggs.assert_ndarray(
             np.empty(0),
             np.ones(0),
         )
 
-    def test_empty(self):
+    def test_empty(self) -> None:
         np_eggs.assert_ndarray_structure(
             np.empty([2, 2]),
             np.array([[0.0, 0.0], [0.0, 0.0]]),

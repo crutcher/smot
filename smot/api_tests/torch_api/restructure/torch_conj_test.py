@@ -8,7 +8,7 @@ class ConjTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.conj.html"
     TARGET = torch.conj
 
-    def test_conj(self):
+    def test_conj(self) -> None:
         source = torch.tensor([-1 + 1j, -2 + 2j, 3 - 3j])
         conj_view = torch.conj(source)
 

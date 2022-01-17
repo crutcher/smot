@@ -9,7 +9,7 @@ class ChunkTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.chunk.html"
     TARGET = torch.chunk
 
-    def test_chunk(self):
+    def test_chunk(self) -> None:
         source = torch.tensor([1, 2, 3, 4, 5, 6])
         chunks = torch.chunk(source, 2)
 
@@ -43,7 +43,7 @@ class ChunkTest(TorchApiTestCase):
             [88, 66, 3, 99, 77, 6],
         )
 
-    def test_chunk_dims(self):
+    def test_chunk_dims(self) -> None:
         source = torch.tensor([[1, 2, 3], [4, 5, 6]])
 
         eggs.assert_match(
@@ -63,7 +63,7 @@ class ChunkTest(TorchApiTestCase):
             ),
         )
 
-    def test_trailing_chunk(self):
+    def test_trailing_chunk(self) -> None:
         source = torch.tensor([1, 2, 3, 4, 5, 6])
 
         # returning less than requested chunks,

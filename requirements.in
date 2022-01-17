@@ -36,6 +36,7 @@ scipy
 
 # Pandas
 pandas
+pandas-stubs
 
 # pytorch
 # pytorch with cu111 builds.

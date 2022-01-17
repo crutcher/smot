@@ -10,7 +10,7 @@ class ScatterAddTest(TorchApiTestCase):
 
     # Note: the backward pass is implemented only for src.shape == index.shape
 
-    def test_add(self):
+    def test_add(self) -> None:
         source = torch.arange(9, dtype=torch.int64).reshape(3, 3)
 
         torch_eggs.assert_tensor(

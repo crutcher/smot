@@ -8,7 +8,7 @@ class TakeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.take.html"
     TARGET = torch.take
 
-    def test_take(self):
+    def test_take(self) -> None:
         src = torch.tensor(
             [
                 [1, 2, 3],

@@ -1,6 +1,5 @@
 import os
 
-from smot.common import str_fns
 from smot.common.runtime import build_paths, reflection
 
 
@@ -9,8 +8,7 @@ def notebook_dir() -> str:
 
 
 def notebook_relative_dir() -> str:
-    return str_fns.removeprefix(
-        notebook_dir(),
+    return notebook_dir().removeprefix(
         reflection.repository_source_root() + "/",
     )
 

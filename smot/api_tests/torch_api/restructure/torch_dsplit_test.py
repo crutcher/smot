@@ -8,7 +8,7 @@ class DsplitTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.dsplit.html"
     TARGET = torch.dsplit
 
-    def test_view(self):
+    def test_view(self) -> None:
         source = torch.arange(16.0).reshape(2, 2, 4)
         torch_eggs.assert_tensor(
             source,
@@ -90,7 +90,7 @@ class DsplitTest(TorchApiTestCase):
             ),
         )
 
-    def test_indices(self):
+    def test_indices(self) -> None:
         source = torch.arange(16.0).reshape(2, 2, 4)
         torch_eggs.assert_tensor(
             source,

@@ -8,7 +8,7 @@ class StackTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.stack.html"
     TARGET = torch.stack
 
-    def test_stack(self):
+    def test_stack(self) -> None:
         a = torch.arange(9, dtype=torch.int64).reshape(3, 3)
         a += 10
 
@@ -58,7 +58,7 @@ class StackTest(TorchApiTestCase):
             ],
         )
 
-    def test_errors(self):
+    def test_errors(self) -> None:
         a = torch.ones(3, 2)
         b = torch.ones(2, 2)
 

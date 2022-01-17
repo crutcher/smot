@@ -9,7 +9,7 @@ class SwapaxesTest(TorchApiTestCase):
     TARGET = torch.swapaxes
     ALIAS_FOR = torch.transpose
 
-    def test_swapaxes(self):
+    def test_swapaxes(self) -> None:
         source = torch.tensor(
             [
                 [0, 1, 2],
@@ -26,7 +26,7 @@ class SwapaxesTest(TorchApiTestCase):
             ],
         )
 
-    def test_error(self):
+    def test_error(self) -> None:
         source = torch.ones(2, 3)
         eggs.assert_raises(
             lambda: torch.swapaxes(source, 0, 3),
@@ -34,7 +34,7 @@ class SwapaxesTest(TorchApiTestCase):
             "Dimension out of range",
         )
 
-    def test_swapaxes_3d(self):
+    def test_swapaxes_3d(self) -> None:
         source = torch.tensor(
             [
                 [

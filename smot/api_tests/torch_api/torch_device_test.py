@@ -9,7 +9,7 @@ from smot.testlib import eggs
 
 class DeviceTest(unittest.TestCase):
     @pytest.mark.slow
-    def test_device(self):
+    def test_device(self) -> None:
         devices = ["cpu"]
         if torch.cuda.is_available():
             devices += ["cuda"] + [

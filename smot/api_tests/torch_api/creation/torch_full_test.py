@@ -9,13 +9,13 @@ class FullTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.full.html"
     TARGET = torch.full
 
-    def test_full_scalar(self):
+    def test_full_scalar(self) -> None:
         torch_eggs.assert_tensor(
             torch.full(tuple(), 2),
             torch.tensor(2),
         )
 
-    def test_full(self):
+    def test_full(self) -> None:
         for dtype in [torch.int8, torch.float32]:
             torch_eggs.assert_tensor(
                 torch.full((3,), 2, dtype=dtype),
@@ -23,7 +23,7 @@ class FullTest(TorchApiTestCase):
             )
 
     @pytest.mark.slow
-    def test_full_cuda(self):
+    def test_full_cuda(self) -> None:
         if torch.cuda.is_available():
             for dtype in [torch.int8, torch.float32]:
                 torch_eggs.assert_tensor(

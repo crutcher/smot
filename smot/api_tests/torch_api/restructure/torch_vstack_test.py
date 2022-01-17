@@ -8,7 +8,7 @@ class VstackTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.vstack.html"
     TARGET = torch.vstack
 
-    def test_vstack(self):
+    def test_vstack(self) -> None:
         a = torch.tensor([1, 2, 3])
         b = torch.tensor([4, 5, 6])
 

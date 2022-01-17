@@ -11,19 +11,19 @@ class AsTensorTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.as_tensor.html"
     TARGET = torch.as_tensor
 
-    def test_list(self):
+    def test_list(self) -> None:
         torch_eggs.assert_tensor(
             torch.as_tensor([1, 2]),
             torch.tensor([1, 2]),
         )
 
-    def test_numpy(self):
+    def test_numpy(self) -> None:
         torch_eggs.assert_tensor(
             torch.as_tensor(np.array([1, 2])),
             torch.tensor([1, 2]),
         )
 
-    def test_tensor(self):
+    def test_tensor(self) -> None:
         t = torch.tensor([1, 2])
 
         # when possible (same device, dtype), `.as_tensor` is identity.
@@ -32,7 +32,7 @@ class AsTensorTest(TorchApiTestCase):
             hamcrest.same_instance(t),
         )
 
-    def test_tensor_dtype_conversion(self):
+    def test_tensor_dtype_conversion(self) -> None:
         t = torch.tensor([1, 2], dtype=torch.float32)
 
         # when possible (same device, dtype), `.as_tensor` is identity.
@@ -53,7 +53,7 @@ class AsTensorTest(TorchApiTestCase):
         )
 
     @pytest.mark.slow
-    def test_tensor_cuda_conversion(self):
+    def test_tensor_cuda_conversion(self) -> None:
         if torch.cuda.is_available():
             t = torch.tensor([1.0, 2.0], device="cpu")
 

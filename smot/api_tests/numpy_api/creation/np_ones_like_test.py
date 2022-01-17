@@ -8,7 +8,7 @@ from smot.testlib import np_eggs
 class OnesLikeTest(unittest.TestCase):
     # https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html
 
-    def test_ones_like(self):
+    def test_ones_like(self) -> None:
         # Dense ndarrays
         for dtype in [int, float]:
             source = np.ndarray(  # type: ignore

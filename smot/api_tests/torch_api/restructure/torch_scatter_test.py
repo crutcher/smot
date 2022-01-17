@@ -10,7 +10,7 @@ class ScatterTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.scatter.html"
     TARGET = torch.scatter
 
-    def test_basic(self):
+    def test_basic(self) -> None:
         a = torch.ones(3, 3, dtype=torch.int64)
         b = torch.arange(9, dtype=torch.int64).reshape(3, 3)
 
@@ -31,7 +31,7 @@ class ScatterTest(TorchApiTestCase):
             ],
         )
 
-    def test_reduce(self):
+    def test_reduce(self) -> None:
         b = torch.arange(9, dtype=torch.int64).reshape(3, 3)
 
         torch_eggs.assert_tensor(

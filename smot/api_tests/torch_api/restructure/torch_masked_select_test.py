@@ -8,7 +8,7 @@ class MaskedSelectTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.masked_select.html"
     TARGET = torch.masked_select
 
-    def test_select(self):
+    def test_select(self) -> None:
         source = torch.arange(9).reshape(3, 3)
 
         torch_eggs.assert_tensor(

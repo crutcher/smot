@@ -8,7 +8,7 @@ class GatherTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.gather.html"
     TARGET = torch.gather
 
-    def test_gather(self):
+    def test_gather(self) -> None:
         source = torch.tensor(
             [
                 [1, 2],
@@ -54,7 +54,7 @@ class GatherTest(TorchApiTestCase):
             ],
         )
 
-    def test_out(self):
+    def test_out(self) -> None:
         source = torch.tensor(
             [
                 [1, 2],

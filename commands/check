@@ -18,4 +18,5 @@ MYPYPATH=$PWD nbqa mypy smot
 
 mypy "${TARGETS[@]}"
 
-pyre incremental
+# does not like pytorch
+# pyre incremental

@@ -8,7 +8,7 @@ class HsplitTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.hsplit.html"
     TARGET = torch.hsplit
 
-    def test_view(self):
+    def test_view(self) -> None:
         source = torch.arange(16.0).reshape(4, 4)
         torch_eggs.assert_tensor(
             source,
@@ -77,7 +77,7 @@ class HsplitTest(TorchApiTestCase):
             ),
         )
 
-    def test_indices(self):
+    def test_indices(self) -> None:
         source = torch.arange(16.0).reshape(4, 4)
         torch_eggs.assert_tensor(
             source,

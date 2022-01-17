@@ -249,6 +249,8 @@ packaging==21.3
     #   torchmetrics
 pandas==1.3.5
     # via -r requirements.in
+pandas-stubs==1.2.0.40
+    # via -r requirements.in
 pandocfilters==1.5.0
     # via nbconvert
 parso==0.8.3

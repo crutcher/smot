@@ -8,7 +8,7 @@ class NumelTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.numel.html"
     TARGET = torch.numel
 
-    def test_numel(self):
+    def test_numel(self) -> None:
         for s in [1, [1], [[1]]]:
             t = torch.tensor(s)
             eggs.assert_match(torch.numel(t), 1)

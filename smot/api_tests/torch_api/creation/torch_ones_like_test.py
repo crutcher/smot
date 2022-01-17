@@ -9,7 +9,7 @@ class OnesLikeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.ones_like.html"
     TARGET = torch.ones_like
 
-    def dense(self, device):
+    def dense(self, device: str) -> None:
         # Dense Tensors
         for dtype in [torch.int8, torch.float32]:
             source = torch.tensor(
@@ -28,15 +28,15 @@ class OnesLikeTest(TorchApiTestCase):
                 ),
             )
 
-    def test_cpu_dense(self):
+    def test_cpu_dense(self) -> None:
         self.dense("cpu")
 
     @pytest.mark.slow
-    def test_cuda_dense(self):
+    def test_cuda_dense(self) -> None:
         if torch.cuda.is_available():
             self.dense("cuda")
 
-    def test_sparse(self):
+    def test_sparse(self) -> None:
         coo = torch.tensor([[0, 0], [2, 2]])
         vals = torch.tensor([3, 4])
         source = torch.sparse_coo_tensor(

@@ -9,7 +9,7 @@ class SwapdimsTest(TorchApiTestCase):
     TARGET = torch.swapdims
     ALIAS_FOR = torch.transpose
 
-    def test_swapdims(self):
+    def test_swapdims(self) -> None:
         source = torch.tensor(
             [
                 [0, 1, 2],
@@ -26,7 +26,7 @@ class SwapdimsTest(TorchApiTestCase):
             ],
         )
 
-    def test_error(self):
+    def test_error(self) -> None:
         source = torch.ones(2, 3)
         eggs.assert_raises(
             lambda: torch.swapdims(source, 0, 3),
@@ -34,7 +34,7 @@ class SwapdimsTest(TorchApiTestCase):
             "Dimension out of range",
         )
 
-    def test_swapdims_3d(self):
+    def test_swapdims_3d(self) -> None:
         source = torch.tensor(
             [
                 [

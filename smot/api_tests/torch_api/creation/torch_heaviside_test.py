@@ -8,7 +8,7 @@ class HeavisideTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.heaviside.html"
     TARGET = torch.heaviside
 
-    def test_heaviside_scalar_value(self):
+    def test_heaviside_scalar_value(self) -> None:
         input = torch.tensor([-1.5, 0, 2.0])
         values = torch.tensor(0.5)
         torch_eggs.assert_tensor(
@@ -16,7 +16,7 @@ class HeavisideTest(TorchApiTestCase):
             torch.tensor([0.0, 0.5, 1.0]),
         )
 
-    def test_heaviside_single_value(self):
+    def test_heaviside_single_value(self) -> None:
         input = torch.tensor([-1.5, 0, 2.0])
         values = torch.tensor([0.5])
         torch_eggs.assert_tensor(
@@ -24,7 +24,7 @@ class HeavisideTest(TorchApiTestCase):
             torch.tensor([0.0, 0.5, 1.0]),
         )
 
-    def test_heaviside_multi_value(self):
+    def test_heaviside_multi_value(self) -> None:
         input = torch.tensor([-1.5, 0, 0])
 
         eggs.assert_raises(

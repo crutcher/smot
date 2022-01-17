@@ -9,7 +9,7 @@ class NonzeroTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.nonzero.html"
     TARGET = torch.nonzero
 
-    def test_1d(self):
+    def test_1d(self) -> None:
         source = torch.tensor([1, 2, 3, 0, 4])
         torch_eggs.assert_tensor(
             torch.nonzero(source),
@@ -28,7 +28,7 @@ class NonzeroTest(TorchApiTestCase):
             [1, 2, 3, 4],
         )
 
-    def test_2d(self):
+    def test_2d(self) -> None:
         source = torch.tensor(
             [
                 [1, 2, 3, 0, 4],

@@ -5,5 +5,5 @@
       "source": "smot"
     }
   ],
-  "taint_models_path": "/home/crutcher/git/smot/venv/lib"
+  "taint_models_path": "/home/crutcher/git/smot/venv/lib",
 }

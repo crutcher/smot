@@ -9,7 +9,7 @@ class FullLikeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.full_like.html"
     TARGET = torch.full_like
 
-    def test_full_like_scalar(self):
+    def test_full_like_scalar(self) -> None:
         t = torch.tensor(0)
 
         torch_eggs.assert_tensor_structure(
@@ -17,7 +17,7 @@ class FullLikeTest(TorchApiTestCase):
             torch.tensor(2),
         )
 
-    def test_full_like(self):
+    def test_full_like(self) -> None:
         for dtype in [torch.int8, torch.float32]:
             t = torch.tensor([1], dtype=dtype)
             torch_eggs.assert_tensor(
@@ -32,7 +32,7 @@ class FullLikeTest(TorchApiTestCase):
             )
 
     @pytest.mark.slow
-    def test_full_like_cuda(self):
+    def test_full_like_cuda(self) -> None:
         if torch.cuda.is_available():
             for dtype in [torch.int8, torch.float32]:
                 t = torch.tensor([1], dtype=dtype, device="cuda")

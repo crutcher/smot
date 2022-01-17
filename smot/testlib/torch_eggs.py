@@ -16,7 +16,7 @@ __unittest = True
 __tracebackhide__ = True
 
 
-def assert_views(source: torch.Tensor, *tensor: torch.Tensor):
+def assert_views(source: torch.Tensor, *tensor: torch.Tensor) -> None:
     for t in tensor:
         eggs.assert_match(
             t.storage().data_ptr(),  # type: ignore
@@ -24,7 +24,7 @@ def assert_views(source: torch.Tensor, *tensor: torch.Tensor):
         )
 
 
-def assert_not_view(tensor: torch.Tensor, source: torch.Tensor):
+def assert_not_view(tensor: torch.Tensor, source: torch.Tensor) -> None:
     eggs.assert_match(
         tensor.storage().data_ptr(),  # type: ignore
         hamcrest.not_(source.storage().data_ptr()),  # type: ignore
@@ -42,10 +42,10 @@ ExpectedType = typing.Union[
 class TensorStructureMatcher(BaseMatcher):
     expected: torch.Tensor
 
-    def __init__(self, expected: ExpectedType):
+    def __init__(self, expected: ExpectedType) -> None:
         self.expected = torch.as_tensor(expected)
 
-    def _matches(self, item) -> bool:
+    def _matches(self, item: typing.Any) -> bool:
         # Todo: structural miss-match that still shows expected tensor.
 
         try:
@@ -82,7 +82,7 @@ def expect_tensor_structure(
 def assert_tensor_structure(
     actual: torch.Tensor,
     expected: ExpectedType,
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_tensor_structure(expected),
@@ -104,7 +104,7 @@ class TensorMatcher(TensorStructureMatcher):
         if self.expected.is_sparse and not self.expected.is_coalesced():
             self.expected = self.expected.coalesce()
 
-    def _matches(self, item) -> bool:
+    def _matches(self, item: typing.Any) -> bool:
         if not super()._matches(item):
             return False
 
@@ -166,7 +166,7 @@ def expect_tensor_seq(
 def assert_tensor(
     actual: torch.Tensor,
     expected: ExpectedType,
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_tensor(expected),
@@ -177,7 +177,7 @@ def assert_view_tensor(
     actual: torch.Tensor,
     source: torch.Tensor,
     expected: ExpectedType,
-):
+) -> None:
     assert_views(source, actual)
     assert_tensor(actual, expected)
 
@@ -185,7 +185,7 @@ def assert_view_tensor(
 def assert_tensor_seq(
     actual: typing.Sequence[torch.Tensor],
     *expected: ExpectedType,
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_tensor_seq(*expected),
@@ -196,7 +196,7 @@ def assert_view_tensor_seq(
     actual: typing.Sequence[torch.Tensor],
     source: torch.Tensor,
     *expected: ExpectedType,
-):
+) -> None:
     assert_views(source, *actual)
     hamcrest.assert_that(
         actual,
@@ -213,7 +213,7 @@ def expect_tensor_close(
 def assert_tensor_close(
     actual: torch.Tensor,
     expected: ExpectedType,
-):
+) -> None:
     hamcrest.assert_that(
         actual,
         expect_tensor_close(expected),

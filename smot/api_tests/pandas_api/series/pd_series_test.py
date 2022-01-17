@@ -8,7 +8,7 @@ from smot.testlib import eggs, np_eggs
 
 
 class SeriesTest(unittest.TestCase):
-    def test_simple(self):
+    def test_simple(self) -> None:
         s = pd.Series(["a", "b", "c"])
 
         eggs.assert_match(

@@ -8,14 +8,14 @@ from smot.testlib import np_eggs
 class EyeTest(unittest.TestCase):
     # https://numpy.org/doc/stable/reference/generated/numpy.eye.html
 
-    def test_eye_zero(self):
+    def test_eye_zero(self) -> None:
         # eye(0) still returns a (0,0) ndarray.
         np_eggs.assert_ndarray(
             np.eye(0),
             np.ones((0, 0)),
         )
 
-    def test_eye(self):
+    def test_eye(self) -> None:
         np_eggs.assert_ndarray(
             np.eye(3),
             [

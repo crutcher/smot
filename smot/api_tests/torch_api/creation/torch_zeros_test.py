@@ -9,7 +9,7 @@ class ZerosLikeTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.zeros.html"
     TARGET = torch.zeros
 
-    def test_default(self):
+    def test_default(self) -> None:
         t = torch.zeros(1, 2)
 
         torch_eggs.assert_tensor(
@@ -17,7 +17,7 @@ class ZerosLikeTest(TorchApiTestCase):
             [[0.0, 0.0]],
         )
 
-    def test_scalar(self):
+    def test_scalar(self) -> None:
         # torch.zeros(size) doesn't have a default;
         # but you can still construct a scalar.
         t = torch.zeros(size=[])
@@ -26,7 +26,7 @@ class ZerosLikeTest(TorchApiTestCase):
         eggs.assert_match(t.numel(), 1)
         eggs.assert_match(t.item(), 0)
 
-    def test_out(self):
+    def test_out(self) -> None:
         out = torch.tensor([[3.0, 4.0]])
         original_data = out.data_ptr()
 

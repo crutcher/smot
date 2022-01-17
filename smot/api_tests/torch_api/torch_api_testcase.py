@@ -10,7 +10,7 @@ class TorchApiTestCase(unittest.TestCase):
     ALIAS_FOR: typing.Any = None
 
     @classmethod
-    def target_name(cls):
+    def target_name(cls) -> str:
         target = cls.TARGET
         name = target.__name__
 

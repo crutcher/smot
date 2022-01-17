@@ -9,7 +9,7 @@ class ComplexTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.complex.html"
     TARGET = torch.complex
 
-    def test_complex(self):
+    def test_complex(self) -> None:
         torch_eggs.assert_tensor(
             torch.complex(
                 torch.tensor([1.0, 2.0], dtype=torch.float32),
@@ -21,7 +21,7 @@ class ComplexTest(TorchApiTestCase):
             ),
         )
 
-    def test_complex_out(self):
+    def test_complex_out(self) -> None:
         target = torch.tensor([1j, 3j], dtype=torch.complex64)
         original_data = target.data_ptr()
 

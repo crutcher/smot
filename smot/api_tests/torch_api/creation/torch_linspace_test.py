@@ -9,7 +9,7 @@ class LinspaceTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.linspace.html"
     TARGET = torch.linspace
 
-    def test_linspace(self):
+    def test_linspace(self) -> None:
         torch_eggs.assert_tensor(
             torch.linspace(3, 10, steps=5),
             [3.0, 4.75, 6.5, 8.25, 10.0],
@@ -21,7 +21,7 @@ class LinspaceTest(TorchApiTestCase):
             [10.0, 8.25, 6.5, 4.75, 3.0],
         )
 
-    def test_linspace_out(self):
+    def test_linspace_out(self) -> None:
         t = torch.ones(5)
         original_data = t.data_ptr()
 
@@ -58,7 +58,7 @@ class LinspaceTest(TorchApiTestCase):
             hamcrest.not_(original_data),
         )
 
-    def test_linspace_100(self):
+    def test_linspace_100(self) -> None:
         # steps=100 as a default is deprecated.
         with eggs.ignore_warnings():
             torch_eggs.assert_tensor(
