@@ -310,6 +310,12 @@ https://pytorch.org/docs/stable/generated/torch.t.html
     t(input) -> Tensor
 
 
+### [torch.take](smot/api_tests/torch_api/restructure/torch_take_test.py)
+https://pytorch.org/docs/stable/generated/torch.take.html
+
+    take(input, index) -> Tensor
+
+
 ### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
 https://pytorch.org/docs/stable/torch.html
 
