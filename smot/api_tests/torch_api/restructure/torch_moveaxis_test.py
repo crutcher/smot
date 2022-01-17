@@ -25,7 +25,7 @@ class MoveaxisTest(unittest.TestCase):
 
         view = torch.moveaxis(source, 1, 0)
 
-        torch_eggs.assert_view(view, source)
+        torch_eggs.assert_views(source, view)
 
         torch_eggs.assert_tensor(
             view,
@@ -56,7 +56,7 @@ class MoveaxisTest(unittest.TestCase):
 
         view = torch.moveaxis(source, (1, 2), (0, 1))
 
-        torch_eggs.assert_view(view, source)
+        torch_eggs.assert_views(source, view)
 
         torch_eggs.assert_tensor(
             view,

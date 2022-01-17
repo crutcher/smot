@@ -24,7 +24,7 @@ class PermuteTest(unittest.TestCase):
 
         view = torch.permute(source, (2, 0, 1))
 
-        torch_eggs.assert_view(view, source)
+        torch_eggs.assert_views(source, view)
 
         torch_eggs.assert_tensor(
             view,

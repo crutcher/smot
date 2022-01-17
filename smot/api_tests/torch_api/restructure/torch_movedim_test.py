@@ -24,7 +24,7 @@ class MovedimTest(unittest.TestCase):
 
         view = torch.movedim(source, 1, 0)
 
-        torch_eggs.assert_view(view, source)
+        torch_eggs.assert_views(source, view)
 
         torch_eggs.assert_tensor(
             view,
@@ -55,7 +55,7 @@ class MovedimTest(unittest.TestCase):
 
         view = torch.movedim(source, (1, 2), (0, 1))
 
-        torch_eggs.assert_view(view, source)
+        torch_eggs.assert_views(source, view)
 
         torch_eggs.assert_tensor(
             view,

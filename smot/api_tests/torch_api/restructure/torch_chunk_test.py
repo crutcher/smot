@@ -13,8 +13,7 @@ class ChunkTest(unittest.TestCase):
         source = torch.tensor([1, 2, 3, 4, 5, 6])
         chunks = torch.chunk(source, 2)
 
-        for chunk in chunks:
-            torch_eggs.assert_view(chunk, source)
+        torch_eggs.assert_views(source, *chunks)
 
         eggs.assert_match(
             chunks,

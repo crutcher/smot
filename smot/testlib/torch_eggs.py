@@ -16,11 +16,12 @@ __unittest = True
 __tracebackhide__ = True
 
 
-def assert_view(tensor: torch.Tensor, source: torch.Tensor):
-    eggs.assert_match(
-        tensor.storage().data_ptr(),  # type: ignore
-        source.storage().data_ptr(),  # type: ignore
-    )
+def assert_views(source: torch.Tensor, *tensor: torch.Tensor):
+    for t in tensor:
+        eggs.assert_match(
+            t.storage().data_ptr(),  # type: ignore
+            source.storage().data_ptr(),  # type: ignore
+        )
 
 
 def assert_not_view(tensor: torch.Tensor, source: torch.Tensor):
@@ -177,7 +178,7 @@ def assert_view_tensor(
     source: torch.Tensor,
     expected: ExpectedType,
 ):
-    assert_view(actual, source)
+    assert_views(source, actual)
     assert_tensor(actual, expected)
 
 
