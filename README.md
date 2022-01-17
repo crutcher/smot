@@ -2,43 +2,43 @@
 
 A repository of datascience / ai apis explored in far too much detail.
 
-[Quick Links to API Tests](./API.md)
+[Quick Links to API Tests](API.md)
 
-You're probably most interested in the public api unittests in [api_tests](./smot/api_tests):
-  * [torch_api](./smot/api_tests/torch_api) (20%?)
+You're probably most interested in the public api unittests in [api_tests](smot/api_tests):
+  * [torch_api](smot/api_tests/torch_api) (20%?)
 
 These exist, but they're mostly empty at the moment.
-  * [numpy_api](./smot/api_tests/numpy_api)
-  * [pandas_api](./smot/api_tests/pandas_api)
+  * [numpy_api](smot/api_tests/numpy_api)
+  * [pandas_api](smot/api_tests/pandas_api)
  
 ## Test Naming
 
-Generally, all test files have globally unique names. This makes IDE search funcitons
+Generally, all test files have globally unique names. This makes IDE search functions
 much smoother, at the cost of some local smurfing. For instance, despite being nested
 in local contexts where their meaning is unambiguous, the following files exist:
-  * [np_ones_test.py](./smot/api_tests/numpy_api/creation/np_ones_test.py)
-  * [torch_ones_test.py](./smot/api_tests/torch_api/creation/torch_ones_test.py)
+  * [np_ones_test.py](smot/api_tests/numpy_api/creation/np_ones_test.py)
+  * [torch_ones_test.py](smot/api_tests/torch_api/creation/torch_ones_test.py)
 
 ## Requirements
 
 Packages
-  * Apt Packages [apt.txt](./apt.txt)
-  * Snap Packages [snap.txt](./snap.txt)
+  * Apt Packages [apt.txt](apt.txt)
+  * Snap Packages [snap.txt](snap.txt)
   * Python `virtualenv` Packages (`pip-compile` / `pip-sync`)
-    - [requirements.in](./requirements.in)
-    - [requirements.txt](./requirements.txt)
+    - [requirements.in](requirements.in)
+    - [requirements.txt](requirements.txt)
 
 
 ## Setup
 
-  * Run `./grind repo install_packages`
-  * Run `./grind repo bootstrap`
+  * Run `grind repo install_packages`
+  * Run `grind repo bootstrap`
 
 ## Run All Tests
 
 Pretty much everything gets run via:
 
-`./grind presubmit`
+`grind presubmit`
 
 This will:
   * check all code for style violations
@@ -52,13 +52,13 @@ This will:
 
 See: [grind README](commands/README.md)
 
-`./grind` provides a hook to run many different repository commands.
+`grind` provides a hook to run many different repository commands.
 
-  * `./grind check`
-  * `./grind format`
-  * `./grind test`
-  * `./grind fasttest`
-  * `./grind presubmit`
+  * `grind check`
+  * `grind format`
+  * `grind test`
+  * `grind fasttest`
+  * `grind presubmit`
 
 ### Grind Tab Completion
 
