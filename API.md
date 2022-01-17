@@ -274,6 +274,18 @@ https://pytorch.org/docs/stable/generated/torch.scatter_add.html
     scatter_add(input, dim, index, src) -> Tensor
 
 
+### [torch.split](smot/api_tests/torch_api/restructure/torch_split_test.py)
+https://pytorch.org/docs/stable/generated/torch.split.html
+
+    Splits the tensor into chunks. Each chunk is a view of the original tensor.
+
+
+### [torch.squeeze](smot/api_tests/torch_api/restructure/torch_squeeze_test.py)
+https://pytorch.org/docs/stable/generated/torch.squeeze.html
+
+    squeeze(input, dim=None, *, out=None) -> Tensor
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
