@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class DsplitTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.dsplit.html
+class DsplitTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.dsplit.html"
+    TARGET = torch.dsplit
 
     def test_view(self):
         source = torch.arange(16.0).reshape(2, 2, 4)

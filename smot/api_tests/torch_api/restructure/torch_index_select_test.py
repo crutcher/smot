@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class IndexSelectTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.index_select.html
+class IndexSelectTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.index_select.html"
+    TARGET = torch.index_select
 
     def source_tensor(self) -> torch.Tensor:
         source = torch.arange(9).reshape(3, 3)

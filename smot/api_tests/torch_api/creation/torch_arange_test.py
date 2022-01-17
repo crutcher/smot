@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class ArangeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.arange.html
+class ArangeTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.arange.html"
+    TARGET = torch.arange
 
     def test_arange(self):
         torch_eggs.assert_tensor(

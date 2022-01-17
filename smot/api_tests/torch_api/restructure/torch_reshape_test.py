@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class ReshapeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.reshape.html
+class ReshapeTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.reshape.html"
+    TARGET = torch.reshape
 
     def test_reshape_view(self):
         source = torch.arange(4)

@@ -1,13 +1,13 @@
-import unittest
-
 import pytest
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class EmptyLikeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.empty_like.html
+class EmptyLikeTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.empty_like.html"
+    TARGET = torch.empty_like
 
     def test_empty_like_scalar(self):
         t = torch.tensor(0)

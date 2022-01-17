@@ -1,13 +1,13 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 from smot.testlib.eggs import ignore_warnings
 
 
-class RangeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.range.html
+class RangeTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.range.html"
+    TARGET = torch.range
 
     def test_range(self):
         with ignore_warnings():

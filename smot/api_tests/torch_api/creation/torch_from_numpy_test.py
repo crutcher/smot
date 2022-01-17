@@ -1,13 +1,13 @@
-import unittest
-
 import numpy as np
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class FromNumpyTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.from_numpy.html
+class FromNumpyTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.from_numpy.html"
+    TARGET = torch.from_numpy
 
     def test_from_numpy(self):
         source = np.array([[1.0, 2.0], [3.0, 4.0]], dtype=float)

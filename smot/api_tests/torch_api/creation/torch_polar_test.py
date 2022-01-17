@@ -1,13 +1,13 @@
-import unittest
-
 import numpy as np
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class PolarTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.polar.html
+class PolarTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.polar.html"
+    TARGET = torch.polar
 
     def test_polar(self):
         abs = torch.tensor([1, 2, 1], dtype=torch.float64)

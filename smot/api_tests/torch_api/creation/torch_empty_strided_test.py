@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class EmptyStridedTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.empty_strided.html
+class EmptyStridedTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.empty_strided.html"
+    TARGET = torch.empty_strided
 
     def test_empty_strided_scalar(self):
         eggs.assert_raises(

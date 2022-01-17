@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class GatherTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.gather.html
+class GatherTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.gather.html"
+    TARGET = torch.gather
 
     def test_gather(self):
         source = torch.tensor(
@@ -15,8 +15,6 @@ class GatherTest(unittest.TestCase):
                 [3, 4],
             ],
         )
-
-        target = torch.arange(4)
 
         torch_eggs.assert_tensor(
             torch.gather(

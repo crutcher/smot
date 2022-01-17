@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class ConconcatTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.concat.html
+class ConcatTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.concat.html"
+    TARGET = torch.concat
 
     def test_scalar(self):
         eggs.assert_raises(

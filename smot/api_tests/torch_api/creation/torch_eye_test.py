@@ -1,13 +1,13 @@
-import unittest
-
 import hamcrest
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class EyeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.eye.html
+class EyeTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.eye.html"
+    TARGET = torch.eye
 
     def test_eye_zero(self):
         # eye(0) still returns a (0,0) tensor.

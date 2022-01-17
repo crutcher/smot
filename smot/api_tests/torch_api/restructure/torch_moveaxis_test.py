@@ -1,13 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class MoveaxisTest(unittest.TestCase):
-    # alias for movedim
-    # https://pytorch.org/docs/stable/generated/torch.moveaxis.html
+class MoveaxisTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.moveaxis.html"
+    TARGET = torch.moveaxis
 
     def test_moveaxis_int(self):
         source = torch.tensor(

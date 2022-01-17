@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class MaskedSelectTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.masked_select.html
+class MaskedSelectTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.masked_select.html"
+    TARGET = torch.masked_select
 
     def test_select(self):
         source = torch.arange(9).reshape(3, 3)

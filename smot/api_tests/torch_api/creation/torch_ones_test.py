@@ -1,13 +1,13 @@
-import unittest
-
 import hamcrest
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class OnesTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.ones.html
+class OnesTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.ones.html"
+    TARGET = torch.ones
 
     def test_default(self):
         t = torch.ones(1, 2)

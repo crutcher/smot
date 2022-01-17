@@ -1,14 +1,16 @@
-import unittest
-
 import hamcrest
 import numpy as np
 import pytest
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class TensorTest(unittest.TestCase):
+class TensorTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.tensor.html"
+    TARGET = torch.tensor
+
     def test_scalar_tensor(self):
         t = torch.tensor(1)
 

@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class ConjTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.conj.html
+class ConjTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.conj.html"
+    TARGET = torch.conj
 
     def test_conj(self):
         source = torch.tensor([-1 + 1j, -2 + 2j, 3 - 3j])

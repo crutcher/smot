@@ -1,20 +1,14 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs
 
 
-class ShapeOpsTest(unittest.TestCase):
+class NumelTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.numel.html"
+    TARGET = torch.numel
+
     def test_numel(self):
-        """torch.numel(input: Tensor)
-        Also: `<tensor>.numel()`
-
-        Returns the number of elements in the tensor.
-
-        .. _Online Doc:
-            https://pytorch.org/docs/stable/generated/torch.numel.html
-        """
         for s in [1, [1], [[1]]]:
             t = torch.tensor(s)
             eggs.assert_match(torch.numel(t), 1)

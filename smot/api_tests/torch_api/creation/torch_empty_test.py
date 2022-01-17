@@ -1,13 +1,13 @@
-import unittest
-
 import pytest
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class EmptyTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.empty.html
+class EmptyTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.empty.html"
+    TARGET = torch.empty
 
     def test_empty_zero(self):
         torch_eggs.assert_tensor(

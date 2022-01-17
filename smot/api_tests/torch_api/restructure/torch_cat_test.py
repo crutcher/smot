@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class CatTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.cat.html
+class CatTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.cat.html"
+    TARGET = torch.cat
 
     def test_scalar(self):
         eggs.assert_raises(

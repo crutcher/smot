@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class MovedimTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.movedim.html
+class MovedimTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.movedim.html"
+    TARGET = torch.movedim
 
     def test_movedim_int(self):
         source = torch.tensor(

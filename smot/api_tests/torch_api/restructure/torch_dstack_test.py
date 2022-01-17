@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class DstackTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.dstack.html
+class DstackTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.dstack.html"
+    TARGET = torch.dstack
 
     def test_dstack(self):
         torch_eggs.assert_tensor(

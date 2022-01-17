@@ -1,11 +1,13 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
-class SparseCooTensorTest(unittest.TestCase):
+class SparseCooTensorTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html"
+    TARGET = torch.sparse_coo_tensor
+
     def test_coalesce_add(self):
         # duplicate indexes add under .coalesce()
         coo = torch.tensor([[0, 0], [2, 2]])

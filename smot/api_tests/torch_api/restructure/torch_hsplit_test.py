@@ -1,12 +1,12 @@
-import unittest
-
 import torch
 
+from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import torch_eggs
 
 
-class HsplitTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.hsplit.html
+class HsplitTest(TorchApiTestCase):
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.hsplit.html"
+    TARGET = torch.hsplit
 
     def test_view(self):
         source = torch.arange(16.0).reshape(4, 4)
