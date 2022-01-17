@@ -192,6 +192,18 @@ def assert_tensor_seq(
     )
 
 
+def assert_view_tensor_seq(
+    actual: typing.Sequence[torch.Tensor],
+    source: torch.Tensor,
+    *expected: ExpectedType,
+):
+    assert_views(source, *actual)
+    hamcrest.assert_that(
+        actual,
+        expect_tensor_seq(*expected),
+    )
+
+
 def expect_tensor_close(
     expected: ExpectedType,
 ) -> TensorMatcher:
