@@ -286,6 +286,12 @@ https://pytorch.org/docs/stable/generated/torch.squeeze.html
     squeeze(input, dim=None, *, out=None) -> Tensor
 
 
+### [torch.stack](smot/api_tests/torch_api/restructure/torch_stack_test.py)
+https://pytorch.org/docs/stable/generated/torch.stack.html
+
+    stack(tensors, dim=0, *, out=None) -> Tensor
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
