@@ -23,10 +23,25 @@ def assert_view(tensor: torch.Tensor, source: torch.Tensor):
     )
 
 
+def assert_not_view(tensor: torch.Tensor, source: torch.Tensor):
+    eggs.assert_match(
+        tensor.storage().data_ptr(),  # type: ignore
+        hamcrest.not_(source.storage().data_ptr()),  # type: ignore
+    )
+
+
+ExpectedType = typing.Union[
+    torch.Tensor,
+    numbers.Number,
+    typing.Sequence,
+    nptyping.NDArray,
+]
+
+
 class TensorStructureMatcher(BaseMatcher):
     expected: torch.Tensor
 
-    def __init__(self, expected):
+    def __init__(self, expected: ExpectedType):
         self.expected = torch.as_tensor(expected)
 
     def _matches(self, item) -> bool:
@@ -58,24 +73,14 @@ class TensorStructureMatcher(BaseMatcher):
 
 
 def expect_tensor_structure(
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ) -> TensorStructureMatcher:
     return TensorStructureMatcher(expected)
 
 
 def assert_tensor_structure(
     actual: torch.Tensor,
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ):
     hamcrest.assert_that(
         actual,
@@ -88,7 +93,7 @@ class TensorMatcher(TensorStructureMatcher):
 
     def __init__(
         self,
-        expected,
+        expected: ExpectedType,
         *,
         close: bool = False,
     ):
@@ -146,35 +151,20 @@ class TensorMatcher(TensorStructureMatcher):
 
 
 def expect_tensor(
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ) -> TensorMatcher:
     return TensorMatcher(expected, close=False)
 
 
 def expect_tensor_seq(
-    *expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    *expected: ExpectedType,
 ) -> Matcher:
     return hamcrest.contains_exactly(*[expect_tensor(e) for e in expected])
 
 
 def assert_tensor(
     actual: torch.Tensor,
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ):
     hamcrest.assert_that(
         actual,
@@ -182,14 +172,18 @@ def assert_tensor(
     )
 
 
+def assert_view_tensor(
+    actual: torch.Tensor,
+    source: torch.Tensor,
+    expected: ExpectedType,
+):
+    assert_view(actual, source)
+    assert_tensor(actual, expected)
+
+
 def assert_tensor_seq(
     actual: typing.Sequence[torch.Tensor],
-    *expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    *expected: ExpectedType,
 ):
     hamcrest.assert_that(
         actual,
@@ -198,24 +192,14 @@ def assert_tensor_seq(
 
 
 def expect_tensor_close(
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ) -> TensorMatcher:
     return TensorMatcher(expected, close=True)
 
 
 def assert_tensor_close(
     actual: torch.Tensor,
-    expected: typing.Union[
-        torch.Tensor,
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
+    expected: ExpectedType,
 ):
     hamcrest.assert_that(
         actual,

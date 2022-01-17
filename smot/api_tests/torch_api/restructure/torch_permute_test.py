@@ -6,7 +6,9 @@ from smot.testlib import torch_eggs
 
 
 class PermuteTest(unittest.TestCase):
-    def test_basic(self):
+    # https://pytorch.org/docs/stable/generated/torch.permute.html
+
+    def test_permute(self):
         source = torch.tensor(
             [
                 [
