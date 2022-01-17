@@ -3,7 +3,7 @@
 A repository of datascience / ai apis explored in far too much detail.
 
 You're probably most interested in the public api unittests in [api_tests](./smot/api_tests):
-  * [numpy_api](./smot/api_tests/np_api)
+  * [numpy_api](./smot/api_tests/numpy_api)
   * [pandas_api](./smot/api_tests/pandas_api)
   * [torch_api](./smot/api_tests/torch_api)
  
