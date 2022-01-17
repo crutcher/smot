@@ -316,6 +316,12 @@ https://pytorch.org/docs/stable/generated/torch.take.html
     take(input, index) -> Tensor
 
 
+### [torch.take_along_dim](smot/api_tests/torch_api/restructure/torch_take_along_dim_test.py)
+https://pytorch.org/docs/stable/generated/torch.take_along_dim.html
+
+    take_along_dim(input, indices, dim, *, out=None) -> Tensor
+
+
 ### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
 https://pytorch.org/docs/stable/torch.html
 
