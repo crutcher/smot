@@ -304,6 +304,12 @@ https://pytorch.org/docs/stable/torch.html
     swapdims(input, dim0, dim1) -> Tensor
 
 
+### [torch.t](smot/api_tests/torch_api/restructure/torch_t_test.py)
+https://pytorch.org/docs/stable/generated/torch.t.html
+
+    t(input) -> Tensor
+
+
 ### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
 https://pytorch.org/docs/stable/torch.html
 
