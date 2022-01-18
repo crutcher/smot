@@ -29,6 +29,12 @@ Packages
     - [requirements.txt](requirements.txt)
 
 
+> Note: You need a working pytorch install. I'm using a cuda1.11 preview build,
+> see the --link in requirements.txt, you may need to change this. I am open
+> to making the bootstrapping code conditional on local torch needs. Hmu.
+    
+
+
 ## Setup
 
   * Run `grind repo install_packages`
