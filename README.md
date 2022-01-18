@@ -5,7 +5,19 @@ A repository of datascience / ai apis explored in far too much detail.
 [Quick Links to API Tests](API.md)
 
 You're probably most interested in the public api unittests in [api_tests](smot/api_tests):
-  * [torch_api](smot/api_tests/torch_api) (20%?)
+  * [torch_api](smot/api_tests/torch_api)
+    * torch
+      * Tensors
+        * [x] creation ops
+        * [x] indexing, slicing, joining, mutating ops
+      * [x] Generators
+      * [ ] Random Sampling
+      * [ ] Serialization
+      * [ ] Parallelism
+      * [ ] Locally disabling gradient computation
+      * [ ] Math
+      * [ ] Utilities
+    * [ ] torch.???
 
 These exist, but they're mostly empty at the moment.
   * [numpy_api](smot/api_tests/numpy_api)
