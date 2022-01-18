@@ -322,6 +322,12 @@ https://pytorch.org/docs/stable/generated/torch.take_along_dim.html
     take_along_dim(input, indices, dim, *, out=None) -> Tensor
 
 
+### [torch.tensor_split](smot/api_tests/torch_api/restructure/torch_tensor_split_test.py)
+https://pytorch.org/docs/stable/torch.html
+
+    tensor_split(input, indices_or_sections, dim=0) -> List of Tensors
+
+
 ### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
 https://pytorch.org/docs/stable/torch.html
 
