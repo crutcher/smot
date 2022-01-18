@@ -154,6 +154,12 @@ https://pytorch.org/docs/stable/generated/torch.zeros_like.html
     zeros_like(input, *, dtype=None, layout=None, device=None, requires_grad=False, memory_format=torch.preserve_format) -> Tensor
 
 
+### [torch.Generator](smot/api_tests/torch_api/random/torch_Generator_test.py)
+https://pytorch.org/docs/stable/generated/torch.Generator.html
+
+    Generator(device='cpu') -> Generator
+
+
 ### [torch.cat](smot/api_tests/torch_api/restructure/torch_cat_test.py)
 https://pytorch.org/docs/stable/generated/torch.cat.html
 
