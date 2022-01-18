@@ -340,6 +340,12 @@ https://pytorch.org/docs/stable/torch.html
     transpose(input, dim0, dim1) -> Tensor
 
 
+### [torch.unbind](smot/api_tests/torch_api/restructure/torch_unbind_test.py)
+https://pytorch.org/docs/stable/generated/torch.unbind.html
+
+    unbind(input, dim=0) -> seq
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
