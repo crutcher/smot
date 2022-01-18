@@ -346,6 +346,12 @@ https://pytorch.org/docs/stable/generated/torch.unbind.html
     unbind(input, dim=0) -> seq
 
 
+### [torch.unsqueeze](smot/api_tests/torch_api/restructure/torch_unsqueeze_test.py)
+https://pytorch.org/docs/stable/generated/torch.unsqueeze.html
+
+    unsqueeze(input, dim) -> Tensor
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
