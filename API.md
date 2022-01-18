@@ -352,6 +352,12 @@ https://pytorch.org/docs/stable/generated/torch.unsqueeze.html
     unsqueeze(input, dim) -> Tensor
 
 
+### [torch.vsplit](smot/api_tests/torch_api/restructure/torch_vsplit_test.py)
+https://pytorch.org/docs/stable/torch.html
+
+    vsplit(input, indices_or_sections) -> List of Tensors
+
+
 ### [torch.vstack](smot/api_tests/torch_api/restructure/torch_vstack_test.py)
 https://pytorch.org/docs/stable/generated/torch.vstack.html
 
