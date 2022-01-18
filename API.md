@@ -328,6 +328,12 @@ https://pytorch.org/docs/stable/torch.html
     tensor_split(input, indices_or_sections, dim=0) -> List of Tensors
 
 
+### [torch.tile](smot/api_tests/torch_api/restructure/torch_tile_test.py)
+https://pytorch.org/docs/stable/generated/torch.tile.html
+
+    tile(input, dims) -> Tensor
+
+
 ### [torch.transpose](smot/api_tests/torch_api/restructure/torch_transpose_test.py)
 https://pytorch.org/docs/stable/torch.html
 
