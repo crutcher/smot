@@ -364,3 +364,9 @@ https://pytorch.org/docs/stable/generated/torch.vstack.html
     vstack(tensors, *, out=None) -> Tensor
 
 
+### [torch.where](smot/api_tests/torch_api/restructure/torch_where_test.py)
+https://pytorch.org/docs/stable/generated/torch.where.html
+
+    where(condition, x, y) -> Tensor
+
+
