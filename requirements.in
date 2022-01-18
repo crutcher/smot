@@ -53,7 +53,11 @@ tensorboard-plugin-profile
 
 # jupyter
 jupyter
-jupyter-tensorboard
+
+# jupyter-tensorboard shold not be needed / doesn't work right.
+# https://github.com/tensorflow/tensorboard/issues/3145
+# https://github.com/lspvic/jupyter_tensorboard/issues/55
+# jupyter-tensorboard
 
 # graphviz stuff
 graphviz
