@@ -58,3 +58,41 @@ class GeneratorTest(TorchApiTestCase):
             torch.rand([2, 3], generator=g),
             reference,
         )
+
+
+class GlobalGeneratorTest(TorchApiTestCase):
+    TARGETS = {
+        torch.seed: "https://pytorch.org/docs/stable/generated/torch.seed.html",
+        torch.initial_seed: "https://pytorch.org/docs/stable/generated/torch.initial_seed.html",
+        torch.get_rng_state: "https://pytorch.org/docs/stable/generated/torch.get_rng_state.html",
+        torch.set_rng_state: "https://pytorch.org/docs/stable/generated/torch.set_rng_state.html",
+    }
+
+    API_DOC = "https://pytorch.org/docs/stable/generated/torch.seed.html"
+    TARGET = torch.seed
+
+    def test_manual_seed(self) -> None:
+        seed = torch.initial_seed()
+
+        reference = torch.rand([2, 3])
+
+        # Replay with same seed.
+        torch.manual_seed(seed)
+
+        torch_eggs.assert_tensor(
+            torch.rand([2, 3]),
+            reference,
+        )
+
+    def test_set_state(self) -> None:
+        state = torch.get_rng_state()
+
+        reference = torch.rand([2, 3])
+
+        # Replay with same state.
+        torch.set_rng_state(state)
+
+        torch_eggs.assert_tensor(
+            torch.rand([2, 3]),
+            reference,
+        )
