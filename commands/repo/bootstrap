@@ -5,11 +5,13 @@ set -e
 
 cd $WORKSPACE_ROOT_DIR
 
-rm -rf venv
+$GRIND repo base_environment
 
-virtualenv -p python3.9 --prompt "\n(venv)" venv
+if [ ! -f constraints.in ]; then
+  echo generating empty 'constraints.in'
+  touch constraints.in
+fi
 
-source venv/bin/activate
+pip-compile
 
-pip install -r requirements.txt
-
+pip-sync

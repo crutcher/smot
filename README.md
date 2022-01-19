@@ -45,12 +45,23 @@ Packages
 > see the --link in requirements.txt, you may need to change this. I am open
 > to making the bootstrapping code conditional on local torch needs. Hmu.
     
-
-
 ## Setup
 
   * Run `grind repo install_packages`
   * Run `grind repo bootstrap`
+  * Verify the install:
+    * Run `grind test --slow`
+
+> If you encounter errors (I need a special version of torch for my cuda build)
+> you may be able to satisfy them by adding constraints to the `.gitignore`d
+> file `constraints.in`, here is mine:
+> 
+>     # pytorch with cu111 builds.
+>     --find-links https://download.pytorch.org/whl/torch_stable.html
+>     torch==1.10.1+cu111
+>     torchvision==0.11.2+cu111
+>     torchaudio==0.10.1+cu111
+
 
 ## Run All Tests
 

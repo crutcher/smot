@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Exit on error.
+set -e
+
+PYTHON_VERSION=python3.9
+
+cd $WORKSPACE_ROOT_DIR
+
+rm -rf venv
+
+virtualenv -p $PYTHON_VERSION --prompt "\n(venv)" venv
+
+source venv/bin/activate
+
+pip install pip-tools
+

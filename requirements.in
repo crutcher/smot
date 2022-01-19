@@ -1,3 +1,13 @@
+# The requirements file is bound by a .gitignored local 'constraints.in' file.
+# If you need to specify a special version of pytorch, that is the location
+# to add the links to.
+-c constraints.in
+
+# torch
+torch
+torchaudio
+torchvision
+
 # Python
 pip-tools
 nbqa  # run python code tests on .ipynb
