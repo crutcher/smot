@@ -52,3 +52,13 @@ class BernoulliTest(TorchApiTestCase):
                 torch.sum(t),
                 hamcrest.close_to(k * p, k * 0.05),
             )
+
+            torch.zeros((k,), out=t)
+
+            # t.bernoulli_(...) => torch.bernoulli(..., out=t)
+            t.bernoulli_(p, generator=g)
+
+            eggs.assert_match(
+                torch.sum(t),
+                hamcrest.close_to(k * p, k * 0.05),
+            )
