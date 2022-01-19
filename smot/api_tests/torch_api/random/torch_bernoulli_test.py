@@ -1,10 +1,16 @@
 import hamcrest
 import torch
 
+from smot.api_tests.doc_links import api_link
 from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
+@api_link(
+    module=torch,
+    target=torch.bernoulli,
+    ref="https://pytorch.org/docs/stable/generated/torch.bernoulli.html",
+)
 class BernoulliTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.bernoulli.html"
     TARGET = torch.bernoulli
@@ -38,6 +44,12 @@ class BernoulliTest(TorchApiTestCase):
                 hamcrest.close_to(k * p, k * 0.05),
             )
 
+    @api_link(
+        module=torch,
+        target=torch.Tensor.bernoulli_,
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html",
+        doc="t.bernoulli_(...) => torch.bernoulli(..., out=t)",
+    )
     def test_out(self) -> None:
         g = torch.Generator()
         g.manual_seed(12345)
