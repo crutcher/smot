@@ -160,6 +160,12 @@ https://pytorch.org/docs/stable/generated/torch.Generator.html
     Generator(device='cpu') -> Generator
 
 
+### [torch.bernoulli](smot/api_tests/torch_api/random/torch_bernoulli_test.py)
+https://pytorch.org/docs/stable/generated/torch.bernoulli.html
+
+    bernoulli(input, *, generator=None, out=None) -> Tensor
+
+
 ### [torch.seed](smot/api_tests/torch_api/random/torch_Generator_test.py)
 https://pytorch.org/docs/stable/generated/torch.seed.html
 
