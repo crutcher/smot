@@ -38,7 +38,8 @@ Packages
   * Snap Packages [snap.txt](snap.txt)
   * Python `virtualenv` Packages (`pip-compile` / `pip-sync`)
     - [requirements.in](requirements.in)
-    - [requirements.txt](requirements.txt)
+    - (local) `constraints.in`
+    - (local) `requirements.txt`
 
 
 > Note: You need a working pytorch install. I'm using a cuda1.11 preview build,
