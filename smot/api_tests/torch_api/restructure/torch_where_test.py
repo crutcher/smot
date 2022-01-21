@@ -6,9 +6,8 @@ from smot.testlib import torch_eggs
 
 
 @api_link(
-    torch,
-    torch.where,
-    "https://pytorch.org/docs/stable/generated/torch.where.html",
+    target="torch.where",
+    ref="https://pytorch.org/docs/stable/generated/torch.where.html",
 )
 class WhereTest(TorchApiTestCase):
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.where.html"
