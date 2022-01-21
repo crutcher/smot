@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class ColumnStackTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.column_stack.html"
-    TARGET = torch.column_stack
-
+@api_link(
+    target="torch.column_stack",
+    ref="https://pytorch.org/docs/stable/generated/torch.column_stack.html",
+)
+class ColumnStackTest(unittest.TestCase):
     def test_column_stack(self) -> None:
         torch_eggs.assert_tensor(
             torch.column_stack(

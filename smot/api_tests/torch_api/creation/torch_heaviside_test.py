@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class HeavisideTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.heaviside.html"
-    TARGET = torch.heaviside
-
+@api_link(
+    target="torch.heaviside",
+    ref="https://pytorch.org/docs/stable/generated/torch.heaviside.html",
+)
+class HeavisideTest(unittest.TestCase):
     def test_heaviside_scalar_value(self) -> None:
         input = torch.tensor([-1.5, 0, 2.0])
         values = torch.tensor(0.5)

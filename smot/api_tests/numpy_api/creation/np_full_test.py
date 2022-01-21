@@ -2,12 +2,15 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import np_eggs
 
 
+@api_link(
+    target="np.full",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.full.html",
+)
 class FullTest(unittest.TestCase):
-    # https://numpy.org/doc/stable/reference/generated/numpy.full.html
-
     def test_full_scalar(self) -> None:
         np_eggs.assert_ndarray(
             np.full(tuple(), 2.0),

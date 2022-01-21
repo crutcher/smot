@@ -1,14 +1,17 @@
+import unittest
+
 import hamcrest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class LogspaceTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.logspace.html"
-    TARGET = torch.logspace
-
+@api_link(
+    target="torch.logspace",
+    ref="https://pytorch.org/docs/stable/generated/torch.logspace.html",
+)
+class LogspaceTest(unittest.TestCase):
     def test_logspace(self) -> None:
         torch_eggs.assert_tensor(
             torch.logspace(-10, 10, steps=5),

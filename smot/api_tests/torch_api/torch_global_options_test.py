@@ -6,10 +6,15 @@ import unittest
 import hamcrest
 import torch
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs
 
 
 class GlobalOptionsTest(unittest.TestCase):
+    @api_link(
+        target="torch.set_printoptions",
+        ref="https://pytorch.org/docs/stable/generated/torch.set_printoptions.html",
+    )
     def test_set_printoptions(self) -> None:
         """torch.set_printoptions(...)
 
@@ -135,6 +140,10 @@ class GlobalOptionsTest(unittest.TestCase):
                 sci_mode=original.sci_mode,
             )
 
+    @api_link(
+        target="torch.set_flush_denormal",
+        ref="https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html",
+    )
     def test_set_flush_denormal(self) -> None:
         """torch.set_flush_denormal(mode)
 
@@ -168,6 +177,14 @@ class GlobalOptionsTest(unittest.TestCase):
         finally:
             torch.set_flush_denormal(False)
 
+    @api_link(
+        target="torch.set_default_dtype",
+        ref="https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html",
+    )
+    @api_link(
+        target="torch.get_default_dtype",
+        ref="https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html",
+    )
     def test_default_dtype(self) -> None:
         """torch.set_default_dtype(input: Tensor)
 

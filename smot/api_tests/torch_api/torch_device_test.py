@@ -4,9 +4,14 @@ import hamcrest
 import pytest
 import torch
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs
 
 
+@api_link(
+    target="torch.device",
+    ref="https://pytorch.org/docs/stable/generated/torch.device.html",
+)
 class DeviceTest(unittest.TestCase):
     @pytest.mark.slow
     def test_device(self) -> None:

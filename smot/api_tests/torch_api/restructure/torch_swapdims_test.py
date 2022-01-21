@@ -1,12 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class SwapdimsTest(TorchApiTestCase):
-    API_DOCS = "https://pytorch.org/docs/stable/generated/torch.swapdims.html"
-    TARGET = torch.swapdims
+@api_link(
+    target="torch.swapdims",
+    ref="https://pytorch.org/docs/stable/generated/torch.swapdims.html",
+)
+class SwapdimsTest(unittest.TestCase):
     ALIAS_FOR = torch.transpose
 
     def test_swapdims(self) -> None:

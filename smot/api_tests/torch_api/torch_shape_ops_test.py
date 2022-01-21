@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs
 
 
-class NumelTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.numel.html"
-    TARGET = torch.numel
-
+@api_link(
+    target="torch.numel",
+    ref="https://pytorch.org/docs/stable/generated/torch.numel.html",
+)
+class NumelTest(unittest.TestCase):
     def test_numel(self) -> None:
         for s in [1, [1], [[1]]]:
             t = torch.tensor(s)

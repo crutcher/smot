@@ -1,14 +1,17 @@
+import unittest
+
 import pytest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class OnesLikeTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.ones_like.html"
-    TARGET = torch.ones_like
-
+@api_link(
+    target="torch.ones_like",
+    ref="https://pytorch.org/docs/stable/generated/torch.ones_like.html",
+)
+class OnesLikeTest(unittest.TestCase):
     def dense(self, device: str) -> None:
         # Dense Tensors
         for dtype in [torch.int8, torch.float32]:

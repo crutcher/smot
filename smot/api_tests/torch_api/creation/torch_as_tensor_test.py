@@ -1,16 +1,19 @@
+import unittest
+
 import hamcrest
 import numpy as np
 import pytest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class AsTensorTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.as_tensor.html"
-    TARGET = torch.as_tensor
-
+@api_link(
+    target="torch.as_tensor",
+    ref="https://pytorch.org/docs/stable/generated/torch.as_tensor.html",
+)
+class AsTensorTest(unittest.TestCase):
     def test_list(self) -> None:
         torch_eggs.assert_tensor(
             torch.as_tensor([1, 2]),

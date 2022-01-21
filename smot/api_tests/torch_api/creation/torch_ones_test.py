@@ -1,14 +1,17 @@
+import unittest
+
 import hamcrest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class OnesTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.ones.html"
-    TARGET = torch.ones
-
+@api_link(
+    target="torch.ones",
+    ref="https://pytorch.org/docs/stable/generated/torch.ones.html",
+)
+class OnesTest(unittest.TestCase):
     def test_default(self) -> None:
         t = torch.ones(1, 2)
 

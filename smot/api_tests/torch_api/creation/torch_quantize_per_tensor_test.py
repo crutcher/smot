@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class QuantizePerTensorTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html"
-    TARGET = torch.quantize_per_tensor
-
+@api_link(
+    target="torch.quantize_per_tensor",
+    ref="https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html",
+)
+class QuantizePerTensorTest(unittest.TestCase):
     def test_quantize_per_tensor(self) -> None:
         source = torch.tensor([-1.0, 0.0, 1.0, 2.0])
 

@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class UnsqueezeTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.unsqueeze.html"
-    TARGET = torch.unsqueeze
-
+@api_link(
+    target="torch.unsqueeze",
+    ref="https://pytorch.org/docs/stable/generated/torch.unsqueeze.html",
+)
+class UnsqueezeTest(unittest.TestCase):
     def test_scalar(self) -> None:
         source = torch.tensor(3)
 

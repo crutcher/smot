@@ -1,12 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class ScatterAddTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.scatter_add.html"
-    TARGET = torch.scatter_add
+@api_link(
+    target="torch.scatter_add",
+    ref="https://pytorch.org/docs/stable/generated/torch.scatter_add.html",
+)
+class ScatterAddTest(unittest.TestCase):
 
     # Note: the backward pass is implemented only for src.shape == index.shape
 

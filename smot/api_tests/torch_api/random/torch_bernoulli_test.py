@@ -1,8 +1,9 @@
+import unittest
+
 import hamcrest
 import torch
 
 from smot.api_tests.doc_links import api_link
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
 from smot.testlib import eggs, torch_eggs
 
 
@@ -10,10 +11,7 @@ from smot.testlib import eggs, torch_eggs
     target="torch.bernoulli",
     ref="https://pytorch.org/docs/stable/generated/torch.bernoulli.html",
 )
-class BernoulliTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.bernoulli.html"
-    TARGET = torch.bernoulli
-
+class BernoulliTest(unittest.TestCase):
     def test_basic(self) -> None:
         g = torch.Generator()
         g.manual_seed(12345)

@@ -1,14 +1,17 @@
+import unittest
+
 import numpy as np
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class PolarTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.polar.html"
-    TARGET = torch.polar
-
+@api_link(
+    target="torch.polar",
+    ref="https://pytorch.org/docs/stable/generated/torch.polar.html",
+)
+class PolarTest(unittest.TestCase):
     def test_polar(self) -> None:
         abs = torch.tensor([1, 2, 1], dtype=torch.float64)
         angle = torch.tensor(

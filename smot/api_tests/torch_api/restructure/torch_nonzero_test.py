@@ -1,14 +1,17 @@
+import unittest
+
 import hamcrest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class NonzeroTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.nonzero.html"
-    TARGET = torch.nonzero
-
+@api_link(
+    target="torch.nonzero",
+    ref="https://pytorch.org/docs/stable/generated/torch.nonzero.html",
+)
+class NonzeroTest(unittest.TestCase):
     def test_1d(self) -> None:
         source = torch.tensor([1, 2, 3, 0, 4])
         torch_eggs.assert_tensor(

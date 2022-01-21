@@ -2,12 +2,15 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import np_eggs
 
 
+@api_link(
+    target="np.ones_like",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html",
+)
 class OnesLikeTest(unittest.TestCase):
-    # https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html
-
     def test_ones_like(self) -> None:
         # Dense ndarrays
         for dtype in [int, float]:

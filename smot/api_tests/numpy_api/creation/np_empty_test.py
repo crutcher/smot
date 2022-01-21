@@ -2,9 +2,14 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import np_eggs
 
 
+@api_link(
+    target="np.empty",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.empty.html",
+)
 class EmptyTest(unittest.TestCase):
     def test_empty_zero(self) -> None:
         np_eggs.assert_ndarray(

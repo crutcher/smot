@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class TensorSplitTest(TorchApiTestCase):
-    API_DOCS = "https://pytorch.org/docs/stable/generated/torch.tensor_split.html"
-    TARGET = torch.tensor_split
-
+@api_link(
+    target="torch.tensor_split",
+    ref="https://pytorch.org/docs/stable/generated/torch.tensor_split.html",
+)
+class TensorSplitTest(unittest.TestCase):
     def test_tensor_split(self) -> None:
         source = torch.tensor(
             [

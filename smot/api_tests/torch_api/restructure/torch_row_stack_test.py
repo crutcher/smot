@@ -1,16 +1,17 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class RowStackTest(TorchApiTestCase):
-    "torch.row_stack is an alias for torch.vstack"
-
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.row_stack.html"
-    TARGET = torch.row_stack
-    ALIAS_FOR = torch.vstack
-
+@api_link(
+    target="torch.row_stack",
+    ref="https://pytorch.org/docs/stable/generated/torch.row_stack.html",
+    doc="torch.row_stack is an alias for torch.vstack",
+)
+class RowStackTest(unittest.TestCase):
     def test_row_stack(self) -> None:
         a = torch.tensor([1, 2, 3])
         b = torch.tensor([4, 5, 6])

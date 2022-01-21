@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class VstackTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.vstack.html"
-    TARGET = torch.vstack
-
+@api_link(
+    target="torch.vstack",
+    ref="https://pytorch.org/docs/stable/generated/torch.vstack.html",
+)
+class VstackTest(unittest.TestCase):
     def test_vstack(self) -> None:
         a = torch.tensor([1, 2, 3])
         b = torch.tensor([4, 5, 6])

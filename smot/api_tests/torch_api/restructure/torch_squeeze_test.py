@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class SqueezeTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.squeeze.html"
-    TARGET = torch.squeeze
-
+@api_link(
+    target="torch.squeeze",
+    ref="https://pytorch.org/docs/stable/generated/torch.squeeze.html",
+)
+class SqueezeTest(unittest.TestCase):
     def test_squeeze(self) -> None:
         source = torch.zeros(2, 1, 3, 1, 4)
         eggs.assert_match(source.size(), torch.Size([2, 1, 3, 1, 4]))

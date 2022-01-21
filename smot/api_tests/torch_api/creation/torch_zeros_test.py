@@ -1,14 +1,17 @@
+import unittest
+
 import hamcrest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class ZerosLikeTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.zeros.html"
-    TARGET = torch.zeros
-
+@api_link(
+    target="torch.zeros",
+    ref="https://pytorch.org/docs/stable/generated/torch.zeros.html",
+)
+class ZerosLikeTest(unittest.TestCase):
     def test_default(self) -> None:
         t = torch.zeros(1, 2)
 

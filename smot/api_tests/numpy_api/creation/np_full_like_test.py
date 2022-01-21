@@ -2,12 +2,15 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import np_eggs
 
 
+@api_link(
+    target="np.full_like",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.full_like.html",
+)
 class FullLikeTest(unittest.TestCase):
-    # https://pytorch.org/docs/stable/generated/torch.full_like.html
-
     def test_full_like_scalar(self) -> None:
         src: np.typing.ArrayLike = np.array(0)
 

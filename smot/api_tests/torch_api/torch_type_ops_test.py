@@ -4,10 +4,15 @@ import hamcrest
 import numpy as np
 import torch
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs
 
 
 class TypeOpsTest(unittest.TestCase):
+    @api_link(
+        target="torch.is_tensor",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_tensor.html",
+    )
     def test_is_tensor(self) -> None:
         """torch.is_tensor(obj)
 
@@ -38,6 +43,10 @@ class TypeOpsTest(unittest.TestCase):
             torch.is_tensor(np.array([1, 2])),
         )
 
+    @api_link(
+        target="torch.is_storage",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_storage.html",
+    )
     def test_is_storage(self) -> None:
         """torch.is_storage(obj)
 
@@ -58,6 +67,10 @@ class TypeOpsTest(unittest.TestCase):
             torch.is_storage(t),
         )
 
+    @api_link(
+        target="torch.is_complex",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_complex.html",
+    )
     def test_is_complex(self) -> None:
         """torch.is_complex(input: Tensor)
         Also: `<tensor>.is_complex()`
@@ -93,6 +106,10 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
+    @api_link(
+        target="torch.is_conj",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_conj.html",
+    )
     def test_is_conj(self) -> None:
         """torch.is_conj(input: Tensor)
         Also: `<tensor>.is_complex()`
@@ -150,6 +167,10 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
+    @api_link(
+        target="torch.is_floating_point",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_floating_point.html",
+    )
     def test_is_floating_point(self) -> None:
         """torch.is_floating_point(input: Tensor)
         Also: `<tensor>.is_floating_point()`
@@ -184,6 +205,10 @@ class TypeOpsTest(unittest.TestCase):
             TypeError,
         )
 
+    @api_link(
+        target="torch.is_nonzero",
+        ref="https://pytorch.org/docs/stable/generated/torch.is_nonzero.html",
+    )
     def test_is_nonzero(self) -> None:
         """torch.is_nonzero(input: Tensor)
         Also: `<tensor>.is_nonzero()`

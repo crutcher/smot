@@ -1,14 +1,17 @@
+import unittest
+
 import pytest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class FullLikeTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.full_like.html"
-    TARGET = torch.full_like
-
+@api_link(
+    target="torch.full_like",
+    ref="https://pytorch.org/docs/stable/generated/torch.full_like.html",
+)
+class FullLikeTest(unittest.TestCase):
     def test_full_like_scalar(self) -> None:
         t = torch.tensor(0)
 

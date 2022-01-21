@@ -1,14 +1,17 @@
+import unittest
+
 import hamcrest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class LinspaceTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.linspace.html"
-    TARGET = torch.linspace
-
+@api_link(
+    target="torch.linspace",
+    ref="https://pytorch.org/docs/stable/generated/torch.linspace.html",
+)
+class LinspaceTest(unittest.TestCase):
     def test_linspace(self) -> None:
         torch_eggs.assert_tensor(
             torch.linspace(3, 10, steps=5),

@@ -2,12 +2,15 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, np_eggs
 
 
+@api_link(
+    target="np.zeros",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html",
+)
 class ZerosTest(unittest.TestCase):
-    # https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
-
     def test_default(self) -> None:
         t = np.zeros((1, 2))
 

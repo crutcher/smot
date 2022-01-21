@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import torch_eggs
 
 
-class SplitTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.split.html"
-    TARGET = torch.split
-
+@api_link(
+    target="torch.split",
+    ref="https://pytorch.org/docs/stable/generated/torch.split.html",
+)
+class SplitTest(unittest.TestCase):
     def test_split(self) -> None:
         source = torch.arange(10).reshape(5, 2)
 

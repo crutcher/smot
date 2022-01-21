@@ -1,15 +1,18 @@
+import unittest
+
 import hamcrest
 import pytest
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class GeneratorTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.Generator.html"
-    TARGET = torch.Generator
-
+@api_link(
+    target="torch.Generator",
+    ref="https://pytorch.org/docs/stable/generated/torch.Generator.html",
+)
+class GeneratorTest(unittest.TestCase):
     def test_cpu(self) -> None:
         g = torch.Generator()
         eggs.assert_match(
@@ -77,7 +80,7 @@ class GeneratorTest(TorchApiTestCase):
         )
 
 
-class GlobalGeneratorTest(TorchApiTestCase):
+class GlobalGeneratorTest(unittest.TestCase):
     TARGETS = {
         torch.seed: "https://pytorch.org/docs/stable/generated/torch.seed.html",
         torch.initial_seed: "https://pytorch.org/docs/stable/generated/torch.initial_seed.html",
@@ -87,7 +90,7 @@ class GlobalGeneratorTest(TorchApiTestCase):
     }
 
     API_DOC = "https://pytorch.org/docs/stable/generated/torch.seed.html"
-    TARGET = torch.seed
+    TARGET = "torch.seed"
 
     def test_initial_seed(self) -> None:
         orig_seed = torch.initial_seed()

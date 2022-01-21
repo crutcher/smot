@@ -1,13 +1,16 @@
+import unittest
+
 import torch
 
-from smot.api_tests.torch_api.torch_api_testcase import TorchApiTestCase
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, torch_eggs
 
 
-class TakeAlongDimTest(TorchApiTestCase):
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.take_along_dim.html"
-    TARGET = torch.take_along_dim
-
+@api_link(
+    target="torch.take_along_dim",
+    ref="https://pytorch.org/docs/stable/generated/torch.take_along_dim.html",
+)
+class TakeAlongDimTest(unittest.TestCase):
     def test_take(self) -> None:
         src = torch.tensor([[10, 30, 20], [60, 40, 50]])
 

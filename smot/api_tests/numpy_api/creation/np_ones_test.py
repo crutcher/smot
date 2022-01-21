@@ -2,12 +2,15 @@ import unittest
 
 import numpy as np
 
+from smot.api_tests.doc_links import api_link
 from smot.testlib import eggs, np_eggs
 
 
+@api_link(
+    target="np.ones",
+    ref="https://numpy.org/doc/stable/reference/generated/numpy.ones.html",
+)
 class OnesTest(unittest.TestCase):
-    # https://numpy.org/doc/stable/reference/generated/numpy.ones.html
-
     def test_default(self) -> None:
         t = np.ones((1, 2))
 
