@@ -9,6 +9,7 @@ from smot.testlib import eggs, torch_eggs
 @api_link(
     target="torch.transpose",
     ref="https://pytorch.org/docs/stable/generated/torch.transpose.html",
+    alias=["torch.transpose", "torch.swapaxes"],
 )
 class TransposeTest(unittest.TestCase):
     def test_transpose(self) -> None:

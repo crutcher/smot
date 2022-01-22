@@ -1,9 +1,11 @@
+import inspect
 import io
 import os
 import pydoc
 import sys
+import textwrap
 from types import ModuleType
-from typing import List
+from typing import List, Any
 
 import smot
 from smot.common.runtime import reflection
@@ -51,7 +53,23 @@ def load_all_modules() -> List[ModuleType]:
     ]
 
 
-def render_api_index() -> str:
+def format_help(obj: Any) -> str:
+    reformat = "no __doc__"
+
+    if inspect.isclass(obj) and obj.__doc__:
+        lines = obj.__doc__.splitlines()
+        first = lines[0].strip()
+        body = textwrap.dedent("\n".join(lines[1:]))
+        reformat = "\n".join([first, body])
+
+    else:
+        render_lines = pydoc.render_doc(obj).splitlines()
+        reformat = "\n".join(render_lines[3:])
+
+    return reformat
+
+
+def render_api_index(*, show_help: bool = False) -> str:
     buffer = io.StringIO()
 
     load_all_modules()
@@ -62,7 +80,13 @@ def render_api_index() -> str:
                 [
                     "",
                     f"#### {link.target}",
-                    f"  * Tests: [{link.location.rpath}]({link.location.rpath}#L{link.location.line})",
+                    (
+                        # GitHub will follow '#L<LINENO>' markdown links,
+                        # IntelliJ will not, render both of them.
+                        # https://youtrack.jetbrains.com/issue/IDEA-287198
+                        f"  * Tests: [{link.location.rpath}]({link.location.rpath})"
+                        + f" [L{link.location.line}]({link.location.rpath}#L{link.location.line})"
+                    ),
                     f"  * Docs: [{link.ref}]({link.ref})",
                     "",
                 ]
@@ -73,16 +97,14 @@ def render_api_index() -> str:
         if link.aliases:
             print("Aliases:", file=buffer)
             for a in link.aliases:
-                print(f"    * [{a}](#a)", file=buffer)
+                alias_href = "#" + a.replace(".", "").replace(" ", "-")
+                print(f"    * [{a}]({alias_href})", file=buffer)
 
         if link.link_target:
-            render_lines = pydoc.render_doc(
-                link.link_target.object,
-                title="Help on %s:",
-            ).splitlines()
-            print(render_lines[0], file=buffer)
-            print(file=buffer)
-            print("\n".join(render_lines[3:]), file=buffer)
+            if show_help:
+                print(file=buffer)
+                h = format_help(link.link_target.object)
+                print("\n".join([textwrap.indent(h, "    ")]), file=buffer)
 
     return buffer.getvalue()
 

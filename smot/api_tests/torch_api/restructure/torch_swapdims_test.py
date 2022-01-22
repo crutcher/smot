@@ -9,10 +9,9 @@ from smot.testlib import eggs, torch_eggs
 @api_link(
     target="torch.swapdims",
     ref="https://pytorch.org/docs/stable/generated/torch.swapdims.html",
+    alias=["torch.transpose", "torch.swapaxes"],
 )
 class SwapdimsTest(unittest.TestCase):
-    ALIAS_FOR = torch.transpose
-
     def test_swapdims(self) -> None:
         source = torch.tensor(
             [

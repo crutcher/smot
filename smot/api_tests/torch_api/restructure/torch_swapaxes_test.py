@@ -9,10 +9,9 @@ from smot.testlib import eggs, torch_eggs
 @api_link(
     target="torch.swapaxes",
     ref="https://pytorch.org/docs/stable/generated/torch.swapaxes.html",
+    alias=["torch.transpose", "torch.swapaxes"],
 )
 class SwapaxesTest(unittest.TestCase):
-    ALIAS_FOR = torch.transpose
-
     def test_swapaxes(self) -> None:
         source = torch.tensor(
             [
