@@ -2,14 +2,14 @@ import unittest
 
 import torch
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import torch_eggs
 
 
 @api_link(
     target="torch.row_stack",
     ref="https://pytorch.org/docs/stable/generated/torch.row_stack.html",
-    doc="torch.row_stack is an alias for torch.vstack",
+    note="torch.row_stack is an alias for torch.vstack",
 )
 class RowStackTest(unittest.TestCase):
     def test_row_stack(self) -> None:

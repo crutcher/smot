@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 import torch
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import eggs, torch_eggs
 
 

@@ -10,7 +10,6 @@ from hamcrest.core.description import Description
 from hamcrest.core.matcher import Matcher
 
 # unittest integration; hide these frames from tracebacks
-
 __unittest = True
 # py.test integration; hide these frames from tracebacks
 __tracebackhide__ = True

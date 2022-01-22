@@ -1,56 +1,12 @@
-from dataclasses import dataclass
 import os
+import pydoc
 import sys
 from types import ModuleType
-from typing import Any, Callable, List, Optional, TypeVar
+from typing import List
 
 import smot
 from smot.common.runtime import reflection
-
-T = TypeVar("T")
-
-
-@dataclass
-class Location:
-    rpath: str
-    line: int
-
-
-@dataclass
-class Link:
-    target: str
-    location: Location
-    ref: str
-    doc: Optional[str] = None
-
-
-LINKS = []
-
-
-def api_link(
-    target: Any,
-    *,
-    ref: str,
-    doc: Optional[str] = None,
-) -> Callable[[T], T]:
-    def f(obj: T) -> T:
-        frame = sys._getframe(1)
-        filename = frame.f_code.co_filename
-        lineno = frame.f_lineno
-        LINKS.append(
-            Link(
-                target=target,
-                location=Location(
-                    rpath=reflection.root_relative_path(filename),
-                    line=lineno,
-                ),
-                ref=ref,
-                doc=doc,
-            ),
-        )
-        return obj
-
-    return f
+from smot.doc_link import link_annotations
 
 
 def collect_all_python_module_files(relative: bool = True) -> List[str]:
@@ -94,8 +50,39 @@ def load_all_modules() -> List[ModuleType]:
     ]
 
 
-if __name__ == "__main__":
-    from smot.api_tests import doc_links
+def gen_index() -> None:
+    load_all_modules()
+    link_dict = {link.target: link for link in link_annotations.API_LINKS}
+    for link in dict(sorted(link_dict.items())).values():
+        print(
+            "\n".join(
+                [
+                    "",
+                    f"### [{link.target}]({link.location.rpath}#L{link.location.line})",
+                    f"See: [{link.ref}]({link.ref})",
+                    "",
+                ]
+            )
+        )
 
-    doc_links.load_all_modules()
-    print(doc_links.LINKS)
+        if link.aliases:
+            print("Aliases:")
+            for a in link.aliases:
+                print(f"    * [{a}](#a)")
+
+        if link.link_target:
+            render_lines = pydoc.render_doc(
+                link.link_target.object,
+                title="Help on %s:",
+            ).splitlines()
+            print(render_lines[0])
+            print()
+            print("\n".join(render_lines[3:]))
+
+
+def main(argv: List[str]) -> None:
+    gen_index()
+
+
+if __name__ == "__main__":
+    main(sys.argv)

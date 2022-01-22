@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 import torch
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import torch_eggs
 
 

@@ -2,12 +2,12 @@ import unittest
 
 import numpy as np
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import np_eggs
 
 
 @api_link(
-    target="np.eye",
+    target="numpy.eye",
     ref="https://numpy.org/doc/stable/reference/generated/numpy.eye.html",
 )
 class EyeTest(unittest.TestCase):

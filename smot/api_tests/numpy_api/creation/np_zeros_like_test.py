@@ -2,12 +2,12 @@ import unittest
 
 import numpy as np
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import np_eggs
 
 
 @api_link(
-    target="np.zeros_like",
+    target="numpy.zeros_like",
     ref="https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html",
 )
 class ZerosLikeTest(unittest.TestCase):

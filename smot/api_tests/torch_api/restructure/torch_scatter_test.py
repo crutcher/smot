@@ -2,14 +2,14 @@ import unittest
 
 import torch
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import torch_eggs
 
 
 @api_link(
     target="torch.scatter",
     ref="https://pytorch.org/docs/stable/generated/torch.scatter.html",
-    doc="Note: the backward pass is implemented only for src.shape == index.shape",
+    note="Note: the backward pass is implemented only for src.shape == index.shape",
 )
 class ScatterTest(unittest.TestCase):
     def test_basic(self) -> None:

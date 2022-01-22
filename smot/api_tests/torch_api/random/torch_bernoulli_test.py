@@ -3,7 +3,7 @@ import unittest
 import hamcrest
 import torch
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import eggs, torch_eggs
 
 
@@ -44,7 +44,7 @@ class BernoulliTest(unittest.TestCase):
     @api_link(
         target="torch.Tensor.bernoulli_",
         ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html",
-        doc="t.bernoulli_(...) => torch.bernoulli(..., out=t)",
+        note="t.bernoulli_(...) => torch.bernoulli(..., out=t)",
     )
     def test_out(self) -> None:
         g = torch.Generator()

@@ -4,12 +4,12 @@ import hamcrest
 import numpy as np
 import pandas as pd
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import eggs, np_eggs
 
 
 @api_link(
-    target="pd.Series",
+    target="pandas.Series",
     ref="https://pandas.pydata.org/docs/reference/api/pandas.Series.html",
 )
 class SeriesTest(unittest.TestCase):

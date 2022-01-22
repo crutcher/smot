@@ -2,12 +2,12 @@ import unittest
 
 import numpy as np
 
-from smot.api_tests.doc_links import api_link
+from smot.doc_link.link_annotations import api_link
 from smot.testlib import np_eggs
 
 
 @api_link(
-    target="np.empty_like",
+    target="numpy.empty_like",
     ref="https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html",
 )
 class EmptyLikeTest(unittest.TestCase):
