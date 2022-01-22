@@ -1,3 +1,4 @@
+import io
 import os
 import pydoc
 import sys
@@ -50,7 +51,9 @@ def load_all_modules() -> List[ModuleType]:
     ]
 
 
-def gen_index() -> None:
+def render_api_index() -> str:
+    buffer = io.StringIO()
+
     load_all_modules()
     link_dict = {link.target: link for link in link_annotations.API_LINKS}
     for link in dict(sorted(link_dict.items())).values():
@@ -63,26 +66,29 @@ def gen_index() -> None:
                     f"  * Docs: [{link.ref}]({link.ref})",
                     "",
                 ]
-            )
+            ),
+            file=buffer,
         )
 
         if link.aliases:
-            print("Aliases:")
+            print("Aliases:", file=buffer)
             for a in link.aliases:
-                print(f"    * [{a}](#a)")
+                print(f"    * [{a}](#a)", file=buffer)
 
         if link.link_target:
             render_lines = pydoc.render_doc(
                 link.link_target.object,
                 title="Help on %s:",
             ).splitlines()
-            print(render_lines[0])
-            print()
-            print("\n".join(render_lines[3:]))
+            print(render_lines[0], file=buffer)
+            print(file=buffer)
+            print("\n".join(render_lines[3:]), file=buffer)
+
+    return buffer.getvalue()
 
 
 def main(argv: List[str]) -> None:
-    gen_index()
+    print(render_api_index())
 
 
 if __name__ == "__main__":
