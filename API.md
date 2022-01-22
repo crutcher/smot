@@ -1,7 +1,7 @@
 
 #### numpy.empty
-[smot/api_tests/numpy_api/creation/np_empty_test.py](smot/api_tests/numpy_api/creation/np_empty_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.empty.html](https://numpy.org/doc/stable/reference/generated/numpy.empty.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_empty_test.py](smot/api_tests/numpy_api/creation/np_empty_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.empty.html](https://numpy.org/doc/stable/reference/generated/numpy.empty.html)
 
 Help on built-in function empty in module numpy:
 
@@ -61,8 +61,8 @@ Help on built-in function empty in module numpy:
            [  496041986,    19249760]])                     #uninitialized
 
 #### numpy.empty_like
-[smot/api_tests/numpy_api/creation/np_empty_like_test.py](smot/api_tests/numpy_api/creation/np_empty_like_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html](https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_empty_like_test.py](smot/api_tests/numpy_api/creation/np_empty_like_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html](https://numpy.org/doc/stable/reference/generated/numpy.empty_like.html)
 
 Help on function empty_like in module numpy:
 
@@ -128,8 +128,8 @@ Help on function empty_like in module numpy:
            [  4.38791518e-305,  -2.00000715e+000,   4.17269252e-309]])
 
 #### numpy.eye
-[smot/api_tests/numpy_api/creation/np_eye_test.py](smot/api_tests/numpy_api/creation/np_eye_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.eye.html](https://numpy.org/doc/stable/reference/generated/numpy.eye.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_eye_test.py](smot/api_tests/numpy_api/creation/np_eye_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.eye.html](https://numpy.org/doc/stable/reference/generated/numpy.eye.html)
 
 Help on function eye in module numpy:
 
@@ -183,8 +183,8 @@ Help on function eye in module numpy:
            [0.,  0.,  0.]])
 
 #### numpy.full
-[smot/api_tests/numpy_api/creation/np_full_test.py](smot/api_tests/numpy_api/creation/np_full_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.full.html](https://numpy.org/doc/stable/reference/generated/numpy.full.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_full_test.py](smot/api_tests/numpy_api/creation/np_full_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.full.html](https://numpy.org/doc/stable/reference/generated/numpy.full.html)
 
 Help on function full in module numpy:
 
@@ -237,8 +237,8 @@ Help on function full in module numpy:
            [1, 2]])
 
 #### numpy.full_like
-[smot/api_tests/numpy_api/creation/np_full_like_test.py](smot/api_tests/numpy_api/creation/np_full_like_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.full_like.html](https://numpy.org/doc/stable/reference/generated/numpy.full_like.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_full_like_test.py](smot/api_tests/numpy_api/creation/np_full_like_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.full_like.html](https://numpy.org/doc/stable/reference/generated/numpy.full_like.html)
 
 Help on function full_like in module numpy:
 
@@ -298,8 +298,8 @@ Help on function full_like in module numpy:
     array([0.1, 0.1, 0.1, 0.1, 0.1, 0.1])
 
 #### numpy.identity
-[smot/api_tests/numpy_api/creation/np_identity_test.py](smot/api_tests/numpy_api/creation/np_identity_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.identity.html](https://numpy.org/doc/stable/reference/generated/numpy.identity.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_identity_test.py](smot/api_tests/numpy_api/creation/np_identity_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.identity.html](https://numpy.org/doc/stable/reference/generated/numpy.identity.html)
 
 Help on function identity in module numpy:
 
@@ -337,8 +337,8 @@ Help on function identity in module numpy:
            [0.,  0.,  1.]])
 
 #### numpy.ones
-[smot/api_tests/numpy_api/creation/np_ones_test.py](smot/api_tests/numpy_api/creation/np_ones_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.ones.html](https://numpy.org/doc/stable/reference/generated/numpy.ones.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_ones_test.py](smot/api_tests/numpy_api/creation/np_ones_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.ones.html](https://numpy.org/doc/stable/reference/generated/numpy.ones.html)
 
 Help on function ones in module numpy:
 
@@ -395,8 +395,8 @@ Help on function ones in module numpy:
            [1.,  1.]])
 
 #### numpy.ones_like
-[smot/api_tests/numpy_api/creation/np_ones_like_test.py](smot/api_tests/numpy_api/creation/np_ones_like_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html](https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_ones_like_test.py](smot/api_tests/numpy_api/creation/np_ones_like_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html](https://numpy.org/doc/stable/reference/generated/numpy.ones_like.html)
 
 Help on function ones_like in module numpy:
 
@@ -459,8 +459,8 @@ Help on function ones_like in module numpy:
     array([1.,  1.,  1.])
 
 #### numpy.zeros
-[smot/api_tests/numpy_api/creation/np_zeros_test.py](smot/api_tests/numpy_api/creation/np_zeros_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.zeros.html](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_zeros_test.py](smot/api_tests/numpy_api/creation/np_zeros_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.zeros.html](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html)
 
 Help on built-in function zeros in module numpy:
 
@@ -522,8 +522,8 @@ Help on built-in function zeros in module numpy:
           dtype=[('x', '<i4'), ('y', '<i4')])
 
 #### numpy.zeros_like
-[smot/api_tests/numpy_api/creation/np_zeros_like_test.py](smot/api_tests/numpy_api/creation/np_zeros_like_test.py#L13)
-See: [https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html](https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html)
+  * Tests: [smot/api_tests/numpy_api/creation/np_zeros_like_test.py](smot/api_tests/numpy_api/creation/np_zeros_like_test.py#L13)
+  * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html](https://numpy.org/doc/stable/reference/generated/numpy.zeros_like.html)
 
 Help on function zeros_like in module numpy:
 
@@ -586,8 +586,8 @@ Help on function zeros_like in module numpy:
     array([0.,  0.,  0.])
 
 #### pandas.Series
-[smot/api_tests/pandas_api/series/pd_series_test.py](smot/api_tests/pandas_api/series/pd_series_test.py#L15)
-See: [https://pandas.pydata.org/docs/reference/api/pandas.Series.html](https://pandas.pydata.org/docs/reference/api/pandas.Series.html)
+  * Tests: [smot/api_tests/pandas_api/series/pd_series_test.py](smot/api_tests/pandas_api/series/pd_series_test.py#L15)
+  * Docs: [https://pandas.pydata.org/docs/reference/api/pandas.Series.html](https://pandas.pydata.org/docs/reference/api/pandas.Series.html)
 
 Help on class Series in module pandas.core.series:
 
@@ -14148,8 +14148,8 @@ Help on class Series in module pandas.core.series:
  |      viper      mark ii          7       1
 
 #### torch.Generator
-[smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py#L15)
-See: [https://pytorch.org/docs/stable/generated/torch.Generator.html](https://pytorch.org/docs/stable/generated/torch.Generator.html)
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py#L15)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Generator.html](https://pytorch.org/docs/stable/generated/torch.Generator.html)
 
 Help on class Generator in module torch._C:
 
@@ -14265,8 +14265,8 @@ Help on class Generator in module torch._C:
  |          device(type='cpu')
 
 #### torch.Tensor.bernoulli_
-[smot/api_tests/torch_api/random/torch_bernoulli_test.py](smot/api_tests/torch_api/random/torch_bernoulli_test.py#L49)
-See: [https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html)
+  * Tests: [smot/api_tests/torch_api/random/torch_bernoulli_test.py](smot/api_tests/torch_api/random/torch_bernoulli_test.py#L49)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html)
 
 Help on method_descriptor:
 
@@ -14287,8 +14287,8 @@ Help on method_descriptor:
     See also :meth:`~Tensor.bernoulli` and :func:`torch.bernoulli`
 
 #### torch.arange
-[smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.arange.html](https://pytorch.org/docs/stable/generated/torch.arange.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.arange.html](https://pytorch.org/docs/stable/generated/torch.arange.html)
 
 Help on built-in function arange:
 
@@ -14337,8 +14337,8 @@ Help on built-in function arange:
         tensor([ 1.0000,  1.5000,  2.0000])
 
 #### torch.as_strided
-[smot/api_tests/torch_api/creation/torch_as_strided_test.py](smot/api_tests/torch_api/creation/torch_as_strided_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.as_strided.html](https://pytorch.org/docs/stable/generated/torch.as_strided.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_as_strided_test.py](smot/api_tests/torch_api/creation/torch_as_strided_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.as_strided.html](https://pytorch.org/docs/stable/generated/torch.as_strided.html)
 
 Help on built-in function as_strided:
 
@@ -14381,8 +14381,8 @@ Help on built-in function as_strided:
                 [1.0795, 2.1939]])
 
 #### torch.as_tensor
-[smot/api_tests/torch_api/creation/torch_as_tensor_test.py](smot/api_tests/torch_api/creation/torch_as_tensor_test.py#L16)
-See: [https://pytorch.org/docs/stable/generated/torch.as_tensor.html](https://pytorch.org/docs/stable/generated/torch.as_tensor.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_as_tensor_test.py](smot/api_tests/torch_api/creation/torch_as_tensor_test.py#L16)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.as_tensor.html](https://pytorch.org/docs/stable/generated/torch.as_tensor.html)
 
 Help on built-in function as_tensor:
 
@@ -14422,8 +14422,8 @@ Help on built-in function as_tensor:
         array([1,  2,  3])
 
 #### torch.bernoulli
-[smot/api_tests/torch_api/random/torch_bernoulli_test.py](smot/api_tests/torch_api/random/torch_bernoulli_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.bernoulli.html](https://pytorch.org/docs/stable/generated/torch.bernoulli.html)
+  * Tests: [smot/api_tests/torch_api/random/torch_bernoulli_test.py](smot/api_tests/torch_api/random/torch_bernoulli_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.bernoulli.html](https://pytorch.org/docs/stable/generated/torch.bernoulli.html)
 
 Help on built-in function bernoulli:
 
@@ -14480,8 +14480,8 @@ Help on built-in function bernoulli:
                 [ 0.,  0.,  0.]])
 
 #### torch.cat
-[smot/api_tests/torch_api/restructure/torch_cat_test.py](smot/api_tests/torch_api/restructure/torch_cat_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.cat.html](https://pytorch.org/docs/stable/generated/torch.cat.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_cat_test.py](smot/api_tests/torch_api/restructure/torch_cat_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.cat.html](https://pytorch.org/docs/stable/generated/torch.cat.html)
 
 Help on built-in function cat:
 
@@ -14525,8 +14525,8 @@ Help on built-in function cat:
                  -0.5790,  0.1497]])
 
 #### torch.chunk
-[smot/api_tests/torch_api/restructure/torch_chunk_test.py](smot/api_tests/torch_api/restructure/torch_chunk_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.chunk.html](https://pytorch.org/docs/stable/generated/torch.chunk.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_chunk_test.py](smot/api_tests/torch_api/restructure/torch_chunk_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.chunk.html](https://pytorch.org/docs/stable/generated/torch.chunk.html)
 
 Help on built-in function chunk:
 
@@ -14579,8 +14579,8 @@ Help on built-in function chunk:
          tensor([12]))
 
 #### torch.column_stack
-[smot/api_tests/torch_api/restructure/torch_column_stack_test.py](smot/api_tests/torch_api/restructure/torch_column_stack_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.column_stack.html](https://pytorch.org/docs/stable/generated/torch.column_stack.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_column_stack_test.py](smot/api_tests/torch_api/restructure/torch_column_stack_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.column_stack.html](https://pytorch.org/docs/stable/generated/torch.column_stack.html)
 
 Help on built-in function column_stack:
 
@@ -14615,8 +14615,8 @@ Help on built-in function column_stack:
                 [4, 8, 9, 8, 9]])
 
 #### torch.complex
-[smot/api_tests/torch_api/creation/torch_complex_test.py](smot/api_tests/torch_api/creation/torch_complex_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.complex.html](https://pytorch.org/docs/stable/generated/torch.complex.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_complex_test.py](smot/api_tests/torch_api/creation/torch_complex_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.complex.html](https://pytorch.org/docs/stable/generated/torch.complex.html)
 
 Help on built-in function complex:
 
@@ -14646,8 +14646,8 @@ Help on built-in function complex:
         torch.complex64
 
 #### torch.concat
-[smot/api_tests/torch_api/restructure/torch_concat_test.py](smot/api_tests/torch_api/restructure/torch_concat_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.concat.html](https://pytorch.org/docs/stable/generated/torch.concat.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_concat_test.py](smot/api_tests/torch_api/restructure/torch_concat_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.concat.html](https://pytorch.org/docs/stable/generated/torch.concat.html)
 
 Help on built-in function concat:
 
@@ -14656,8 +14656,8 @@ Help on built-in function concat:
     Alias of :func:`torch.cat`.
 
 #### torch.conj
-[smot/api_tests/torch_api/restructure/torch_conj_test.py](smot/api_tests/torch_api/restructure/torch_conj_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.conj.html](https://pytorch.org/docs/stable/generated/torch.conj.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_conj_test.py](smot/api_tests/torch_api/restructure/torch_conj_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.conj.html](https://pytorch.org/docs/stable/generated/torch.conj.html)
 
 Help on built-in function conj:
 
@@ -14687,8 +14687,8 @@ Help on built-in function conj:
         True
 
 #### torch.device
-[smot/api_tests/torch_api/torch_device_test.py](smot/api_tests/torch_api/torch_device_test.py#L15)
-See: [https://pytorch.org/docs/stable/generated/torch.device.html](https://pytorch.org/docs/stable/generated/torch.device.html)
+  * Tests: [smot/api_tests/torch_api/torch_device_test.py](smot/api_tests/torch_api/torch_device_test.py#L15)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.device.html](https://pytorch.org/docs/stable/generated/torch.device.html)
 
 Help on class device in module torch:
 
@@ -14738,8 +14738,8 @@ Help on class device in module torch:
  |  ttyyppee
 
 #### torch.dsplit
-[smot/api_tests/torch_api/restructure/torch_dsplit_test.py](smot/api_tests/torch_api/restructure/torch_dsplit_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.dsplit.html](https://pytorch.org/docs/stable/generated/torch.dsplit.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_dsplit_test.py](smot/api_tests/torch_api/restructure/torch_dsplit_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.dsplit.html](https://pytorch.org/docs/stable/generated/torch.dsplit.html)
 
 Help on built-in function dsplit:
 
@@ -14788,8 +14788,8 @@ Help on built-in function dsplit:
          tensor([], size=(2, 2, 0)))
 
 #### torch.dstack
-[smot/api_tests/torch_api/restructure/torch_dstack_test.py](smot/api_tests/torch_api/restructure/torch_dstack_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.dstack.html](https://pytorch.org/docs/stable/generated/torch.dstack.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_dstack_test.py](smot/api_tests/torch_api/restructure/torch_dstack_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.dstack.html](https://pytorch.org/docs/stable/generated/torch.dstack.html)
 
 Help on built-in function dstack:
 
@@ -14821,8 +14821,8 @@ Help on built-in function dstack:
                 [[3, 6]]])
 
 #### torch.empty
-[smot/api_tests/torch_api/creation/torch_empty_test.py](smot/api_tests/torch_api/creation/torch_empty_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.empty.html](https://pytorch.org/docs/stable/generated/torch.empty.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_empty_test.py](smot/api_tests/torch_api/creation/torch_empty_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.empty.html](https://pytorch.org/docs/stable/generated/torch.empty.html)
 
 Help on built-in function empty:
 
@@ -14860,8 +14860,8 @@ Help on built-in function empty:
                 [0, 0, 0]], device='cuda:0', dtype=torch.int32)
 
 #### torch.empty_like
-[smot/api_tests/torch_api/creation/torch_empty_like_test.py](smot/api_tests/torch_api/creation/torch_empty_like_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.empty_like.html](https://pytorch.org/docs/stable/generated/torch.empty_like.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_empty_like_test.py](smot/api_tests/torch_api/creation/torch_empty_like_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.empty_like.html](https://pytorch.org/docs/stable/generated/torch.empty_like.html)
 
 Help on built-in function empty_like:
 
@@ -14893,8 +14893,8 @@ Help on built-in function empty_like:
                 [ 7.5751e+18,  7.1428e+18,  7.5955e+18]])
 
 #### torch.empty_strided
-[smot/api_tests/torch_api/creation/torch_empty_strided_test.py](smot/api_tests/torch_api/creation/torch_empty_strided_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.empty_strided.html](https://pytorch.org/docs/stable/generated/torch.empty_strided.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_empty_strided_test.py](smot/api_tests/torch_api/creation/torch_empty_strided_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.empty_strided.html](https://pytorch.org/docs/stable/generated/torch.empty_strided.html)
 
 Help on built-in function empty_strided:
 
@@ -14941,8 +14941,8 @@ Help on built-in function empty_strided:
         torch.Size([2, 3])
 
 #### torch.eye
-[smot/api_tests/torch_api/creation/torch_eye_test.py](smot/api_tests/torch_api/creation/torch_eye_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.eye.html](https://pytorch.org/docs/stable/generated/torch.eye.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_eye_test.py](smot/api_tests/torch_api/creation/torch_eye_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.eye.html](https://pytorch.org/docs/stable/generated/torch.eye.html)
 
 Help on built-in function eye:
 
@@ -14978,8 +14978,8 @@ Help on built-in function eye:
                 [ 0.,  0.,  1.]])
 
 #### torch.from_numpy
-[smot/api_tests/torch_api/creation/torch_from_numpy_test.py](smot/api_tests/torch_api/creation/torch_from_numpy_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.from_numpy.html](https://pytorch.org/docs/stable/generated/torch.from_numpy.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_from_numpy_test.py](smot/api_tests/torch_api/creation/torch_from_numpy_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.from_numpy.html](https://pytorch.org/docs/stable/generated/torch.from_numpy.html)
 
 Help on built-in function from_numpy:
 
@@ -15007,8 +15007,8 @@ Help on built-in function from_numpy:
         array([-1,  2,  3])
 
 #### torch.frombuffer
-[smot/api_tests/torch_api/creation/torch_frombuffer_test.py](smot/api_tests/torch_api/creation/torch_frombuffer_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.frombuffer.html](https://pytorch.org/docs/stable/generated/torch.frombuffer.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_frombuffer_test.py](smot/api_tests/torch_api/creation/torch_frombuffer_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.frombuffer.html](https://pytorch.org/docs/stable/generated/torch.frombuffer.html)
 
 Help on built-in function frombuffer:
 
@@ -15083,8 +15083,8 @@ Help on built-in function frombuffer:
         tensor([255], dtype=torch.int32)
 
 #### torch.full
-[smot/api_tests/torch_api/creation/torch_full_test.py](smot/api_tests/torch_api/creation/torch_full_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.full.html](https://pytorch.org/docs/stable/generated/torch.full.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_full_test.py](smot/api_tests/torch_api/creation/torch_full_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.full.html](https://pytorch.org/docs/stable/generated/torch.full.html)
 
 Help on built-in function full:
 
@@ -15118,8 +15118,8 @@ Help on built-in function full:
                 [ 3.1416,  3.1416,  3.1416]])
 
 #### torch.full_like
-[smot/api_tests/torch_api/creation/torch_full_like_test.py](smot/api_tests/torch_api/creation/torch_full_like_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.full_like.html](https://pytorch.org/docs/stable/generated/torch.full_like.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_full_like_test.py](smot/api_tests/torch_api/creation/torch_full_like_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.full_like.html](https://pytorch.org/docs/stable/generated/torch.full_like.html)
 
 Help on built-in function full_like:
 
@@ -15146,8 +15146,8 @@ Help on built-in function full_like:
             returned Tensor. Default: ``torch.preserve_format``.
 
 #### torch.gather
-[smot/api_tests/torch_api/restructure/torch_gather_test.py](smot/api_tests/torch_api/restructure/torch_gather_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.gather.html](https://pytorch.org/docs/stable/generated/torch.gather.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_gather_test.py](smot/api_tests/torch_api/restructure/torch_gather_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.gather.html](https://pytorch.org/docs/stable/generated/torch.gather.html)
 
 Help on built-in function gather:
 
@@ -15183,8 +15183,8 @@ Help on built-in function gather:
                 [ 4,  3]])
 
 #### torch.get_default_dtype
-[smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L188)
-See: [https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html)
+  * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L188)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html)
 
 Help on built-in function get_default_dtype in module torch._C:
 
@@ -15204,8 +15204,8 @@ Help on built-in function get_default_dtype in module torch._C:
         torch.float32
 
 #### torch.heaviside
-[smot/api_tests/torch_api/creation/torch_heaviside_test.py](smot/api_tests/torch_api/creation/torch_heaviside_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.heaviside.html](https://pytorch.org/docs/stable/generated/torch.heaviside.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_heaviside_test.py](smot/api_tests/torch_api/creation/torch_heaviside_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.heaviside.html](https://pytorch.org/docs/stable/generated/torch.heaviside.html)
 
 Help on built-in function heaviside:
 
@@ -15240,8 +15240,8 @@ Help on built-in function heaviside:
         tensor([0., -2., 1.])
 
 #### torch.hsplit
-[smot/api_tests/torch_api/restructure/torch_hsplit_test.py](smot/api_tests/torch_api/restructure/torch_hsplit_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.hsplit.html](https://pytorch.org/docs/stable/generated/torch.hsplit.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_hsplit_test.py](smot/api_tests/torch_api/restructure/torch_hsplit_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.hsplit.html](https://pytorch.org/docs/stable/generated/torch.hsplit.html)
 
 Help on built-in function hsplit:
 
@@ -15292,8 +15292,8 @@ Help on built-in function hsplit:
          tensor([], size=(4, 0)))
 
 #### torch.index_select
-[smot/api_tests/torch_api/restructure/torch_index_select_test.py](smot/api_tests/torch_api/restructure/torch_index_select_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.index_select.html](https://pytorch.org/docs/stable/generated/torch.index_select.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_index_select_test.py](smot/api_tests/torch_api/restructure/torch_index_select_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.index_select.html](https://pytorch.org/docs/stable/generated/torch.index_select.html)
 
 Help on built-in function index_select:
 
@@ -15336,8 +15336,8 @@ Help on built-in function index_select:
                 [-1.1734,  0.7230]])
 
 #### torch.is_complex
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L74)
-See: [https://pytorch.org/docs/stable/generated/torch.is_complex.html](https://pytorch.org/docs/stable/generated/torch.is_complex.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L74)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_complex.html](https://pytorch.org/docs/stable/generated/torch.is_complex.html)
 
 Help on built-in function is_complex:
 
@@ -15350,8 +15350,8 @@ Help on built-in function is_complex:
         input (Tensor): the input tensor.
 
 #### torch.is_conj
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L113)
-See: [https://pytorch.org/docs/stable/generated/torch.is_conj.html](https://pytorch.org/docs/stable/generated/torch.is_conj.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L113)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_conj.html](https://pytorch.org/docs/stable/generated/torch.is_conj.html)
 
 Help on built-in function is_conj:
 
@@ -15363,8 +15363,8 @@ Help on built-in function is_conj:
         input (Tensor): the input tensor.
 
 #### torch.is_floating_point
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L174)
-See: [https://pytorch.org/docs/stable/generated/torch.is_floating_point.html](https://pytorch.org/docs/stable/generated/torch.is_floating_point.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L174)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_floating_point.html](https://pytorch.org/docs/stable/generated/torch.is_floating_point.html)
 
 Help on built-in function is_floating_point:
 
@@ -15377,8 +15377,8 @@ Help on built-in function is_floating_point:
         input (Tensor): the input tensor.
 
 #### torch.is_nonzero
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L212)
-See: [https://pytorch.org/docs/stable/generated/torch.is_nonzero.html](https://pytorch.org/docs/stable/generated/torch.is_nonzero.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L212)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_nonzero.html](https://pytorch.org/docs/stable/generated/torch.is_nonzero.html)
 
 Help on built-in function is_nonzero:
 
@@ -15414,8 +15414,8 @@ Help on built-in function is_nonzero:
         RuntimeError: bool value of Tensor with no values is ambiguous
 
 #### torch.is_storage
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L50)
-See: [https://pytorch.org/docs/stable/generated/torch.is_storage.html](https://pytorch.org/docs/stable/generated/torch.is_storage.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L50)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_storage.html](https://pytorch.org/docs/stable/generated/torch.is_storage.html)
 
 Help on function is_storage in module torch:
 
@@ -15425,8 +15425,8 @@ Help on function is_storage in module torch:
         obj (Object): Object to test
 
 #### torch.is_tensor
-[smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L16)
-See: [https://pytorch.org/docs/stable/generated/torch.is_tensor.html](https://pytorch.org/docs/stable/generated/torch.is_tensor.html)
+  * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py#L16)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_tensor.html](https://pytorch.org/docs/stable/generated/torch.is_tensor.html)
 
 Help on function is_tensor in module torch:
 
@@ -15446,8 +15446,8 @@ Help on function is_tensor in module torch:
         True
 
 #### torch.linspace
-[smot/api_tests/torch_api/creation/torch_linspace_test.py](smot/api_tests/torch_api/creation/torch_linspace_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.linspace.html](https://pytorch.org/docs/stable/generated/torch.linspace.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_linspace_test.py](smot/api_tests/torch_api/creation/torch_linspace_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.linspace.html](https://pytorch.org/docs/stable/generated/torch.linspace.html)
 
 Help on built-in function linspace:
 
@@ -15505,8 +15505,8 @@ Help on built-in function linspace:
         tensor([-10.])
 
 #### torch.logspace
-[smot/api_tests/torch_api/creation/torch_logspace_test.py](smot/api_tests/torch_api/creation/torch_logspace_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.logspace.html](https://pytorch.org/docs/stable/generated/torch.logspace.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_logspace_test.py](smot/api_tests/torch_api/creation/torch_logspace_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.logspace.html](https://pytorch.org/docs/stable/generated/torch.logspace.html)
 
 Help on built-in function logspace:
 
@@ -15567,8 +15567,8 @@ Help on built-in function logspace:
         tensor([4.0])
 
 #### torch.masked_select
-[smot/api_tests/torch_api/restructure/torch_masked_select_test.py](smot/api_tests/torch_api/restructure/torch_masked_select_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.masked_select.html](https://pytorch.org/docs/stable/generated/torch.masked_select.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_masked_select_test.py](smot/api_tests/torch_api/restructure/torch_masked_select_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.masked_select.html](https://pytorch.org/docs/stable/generated/torch.masked_select.html)
 
 Help on built-in function masked_select:
 
@@ -15606,8 +15606,8 @@ Help on built-in function masked_select:
         tensor([ 1.2252,  0.5002,  0.6248,  2.0139])
 
 #### torch.moveaxis
-[smot/api_tests/torch_api/restructure/torch_moveaxis_test.py](smot/api_tests/torch_api/restructure/torch_moveaxis_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.moveaxis.html](https://pytorch.org/docs/stable/generated/torch.moveaxis.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_moveaxis_test.py](smot/api_tests/torch_api/restructure/torch_moveaxis_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.moveaxis.html](https://pytorch.org/docs/stable/generated/torch.moveaxis.html)
 
 Help on built-in function moveaxis:
 
@@ -15647,8 +15647,8 @@ Help on built-in function moveaxis:
                 [[-0.8437,  0.1727, -0.1398]]])
 
 #### torch.movedim
-[smot/api_tests/torch_api/restructure/torch_movedim_test.py](smot/api_tests/torch_api/restructure/torch_movedim_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.movedim.html](https://pytorch.org/docs/stable/generated/torch.movedim.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_movedim_test.py](smot/api_tests/torch_api/restructure/torch_movedim_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.movedim.html](https://pytorch.org/docs/stable/generated/torch.movedim.html)
 
 Help on built-in function movedim:
 
@@ -15695,8 +15695,8 @@ Help on built-in function movedim:
                 [[-0.8437,  0.1727, -0.1398]]])
 
 #### torch.narrow
-[smot/api_tests/torch_api/restructure/torch_narrow_test.py](smot/api_tests/torch_api/restructure/torch_narrow_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.narrow.html](https://pytorch.org/docs/stable/generated/torch.narrow.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_narrow_test.py](smot/api_tests/torch_api/restructure/torch_narrow_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.narrow.html](https://pytorch.org/docs/stable/generated/torch.narrow.html)
 
 Help on built-in function narrow:
 
@@ -15724,8 +15724,8 @@ Help on built-in function narrow:
                 [ 8,  9]])
 
 #### torch.nonzero
-[smot/api_tests/torch_api/restructure/torch_nonzero_test.py](smot/api_tests/torch_api/restructure/torch_nonzero_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.nonzero.html](https://pytorch.org/docs/stable/generated/torch.nonzero.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_nonzero_test.py](smot/api_tests/torch_api/restructure/torch_nonzero_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.nonzero.html](https://pytorch.org/docs/stable/generated/torch.nonzero.html)
 
 Help on built-in function nonzero:
 
@@ -15807,8 +15807,8 @@ Help on built-in function nonzero:
         (tensor([0]),)
 
 #### torch.numel
-[smot/api_tests/torch_api/torch_shape_ops_test.py](smot/api_tests/torch_api/torch_shape_ops_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.numel.html](https://pytorch.org/docs/stable/generated/torch.numel.html)
+  * Tests: [smot/api_tests/torch_api/torch_shape_ops_test.py](smot/api_tests/torch_api/torch_shape_ops_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.numel.html](https://pytorch.org/docs/stable/generated/torch.numel.html)
 
 Help on built-in function numel:
 
@@ -15829,8 +15829,8 @@ Help on built-in function numel:
         16
 
 #### torch.ones
-[smot/api_tests/torch_api/creation/torch_ones_test.py](smot/api_tests/torch_api/creation/torch_ones_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.ones.html](https://pytorch.org/docs/stable/generated/torch.ones.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_ones_test.py](smot/api_tests/torch_api/creation/torch_ones_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.ones.html](https://pytorch.org/docs/stable/generated/torch.ones.html)
 
 Help on built-in function ones:
 
@@ -15866,8 +15866,8 @@ Help on built-in function ones:
         tensor([ 1.,  1.,  1.,  1.,  1.])
 
 #### torch.ones_like
-[smot/api_tests/torch_api/creation/torch_ones_like_test.py](smot/api_tests/torch_api/creation/torch_ones_like_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.ones_like.html](https://pytorch.org/docs/stable/generated/torch.ones_like.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_ones_like_test.py](smot/api_tests/torch_api/creation/torch_ones_like_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.ones_like.html](https://pytorch.org/docs/stable/generated/torch.ones_like.html)
 
 Help on built-in function ones_like:
 
@@ -15905,8 +15905,8 @@ Help on built-in function ones_like:
                 [ 1.,  1.,  1.]])
 
 #### torch.permute
-[smot/api_tests/torch_api/restructure/torch_permute_test.py](smot/api_tests/torch_api/restructure/torch_permute_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.permute.html](https://pytorch.org/docs/stable/generated/torch.permute.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_permute_test.py](smot/api_tests/torch_api/restructure/torch_permute_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.permute.html](https://pytorch.org/docs/stable/generated/torch.permute.html)
 
 Help on built-in function permute:
 
@@ -15926,8 +15926,8 @@ Help on built-in function permute:
         torch.Size([5, 2, 3])
 
 #### torch.polar
-[smot/api_tests/torch_api/creation/torch_polar_test.py](smot/api_tests/torch_api/creation/torch_polar_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.polar.html](https://pytorch.org/docs/stable/generated/torch.polar.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_polar_test.py](smot/api_tests/torch_api/creation/torch_polar_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.polar.html](https://pytorch.org/docs/stable/generated/torch.polar.html)
 
 Help on built-in function polar:
 
@@ -15969,8 +15969,8 @@ Help on built-in function polar:
         tensor([(0.0000+1.0000j), (-1.4142-1.4142j)], dtype=torch.complex128)
 
 #### torch.quantize_per_channel
-[smot/api_tests/torch_api/creation/torch_quantize_per_channel_test.py](smot/api_tests/torch_api/creation/torch_quantize_per_channel_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.quantize_per_channel.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_channel.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_quantize_per_channel_test.py](smot/api_tests/torch_api/creation/torch_quantize_per_channel_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.quantize_per_channel.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_channel.html)
 
 Help on built-in function quantize_per_channel:
 
@@ -16003,8 +16003,8 @@ Help on built-in function quantize_per_channel:
                 [100, 200]], dtype=torch.uint8)
 
 #### torch.quantize_per_tensor
-[smot/api_tests/torch_api/creation/torch_quantize_per_tensor_test.py](smot/api_tests/torch_api/creation/torch_quantize_per_tensor_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_quantize_per_tensor_test.py](smot/api_tests/torch_api/creation/torch_quantize_per_tensor_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html)
 
 Help on built-in function quantize_per_tensor:
 
@@ -16040,8 +16040,8 @@ Help on built-in function quantize_per_tensor:
            quantization_scheme=torch.per_tensor_affine, scale=0.10, zero_point=10)
 
 #### torch.range
-[smot/api_tests/torch_api/creation/torch_range_test.py](smot/api_tests/torch_api/creation/torch_range_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.range.html](https://pytorch.org/docs/stable/generated/torch.range.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_range_test.py](smot/api_tests/torch_api/creation/torch_range_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.range.html](https://pytorch.org/docs/stable/generated/torch.range.html)
 
 Help on built-in function range:
 
@@ -16088,8 +16088,8 @@ Help on built-in function range:
         tensor([ 1.0000,  1.5000,  2.0000,  2.5000,  3.0000,  3.5000,  4.0000])
 
 #### torch.reshape
-[smot/api_tests/torch_api/restructure/torch_reshape_test.py](smot/api_tests/torch_api/restructure/torch_reshape_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.reshape.html](https://pytorch.org/docs/stable/generated/torch.reshape.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_reshape_test.py](smot/api_tests/torch_api/restructure/torch_reshape_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.reshape.html](https://pytorch.org/docs/stable/generated/torch.reshape.html)
 
 Help on built-in function reshape:
 
@@ -16121,8 +16121,8 @@ Help on built-in function reshape:
         tensor([ 0,  1,  2,  3])
 
 #### torch.row_stack
-[smot/api_tests/torch_api/restructure/torch_row_stack_test.py](smot/api_tests/torch_api/restructure/torch_row_stack_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.row_stack.html](https://pytorch.org/docs/stable/generated/torch.row_stack.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_row_stack_test.py](smot/api_tests/torch_api/restructure/torch_row_stack_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.row_stack.html](https://pytorch.org/docs/stable/generated/torch.row_stack.html)
 
 Help on built-in function row_stack:
 
@@ -16131,8 +16131,8 @@ Help on built-in function row_stack:
     Alias of :func:`torch.vstack`.
 
 #### torch.scatter
-[smot/api_tests/torch_api/restructure/torch_scatter_test.py](smot/api_tests/torch_api/restructure/torch_scatter_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.scatter.html](https://pytorch.org/docs/stable/generated/torch.scatter.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_scatter_test.py](smot/api_tests/torch_api/restructure/torch_scatter_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.scatter.html](https://pytorch.org/docs/stable/generated/torch.scatter.html)
 
 Help on built-in function scatter:
 
@@ -16141,8 +16141,8 @@ Help on built-in function scatter:
     Out-of-place version of :meth:`torch.Tensor.scatter_`
 
 #### torch.scatter_add
-[smot/api_tests/torch_api/restructure/torch_scatter_add_test.py](smot/api_tests/torch_api/restructure/torch_scatter_add_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.scatter_add.html](https://pytorch.org/docs/stable/generated/torch.scatter_add.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_scatter_add_test.py](smot/api_tests/torch_api/restructure/torch_scatter_add_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.scatter_add.html](https://pytorch.org/docs/stable/generated/torch.scatter_add.html)
 
 Help on built-in function scatter_add:
 
@@ -16151,8 +16151,8 @@ Help on built-in function scatter_add:
     Out-of-place version of :meth:`torch.Tensor.scatter_add_`
 
 #### torch.set_default_dtype
-[smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L188)
-See: [https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html)
+  * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L188)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.set_default_dtype.html)
 
 Help on function set_default_dtype in module torch:
 
@@ -16196,8 +16196,8 @@ Help on function set_default_dtype in module torch:
         torch.complex128
 
 #### torch.set_flush_denormal
-[smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L147)
-See: [https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html](https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html)
+  * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L147)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html](https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html)
 
 Help on built-in function set_flush_denormal in module torch._C:
 
@@ -16225,8 +16225,8 @@ Help on built-in function set_flush_denormal in module torch._C:
                [ 1.0000], dtype=torch.float64)
 
 #### torch.set_printoptions
-[smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L18)
-See: [https://pytorch.org/docs/stable/generated/torch.set_printoptions.html](https://pytorch.org/docs/stable/generated/torch.set_printoptions.html)
+  * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py#L18)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_printoptions.html](https://pytorch.org/docs/stable/generated/torch.set_printoptions.html)
 
 Help on function set_printoptions in module torch._tensor_str:
 
@@ -16250,8 +16250,8 @@ Help on function set_printoptions in module torch._tensor_str:
             by the framework.
 
 #### torch.sparse_coo_tensor
-[smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html](https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html](https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html)
 
 Help on built-in function sparse_coo_tensor:
 
@@ -16336,8 +16336,8 @@ Help on built-in function sparse_coo_tensor:
     .. _torch.sparse: https://pytorch.org/docs/stable/sparse.html
 
 #### torch.split
-[smot/api_tests/torch_api/restructure/torch_split_test.py](smot/api_tests/torch_api/restructure/torch_split_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.split.html](https://pytorch.org/docs/stable/generated/torch.split.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_split_test.py](smot/api_tests/torch_api/restructure/torch_split_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.split.html](https://pytorch.org/docs/stable/generated/torch.split.html)
 
 Help on function split in module torch.functional:
 
@@ -16381,8 +16381,8 @@ Help on function split in module torch.functional:
                  [8, 9]]))
 
 #### torch.squeeze
-[smot/api_tests/torch_api/restructure/torch_squeeze_test.py](smot/api_tests/torch_api/restructure/torch_squeeze_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.squeeze.html](https://pytorch.org/docs/stable/generated/torch.squeeze.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_squeeze_test.py](smot/api_tests/torch_api/restructure/torch_squeeze_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.squeeze.html](https://pytorch.org/docs/stable/generated/torch.squeeze.html)
 
 Help on built-in function squeeze:
 
@@ -16430,8 +16430,8 @@ Help on built-in function squeeze:
         torch.Size([2, 2, 1, 2])
 
 #### torch.stack
-[smot/api_tests/torch_api/restructure/torch_stack_test.py](smot/api_tests/torch_api/restructure/torch_stack_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.stack.html](https://pytorch.org/docs/stable/generated/torch.stack.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_stack_test.py](smot/api_tests/torch_api/restructure/torch_stack_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.stack.html](https://pytorch.org/docs/stable/generated/torch.stack.html)
 
 Help on built-in function stack:
 
@@ -16450,8 +16450,8 @@ Help on built-in function stack:
         out (Tensor, optional): the output tensor.
 
 #### torch.swapaxes
-[smot/api_tests/torch_api/restructure/torch_swapaxes_test.py](smot/api_tests/torch_api/restructure/torch_swapaxes_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.swapaxes.html](https://pytorch.org/docs/stable/generated/torch.swapaxes.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_swapaxes_test.py](smot/api_tests/torch_api/restructure/torch_swapaxes_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.swapaxes.html](https://pytorch.org/docs/stable/generated/torch.swapaxes.html)
 
 Help on built-in function swapaxes:
 
@@ -16484,8 +16484,8 @@ Help on built-in function swapaxes:
                 [3, 7]]])
 
 #### torch.swapdims
-[smot/api_tests/torch_api/restructure/torch_swapdims_test.py](smot/api_tests/torch_api/restructure/torch_swapdims_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.swapdims.html](https://pytorch.org/docs/stable/generated/torch.swapdims.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_swapdims_test.py](smot/api_tests/torch_api/restructure/torch_swapdims_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.swapdims.html](https://pytorch.org/docs/stable/generated/torch.swapdims.html)
 
 Help on built-in function swapdims:
 
@@ -16518,8 +16518,8 @@ Help on built-in function swapdims:
                 [3, 7]]])
 
 #### torch.t
-[smot/api_tests/torch_api/restructure/torch_t_test.py](smot/api_tests/torch_api/restructure/torch_t_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.t.html](https://pytorch.org/docs/stable/generated/torch.t.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_t_test.py](smot/api_tests/torch_api/restructure/torch_t_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.t.html](https://pytorch.org/docs/stable/generated/torch.t.html)
 
 Help on built-in function t:
 
@@ -16558,8 +16558,8 @@ Help on built-in function t:
     See also :func:`torch.transpose`.
 
 #### torch.take
-[smot/api_tests/torch_api/restructure/torch_take_test.py](smot/api_tests/torch_api/restructure/torch_take_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.take.html](https://pytorch.org/docs/stable/generated/torch.take.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_take_test.py](smot/api_tests/torch_api/restructure/torch_take_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.take.html](https://pytorch.org/docs/stable/generated/torch.take.html)
 
 Help on built-in function take:
 
@@ -16581,8 +16581,8 @@ Help on built-in function take:
         tensor([ 4,  5,  8])
 
 #### torch.take_along_dim
-[smot/api_tests/torch_api/restructure/torch_take_along_dim_test.py](smot/api_tests/torch_api/restructure/torch_take_along_dim_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.take_along_dim.html](https://pytorch.org/docs/stable/generated/torch.take_along_dim.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_take_along_dim_test.py](smot/api_tests/torch_api/restructure/torch_take_along_dim_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.take_along_dim.html](https://pytorch.org/docs/stable/generated/torch.take_along_dim.html)
 
 Help on built-in function take_along_dim:
 
@@ -16617,8 +16617,8 @@ Help on built-in function take_along_dim:
                 [40, 50, 60]])
 
 #### torch.tensor
-[smot/api_tests/torch_api/creation/torch_tensor_test.py](smot/api_tests/torch_api/creation/torch_tensor_test.py#L16)
-See: [https://pytorch.org/docs/stable/generated/torch.tensor.html](https://pytorch.org/docs/stable/generated/torch.tensor.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_tensor_test.py](smot/api_tests/torch_api/creation/torch_tensor_test.py#L16)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.tensor.html](https://pytorch.org/docs/stable/generated/torch.tensor.html)
 
 Help on built-in function tensor:
 
@@ -16680,8 +16680,8 @@ Help on built-in function tensor:
         tensor([])
 
 #### torch.tensor_split
-[smot/api_tests/torch_api/restructure/torch_tensor_split_test.py](smot/api_tests/torch_api/restructure/torch_tensor_split_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.tensor_split.html](https://pytorch.org/docs/stable/generated/torch.tensor_split.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_tensor_split_test.py](smot/api_tests/torch_api/restructure/torch_tensor_split_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.tensor_split.html](https://pytorch.org/docs/stable/generated/torch.tensor_split.html)
 
 Help on built-in function tensor_split:
 
@@ -16745,8 +16745,8 @@ Help on built-in function tensor_split:
                 [13]]))
 
 #### torch.tile
-[smot/api_tests/torch_api/restructure/torch_tile_test.py](smot/api_tests/torch_api/restructure/torch_tile_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.tile.html](https://pytorch.org/docs/stable/generated/torch.tile.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_tile_test.py](smot/api_tests/torch_api/restructure/torch_tile_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.tile.html](https://pytorch.org/docs/stable/generated/torch.tile.html)
 
 Help on built-in function tile:
 
@@ -16789,8 +16789,8 @@ Help on built-in function tile:
                 [3, 4, 3, 4]])
 
 #### torch.transpose
-[smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.transpose.html](https://pytorch.org/docs/stable/generated/torch.transpose.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.transpose.html](https://pytorch.org/docs/stable/generated/torch.transpose.html)
 
 Help on built-in function transpose:
 
@@ -16822,8 +16822,8 @@ Help on built-in function transpose:
     See also :func:`torch.t`.
 
 #### torch.unbind
-[smot/api_tests/torch_api/restructure/torch_unbind_test.py](smot/api_tests/torch_api/restructure/torch_unbind_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.unbind.html](https://pytorch.org/docs/stable/generated/torch.unbind.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_unbind_test.py](smot/api_tests/torch_api/restructure/torch_unbind_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.unbind.html](https://pytorch.org/docs/stable/generated/torch.unbind.html)
 
 Help on built-in function unbind:
 
@@ -16845,8 +16845,8 @@ Help on built-in function unbind:
         (tensor([1, 2, 3]), tensor([4, 5, 6]), tensor([7, 8, 9]))
 
 #### torch.unsqueeze
-[smot/api_tests/torch_api/restructure/torch_unsqueeze_test.py](smot/api_tests/torch_api/restructure/torch_unsqueeze_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.unsqueeze.html](https://pytorch.org/docs/stable/generated/torch.unsqueeze.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_unsqueeze_test.py](smot/api_tests/torch_api/restructure/torch_unsqueeze_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.unsqueeze.html](https://pytorch.org/docs/stable/generated/torch.unsqueeze.html)
 
 Help on built-in function unsqueeze:
 
@@ -16877,8 +16877,8 @@ Help on built-in function unsqueeze:
                 [ 4]])
 
 #### torch.vsplit
-[smot/api_tests/torch_api/restructure/torch_vsplit_test.py](smot/api_tests/torch_api/restructure/torch_vsplit_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.vsplit.html](https://pytorch.org/docs/stable/generated/torch.vsplit.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_vsplit_test.py](smot/api_tests/torch_api/restructure/torch_vsplit_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.vsplit.html](https://pytorch.org/docs/stable/generated/torch.vsplit.html)
 
 Help on built-in function vsplit:
 
@@ -16918,8 +16918,8 @@ Help on built-in function vsplit:
          tensor([], size=(0, 4)))
 
 #### torch.vstack
-[smot/api_tests/torch_api/restructure/torch_vstack_test.py](smot/api_tests/torch_api/restructure/torch_vstack_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.vstack.html](https://pytorch.org/docs/stable/generated/torch.vstack.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_vstack_test.py](smot/api_tests/torch_api/restructure/torch_vstack_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.vstack.html](https://pytorch.org/docs/stable/generated/torch.vstack.html)
 
 Help on built-in function vstack:
 
@@ -16953,8 +16953,8 @@ Help on built-in function vstack:
                 [6]])
 
 #### torch.where
-[smot/api_tests/torch_api/restructure/torch_where_test.py](smot/api_tests/torch_api/restructure/torch_where_test.py#L13)
-See: [https://pytorch.org/docs/stable/generated/torch.where.html](https://pytorch.org/docs/stable/generated/torch.where.html)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_where_test.py](smot/api_tests/torch_api/restructure/torch_where_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.where.html](https://pytorch.org/docs/stable/generated/torch.where.html)
 
 Help on built-in function where:
 
@@ -17019,8 +17019,8 @@ Help on built-in function where:
         See also :func:`torch.nonzero`.
 
 #### torch.zeros
-[smot/api_tests/torch_api/creation/torch_zeros_test.py](smot/api_tests/torch_api/creation/torch_zeros_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.zeros.html](https://pytorch.org/docs/stable/generated/torch.zeros.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_zeros_test.py](smot/api_tests/torch_api/creation/torch_zeros_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.zeros.html](https://pytorch.org/docs/stable/generated/torch.zeros.html)
 
 Help on built-in function zeros:
 
@@ -17056,8 +17056,8 @@ Help on built-in function zeros:
         tensor([ 0.,  0.,  0.,  0.,  0.])
 
 #### torch.zeros_like
-[smot/api_tests/torch_api/creation/torch_zeros_like_test.py](smot/api_tests/torch_api/creation/torch_zeros_like_test.py#L14)
-See: [https://pytorch.org/docs/stable/generated/torch.zeros_like.html](https://pytorch.org/docs/stable/generated/torch.zeros_like.html)
+  * Tests: [smot/api_tests/torch_api/creation/torch_zeros_like_test.py](smot/api_tests/torch_api/creation/torch_zeros_like_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.zeros_like.html](https://pytorch.org/docs/stable/generated/torch.zeros_like.html)
 
 Help on built-in function zeros_like:
 

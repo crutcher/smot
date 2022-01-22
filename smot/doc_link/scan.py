@@ -59,8 +59,8 @@ def gen_index() -> None:
                 [
                     "",
                     f"#### {link.target}",
-                    f"[{link.location.rpath}]({link.location.rpath}#L{link.location.line})",
-                    f"See: [{link.ref}]({link.ref})",
+                    f"  * Tests: [{link.location.rpath}]({link.location.rpath}#L{link.location.line})",
+                    f"  * Docs: [{link.ref}]({link.ref})",
                     "",
                 ]
             )
