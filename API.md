@@ -249,6 +249,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.movedim.html](https://pytorch.org/docs/stable/generated/torch.movedim.html)
 
 
+#### torch.multinomial
+  * Tests: [smot/api_tests/torch_api/random/torch_multnomial_test.py](smot/api_tests/torch_api/random/torch_multnomial_test.py) [L14](smot/api_tests/torch_api/random/torch_multnomial_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.multinomial.html](https://pytorch.org/docs/stable/generated/torch.multinomial.html)
+
+
 #### torch.narrow
   * Tests: [smot/api_tests/torch_api/restructure/torch_narrow_test.py](smot/api_tests/torch_api/restructure/torch_narrow_test.py) [L13](smot/api_tests/torch_api/restructure/torch_narrow_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.narrow.html](https://pytorch.org/docs/stable/generated/torch.narrow.html)

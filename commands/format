@@ -51,4 +51,3 @@ if (( ${#NB_TARGETS[@]} )); then
     fi
   done
 fi
-

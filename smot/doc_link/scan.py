@@ -5,7 +5,7 @@ import pydoc
 import sys
 import textwrap
 from types import ModuleType
-from typing import List, Any
+from typing import Any, List
 
 import smot
 from smot.common.runtime import reflection
