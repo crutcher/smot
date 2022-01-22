@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e
-
 cd $WORKSPACE_ROOT_DIR
 
 source venv/bin/activate
-pytest --gen_api_ref=API.md smot
+
+python -m smot.doc_link.scan > API.md
+
