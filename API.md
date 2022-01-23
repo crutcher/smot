@@ -114,6 +114,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.conj.html](https://pytorch.org/docs/stable/generated/torch.conj.html)
 
 
+#### torch.default_generator
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.default_generator.html](https://pytorch.org/docs/stable/generated/torch.default_generator.html)
+
+
 #### torch.device
   * Tests: [smot/api_tests/torch_api/torch_device_test.py](smot/api_tests/torch_api/torch_device_test.py) [L15](smot/api_tests/torch_api/torch_device_test.py#L15)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.device.html](https://pytorch.org/docs/stable/generated/torch.device.html)
@@ -179,6 +184,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html)
 
 
+#### torch.get_rng_state
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.get_rng_state.html](https://pytorch.org/docs/stable/generated/torch.get_rng_state.html)
+
+
 #### torch.heaviside
   * Tests: [smot/api_tests/torch_api/creation/torch_heaviside_test.py](smot/api_tests/torch_api/creation/torch_heaviside_test.py) [L13](smot/api_tests/torch_api/creation/torch_heaviside_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.heaviside.html](https://pytorch.org/docs/stable/generated/torch.heaviside.html)
@@ -192,6 +202,11 @@
 #### torch.index_select
   * Tests: [smot/api_tests/torch_api/restructure/torch_index_select_test.py](smot/api_tests/torch_api/restructure/torch_index_select_test.py) [L13](smot/api_tests/torch_api/restructure/torch_index_select_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.index_select.html](https://pytorch.org/docs/stable/generated/torch.index_select.html)
+
+
+#### torch.initial_seed
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.initial_seed.html](https://pytorch.org/docs/stable/generated/torch.initial_seed.html)
 
 
 #### torch.is_complex
@@ -232,6 +247,11 @@
 #### torch.logspace
   * Tests: [smot/api_tests/torch_api/creation/torch_logspace_test.py](smot/api_tests/torch_api/creation/torch_logspace_test.py) [L14](smot/api_tests/torch_api/creation/torch_logspace_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.logspace.html](https://pytorch.org/docs/stable/generated/torch.logspace.html)
+
+
+#### torch.manual_seed
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.manual_seed.html](https://pytorch.org/docs/stable/generated/torch.manual_seed.html)
 
 
 #### torch.masked_select
@@ -339,6 +359,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.set_printoptions.html](https://pytorch.org/docs/stable/generated/torch.set_printoptions.html)
 
 
+#### torch.set_rng_state
+  * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_rng_state.html](https://pytorch.org/docs/stable/generated/torch.set_rng_state.html)
+
+
 #### torch.sparse_coo_tensor
   * Tests: [smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py) [L13](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html](https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html)
@@ -360,15 +385,15 @@
 
 
 #### torch.swapaxes
-  * Tests: [smot/api_tests/torch_api/restructure/torch_swapaxes_test.py](smot/api_tests/torch_api/restructure/torch_swapaxes_test.py) [L14](smot/api_tests/torch_api/restructure/torch_swapaxes_test.py#L14)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py) [L25](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L25)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.swapaxes.html](https://pytorch.org/docs/stable/generated/torch.swapaxes.html)
 
 Aliases:
     * [torch.transpose](#torchtranspose)
-    * [torch.swapaxes](#torchswapaxes)
+    * [torch.swapdims](#torchswapdims)
 
 #### torch.swapdims
-  * Tests: [smot/api_tests/torch_api/restructure/torch_swapdims_test.py](smot/api_tests/torch_api/restructure/torch_swapdims_test.py) [L14](smot/api_tests/torch_api/restructure/torch_swapdims_test.py#L14)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py) [L25](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L25)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.swapdims.html](https://pytorch.org/docs/stable/generated/torch.swapdims.html)
 
 Aliases:
@@ -406,11 +431,11 @@ Aliases:
 
 
 #### torch.transpose
-  * Tests: [smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py) [L14](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L14)
+  * Tests: [smot/api_tests/torch_api/restructure/torch_transpose_test.py](smot/api_tests/torch_api/restructure/torch_transpose_test.py) [L25](smot/api_tests/torch_api/restructure/torch_transpose_test.py#L25)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.transpose.html](https://pytorch.org/docs/stable/generated/torch.transpose.html)
 
 Aliases:
-    * [torch.transpose](#torchtranspose)
+    * [torch.swapdims](#torchswapdims)
     * [torch.swapaxes](#torchswapaxes)
 
 #### torch.unbind

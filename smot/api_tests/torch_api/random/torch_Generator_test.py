@@ -80,18 +80,27 @@ class GeneratorTest(unittest.TestCase):
         )
 
 
+@api_link(
+    target="torch.initial_seed",
+    ref="https://pytorch.org/docs/stable/generated/torch.initial_seed.html",
+)
+@api_link(
+    target="torch.manual_seed",
+    ref="https://pytorch.org/docs/stable/generated/torch.manual_seed.html",
+)
+@api_link(
+    target="torch.get_rng_state",
+    ref="https://pytorch.org/docs/stable/generated/torch.get_rng_state.html",
+)
+@api_link(
+    target="torch.set_rng_state",
+    ref="https://pytorch.org/docs/stable/generated/torch.set_rng_state.html",
+)
+@api_link(
+    target="torch.default_generator",
+    ref="https://pytorch.org/docs/stable/generated/torch.default_generator.html",
+)
 class GlobalGeneratorTest(unittest.TestCase):
-    TARGETS = {
-        torch.seed: "https://pytorch.org/docs/stable/generated/torch.seed.html",
-        torch.initial_seed: "https://pytorch.org/docs/stable/generated/torch.initial_seed.html",
-        torch.get_rng_state: "https://pytorch.org/docs/stable/generated/torch.get_rng_state.html",
-        torch.set_rng_state: "https://pytorch.org/docs/stable/generated/torch.set_rng_state.html",
-        torch.default_generator: "https://pytorch.org/docs/stable/torch.html#torch.torch.default_generator",
-    }
-
-    API_DOC = "https://pytorch.org/docs/stable/generated/torch.seed.html"
-    TARGET = "torch.seed"
-
     def test_initial_seed(self) -> None:
         orig_seed = torch.initial_seed()
 

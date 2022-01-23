@@ -1,3 +1,4 @@
+import contextlib
 import numbers
 import typing
 
@@ -218,3 +219,9 @@ def assert_tensor_close(
         actual,
         expect_tensor_close(expected),
     )
+
+
+@contextlib.contextmanager
+def with_generator_seed(seed: int) -> typing.Iterator:
+    torch.manual_seed(seed)
+    yield

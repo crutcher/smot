@@ -12,13 +12,6 @@ from smot.testlib import eggs, torch_eggs
     ref="https://pytorch.org/docs/stable/generated/torch.multinomial.html",
 )
 class MultinomialTest(unittest.TestCase):
-    rng: torch.Generator
-
-    def setUp(self) -> None:
-        super().setUp()
-        self.rng = torch.Generator()
-        self.rng.manual_seed(12345)
-
     def test_degenerate(self) -> None:
         eggs.assert_raises(
             lambda: torch.multinomial(
@@ -119,18 +112,18 @@ class MultinomialTest(unittest.TestCase):
         )
 
     def test_as_bernoulli(self) -> None:
-        k = 1000
-        for p in [0.2, 0.5, 0.83]:
-            eggs.assert_match(
-                torch.sum(
-                    # Sampling from a multinomial distribution of size 2
-                    # is equivalent to a bernoulli distribution.
-                    torch.multinomial(
-                        torch.tensor([1 - p, p]),
-                        k,
-                        replacement=True,
-                        generator=self.rng,
-                    )
-                ),
-                hamcrest.close_to(k * p, k * 0.05),
-            )
+        with torch_eggs.with_generator_seed(1234):
+            k = 1000
+            for p in [0.2, 0.5, 0.83]:
+                eggs.assert_match(
+                    torch.sum(
+                        # Sampling from a multinomial distribution of size 2
+                        # is equivalent to a bernoulli distribution.
+                        torch.multinomial(
+                            torch.tensor([1 - p, p]),
+                            k,
+                            replacement=True,
+                        )
+                    ),
+                    hamcrest.close_to(k * p, k * 0.05),
+                )
