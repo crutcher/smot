@@ -50,10 +50,9 @@ pandas-stubs
 
 # pytorch
 # pytorch with cu111 builds.
---find-links https://download.pytorch.org/whl/torch_stable.html
-torch==1.10.1+cu111
-torchvision==0.11.2+cu111
-torchaudio==0.10.1+cu111
+torch
+torchvision
+torchaudio
 
 pytorch-lightning
 

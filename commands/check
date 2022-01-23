@@ -14,7 +14,7 @@ fi
 
 echo "Code Quality Scans ..."
 
-MYPYPATH=$PWD nbqa mypy smot
+# MYPYPATH=$PWD nbqa mypy smot
 
 mypy "${TARGETS[@]}"
 
