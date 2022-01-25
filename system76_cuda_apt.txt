@@ -1,0 +1,3 @@
+system76-cudnn-11.2
+libcudart11.0
+nvidia-cuda-toolkit
