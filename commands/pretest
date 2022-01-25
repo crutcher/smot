@@ -2,6 +2,6 @@
 
 set -e
 
-$GRIND format
 $GRIND check
+$GRIND format
 
