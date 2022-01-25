@@ -44,7 +44,7 @@ class BernoulliTest(unittest.TestCase):
     @api_link(
         target="torch.Tensor.bernoulli_",
         ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html",
-        note="t.bernoulli_(...) => torch.bernoulli(..., out=t)",
+        note="`t.bernoulli_(...)` => `torch.bernoulli(..., out=t)`",
     )
     def test_out(self) -> None:
         g = torch.Generator()

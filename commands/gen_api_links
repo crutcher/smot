@@ -5,4 +5,5 @@ cd $WORKSPACE_ROOT_DIR
 source venv/bin/activate
 
 python -m smot.doc_link.scan > API.md
+git add API.md
 
