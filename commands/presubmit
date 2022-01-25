@@ -6,4 +6,4 @@ cd $WORKSPACE_ROOT_DIR
 
 $GRIND format
 $GRIND gen_api_links
-$GRIND test --testmon --slow
+$GRIND testall --testmon
