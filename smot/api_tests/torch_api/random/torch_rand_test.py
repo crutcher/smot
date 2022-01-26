@@ -177,3 +177,71 @@ class RandintLikeTest(unittest.TestCase):
             max,
             rtol=0.05,
         )
+
+
+@api_link(
+    target="torch.randn",
+    ref="https://pytorch.org/docs/stable/generated/torch.randn.html",
+)
+class RandnTest(unittest.TestCase):
+    def test_scalar(self) -> None:
+        torch_eggs.assert_tensor_structure(
+            torch.randn([]),
+            0.0,
+        )
+
+        torch_eggs.assert_tensor_structure(
+            torch.randn(2, 3),
+            torch.zeros(2, 3),
+        )
+
+    def test_stats(self) -> None:
+        k = 10000
+
+        with torch_eggs.reset_generator_seed():
+            samples = torch.randn(k)
+
+        eggs.assert_close_to(
+            samples.mean(),
+            0.0,
+            atol=0.05,
+        )
+        eggs.assert_close_to(
+            samples.var(),
+            1.0,
+            rtol=0.05,
+        )
+
+
+@api_link(
+    target="torch.randn_like",
+    ref="https://pytorch.org/docs/stable/generated/torch.randn_like.html",
+)
+class RandnLikeTest(unittest.TestCase):
+    def test_scalar(self) -> None:
+        torch_eggs.assert_tensor_structure(
+            torch.randn_like(torch.tensor(0.0)),
+            0.0,
+        )
+
+        torch_eggs.assert_tensor_structure(
+            torch.randn_like(torch.zeros(2, 3)),
+            torch.zeros(2, 3),
+        )
+
+    def test_stats(self) -> None:
+        k = 10000
+
+        with torch_eggs.reset_generator_seed():
+            samples = torch.randn_like(torch.zeros(k))
+
+        eggs.assert_close_to(
+            samples.mean(),
+            0.0,
+            atol=0.05,
+        )
+        eggs.assert_close_to(
+            samples.var(),
+            1.0,
+            rtol=0.05,
+        )
