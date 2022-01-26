@@ -222,6 +222,6 @@ def assert_tensor_close(
 
 
 @contextlib.contextmanager
-def with_generator_seed(seed: int) -> typing.Iterator:
+def reset_generator_seed(seed: int = 3 * 17 * 53 + 1) -> typing.Iterator:
     torch.manual_seed(seed)
     yield

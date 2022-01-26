@@ -1,6 +1,5 @@
 import unittest
 
-import hamcrest
 import torch
 
 from smot.doc_link.link_annotations import api_link
@@ -8,7 +7,7 @@ from smot.testlib import eggs, torch_eggs
 
 
 @api_link(
-    target="torch.multinomial",
+    target="torch.normal",
     ref="https://pytorch.org/docs/stable/generated/torch.normal.html",
     note="When `std` is a cuda tensor, this function syncs with the CPU.",
 )
@@ -24,18 +23,26 @@ class NormalTest(unittest.TestCase):
             [[]],
         )
 
+    def test_zero_std(self) -> None:
+        eggs.assert_match(
+            torch.normal(3.5, 0.0, []),
+            3.5,
+        )
+
     def test_scalar(self) -> None:
         mean = 3.5
         std = 1.2
         k = 1000
         sample = torch.normal(mean, std, [k])
-        eggs.assert_match(
+        eggs.assert_close_to(
             torch.mean(sample).item(),
-            hamcrest.close_to(mean, k * 0.05),
+            mean,
+            rtol=0.05,
         )
-        eggs.assert_match(
+        eggs.assert_close_to(
             torch.std(sample).item(),
-            hamcrest.close_to(std, k * 0.05),
+            std,
+            rtol=0.05,
         )
 
     def test_broadcast_shape(self) -> None:
@@ -65,17 +72,17 @@ class NormalTest(unittest.TestCase):
         mean = 3.2
         std = 1.2
 
-        with torch_eggs.with_generator_seed(seed):
+        with torch_eggs.reset_generator_seed(seed):
             expected = torch.normal(mean, std, (3, 4))
 
-        with torch_eggs.with_generator_seed(seed):
+        with torch_eggs.reset_generator_seed(seed):
             out = torch.empty(3, 4)
             original_out = out.data
             torch.normal(mean, std, (3, 4), out=out)
             torch_eggs.assert_tensor(out, expected)
             torch_eggs.assert_views(original_out, out)
 
-        with torch_eggs.with_generator_seed(seed):
+        with torch_eggs.reset_generator_seed(seed):
             inplace = torch.empty(3, 4)
             original_inplace = inplace.data
             inplace.normal_(mean, std)

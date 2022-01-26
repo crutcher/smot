@@ -65,7 +65,7 @@
 
 
 #### torch.Tensor.normal_
-  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L63](smot/api_tests/torch_api/random/torch_normal_test.py#L63)
+  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L70](smot/api_tests/torch_api/random/torch_normal_test.py#L70)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html)
 
 
@@ -275,8 +275,8 @@
 
 
 #### torch.multinomial
-  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L15](smot/api_tests/torch_api/random/torch_normal_test.py#L15)
-  * Docs: [https://pytorch.org/docs/stable/generated/torch.normal.html](https://pytorch.org/docs/stable/generated/torch.normal.html)
+  * Tests: [smot/api_tests/torch_api/random/torch_multnomial_test.py](smot/api_tests/torch_api/random/torch_multnomial_test.py) [L14](smot/api_tests/torch_api/random/torch_multnomial_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.multinomial.html](https://pytorch.org/docs/stable/generated/torch.multinomial.html)
 
 
 #### torch.narrow
@@ -287,6 +287,11 @@
 #### torch.nonzero
   * Tests: [smot/api_tests/torch_api/restructure/torch_nonzero_test.py](smot/api_tests/torch_api/restructure/torch_nonzero_test.py) [L14](smot/api_tests/torch_api/restructure/torch_nonzero_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.nonzero.html](https://pytorch.org/docs/stable/generated/torch.nonzero.html)
+
+
+#### torch.normal
+  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L14](smot/api_tests/torch_api/random/torch_normal_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.normal.html](https://pytorch.org/docs/stable/generated/torch.normal.html)
 
 
 #### torch.numel
@@ -307,6 +312,11 @@
 #### torch.permute
   * Tests: [smot/api_tests/torch_api/restructure/torch_permute_test.py](smot/api_tests/torch_api/restructure/torch_permute_test.py) [L13](smot/api_tests/torch_api/restructure/torch_permute_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.permute.html](https://pytorch.org/docs/stable/generated/torch.permute.html)
+
+
+#### torch.poisson
+  * Tests: [smot/api_tests/torch_api/random/torch_poisson_test.py](smot/api_tests/torch_api/random/torch_poisson_test.py) [L13](smot/api_tests/torch_api/random/torch_poisson_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.poisson.html](https://pytorch.org/docs/stable/generated/torch.poisson.html)
 
 
 #### torch.polar

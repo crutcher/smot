@@ -112,7 +112,7 @@ class MultinomialTest(unittest.TestCase):
         )
 
     def test_as_bernoulli(self) -> None:
-        with torch_eggs.with_generator_seed(1234):
+        with torch_eggs.reset_generator_seed(1234):
             k = 1000
             for p in [0.2, 0.5, 0.83]:
                 eggs.assert_match(
@@ -133,7 +133,7 @@ class MultinomialTest(unittest.TestCase):
         ws = [14.0, 27.0, 30.0, 9.5, 50.0]
         sum_ws = sum(ws)
 
-        with torch_eggs.with_generator_seed(1234):
+        with torch_eggs.reset_generator_seed(1234):
             samples = torch.multinomial(torch.tensor(ws), k, replacement=True)
 
         for idx, w in enumerate(ws):

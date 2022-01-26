@@ -1,5 +1,6 @@
 import contextlib
 from dataclasses import dataclass
+from numbers import Number
 from typing import Any, Callable, Dict, Generator, Optional, Sequence, Tuple, Type
 import warnings
 
@@ -115,6 +116,33 @@ def assert_match(actual: Any, matcher: Any, reason: str = "") -> None:
         actual=actual,
         matcher=_as_matcher(matcher),
         reason=reason,
+    )
+
+
+def assert_close_to(
+    actual: Any,
+    expected: Any,
+    delta: Optional[Number] = None,
+    *,
+    rtol: float = 1e-05,
+    atol: float = 1e-08,
+) -> None:
+    """
+    Asserts that two values are close to each other.
+
+    :param actual: the actual value.
+    :param expected: the expected value.
+    :param delta: (optional) the tolerance.
+    :param rtol: if delta is None, the relative tolerance.
+    :param atol: if delta is None, the absolute toleranece.
+    :return:
+    """
+    if delta is None:
+        # numpy.isclose() pattern:
+        delta = atol + rtol * abs(expected)
+    assert_match(
+        actual,
+        hamcrest.close_to(expected, delta),
     )
 
 
