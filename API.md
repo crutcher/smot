@@ -364,6 +364,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.randn_like.html](https://pytorch.org/docs/stable/generated/torch.randn_like.html)
 
 
+#### torch.randperm
+  * Tests: [smot/api_tests/torch_api/random/torch_randperm_test.py](smot/api_tests/torch_api/random/torch_randperm_test.py) [L13](smot/api_tests/torch_api/random/torch_randperm_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.randperm.html](https://pytorch.org/docs/stable/generated/torch.randperm.html)
+
+
 #### torch.range
   * Tests: [smot/api_tests/torch_api/creation/torch_range_test.py](smot/api_tests/torch_api/creation/torch_range_test.py) [L14](smot/api_tests/torch_api/creation/torch_range_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.range.html](https://pytorch.org/docs/stable/generated/torch.range.html)
