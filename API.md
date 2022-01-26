@@ -270,8 +270,8 @@
 
 
 #### torch.multinomial
-  * Tests: [smot/api_tests/torch_api/random/torch_multnomial_test.py](smot/api_tests/torch_api/random/torch_multnomial_test.py) [L14](smot/api_tests/torch_api/random/torch_multnomial_test.py#L14)
-  * Docs: [https://pytorch.org/docs/stable/generated/torch.multinomial.html](https://pytorch.org/docs/stable/generated/torch.multinomial.html)
+  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L15](smot/api_tests/torch_api/random/torch_normal_test.py#L15)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.normal.html](https://pytorch.org/docs/stable/generated/torch.normal.html)
 
 
 #### torch.narrow

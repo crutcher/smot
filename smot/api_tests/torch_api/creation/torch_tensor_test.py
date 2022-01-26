@@ -71,6 +71,7 @@ class TensorTest(unittest.TestCase):
             RuntimeError,
         )
 
+    @pytest.mark.skip("very slow, 2s")
     @pytest.mark.slow
     def test_tensor_device(self) -> None:
         devices = ["cpu"]

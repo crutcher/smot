@@ -2,6 +2,12 @@
 
 set -e
 
-$GRIND check
+cd $WORKSPACE_ROOT_DIR
+
+# find . -type f -name '*.py*' | xargs -n100 -P100 cat > /dev/null
+
 $GRIND format
+
+# check is noticeably faster if format loads files first.
+# $GRIND check
 

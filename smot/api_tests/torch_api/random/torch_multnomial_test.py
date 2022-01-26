@@ -127,3 +127,18 @@ class MultinomialTest(unittest.TestCase):
                     ),
                     hamcrest.close_to(k * p, k * 0.05),
                 )
+
+    def test_distribution(self) -> None:
+        k = 1000
+        ws = [14.0, 27.0, 30.0, 9.5, 50.0]
+        sum_ws = sum(ws)
+
+        with torch_eggs.with_generator_seed(1234):
+            samples = torch.multinomial(torch.tensor(ws), k, replacement=True)
+
+        for idx, w in enumerate(ws):
+            expected = k * w / sum_ws
+            eggs.assert_match(
+                torch.count_nonzero(samples == idx),
+                hamcrest.close_to(expected, k * 0.05),
+            )

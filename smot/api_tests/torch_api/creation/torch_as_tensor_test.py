@@ -55,6 +55,7 @@ class AsTensorTest(unittest.TestCase):
             hamcrest.not_(hamcrest.same_instance(t)),
         )
 
+    @pytest.mark.skip("very slow, 2s")
     @pytest.mark.slow
     def test_tensor_cuda_conversion(self) -> None:
         if torch.cuda.is_available():

@@ -12,9 +12,6 @@ __tracebackhide__ = True
 
 T = TypeVar("T")
 
-API_LINKS = []
-VERIFY: bool = True
-
 
 @dataclass
 class Location:
@@ -39,6 +36,10 @@ class Link:
     ref: str
     doc: Optional[str] = None
     link_target: Optional[LinkTarget] = None
+
+
+API_LINKS: List[Link] = []
+VERIFY: bool = True
 
 
 def _find_target(qual_name: str) -> LinkTarget:
