@@ -64,6 +64,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bernoulli_.html)
 
 
+#### torch.Tensor.normal_
+  * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L63](smot/api_tests/torch_api/random/torch_normal_test.py#L63)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html)
+
+
 #### torch.arange
   * Tests: [smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py) [L13](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arange.html](https://pytorch.org/docs/stable/generated/torch.arange.html)

@@ -54,3 +54,30 @@ class NormalTest(unittest.TestCase):
                 ]
             ],
         )
+
+    @api_link(
+        target="torch.Tensor.normal_",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html",
+        note="`t.normal_(...)` => `torch.normal(..., out=t)`",
+    )
+    def test_out(self) -> None:
+        seed = 12345
+        mean = 3.2
+        std = 1.2
+
+        with torch_eggs.with_generator_seed(seed):
+            expected = torch.normal(mean, std, (3, 4))
+
+        with torch_eggs.with_generator_seed(seed):
+            out = torch.empty(3, 4)
+            original_out = out.data
+            torch.normal(mean, std, (3, 4), out=out)
+            torch_eggs.assert_tensor(out, expected)
+            torch_eggs.assert_views(original_out, out)
+
+        with torch_eggs.with_generator_seed(seed):
+            inplace = torch.empty(3, 4)
+            original_inplace = inplace.data
+            inplace.normal_(mean, std)
+            torch_eggs.assert_tensor(inplace, expected)
+            torch_eggs.assert_views(original_inplace, inplace)
