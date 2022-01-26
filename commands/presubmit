@@ -5,6 +5,5 @@ set -e
 cd $WORKSPACE_ROOT_DIR
 
 $GRIND format
-$GRIND check
 $GRIND gen_api_links
 $GRIND testall --testmon
