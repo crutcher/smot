@@ -334,6 +334,26 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html)
 
 
+#### torch.rand
+  * Tests: [smot/api_tests/torch_api/random/torch_rand_test.py](smot/api_tests/torch_api/random/torch_rand_test.py) [L14](smot/api_tests/torch_api/random/torch_rand_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.rand.html](https://pytorch.org/docs/stable/generated/torch.rand.html)
+
+
+#### torch.rand_like
+  * Tests: [smot/api_tests/torch_api/random/torch_rand_test.py](smot/api_tests/torch_api/random/torch_rand_test.py) [L53](smot/api_tests/torch_api/random/torch_rand_test.py#L53)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.rand_like.html](https://pytorch.org/docs/stable/generated/torch.rand_like.html)
+
+
+#### torch.randint
+  * Tests: [smot/api_tests/torch_api/random/torch_rand_test.py](smot/api_tests/torch_api/random/torch_rand_test.py) [L92](smot/api_tests/torch_api/random/torch_rand_test.py#L92)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.randint.html](https://pytorch.org/docs/stable/generated/torch.randint.html)
+
+
+#### torch.randint_like
+  * Tests: [smot/api_tests/torch_api/random/torch_rand_test.py](smot/api_tests/torch_api/random/torch_rand_test.py) [L134](smot/api_tests/torch_api/random/torch_rand_test.py#L134)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.randint_like.html](https://pytorch.org/docs/stable/generated/torch.randint_like.html)
+
+
 #### torch.range
   * Tests: [smot/api_tests/torch_api/creation/torch_range_test.py](smot/api_tests/torch_api/creation/torch_range_test.py) [L14](smot/api_tests/torch_api/creation/torch_range_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.range.html](https://pytorch.org/docs/stable/generated/torch.range.html)
