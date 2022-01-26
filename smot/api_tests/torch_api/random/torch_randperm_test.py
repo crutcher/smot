@@ -17,7 +17,13 @@ class RandpermTest(unittest.TestCase):
             torch.tensor([], dtype=torch.int64),
         )
 
-    def test_tensor(self) -> None:
+    def test_one(self) -> None:
+        torch_eggs.assert_tensor_structure(
+            torch.randperm(1, dtype=torch.int64),
+            torch.tensor([0], dtype=torch.int64),
+        )
+
+    def test_n(self) -> None:
         n = 5
         perm = torch.randperm(n)
         for k in range(n):
