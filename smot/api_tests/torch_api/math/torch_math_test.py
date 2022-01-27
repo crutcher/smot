@@ -52,3 +52,51 @@ class MathTest(unittest.TestCase):
                     [True, False],
                 ],
             )
+
+    @api_link(
+        target="torch.acos",
+        ref="https://pytorch.org/docs/stable/generated/torch.acos.html",
+    )
+    @api_link(
+        target="torch.arccos",
+        ref="https://pytorch.org/docs/stable/generated/torch.arccos.html",
+        alias="torch.acos",
+    )
+    def test_acos(self) -> None:
+        # torch_eggs.hide_tracebacks(False)
+
+        for op, bound_op in [
+            (torch.acos, torch.Tensor.acos),
+            (torch.arccos, torch.Tensor.arccos),
+        ]:
+            torch_eggs.assert_tensor_uniop_pair_cases(
+                op,
+                bound_op,
+                (
+                    [],
+                    [],
+                ),
+                (
+                    -3,
+                    torch.nan,
+                ),
+                (
+                    [[0], [1], [-1], [3]],
+                    [[1.5707963705], [0], [torch.pi], [torch.nan]],
+                ),
+                (
+                    [[0.0], [1.0], [-1.0], [3.0]],
+                    [[1.5707963705], [0], [torch.pi], [torch.nan]],
+                ),
+                # bools, are cast to ints  ...
+                (
+                    [True, False],
+                    [0.0, 1.5707963705],
+                ),
+                # complex
+                (
+                    [0j, 1 + 1j],
+                    [1.5707963705-0.0000000000j, 0.9045568705-1.0612751245j],
+                ),
+                close=True,
+            )

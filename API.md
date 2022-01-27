@@ -81,10 +81,22 @@
 Aliases:
     * [torch.abs](#torchabs)
 
+#### torch.acos
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L65](smot/api_tests/torch_api/math/torch_math_test.py#L65)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.acos.html](https://pytorch.org/docs/stable/generated/torch.acos.html)
+
+
 #### torch.arange
   * Tests: [smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py) [L13](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arange.html](https://pytorch.org/docs/stable/generated/torch.arange.html)
 
+
+#### torch.arccos
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L65](smot/api_tests/torch_api/math/torch_math_test.py#L65)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.arccos.html](https://pytorch.org/docs/stable/generated/torch.arccos.html)
+
+Aliases:
+    * [torch.acos](#torchacos)
 
 #### torch.as_strided
   * Tests: [smot/api_tests/torch_api/creation/torch_as_strided_test.py](smot/api_tests/torch_api/creation/torch_as_strided_test.py) [L13](smot/api_tests/torch_api/creation/torch_as_strided_test.py#L13)
