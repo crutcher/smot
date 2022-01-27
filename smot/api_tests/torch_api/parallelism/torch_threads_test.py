@@ -19,8 +19,6 @@ from smot.testlib import eggs
 class ThreadsTest(unittest.TestCase):
     @pytest.mark.forked
     def test_num_threads(self) -> None:
-        original_threads = torch.get_num_threads()
-
         eggs.assert_match(
             torch.get_num_threads(),
             psutil.cpu_count(logical=False),
