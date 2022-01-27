@@ -69,6 +69,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html)
 
 
+#### torch.abs
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L14](smot/api_tests/torch_api/math/torch_math_test.py#L14)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
+
+
 #### torch.arange
   * Tests: [smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py) [L13](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arange.html](https://pytorch.org/docs/stable/generated/torch.arange.html)
