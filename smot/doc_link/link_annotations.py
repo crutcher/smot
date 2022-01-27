@@ -55,7 +55,10 @@ def _find_target(qual_name: str) -> LinkTarget:
         # look for the module
         probe_name = ".".join(mod_parts + [p])
         try:
-            mod = __import__(probe_name)
+            mod = __import__(
+                probe_name,
+                fromlist=[None] if "." in probe_name else [],  # type: ignore
+            )
         except ImportError:
             break
 
@@ -135,3 +138,13 @@ def api_link(
         return obj
 
     return hook
+
+
+def WEIRD_BUG(
+    target: Any,
+    note: str,
+) -> None:
+    if VERIFY:
+        link_target = _verify_target(target)
+
+    # TODO: link this in docs.

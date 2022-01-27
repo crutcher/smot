@@ -334,6 +334,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html](https://pytorch.org/docs/stable/generated/torch.quantize_per_tensor.html)
 
 
+#### torch.quasirandom.SobolEngine
+  * Tests: [smot/api_tests/torch_api/random/torch_quasirandom_SobolEngine_test.py](smot/api_tests/torch_api/random/torch_quasirandom_SobolEngine_test.py) [L13](smot/api_tests/torch_api/random/torch_quasirandom_SobolEngine_test.py#L13)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.quasirandom.SobolEngine.html](https://pytorch.org/docs/stable/generated/torch.quasirandom.SobolEngine.html)
+
+
 #### torch.rand
   * Tests: [smot/api_tests/torch_api/random/torch_rand_test.py](smot/api_tests/torch_api/random/torch_rand_test.py) [L14](smot/api_tests/torch_api/random/torch_rand_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.rand.html](https://pytorch.org/docs/stable/generated/torch.rand.html)
