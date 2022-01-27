@@ -257,17 +257,16 @@ def assert_tensor_uniop(
     t_source = torch.as_tensor(source)
     t_expected = torch.as_tensor(expected)
 
-
     result = op(t_source)
     assert_tensor(
         result,
         t_expected,
     )
 
+    # use the shape of expected to build an out.
     out = torch.empty_like(result)
 
     if supports_out:
-        # use the shape of expected to build an out.
         eggs.assert_match(
             op(t_source, out=out),  # type: ignore
             hamcrest.same_instance(out),
