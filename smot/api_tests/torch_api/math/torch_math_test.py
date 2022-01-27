@@ -63,8 +63,6 @@ class MathTest(unittest.TestCase):
         alias="torch.acos",
     )
     def test_acos(self) -> None:
-        # torch_eggs.hide_tracebacks(False)
-
         for op, bound_op in [
             (torch.acos, torch.Tensor.acos),
             (torch.arccos, torch.Tensor.arccos),
@@ -96,7 +94,7 @@ class MathTest(unittest.TestCase):
                 # complex
                 (
                     [0j, 1 + 1j],
-                    [1.5707963705-0.0000000000j, 0.9045568705-1.0612751245j],
+                    [1.5707963705 - 0.0000000000j, 0.9045568705 - 1.0612751245j],
                 ),
                 close=True,
             )

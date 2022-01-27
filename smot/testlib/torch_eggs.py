@@ -123,12 +123,12 @@ class TensorMatcher(TensorStructureMatcher):
 
         if self.close:
             try:
-              torch.testing.assert_close(
-                item,
-                self.expected,
-                equal_nan=True,
-            )
-              return True
+                torch.testing.assert_close(
+                    item,
+                    self.expected,
+                    equal_nan=True,
+                )
+                return True
             except AssertionError:
                 return False
 
@@ -152,15 +152,15 @@ class TensorMatcher(TensorStructureMatcher):
             else:
                 # torch.equal(item, self.expected) does not support nan.
                 try:
-                  torch.testing.assert_close(
-                    item,
-                    self.expected,
-                    rtol=0,
-                    atol=0,
-                    equal_nan=True,
-                )
+                    torch.testing.assert_close(
+                        item,
+                        self.expected,
+                        rtol=0,
+                        atol=0,
+                        equal_nan=True,
+                    )
                 except AssertionError:
-                  return False
+                    return False
                 return True
 
     def describe_to(self, description: Description) -> None:
@@ -183,7 +183,7 @@ class TensorMatcher(TensorStructureMatcher):
 
 def expect_tensor(
     expected: TensorConvertable,
-        close: bool = False,
+    close: bool = False,
 ) -> TensorMatcher:
     return TensorMatcher(expected, close=close)
 
@@ -197,11 +197,14 @@ def expect_tensor_seq(
 def assert_tensor(
     actual: torch.Tensor,
     expected: TensorConvertable,
-        close: bool = False,
+    close: bool = False,
 ) -> None:
     hamcrest.assert_that(
         actual,
-        expect_tensor(expected, close=close,),
+        expect_tensor(
+            expected,
+            close=close,
+        ),
     )
 
 
@@ -275,7 +278,7 @@ def assert_tensor_uniop(
     source: TensorConvertable,
     expected: TensorConvertable,
     *,
-        close: bool = False,
+    close: bool = False,
     supports_out: bool = True,
 ) -> None:
     t_source = torch.as_tensor(source)
@@ -285,7 +288,7 @@ def assert_tensor_uniop(
     assert_tensor(
         result,
         t_expected,
-        close = close,
+        close=close,
     )
 
     # use the shape of expected to build an out.
@@ -299,7 +302,7 @@ def assert_tensor_uniop(
         assert_tensor(
             out,
             t_expected,
-            close = close,
+            close=close,
         )
 
     else:
@@ -314,7 +317,7 @@ def assert_tensor_uniop_pair(
     tensor_op: Callable[[torch.Tensor], torch.Tensor],
     source: TensorConvertable,
     expected: TensorConvertable,
-        close: bool = False,
+    close: bool = False,
 ) -> None:
     source = torch.as_tensor(source)
     expected = torch.as_tensor(expected)
@@ -323,13 +326,13 @@ def assert_tensor_uniop_pair(
         torch_op,
         source,
         expected,
-        close = close,
+        close=close,
     )
     assert_tensor_uniop(
         tensor_op,
         source,
         expected,
-        close = close,
+        close=close,
         supports_out=False,
     )
 
