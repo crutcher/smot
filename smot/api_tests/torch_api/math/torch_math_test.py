@@ -17,6 +17,14 @@ class MathTest(unittest.TestCase):
             torch.Tensor.abs,
             # ints
             (
+                [],
+                [],
+            ),
+            (
+                -3,
+                3,
+            ),
+            (
                 [[-1], [3]],
                 [[1], [3]],
             ),
