@@ -154,6 +154,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.empty_strided.html](https://pytorch.org/docs/stable/generated/torch.empty_strided.html)
 
 
+#### torch.enable_grad
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L18](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L18)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.enable_grad.html](https://pytorch.org/docs/stable/generated/torch.enable_grad.html)
+
+
 #### torch.eye
   * Tests: [smot/api_tests/torch_api/creation/torch_eye_test.py](smot/api_tests/torch_api/creation/torch_eye_test.py) [L14](smot/api_tests/torch_api/creation/torch_eye_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.eye.html](https://pytorch.org/docs/stable/generated/torch.eye.html)
@@ -292,6 +297,11 @@
 #### torch.narrow
   * Tests: [smot/api_tests/torch_api/restructure/torch_narrow_test.py](smot/api_tests/torch_api/restructure/torch_narrow_test.py) [L13](smot/api_tests/torch_api/restructure/torch_narrow_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.narrow.html](https://pytorch.org/docs/stable/generated/torch.narrow.html)
+
+
+#### torch.no_grad
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L18](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L18)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.no_grad.html](https://pytorch.org/docs/stable/generated/torch.no_grad.html)
 
 
 #### torch.nonzero
