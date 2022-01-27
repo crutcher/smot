@@ -25,6 +25,8 @@ class GradientManagersTest(unittest.TestCase):
         x = ng_source * 2
         eggs.assert_false(x.requires_grad)
 
+        # `no_grad()` disables gradient computation while it is in effect;
+        # thread-local.
         with torch.no_grad():
             x = g_source * 2
             eggs.assert_false(x.requires_grad)
@@ -38,7 +40,9 @@ class GradientManagersTest(unittest.TestCase):
         x = ng_source * 2
         eggs.assert_false(x.requires_grad)
 
-        # No, `enable_grad()` doesn't do anything if `no_grad()` hasn't been called.
+        # `enable_grad()` doesn't do anything if `no_grad()` hasn't been called;
+        # it re-enables only those gradient computations which would have
+        # happened if no_grad() hadn't been in effect.
         with torch.enable_grad():
             x = g_source * 2
             eggs.assert_true(x.requires_grad)
