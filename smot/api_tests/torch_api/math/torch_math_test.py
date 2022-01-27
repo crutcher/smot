@@ -30,6 +30,10 @@ class MathTest(unittest.TestCase):
                     [],
                 ),
                 (
+                    torch.nan,
+                    torch.nan,
+                ),
+                (
                     -3,
                     3,
                 ),
@@ -75,6 +79,10 @@ class MathTest(unittest.TestCase):
                     [],
                 ),
                 (
+                    torch.nan,
+                    torch.nan,
+                ),
+                (
                     -3,
                     torch.nan,
                 ),
@@ -95,6 +103,56 @@ class MathTest(unittest.TestCase):
                 (
                     [0j, 1 + 1j],
                     [1.5707963705 - 0.0000000000j, 0.9045568705 - 1.0612751245j],
+                ),
+                close=True,
+            )
+
+    @api_link(
+        target="torch.acosh",
+        ref="https://pytorch.org/docs/stable/generated/torch.acosh.html",
+    )
+    @api_link(
+        target="torch.arccosh",
+        ref="https://pytorch.org/docs/stable/generated/torch.arccosh.html",
+        alias="torch.acosh",
+    )
+    def test_acosh(self) -> None:
+        for op, bound_op in [
+            (torch.acosh, torch.Tensor.acosh),
+            (torch.arccosh, torch.Tensor.arccosh),
+        ]:
+            torch_eggs.assert_tensor_uniop_pair_cases(
+                op,
+                bound_op,
+                (
+                    [],
+                    [],
+                ),
+                (
+                    torch.nan,
+                    torch.nan,
+                ),
+                (
+                    -3,
+                    torch.nan,
+                ),
+                (
+                    2,
+                    1.31695795,
+                ),
+                (
+                    [[0], [1], [torch.pi], [2]],
+                    [[torch.nan], [0.0], [1.8115262], [1.31695795]],
+                ),
+                # bools, are cast to ints  ...
+                (
+                    [True, False],
+                    [0.0, torch.nan],
+                ),
+                # complex
+                (
+                    [0j, 1 + 1j],
+                    [0.0000000000+1.5707963705j, 1.0612751245+0.9045568705j],
                 ),
                 close=True,
             )
