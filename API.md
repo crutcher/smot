@@ -249,6 +249,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.linspace.html](https://pytorch.org/docs/stable/generated/torch.linspace.html)
 
 
+#### torch.load
+  * Tests: [smot/api_tests/torch_api/serialization/torch_save_and_load_test.py](smot/api_tests/torch_api/serialization/torch_save_and_load_test.py) [L27](smot/api_tests/torch_api/serialization/torch_save_and_load_test.py#L27)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.load.html](https://pytorch.org/docs/stable/generated/torch.load.html)
+
+
 #### torch.logspace
   * Tests: [smot/api_tests/torch_api/creation/torch_logspace_test.py](smot/api_tests/torch_api/creation/torch_logspace_test.py) [L14](smot/api_tests/torch_api/creation/torch_logspace_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.logspace.html](https://pytorch.org/docs/stable/generated/torch.logspace.html)
@@ -387,6 +392,11 @@
 #### torch.row_stack
   * Tests: [smot/api_tests/torch_api/restructure/torch_row_stack_test.py](smot/api_tests/torch_api/restructure/torch_row_stack_test.py) [L14](smot/api_tests/torch_api/restructure/torch_row_stack_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.row_stack.html](https://pytorch.org/docs/stable/generated/torch.row_stack.html)
+
+
+#### torch.save
+  * Tests: [smot/api_tests/torch_api/serialization/torch_save_and_load_test.py](smot/api_tests/torch_api/serialization/torch_save_and_load_test.py) [L27](smot/api_tests/torch_api/serialization/torch_save_and_load_test.py#L27)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.save.html](https://pytorch.org/docs/stable/generated/torch.save.html)
 
 
 #### torch.scatter
