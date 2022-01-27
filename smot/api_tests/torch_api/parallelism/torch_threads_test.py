@@ -17,6 +17,7 @@ from smot.testlib import eggs
     ref="https://pytorch.org/docs/stable/generated/torch.set_num_threads.html",
 )
 class ThreadsTest(unittest.TestCase):
+    @pytest.mark.forked
     def test_num_threads(self) -> None:
         original_threads = torch.get_num_threads()
 
@@ -25,15 +26,19 @@ class ThreadsTest(unittest.TestCase):
             psutil.cpu_count(logical=False),
         )
 
-        try:
-            torch.set_num_threads(2)
-            eggs.assert_match(
-                torch.get_num_threads(),
-                2,
-            )
+        WEIRD_API(
+            target="torch.set_num_threads",
+            note=(
+                "Run this test in a fork! Must be called before "
+                + "any eager, JIT, or autograd code."
+            ),
+        )
 
-        finally:
-            torch.set_num_threads(original_threads)
+        torch.set_num_threads(2)
+        eggs.assert_match(
+            torch.get_num_threads(),
+            2,
+        )
 
     @pytest.mark.forked
     def test_num_interop_threads(self) -> None:
