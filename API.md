@@ -70,9 +70,16 @@
 
 
 #### torch.abs
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L14](smot/api_tests/torch_api/math/torch_math_test.py#L14)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L19](smot/api_tests/torch_api/math/torch_math_test.py#L19)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
 
+
+#### torch.absolute
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L19](smot/api_tests/torch_api/math/torch_math_test.py#L19)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.absolute.html](https://pytorch.org/docs/stable/generated/torch.absolute.html)
+
+Aliases:
+    * [torch.abs](#torchabs)
 
 #### torch.arange
   * Tests: [smot/api_tests/torch_api/creation/torch_arange_test.py](smot/api_tests/torch_api/creation/torch_arange_test.py) [L13](smot/api_tests/torch_api/creation/torch_arange_test.py#L13)
