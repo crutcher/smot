@@ -155,7 +155,7 @@
 
 
 #### torch.enable_grad
-  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L18](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L18)
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L22](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L22)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.enable_grad.html](https://pytorch.org/docs/stable/generated/torch.enable_grad.html)
 
 
@@ -219,6 +219,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.index_select.html](https://pytorch.org/docs/stable/generated/torch.index_select.html)
 
 
+#### torch.inference_mode
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L116](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L116)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.inference_mode.html](https://pytorch.org/docs/stable/generated/torch.inference_mode.html)
+
+
 #### torch.initial_seed
   * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.initial_seed.html](https://pytorch.org/docs/stable/generated/torch.initial_seed.html)
@@ -237,6 +242,16 @@
 #### torch.is_floating_point
   * Tests: [smot/api_tests/torch_api/torch_type_ops_test.py](smot/api_tests/torch_api/torch_type_ops_test.py) [L174](smot/api_tests/torch_api/torch_type_ops_test.py#L174)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.is_floating_point.html](https://pytorch.org/docs/stable/generated/torch.is_floating_point.html)
+
+
+#### torch.is_grad_enabled
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L22](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L22)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_grad_enabled.html](https://pytorch.org/docs/stable/generated/torch.is_grad_enabled.html)
+
+
+#### torch.is_inference_mode_enabled
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L116](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L116)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.is_inference_mode_enabled.html](https://pytorch.org/docs/stable/generated/torch.is_inference_mode_enabled.html)
 
 
 #### torch.is_nonzero
@@ -300,7 +315,7 @@
 
 
 #### torch.no_grad
-  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L18](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L18)
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L22](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L22)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.no_grad.html](https://pytorch.org/docs/stable/generated/torch.no_grad.html)
 
 
@@ -432,6 +447,11 @@
 #### torch.set_flush_denormal
   * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py) [L147](smot/api_tests/torch_api/torch_global_options_test.py#L147)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html](https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html)
+
+
+#### torch.set_grad_enabled
+  * Tests: [smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py) [L86](smot/api_tests/torch_api/gradient/torch_gradient_managers_test.py#L86)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_grad_enabled.html](https://pytorch.org/docs/stable/generated/torch.set_grad_enabled.html)
 
 
 #### torch.set_num_threads
