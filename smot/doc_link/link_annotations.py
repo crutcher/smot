@@ -148,3 +148,13 @@ def WEIRD_BUG(
         link_target = _verify_target(target)
 
     # TODO: link this in docs.
+
+
+def WEIRD_API(
+    target: Any,
+    note: str,
+) -> None:
+    if VERIFY:
+        link_target = _verify_target(target)
+
+    # TODO: link this in docs.

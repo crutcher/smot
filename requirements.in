@@ -32,6 +32,7 @@ mypy
 
 # Testing
 pytest
+pytest-forked  # for pytest.mark.forked, permitting fork-boxing of tests.
 pytest-testmon
 pytest-custom-exit-code  # --suppress-no-test-exit-code
 pytest-skip-slow

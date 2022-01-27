@@ -189,6 +189,11 @@
   * Docs: [https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html](https://pytorch.org/docs/stable/generated/torch.get_default_dtype.html)
 
 
+#### torch.get_num_threads
+  * Tests: [smot/api_tests/torch_api/parallelism/torch_threads_test.py](smot/api_tests/torch_api/parallelism/torch_threads_test.py) [L19](smot/api_tests/torch_api/parallelism/torch_threads_test.py#L19)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.get_num_threads.html](https://pytorch.org/docs/stable/generated/torch.get_num_threads.html)
+
+
 #### torch.get_rng_state
   * Tests: [smot/api_tests/torch_api/random/torch_Generator_test.py](smot/api_tests/torch_api/random/torch_Generator_test.py) [L103](smot/api_tests/torch_api/random/torch_Generator_test.py#L103)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.get_rng_state.html](https://pytorch.org/docs/stable/generated/torch.get_rng_state.html)
@@ -417,6 +422,11 @@
 #### torch.set_flush_denormal
   * Tests: [smot/api_tests/torch_api/torch_global_options_test.py](smot/api_tests/torch_api/torch_global_options_test.py) [L147](smot/api_tests/torch_api/torch_global_options_test.py#L147)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html](https://pytorch.org/docs/stable/generated/torch.set_flush_denormal.html)
+
+
+#### torch.set_num_threads
+  * Tests: [smot/api_tests/torch_api/parallelism/torch_threads_test.py](smot/api_tests/torch_api/parallelism/torch_threads_test.py) [L19](smot/api_tests/torch_api/parallelism/torch_threads_test.py#L19)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.set_num_threads.html](https://pytorch.org/docs/stable/generated/torch.set_num_threads.html)
 
 
 #### torch.set_printoptions
