@@ -13,7 +13,7 @@ from smot.testlib import eggs, torch_eggs
 class IndexSelectTest(unittest.TestCase):
     def source_tensor(self) -> torch.Tensor:
         source = torch.arange(9).reshape(3, 3)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             [
                 [0, 1, 2],
@@ -26,7 +26,7 @@ class IndexSelectTest(unittest.TestCase):
     def test_index_select(self) -> None:
         source = self.source_tensor()
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.index_select(source, 0, torch.tensor([1, 2, 0])),
             [
                 [3, 4, 5],
@@ -35,7 +35,7 @@ class IndexSelectTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.index_select(source, 1, torch.tensor([1, 2, 0])),
             [
                 [1, 2, 0],
@@ -45,7 +45,7 @@ class IndexSelectTest(unittest.TestCase):
         )
 
         # No enforcement is done that each index is used, or used only once:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.index_select(source, 1, torch.tensor([0, 0, 0])),
             [
                 [0, 0, 0],
@@ -55,7 +55,7 @@ class IndexSelectTest(unittest.TestCase):
         )
 
         # any number of indexes can be used.
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.index_select(source, 1, torch.tensor([0, 1, 0, 2, 0])),
             [
                 [0, 1, 0, 2, 0],
@@ -67,7 +67,7 @@ class IndexSelectTest(unittest.TestCase):
     def test_index_degenerate(self) -> None:
         source = self.source_tensor()
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.index_select(source, 1, torch.tensor([], dtype=torch.int64)),
             torch.tensor(
                 [

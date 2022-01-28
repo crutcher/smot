@@ -14,24 +14,18 @@ class TTest(unittest.TestCase):
     def test_t_scalar(self) -> None:
         # <= 2 dimensions ...
         source = torch.tensor(3)
-        torch_eggs.assert_view_tensor(
-            torch.t(source),
-            source,
-            3,
-        )
+        torch_eggs.assert_tensor_equals(torch.t(source), expected=3, view_of=source)
 
     def test_t_1d(self) -> None:
         # <= 2 dimensions ...
         source = torch.tensor([3, 2])
-        torch_eggs.assert_view_tensor(
-            torch.t(source),
-            source,
-            [3, 2],
+        torch_eggs.assert_tensor_equals(
+            torch.t(source), expected=[3, 2], view_of=source
         )
 
     def test_t(self) -> None:
         source = torch.arange(6).reshape(2, 3)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             [
                 [0, 1, 2],
@@ -39,14 +33,14 @@ class TTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_view_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.t(source),
-            source,
-            [
+            expected=[
                 [0, 3],
                 [1, 4],
                 [2, 5],
             ],
+            view_of=source,
         )
 
     def test_error(self) -> None:

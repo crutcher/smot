@@ -18,7 +18,7 @@ class StackTest(unittest.TestCase):
         b = torch.arange(9, dtype=torch.int64).reshape(3, 3)
         b += 20
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.stack((a, b)),
             [
                 [
@@ -34,7 +34,7 @@ class StackTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.stack((a, b), dim=1),
             [
                 [
@@ -52,7 +52,7 @@ class StackTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.stack((a, b), dim=2),
             [
                 [[10, 20], [11, 21], [12, 22]],

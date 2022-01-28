@@ -56,7 +56,7 @@ class MultinomialTest(unittest.TestCase):
         )
 
     def test_one_choice(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.multinomial(
                 torch.tensor([5.0]),
                 1,
@@ -64,7 +64,7 @@ class MultinomialTest(unittest.TestCase):
             [0],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.multinomial(
                 torch.tensor(
                     # m-row matrix input
@@ -91,7 +91,7 @@ class MultinomialTest(unittest.TestCase):
             r"cannot sample n_sample > prob_dist.size\(-1\) samples without replacement",
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.multinomial(
                 torch.tensor([5.0]),
                 3,
@@ -101,7 +101,7 @@ class MultinomialTest(unittest.TestCase):
         )
 
     def test_permute(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.sort(
                 torch.multinomial(
                     torch.tensor([1.0, 1.0, 1.0, 1.0, 1.0]),

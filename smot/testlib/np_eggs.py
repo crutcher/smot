@@ -10,10 +10,18 @@ import numpy as np
 
 from smot.testlib import eggs
 
-# unittest integration; hide these frames from tracebacks
-__unittest = True
-# py.test integration; hide these frames from tracebacks
-__tracebackhide__ = True
+
+def hide_tracebacks(mode: bool = True) -> None:
+    """
+    Hint that some unittest stacks (unittest, pytest) should remove
+    frames from tracebacks that include this module.
+
+    :param mode: optional, the traceback mode.
+    """
+    eggs.hide_module_tracebacks(globals(), mode)
+
+
+hide_tracebacks(True)
 
 
 class NDArrayStructureMatcher(BaseMatcher):

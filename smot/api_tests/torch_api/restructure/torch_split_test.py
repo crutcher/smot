@@ -14,9 +14,8 @@ class SplitTest(unittest.TestCase):
     def test_split(self) -> None:
         source = torch.arange(10).reshape(5, 2)
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.split(source, 2),
-            source,
             [
                 [0, 1],
                 [2, 3],
@@ -26,18 +25,18 @@ class SplitTest(unittest.TestCase):
                 [6, 7],
             ],
             [[8, 9]],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.split(source, 1, dim=1),
-            source,
             [[0], [2], [4], [6], [8]],
             [[1], [3], [5], [7], [9]],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.split(source, [1, 4]),
-            source,
             [[0, 1]],
             [
                 [2, 3],
@@ -45,4 +44,5 @@ class SplitTest(unittest.TestCase):
                 [6, 7],
                 [8, 9],
             ],
+            view_of=source,
         )

@@ -15,7 +15,7 @@ class ZerosLikeTest(unittest.TestCase):
     def test_default(self) -> None:
         t = torch.zeros(1, 2)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t,
             [[0.0, 0.0]],
         )
@@ -34,7 +34,7 @@ class ZerosLikeTest(unittest.TestCase):
         original_data = out.data_ptr()
 
         # verify that the original has the data we think.
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[3.0, 4.0]],
         )
@@ -44,7 +44,7 @@ class ZerosLikeTest(unittest.TestCase):
         # Not changing the size writes in-place:
         torch.zeros(1, 2, out=out)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[0.0, 0.0]],
         )
@@ -57,7 +57,7 @@ class ZerosLikeTest(unittest.TestCase):
         # NOTE: changing the size allocates a new data Tensor!
         torch.zeros(1, 3, out=out)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[0.0, 0.0, 0.0]],
         )

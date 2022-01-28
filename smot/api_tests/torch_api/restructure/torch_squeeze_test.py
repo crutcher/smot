@@ -17,5 +17,5 @@ class SqueezeTest(unittest.TestCase):
 
         view = torch.squeeze(source)
 
-        torch_eggs.assert_views(source, view)
+        torch_eggs.assert_tensor_views(source, view)
         eggs.assert_match(view.size(), torch.Size([2, 3, 4]))

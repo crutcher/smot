@@ -35,7 +35,7 @@ class TensorTest(unittest.TestCase):
     def test_copy(self) -> None:
         source_list = [1, 2]
         t = torch.tensor(source_list)
-        torch_eggs.assert_tensor(t, source_list)
+        torch_eggs.assert_tensor_equals(t, source_list)
         eggs.assert_match(
             t.data,
             hamcrest.not_(hamcrest.same_instance(source_list)),
@@ -43,14 +43,14 @@ class TensorTest(unittest.TestCase):
 
         source_t = torch.tensor([1, 2])
         t = source_t.clone().detach()
-        torch_eggs.assert_tensor(t, source_t)
+        torch_eggs.assert_tensor_equals(t, source_t)
         eggs.assert_match(
             t.data,
             hamcrest.not_(hamcrest.same_instance(source_t)),
         )
 
         source_nd: np.typing.ArrayLike = np.array([1, 2])
-        torch_eggs.assert_tensor(t, source_nd)
+        torch_eggs.assert_tensor_equals(t, source_nd)
         eggs.assert_match(
             t.data,
             hamcrest.not_(hamcrest.same_instance(source_nd)),

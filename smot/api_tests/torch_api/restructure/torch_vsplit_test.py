@@ -21,9 +21,8 @@ class VsplitTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.vsplit(source, 2),
-            source,
             [
                 [0, 1, 2, 3],
                 [4, 5, 6, 7],
@@ -32,11 +31,11 @@ class VsplitTest(unittest.TestCase):
                 [8, 9, 10, 11],
                 [12, 13, 14, 15],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.vsplit(source, 4),
-            source,
             [
                 [0, 1, 2, 3],
             ],
@@ -49,11 +48,11 @@ class VsplitTest(unittest.TestCase):
             [
                 [12, 13, 14, 15],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.vsplit(source, (1, 3)),
-            source,
             [
                 [0, 1, 2, 3],
             ],
@@ -64,6 +63,7 @@ class VsplitTest(unittest.TestCase):
             [
                 [12, 13, 14, 15],
             ],
+            view_of=source,
         )
 
     def test_error(self) -> None:

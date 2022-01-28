@@ -12,7 +12,7 @@ from smot.testlib import eggs, torch_eggs
 )
 class ColumnStackTest(unittest.TestCase):
     def test_column_stack(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.column_stack(
                 (
                     torch.tensor([1, 2, 3]),
@@ -26,7 +26,7 @@ class ColumnStackTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.column_stack(
                 (
                     torch.arange(5),
@@ -58,7 +58,7 @@ class ColumnStackTest(unittest.TestCase):
         )
 
         # You can do this though:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.column_stack(
                 (
                     torch.tensor(3),
@@ -81,7 +81,7 @@ class ColumnStackTest(unittest.TestCase):
             out=target,
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             target,
             [
                 [1, 4],

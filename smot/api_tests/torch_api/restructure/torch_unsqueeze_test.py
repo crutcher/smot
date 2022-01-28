@@ -14,39 +14,33 @@ class UnsqueezeTest(unittest.TestCase):
     def test_scalar(self) -> None:
         source = torch.tensor(3)
 
-        torch_eggs.assert_view_tensor(
-            torch.unsqueeze(source, 0),
-            source,
-            [3],
+        torch_eggs.assert_tensor_equals(
+            torch.unsqueeze(source, 0), expected=[3], view_of=source
         )
 
     def test_unsqueeze(self) -> None:
         source = torch.tensor([1, 2, 3, 4])
 
-        torch_eggs.assert_view_tensor(
-            torch.unsqueeze(source, 0),
-            source,
-            [[1, 2, 3, 4]],
+        torch_eggs.assert_tensor_equals(
+            torch.unsqueeze(source, 0), expected=[[1, 2, 3, 4]], view_of=source
         )
 
-        torch_eggs.assert_view_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.unsqueeze(source, 1),
-            source,
-            [[1], [2], [3], [4]],
+            expected=[[1], [2], [3], [4]],
+            view_of=source,
         )
 
         # negative dims
 
-        torch_eggs.assert_view_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.unsqueeze(source, -1),
-            source,
-            [[1], [2], [3], [4]],
+            expected=[[1], [2], [3], [4]],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor(
-            torch.unsqueeze(source, -2),
-            source,
-            [[1, 2, 3, 4]],
+        torch_eggs.assert_tensor_equals(
+            torch.unsqueeze(source, -2), expected=[[1, 2, 3, 4]], view_of=source
         )
 
     def test_error(self) -> None:

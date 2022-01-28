@@ -19,7 +19,7 @@ class SparseCooTensorTest(unittest.TestCase):
         t = torch.sparse_coo_tensor(coo, vals)
         c = t.coalesce()
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t.to_dense(),
             torch.tensor(
                 [
@@ -42,10 +42,10 @@ class SparseCooTensorTest(unittest.TestCase):
             torch.Size(size),
         )
 
-        torch_eggs.assert_tensor(c.indices(), coo)
-        torch_eggs.assert_tensor(c.values(), vals)
+        torch_eggs.assert_tensor_equals(c.indices(), coo)
+        torch_eggs.assert_tensor_equals(c.values(), vals)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t.to_dense(),
             torch.tensor(
                 [
@@ -68,10 +68,10 @@ class SparseCooTensorTest(unittest.TestCase):
             torch.Size([2, 3]),
         )
 
-        torch_eggs.assert_tensor(c.indices(), coo)
-        torch_eggs.assert_tensor(c.values(), vals)
+        torch_eggs.assert_tensor_equals(c.indices(), coo)
+        torch_eggs.assert_tensor_equals(c.values(), vals)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t.to_dense(),
             torch.tensor(
                 [

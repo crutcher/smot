@@ -14,7 +14,7 @@ class HeavisideTest(unittest.TestCase):
     def test_heaviside_scalar_value(self) -> None:
         input = torch.tensor([-1.5, 0, 2.0])
         values = torch.tensor(0.5)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.heaviside(input, values),
             torch.tensor([0.0, 0.5, 1.0]),
         )
@@ -22,7 +22,7 @@ class HeavisideTest(unittest.TestCase):
     def test_heaviside_single_value(self) -> None:
         input = torch.tensor([-1.5, 0, 2.0])
         values = torch.tensor([0.5])
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.heaviside(input, values),
             torch.tensor([0.0, 0.5, 1.0]),
         )
@@ -36,7 +36,7 @@ class HeavisideTest(unittest.TestCase):
             r"must match the size of tensor b \(2\) at non-singleton dimension 0",
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.heaviside(input, torch.tensor([5.0, 6.0, 7.0])),
             torch.tensor([0.0, 6.0, 7.0]),
         )

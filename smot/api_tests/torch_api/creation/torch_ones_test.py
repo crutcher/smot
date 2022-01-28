@@ -15,7 +15,7 @@ class OnesTest(unittest.TestCase):
     def test_default(self) -> None:
         t = torch.ones(1, 2)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t,
             [[1.0, 1.0]],
         )
@@ -34,7 +34,7 @@ class OnesTest(unittest.TestCase):
         original_data = out.data_ptr()
 
         # verify that the original has the data we think.
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[3.0, 4.0]],
         )
@@ -44,7 +44,7 @@ class OnesTest(unittest.TestCase):
         # Not changing the size writes in-place:
         torch.ones(1, 2, out=out)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[1.0, 1.0]],
         )
@@ -57,7 +57,7 @@ class OnesTest(unittest.TestCase):
         # NOTE: changing the size allocates a new data Tensor!
         torch.ones(1, 3, out=out)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             out,
             [[1.0, 1.0, 1.0]],
         )

@@ -12,12 +12,12 @@ from smot.testlib import eggs, torch_eggs
 )
 class PoissonTest(unittest.TestCase):
     def test_degenerate(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.poisson(torch.tensor([])),
             [],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.poisson(torch.tensor([[]])),
             [[]],
         )

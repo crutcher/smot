@@ -19,7 +19,7 @@ class GatherTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.gather(
                 input=source,
                 dim=1,
@@ -36,7 +36,7 @@ class GatherTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.gather(
                 input=source,
                 dim=0,
@@ -80,7 +80,7 @@ class GatherTest(unittest.TestCase):
                 out=target,
             )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             target,
             [
                 [1, 2],

@@ -13,12 +13,12 @@ from smot.testlib import eggs, torch_eggs
 )
 class NormalTest(unittest.TestCase):
     def test_degenerate(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.normal(torch.tensor([]), torch.tensor([])),
             [],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.normal(torch.tensor([[]]), torch.tensor([])),
             [[]],
         )
@@ -79,12 +79,12 @@ class NormalTest(unittest.TestCase):
             out = torch.empty(3, 4)
             original_out = out.data
             torch.normal(mean, std, (3, 4), out=out)
-            torch_eggs.assert_tensor(out, expected)
-            torch_eggs.assert_views(original_out, out)
+            torch_eggs.assert_tensor_equals(out, expected)
+            torch_eggs.assert_tensor_views(original_out, out)
 
         with torch_eggs.reset_generator_seed(seed):
             inplace = torch.empty(3, 4)
             original_inplace = inplace.data
             inplace.normal_(mean, std)
-            torch_eggs.assert_tensor(inplace, expected)
-            torch_eggs.assert_views(original_inplace, inplace)
+            torch_eggs.assert_tensor_equals(inplace, expected)
+            torch_eggs.assert_tensor_views(original_inplace, inplace)

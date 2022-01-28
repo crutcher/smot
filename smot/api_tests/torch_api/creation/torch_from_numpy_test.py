@@ -18,7 +18,7 @@ class FromNumpyTest(unittest.TestCase):
         # build a tensor that shares memory with the numpy array.
         view = torch.from_numpy(source)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             torch.tensor([[1.0, 2.0], [3.0, 4.0]], dtype=torch.float64),
         )
@@ -32,7 +32,7 @@ class FromNumpyTest(unittest.TestCase):
         # mutations to one mutate the other.
         source[0, 0] = 8.0  # type: ignore
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             torch.tensor([[8, 2], [3, 4]], dtype=torch.float64),
         )

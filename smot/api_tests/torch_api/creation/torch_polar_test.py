@@ -19,10 +19,11 @@ class PolarTest(unittest.TestCase):
             dtype=torch.float64,
         )
 
-        torch_eggs.assert_tensor_close(
+        torch_eggs.assert_tensor_equals(
             torch.polar(abs, angle),
             torch.tensor(
                 [0.0 + 1.0j, 2.0, 0.0 + 1.0j],
                 dtype=torch.complex128,
             ),
+            close=True,
         )

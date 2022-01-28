@@ -25,7 +25,7 @@ class WhereTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.where(a > b, a, b),
             [
                 [10, 2, 3],
@@ -41,7 +41,7 @@ class WhereTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.where(a < 4, a, 10),
             [
                 [1, 2, 3],
@@ -62,7 +62,7 @@ class WhereTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.where(a > b, a, b),
             [
                 [10, 2, 3],

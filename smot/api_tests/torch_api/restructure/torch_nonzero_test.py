@@ -14,7 +14,7 @@ from smot.testlib import eggs, torch_eggs
 class NonzeroTest(unittest.TestCase):
     def test_1d(self) -> None:
         source = torch.tensor([1, 2, 3, 0, 4])
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.nonzero(source),
             [[0], [1], [2], [4]],
         )
@@ -22,11 +22,11 @@ class NonzeroTest(unittest.TestCase):
         eggs.assert_match(
             torch.nonzero(source, as_tuple=True),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([0, 1, 2, 4]),
+                torch_eggs.matches_tensor([0, 1, 2, 4]),
             ),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source[torch.nonzero(source, as_tuple=True)],
             [1, 2, 3, 4],
         )
@@ -39,7 +39,7 @@ class NonzeroTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.nonzero(source),
             [[0, 0], [0, 1], [0, 2], [0, 4], [1, 1], [1, 3], [1, 4]],
         )
@@ -47,12 +47,12 @@ class NonzeroTest(unittest.TestCase):
         eggs.assert_match(
             torch.nonzero(source, as_tuple=True),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([0, 0, 0, 0, 1, 1, 1]),
-                torch_eggs.expect_tensor([0, 1, 2, 4, 1, 3, 4]),
+                torch_eggs.matches_tensor([0, 0, 0, 0, 1, 1, 1]),
+                torch_eggs.matches_tensor([0, 1, 2, 4, 1, 3, 4]),
             ),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source[torch.nonzero(source, as_tuple=True)],
             [1, 2, 3, 4, 5, 6, 7],
         )

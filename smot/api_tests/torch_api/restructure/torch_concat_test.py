@@ -24,7 +24,7 @@ class ConcatTest(unittest.TestCase):
         )
 
     def test_1d(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.concat(
                 (
                     torch.tensor([]),
@@ -39,7 +39,7 @@ class ConcatTest(unittest.TestCase):
         )
 
     def test_2d(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.concat(
                 (
                     torch.tensor([[1, 2], [3, 4]]),
@@ -51,7 +51,7 @@ class ConcatTest(unittest.TestCase):
             torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]]),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.concat(
                 (
                     torch.tensor([[1, 2], [3, 4]]),

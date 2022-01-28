@@ -25,9 +25,8 @@ class TensorSplitTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.tensor_split(source, 2),
-            source,
             [
                 [
                     [0, 1, 2, 3],
@@ -40,11 +39,11 @@ class TensorSplitTest(unittest.TestCase):
                     [12, 13, 14, 15],
                 ],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.tensor_split(source, 2, dim=2),
-            source,
             [
                 [
                     [0, 1],
@@ -65,11 +64,11 @@ class TensorSplitTest(unittest.TestCase):
                     [14, 15],
                 ],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.tensor_split(source, (1, 3), dim=2),
-            source,
             [
                 [
                     [0],
@@ -100,4 +99,5 @@ class TensorSplitTest(unittest.TestCase):
                     [15],
                 ],
             ],
+            view_of=source,
         )

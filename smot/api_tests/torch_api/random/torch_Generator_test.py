@@ -44,7 +44,7 @@ class GeneratorTest(unittest.TestCase):
         # Replay with same seed.
         g.manual_seed(seed)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3], generator=g),
             reference,
         )
@@ -60,7 +60,7 @@ class GeneratorTest(unittest.TestCase):
         # Replay with same seed.
         g.manual_seed(seed)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3], generator=g),
             reference,
         )
@@ -74,7 +74,7 @@ class GeneratorTest(unittest.TestCase):
         # Replay with same state.
         g.set_state(state)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3], generator=g),
             reference,
         )
@@ -119,7 +119,7 @@ class GlobalGeneratorTest(unittest.TestCase):
         # sampling from the generator changes the state:
         eggs.assert_match(
             torch.get_rng_state(),
-            hamcrest.not_(torch_eggs.expect_tensor(state)),
+            hamcrest.not_(torch_eggs.matches_tensor(state)),
         )
 
         # but does not change the seed.
@@ -137,7 +137,7 @@ class GlobalGeneratorTest(unittest.TestCase):
         # Replay with same seed.
         torch.manual_seed(seed)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3]),
             reference,
         )
@@ -148,7 +148,7 @@ class GlobalGeneratorTest(unittest.TestCase):
         # Replay with same seed, using the generator ref.
         g.manual_seed(seed)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3], generator=g),
             reference,
         )
@@ -161,7 +161,7 @@ class GlobalGeneratorTest(unittest.TestCase):
         # Replay with same state.
         torch.set_rng_state(state)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.rand([2, 3]),
             reference,
         )

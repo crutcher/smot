@@ -13,7 +13,7 @@ from smot.testlib import torch_eggs
 )
 class EmptyTest(unittest.TestCase):
     def test_empty_zero(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.empty(0),
             torch.ones(0),
         )

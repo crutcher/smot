@@ -87,7 +87,7 @@ Aliases:
 
 
 #### torch.acosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L171](smot/api_tests/torch_api/math/torch_math_test.py#L171)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.acosh.html](https://pytorch.org/docs/stable/generated/torch.acosh.html)
 
 
@@ -104,11 +104,18 @@ Aliases:
     * [torch.acos](#torchacos)
 
 #### torch.arccosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L171](smot/api_tests/torch_api/math/torch_math_test.py#L171)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arccosh.html](https://pytorch.org/docs/stable/generated/torch.arccosh.html)
 
 Aliases:
     * [torch.acosh](#torchacosh)
+
+#### torch.arcsin
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.arcsin.html](https://pytorch.org/docs/stable/generated/torch.arcsin.html)
+
+Aliases:
+    * [torch.asin](#torchasin)
 
 #### torch.as_strided
   * Tests: [smot/api_tests/torch_api/creation/torch_as_strided_test.py](smot/api_tests/torch_api/creation/torch_as_strided_test.py) [L13](smot/api_tests/torch_api/creation/torch_as_strided_test.py#L13)
@@ -118,6 +125,11 @@ Aliases:
 #### torch.as_tensor
   * Tests: [smot/api_tests/torch_api/creation/torch_as_tensor_test.py](smot/api_tests/torch_api/creation/torch_as_tensor_test.py) [L16](smot/api_tests/torch_api/creation/torch_as_tensor_test.py#L16)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.as_tensor.html](https://pytorch.org/docs/stable/generated/torch.as_tensor.html)
+
+
+#### torch.asin
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.asin.html](https://pytorch.org/docs/stable/generated/torch.asin.html)
 
 
 #### torch.bernoulli

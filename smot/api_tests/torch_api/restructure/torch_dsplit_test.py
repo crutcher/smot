@@ -13,7 +13,7 @@ from smot.testlib import torch_eggs
 class DsplitTest(unittest.TestCase):
     def test_view(self) -> None:
         source = torch.arange(16.0).reshape(2, 2, 4)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             torch.tensor(
                 [
@@ -31,11 +31,11 @@ class DsplitTest(unittest.TestCase):
 
         # dsplit(input, indices) => tensor_split(input, indices, dim=2)
         splits = torch.dsplit(source, 2)
-        torch_eggs.assert_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             splits,
             *torch.tensor_split(source, 2, dim=2),
         )
-        torch_eggs.assert_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             splits,
             [
                 [
@@ -63,7 +63,7 @@ class DsplitTest(unittest.TestCase):
         source[0, 0, 0] = 77.0
         splits[0][0, 0, 1] = 88.0
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             splits[0],
             [
                 [
@@ -77,7 +77,7 @@ class DsplitTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             torch.tensor(
                 [
@@ -95,7 +95,7 @@ class DsplitTest(unittest.TestCase):
 
     def test_indices(self) -> None:
         source = torch.arange(16.0).reshape(2, 2, 4)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             torch.tensor(
                 [
@@ -110,11 +110,11 @@ class DsplitTest(unittest.TestCase):
                 ]
             ),
         )
-        torch_eggs.assert_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.dsplit(source, [1, 3]),
             *torch.tensor_split(source, [1, 3], dim=2),
         )
-        torch_eggs.assert_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.dsplit(source, [1, 3]),
             [
                 [

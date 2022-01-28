@@ -15,9 +15,9 @@ class ConjTest(unittest.TestCase):
         source = torch.tensor([-1 + 1j, -2 + 2j, 3 - 3j])
         conj_view = torch.conj(source)
 
-        torch_eggs.assert_views(source, conj_view)
+        torch_eggs.assert_tensor_views(source, conj_view)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             conj_view,
             torch.tensor([-1 - 1j, -2 - 2j, 3 + 3j]),
         )
@@ -30,22 +30,22 @@ class ConjTest(unittest.TestCase):
 
         # modification of the source is visible.
         source[0] = 4 + 4j  # type: ignore
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             torch.tensor([4 + 4j, -2 + 2j, 3 - 3j]),
         )
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             conj_view,
             torch.tensor([4 - 4j, -2 - 2j, 3 + 3j]),
         )
 
         # NOTE: Per the docs, modification of the conj view may become illegal in the future.
         conj_view[0] = 5 - 5j  # type: ignore
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             torch.tensor([5 + 5j, -2 + 2j, 3 - 3j]),
         )
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             conj_view,
             torch.tensor([5 - 5j, -2 - 2j, 3 + 3j]),
         )

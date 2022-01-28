@@ -13,7 +13,7 @@ from smot.testlib import eggs, torch_eggs
 )
 class ComplexTest(unittest.TestCase):
     def test_complex(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.complex(
                 torch.tensor([1.0, 2.0], dtype=torch.float32),
                 torch.tensor([3.0, 4.0], dtype=torch.float32),
@@ -29,7 +29,7 @@ class ComplexTest(unittest.TestCase):
         original_data = target.data_ptr()
 
         # same size, no realloc.
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.complex(
                 torch.tensor([1, 2], dtype=torch.float32),
                 torch.tensor([3, 4], dtype=torch.float32),
@@ -44,7 +44,7 @@ class ComplexTest(unittest.TestCase):
 
         with eggs.ignore_warnings():
             # smaller size, no realloc.
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.complex(
                     torch.tensor([1], dtype=torch.float32),
                     torch.tensor([3], dtype=torch.float32),
@@ -58,7 +58,7 @@ class ComplexTest(unittest.TestCase):
             )
 
             # larger size, NEW data.
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.complex(
                     torch.tensor([1, 2, 3], dtype=torch.float32),
                     torch.tensor([3, 4, 5], dtype=torch.float32),

@@ -17,16 +17,16 @@ class ReshapeTest(unittest.TestCase):
         # Contiguous reshapes produce views
         eggs.assert_true(source.is_contiguous())
 
-        torch_eggs.assert_view_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.reshape(source, (-1,)),
-            source,
-            [0, 1, 2, 3],
+            expected=[0, 1, 2, 3],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.reshape(source, (2, 2)),
-            source,
-            [[0, 1], [2, 3]],
+            expected=[[0, 1], [2, 3]],
+            view_of=source,
         )
 
     def test_reshape_copy(self) -> None:
@@ -35,7 +35,7 @@ class ReshapeTest(unittest.TestCase):
         # Contiguous reshapes produce copies
         eggs.assert_false(source.is_contiguous())
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             [
                 [0, 1],
@@ -44,12 +44,12 @@ class ReshapeTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_not_view(
+        torch_eggs.assert_tensor_storage_differs(
             torch.reshape(source, (-1,)),
             source,
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.reshape(source, (-1,)),
             [0, 1, 3, 4, 6, 7],
         )

@@ -28,7 +28,7 @@ class QuantizePerChannelTest(unittest.TestCase):
 
         # TODO: how to read the actual quantization state?
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t.int_repr(),
             torch.tensor(
                 [
@@ -39,7 +39,7 @@ class QuantizePerChannelTest(unittest.TestCase):
             ),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.dequantize(t),
             source,
         )

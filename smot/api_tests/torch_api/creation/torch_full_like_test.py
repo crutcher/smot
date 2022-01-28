@@ -23,13 +23,13 @@ class FullLikeTest(unittest.TestCase):
     def test_full_like(self) -> None:
         for dtype in [torch.int8, torch.float32]:
             t = torch.tensor([1], dtype=dtype)
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.full_like(t, 2),
                 torch.tensor([2], dtype=dtype),
             )
 
             t = torch.tensor([[1], [1]], dtype=dtype)
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.full_like(t, 2),
                 torch.tensor([[2], [2]], dtype=dtype),
             )
@@ -39,13 +39,13 @@ class FullLikeTest(unittest.TestCase):
         if torch.cuda.is_available():
             for dtype in [torch.int8, torch.float32]:
                 t = torch.tensor([1], dtype=dtype, device="cuda")
-                torch_eggs.assert_tensor(
+                torch_eggs.assert_tensor_equals(
                     torch.full_like(t, 2),
                     torch.tensor([2], dtype=dtype, device="cuda"),
                 )
 
                 t = torch.tensor([[1], [1]], dtype=dtype, device="cuda")
-                torch_eggs.assert_tensor(
+                torch_eggs.assert_tensor_equals(
                     torch.full_like(t, 2),
                     torch.tensor([[2], [2]], dtype=dtype, device="cuda"),
                 )

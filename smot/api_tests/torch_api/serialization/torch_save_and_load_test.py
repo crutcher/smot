@@ -35,7 +35,7 @@ class SaveAndLoadTest(unittest.TestCase):
 
         target = torch.load(path)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             target,
             source,
         )
@@ -51,7 +51,7 @@ class SaveAndLoadTest(unittest.TestCase):
         with open(path, "rb") as f:
             target = torch.load(f)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             target,
             source,
         )
@@ -72,9 +72,9 @@ class SaveAndLoadTest(unittest.TestCase):
             hamcrest.all_of(
                 hamcrest.instance_of(Foo),
                 hamcrest.has_properties(
-                    tensor=torch_eggs.expect_tensor(torch.ones(2, 3)),
+                    tensor=torch_eggs.matches_tensor(torch.ones(2, 3)),
                     map=hamcrest.has_entries(
-                        abc=torch_eggs.expect_tensor(torch.arange(4)),
+                        abc=torch_eggs.matches_tensor(torch.arange(4)),
                     ),
                 ),
             ),
@@ -84,7 +84,7 @@ class SaveAndLoadTest(unittest.TestCase):
     def test_storage_sharing(self, tempdir: testfixtures.TempDirectory) -> None:
         source = torch.arange(9).reshape(3, 3)
         splits = source.vsplit(3)
-        torch_eggs.assert_views(source, *splits)
+        torch_eggs.assert_tensor_views(source, *splits)
 
         d = {
             "source": source,
@@ -102,12 +102,12 @@ class SaveAndLoadTest(unittest.TestCase):
         eggs.assert_match(
             target,
             hamcrest.has_entries(
-                source=torch_eggs.expect_tensor(source),
-                splits=torch_eggs.expect_tensor_seq(*splits),
+                source=torch_eggs.matches_tensor(source),
+                splits=torch_eggs.match_tensor_sequence(*splits),
             ),
         )
         # Note, the loaded views preserve storage sharing!
-        torch_eggs.assert_views(
+        torch_eggs.assert_tensor_views(
             target["source"],
             *target["splits"],
         )

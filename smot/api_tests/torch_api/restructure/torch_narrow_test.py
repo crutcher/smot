@@ -22,9 +22,9 @@ class NarrowTest(unittest.TestCase):
 
         view = torch.narrow(source, 0, 1, 2)
 
-        torch_eggs.assert_views(source, view)
+        torch_eggs.assert_tensor_views(source, view)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             [
                 [4, 5, 6],
@@ -34,9 +34,9 @@ class NarrowTest(unittest.TestCase):
 
         view = torch.narrow(source, 1, 0, 1)
 
-        torch_eggs.assert_views(source, view)
+        torch_eggs.assert_tensor_views(source, view)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             [
                 [1],

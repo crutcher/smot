@@ -12,7 +12,7 @@ from smot.testlib import eggs, torch_eggs
 )
 class DstackTest(unittest.TestCase):
     def test_dstack(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.dstack(
                 (
                     torch.tensor([1, 2, 3]),
@@ -28,7 +28,7 @@ class DstackTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.dstack(
                 (
                     torch.tensor([[1], [2], [3]]),
@@ -42,7 +42,7 @@ class DstackTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.dstack(
                 (
                     torch.tensor([[[1, 2]], [[3, 4]]]),
@@ -67,7 +67,7 @@ class DstackTest(unittest.TestCase):
             out=target,
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             target,
             [
                 [

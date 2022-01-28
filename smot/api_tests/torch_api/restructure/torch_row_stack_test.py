@@ -16,7 +16,7 @@ class RowStackTest(unittest.TestCase):
         a = torch.tensor([1, 2, 3])
         b = torch.tensor([4, 5, 6])
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.row_stack((a, b)),
             [
                 [1, 2, 3],
@@ -27,7 +27,7 @@ class RowStackTest(unittest.TestCase):
         a = torch.tensor([[1], [2], [3]])
         b = torch.tensor([[4], [5], [6]])
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.row_stack((a, b)),
             [
                 [1],

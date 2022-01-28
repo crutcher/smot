@@ -19,17 +19,17 @@ class BernoulliTest(unittest.TestCase):
         # coin flip, one is always 1, 0 is always 0.
         # shape is determined by input.
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.bernoulli(torch.ones(3, 3, dtype=torch.float32), generator=g),
             torch.ones(3, 3),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.bernoulli(torch.zeros(3, 3, dtype=torch.float32), generator=g),
             torch.zeros(3, 3),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.bernoulli(torch.tensor([0.0, 1.0, 0.0, 1.0]), generator=g),
             torch.tensor([0.0, 1.0, 0.0, 1.0]),
         )

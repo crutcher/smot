@@ -6,7 +6,7 @@ from smot.doc_link.link_annotations import api_link
 from smot.testlib import torch_eggs
 
 
-class MathTest(unittest.TestCase):
+class TrigMathTest(unittest.TestCase):
     @api_link(
         target="torch.abs",
         ref="https://pytorch.org/docs/stable/generated/torch.abs.html",
@@ -103,6 +103,58 @@ class MathTest(unittest.TestCase):
                 (
                     [0j, 1 + 1j],
                     [1.5707963705 - 0.0000000000j, 0.9045568705 - 1.0612751245j],
+                ),
+                close=True,
+            )
+
+    @api_link(
+        target="torch.asin",
+        ref="https://pytorch.org/docs/stable/generated/torch.asin.html",
+    )
+    @api_link(
+        target="torch.arcsin",
+        ref="https://pytorch.org/docs/stable/generated/torch.arcsin.html",
+        alias="torch.asin",
+    )
+    def test_asin(self) -> None:
+        for op, bound_op in [
+            (torch.asin, torch.Tensor.asin),
+            (torch.arcsin, torch.Tensor.arcsin),
+        ]:
+            torch_eggs.assert_tensor_uniop_pair_cases(
+                op,
+                bound_op,
+                (
+                    [],
+                    [],
+                ),
+                (
+                    torch.nan,
+                    torch.nan,
+                ),
+                (
+                    -3,
+                    torch.nan,
+                ),
+                (
+                    # int input
+                    [[0], [1], [-1], [3]],
+                    [[0.0000000000], [1.5707963705], [-1.5707963705], [torch.nan]],
+                ),
+                (
+                    # float input
+                    [[0.0], [1.0], [-1.0], [3.0]],
+                    [[0.0000000000], [1.5707963705], [-1.5707963705], [torch.nan]],
+                ),
+                # bools, are cast to ints  ...
+                (
+                    [True, False],
+                    [1.5707963705, 0.0],
+                ),
+                # complex
+                (
+                    [0j, 1 + 1j],
+                    [0.0j, 0.6662394404 + 1.0612752438j],
                 ),
                 close=True,
             )

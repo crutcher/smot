@@ -22,7 +22,7 @@ class AsStridedTest(unittest.TestCase):
             t.data_ptr(),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             x,
             [
                 [v[1 * 0 + 2 * 0], v[1 * 0 + 2 * 1]],
@@ -42,7 +42,7 @@ class AsStridedTest(unittest.TestCase):
             t.data_ptr() + 4 * offset,
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             x,
             [
                 [v[2 + 1 * 0 + 2 * 0], v[2 + 1 * 0 + 2 * 1]],

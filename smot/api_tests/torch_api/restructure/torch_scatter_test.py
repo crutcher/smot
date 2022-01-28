@@ -24,7 +24,7 @@ class ScatterTest(unittest.TestCase):
             ]
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.scatter(a, 0, idx, b),
             [
                 [0, 1, 8],
@@ -36,7 +36,7 @@ class ScatterTest(unittest.TestCase):
     def test_reduce(self) -> None:
         b = torch.arange(9, dtype=torch.int64).reshape(3, 3)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.scatter(
                 b,
                 1,
@@ -57,7 +57,7 @@ class ScatterTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.scatter(
                 b,
                 1,
@@ -78,7 +78,7 @@ class ScatterTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.scatter(
                 b,
                 1,

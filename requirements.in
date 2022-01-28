@@ -17,6 +17,9 @@ black[d]
 black_nbconvert  # for formatting .ipynb
 isort
 
+# Python Strict
+overrides
+
 # ipython
 ipython
 jedi

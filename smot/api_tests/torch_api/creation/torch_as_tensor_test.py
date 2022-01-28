@@ -15,13 +15,13 @@ from smot.testlib import torch_eggs
 )
 class AsTensorTest(unittest.TestCase):
     def test_list(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.as_tensor([1, 2]),
             torch.tensor([1, 2]),
         )
 
     def test_numpy(self) -> None:
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.as_tensor(np.array([1, 2])),
             torch.tensor([1, 2]),
         )
@@ -46,7 +46,7 @@ class AsTensorTest(unittest.TestCase):
 
         # dtype conversion is a copy.
         x = torch.as_tensor(t, dtype=torch.float64)
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             x,
             torch.tensor([1, 2], dtype=torch.float64),
         )
@@ -67,7 +67,7 @@ class AsTensorTest(unittest.TestCase):
             )
 
             x = torch.as_tensor(t, device="cuda")  # type: ignore
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 x,
                 torch.tensor([1.0, 2.0], device="cuda"),
             )

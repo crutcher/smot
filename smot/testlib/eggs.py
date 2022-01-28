@@ -1,5 +1,6 @@
 import contextlib
 from dataclasses import dataclass
+import typing
 from typing import (
     Any,
     Callable,
@@ -19,14 +20,27 @@ from hamcrest.core.base_matcher import BaseMatcher
 from hamcrest.core.description import Description
 from hamcrest.core.matcher import Matcher
 
-# unittest integration; hide these frames from tracebacks
-__unittest = True
-# py.test integration; hide these frames from tracebacks
-__tracebackhide__ = True
 
-# Monkey patch BaseMatcher
-hamcrest.core.base_matcher.__unittest = True
-hamcrest.core.base_matcher.__tracebackhide__ = True
+def hide_module_tracebacks(module: typing.Any, mode: bool = True) -> None:
+    # unittest integration; hide these frames from tracebacks
+    module["__unittest"] = mode
+    # py.test integration; hide these frames from tracebacks
+    module["__tracebackhide__"] = mode
+
+
+def hide_tracebacks(mode: bool = True) -> None:
+    """
+    Hint that some unittest stacks (unittest, pytest) should remove
+    frames from tracebacks that include this module.
+
+    :param mode: optional, the traceback mode.
+    """
+    hide_module_tracebacks(globals(), mode)
+
+
+hide_tracebacks(True)
+
+hide_module_tracebacks(hamcrest.core.base_matcher.__dict__)
 
 
 @dataclass

@@ -17,7 +17,7 @@ class ScatterAddTest(unittest.TestCase):
     def test_add(self) -> None:
         source = torch.arange(9, dtype=torch.int64).reshape(3, 3)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.scatter_add(
                 source,
                 1,

@@ -23,13 +23,13 @@ class SobolEngineTest(unittest.TestCase):
             "tensor with negative dimension",
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw(1),
             [
                 [0.0000, 0.0000, 0.0000, 0.0000],
             ],
         )
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw(2),
             [
                 [0.5000, 0.5000, 0.5000, 0.5000],
@@ -40,7 +40,7 @@ class SobolEngineTest(unittest.TestCase):
         engine.reset()
         engine.fast_forward(2)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw(1),
             [
                 [0.7500, 0.2500, 0.2500, 0.2500],
@@ -51,7 +51,7 @@ class SobolEngineTest(unittest.TestCase):
         with torch_eggs.reset_generator_seed():
             engine = torch.quasirandom.SobolEngine(dimension=4)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw_base2(0),
             [
                 [0.0000, 0.0000, 0.0000, 0.0000],
@@ -72,13 +72,13 @@ class SobolEngineTest(unittest.TestCase):
             "require n to be a power of 2",
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw_base2(0),
             [
                 [0.5000, 0.5000, 0.5000, 0.5000],
             ],
         )
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             engine.draw_base2(1),
             [
                 [0.7500, 0.2500, 0.2500, 0.2500],

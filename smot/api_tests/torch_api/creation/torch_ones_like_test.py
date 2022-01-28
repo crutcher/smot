@@ -21,7 +21,7 @@ class OnesLikeTest(unittest.TestCase):
                 device=device,
             )
 
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.ones_like(source),
                 torch.ones(
                     *source.size(),

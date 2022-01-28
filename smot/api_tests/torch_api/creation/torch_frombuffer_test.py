@@ -21,7 +21,7 @@ class FrombufferTest(unittest.TestCase):
             dtype=torch.int8,
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             torch.tensor([1, 2, 3], dtype=torch.int8),
         )
@@ -29,7 +29,7 @@ class FrombufferTest(unittest.TestCase):
         # Mutations to one mutate the other.
         source[1] = 8
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             view,
             torch.tensor([8, 2, 3], dtype=torch.int8),
         )
@@ -38,7 +38,7 @@ class FrombufferTest(unittest.TestCase):
         # it the torch pointer won't get updated to the new buffer.
         source.extend([20, 21, 22, 23] * 250)
         try:
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 view,
                 torch.tensor([2, 3, 4], dtype=torch.int8),
             )

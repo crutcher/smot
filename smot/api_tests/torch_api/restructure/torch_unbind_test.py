@@ -27,9 +27,8 @@ class UnbindTest(unittest.TestCase):
 
         # unbind returns views.
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.unbind(source),
-            source,
             [
                 [0, 1, 2, 3],
                 [4, 5, 6, 7],
@@ -38,11 +37,11 @@ class UnbindTest(unittest.TestCase):
                 [8, 9, 10, 11],
                 [12, 13, 14, 15],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.unbind(source, dim=1),
-            source,
             [
                 [0, 1, 2, 3],
                 [8, 9, 10, 11],
@@ -51,11 +50,11 @@ class UnbindTest(unittest.TestCase):
                 [4, 5, 6, 7],
                 [12, 13, 14, 15],
             ],
+            view_of=source,
         )
 
-        torch_eggs.assert_view_tensor_seq(
+        torch_eggs.assert_tensor_sequence_equals(
             torch.unbind(source, dim=2),
-            source,
             [
                 [0, 4],
                 [8, 12],
@@ -72,4 +71,5 @@ class UnbindTest(unittest.TestCase):
                 [3, 7],
                 [11, 15],
             ],
+            view_of=source,
         )

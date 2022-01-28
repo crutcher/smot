@@ -14,7 +14,7 @@ class MaskedSelectTest(unittest.TestCase):
     def test_select(self) -> None:
         source = torch.arange(9).reshape(3, 3)
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             [
                 [0, 1, 2],
@@ -23,7 +23,7 @@ class MaskedSelectTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.masked_select(
                 source,
                 torch.tensor(

@@ -14,7 +14,7 @@ class TileTest(unittest.TestCase):
     def test_tile(self) -> None:
         source = torch.tensor([[1, 2], [3, 4]])
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.tile(source, (2,)),
             [
                 [1, 2, 1, 2],
@@ -22,7 +22,7 @@ class TileTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.tile(source, (1, 2)),
             [
                 [1, 2, 1, 2],
@@ -30,7 +30,7 @@ class TileTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.tile(source, (2, 1)),
             [
                 [1, 2],
@@ -40,7 +40,7 @@ class TileTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.tile(source, (2, 1, 1)),
             [
                 [
@@ -54,7 +54,7 @@ class TileTest(unittest.TestCase):
             ],
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.tile(source, (2, 2, 3)),
             [
                 [

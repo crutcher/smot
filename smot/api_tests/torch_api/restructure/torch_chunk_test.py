@@ -16,13 +16,13 @@ class ChunkTest(unittest.TestCase):
         source = torch.tensor([1, 2, 3, 4, 5, 6])
         chunks = torch.chunk(source, 2)
 
-        torch_eggs.assert_views(source, *chunks)
+        torch_eggs.assert_tensor_views(source, *chunks)
 
         eggs.assert_match(
             chunks,
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([1, 2, 3]),
-                torch_eggs.expect_tensor([4, 5, 6]),
+                torch_eggs.matches_tensor([1, 2, 3]),
+                torch_eggs.matches_tensor([4, 5, 6]),
             ),
         )
 
@@ -36,12 +36,12 @@ class ChunkTest(unittest.TestCase):
         eggs.assert_match(
             chunks,
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([88, 66, 3]),
-                torch_eggs.expect_tensor([99, 77, 6]),
+                torch_eggs.matches_tensor([88, 66, 3]),
+                torch_eggs.matches_tensor([99, 77, 6]),
             ),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             source,
             [88, 66, 3, 99, 77, 6],
         )
@@ -52,17 +52,17 @@ class ChunkTest(unittest.TestCase):
         eggs.assert_match(
             torch.chunk(source, 3, dim=1),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([[1], [4]]),
-                torch_eggs.expect_tensor([[2], [5]]),
-                torch_eggs.expect_tensor([[3], [6]]),
+                torch_eggs.matches_tensor([[1], [4]]),
+                torch_eggs.matches_tensor([[2], [5]]),
+                torch_eggs.matches_tensor([[3], [6]]),
             ),
         )
 
         eggs.assert_match(
             torch.chunk(source, 2, dim=1),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([[1, 2], [4, 5]]),
-                torch_eggs.expect_tensor([[3], [6]]),
+                torch_eggs.matches_tensor([[1, 2], [4, 5]]),
+                torch_eggs.matches_tensor([[3], [6]]),
             ),
         )
 
@@ -85,9 +85,9 @@ class ChunkTest(unittest.TestCase):
                 4,
             ),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([1, 2]),
-                torch_eggs.expect_tensor([3, 4]),
-                torch_eggs.expect_tensor([5, 6]),
+                torch_eggs.matches_tensor([1, 2]),
+                torch_eggs.matches_tensor([3, 4]),
+                torch_eggs.matches_tensor([5, 6]),
             ),
         )
 
@@ -97,9 +97,9 @@ class ChunkTest(unittest.TestCase):
                 4,
             ),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([1, 2]),
-                torch_eggs.expect_tensor([3, 4]),
-                torch_eggs.expect_tensor([5]),
+                torch_eggs.matches_tensor([1, 2]),
+                torch_eggs.matches_tensor([3, 4]),
+                torch_eggs.matches_tensor([5]),
             ),
         )
 
@@ -109,9 +109,9 @@ class ChunkTest(unittest.TestCase):
                 4,
             ),
             hamcrest.contains_exactly(
-                torch_eggs.expect_tensor([1, 2]),
-                torch_eggs.expect_tensor([3, 4]),
-                torch_eggs.expect_tensor([5, 6]),
-                torch_eggs.expect_tensor([7]),
+                torch_eggs.matches_tensor([1, 2]),
+                torch_eggs.matches_tensor([3, 4]),
+                torch_eggs.matches_tensor([5, 6]),
+                torch_eggs.matches_tensor([7]),
             ),
         )

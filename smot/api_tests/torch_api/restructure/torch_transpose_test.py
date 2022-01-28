@@ -37,14 +37,14 @@ class TransposeTest(unittest.TestCase):
             ],
         )
         for transpose in self.ALIASES:
-            torch_eggs.assert_view_tensor(
+            torch_eggs.assert_tensor_equals(
                 transpose(source, 0, 1),
-                source,
-                [
+                expected=[
                     [0, 3],
                     [1, 4],
                     [2, 5],
                 ],
+                view_of=source,
             )
 
     def test_error(self) -> None:
@@ -67,10 +67,9 @@ class TransposeTest(unittest.TestCase):
         )
 
         for transpose in self.ALIASES:
-            torch_eggs.assert_view_tensor(
+            torch_eggs.assert_tensor_equals(
                 transpose(source, 0, 2),
-                source,
-                [
+                expected=[
                     [
                         [[0, 1]],
                         [[6, 7]],
@@ -84,4 +83,5 @@ class TransposeTest(unittest.TestCase):
                         [[10, 11]],
                     ],
                 ],
+                view_of=source,
             )

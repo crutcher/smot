@@ -21,7 +21,7 @@ class ZerosLikeTest(unittest.TestCase):
                 device=device,
             )
 
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.zeros_like(source),
                 torch.zeros(
                     *source.size(),
@@ -42,7 +42,7 @@ class ZerosLikeTest(unittest.TestCase):
                 dtype=dtype,
             )
 
-            torch_eggs.assert_tensor(
+            torch_eggs.assert_tensor_equals(
                 torch.zeros_like(source),
                 torch.sparse_coo_tensor(
                     indices=torch.zeros(size=(2, 0)),

@@ -23,12 +23,12 @@ class QuantizePerTensorTest(unittest.TestCase):
 
         # TODO: how to read the actual quantization state?
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             t.int_repr(),
             torch.tensor([0, 10, 20, 30], dtype=torch.int8),
         )
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             torch.dequantize(t),
             source,
         )
@@ -51,11 +51,11 @@ class QuantizePerTensorTest(unittest.TestCase):
 
         # TODO: how to read the actual quantization state?
 
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             ts[0].int_repr(),
             torch.tensor([0, 10, 20, 30], dtype=torch.int8),
         )
-        torch_eggs.assert_tensor(
+        torch_eggs.assert_tensor_equals(
             ts[1].int_repr(),
             torch.tensor([3, 5], dtype=torch.int8),
         )
