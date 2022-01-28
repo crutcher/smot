@@ -11,7 +11,6 @@ from overrides import overrides
 import torch
 
 from smot.testlib import eggs
-from smot.testlib.eggs import hide_module_tracebacks
 
 TensorConvertable = typing.Union[
     torch.Tensor,
@@ -29,7 +28,7 @@ def hide_tracebacks(mode: bool = True) -> None:
 
     :param mode: optional, the traceback mode.
     """
-    hide_module_tracebacks(globals(), mode)
+    eggs.hide_module_tracebacks(globals(), mode)
 
 
 # hide by default.
