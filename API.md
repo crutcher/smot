@@ -87,7 +87,7 @@ Aliases:
 
 
 #### torch.acosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L180](smot/api_tests/torch_api/math/torch_math_test.py#L180)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L243](smot/api_tests/torch_api/math/torch_math_test.py#L243)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.acosh.html](https://pytorch.org/docs/stable/generated/torch.acosh.html)
 
 
@@ -104,7 +104,7 @@ Aliases:
     * [torch.acos](#torchacos)
 
 #### torch.arccosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L180](smot/api_tests/torch_api/math/torch_math_test.py#L180)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L243](smot/api_tests/torch_api/math/torch_math_test.py#L243)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arccosh.html](https://pytorch.org/docs/stable/generated/torch.arccosh.html)
 
 Aliases:
@@ -117,8 +117,15 @@ Aliases:
 Aliases:
     * [torch.asin](#torchasin)
 
+#### torch.arcsinh
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L180](smot/api_tests/torch_api/math/torch_math_test.py#L180)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.arcsinh.html](https://pytorch.org/docs/stable/generated/torch.arcsinh.html)
+
+Aliases:
+    * [torch.asinh](#torchasinh)
+
 #### torch.arctan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L239](smot/api_tests/torch_api/math/torch_math_test.py#L239)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L302](smot/api_tests/torch_api/math/torch_math_test.py#L302)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arctan.html](https://pytorch.org/docs/stable/generated/torch.arctan.html)
 
 Aliases:
@@ -139,8 +146,13 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.asin.html](https://pytorch.org/docs/stable/generated/torch.asin.html)
 
 
+#### torch.asinh
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L180](smot/api_tests/torch_api/math/torch_math_test.py#L180)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.asinh.html](https://pytorch.org/docs/stable/generated/torch.asinh.html)
+
+
 #### torch.atan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L239](smot/api_tests/torch_api/math/torch_math_test.py#L239)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L302](smot/api_tests/torch_api/math/torch_math_test.py#L302)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.atan.html](https://pytorch.org/docs/stable/generated/torch.atan.html)
 
 

@@ -169,6 +169,69 @@ class TrigMathTest(unittest.TestCase):
                 )
 
     @api_link(
+        target="torch.asinh",
+        ref="https://pytorch.org/docs/stable/generated/torch.asinh.html",
+    )
+    @api_link(
+        target="torch.arcsinh",
+        ref="https://pytorch.org/docs/stable/generated/torch.arcsinh.html",
+        alias="torch.asinh",
+    )
+    def test_asinh(self) -> None:
+        for op, bound_op in [
+            (torch.asinh, torch.Tensor.asinh),
+            (torch.arcsinh, torch.Tensor.arcsinh),
+        ]:
+            with PairedOpChecker(op, bound_op) as checker:
+                checker.assert_case_returns(
+                    [],
+                    returns=[],
+                )
+                checker.assert_case_returns(
+                    [],
+                    returns=[],
+                )
+                checker.assert_case_returns(
+                    torch.nan,
+                    returns=torch.nan,
+                )
+                checker.assert_case_returns(
+                    -3,
+                    returns=-1.8184465170,
+                )
+                checker.assert_case_returns(
+                    # int input
+                    [[0], [1], [-1], [3]],
+                    returns=[
+                        [0.0000000000],
+                        [0.8813735843],
+                        [-0.8813735843],
+                        [1.8184465170],
+                    ],
+                )
+                checker.assert_case_returns(
+                    # float input
+                    [[0.0], [1.0], [-1.0], [3.0]],
+                    returns=[
+                        [0.0000000000],
+                        [0.8813735843],
+                        [-0.8813735843],
+                        [1.8184465170],
+                    ],
+                )
+                checker.assert_case_returns(
+                    [True, False],
+                    returns=[0.8813735843, 0.0000000000],
+                )
+                checker.assert_case_returns(
+                    [0j, 1 + 1j],
+                    returns=[
+                        0.0000000000 + 0.0000000000j,
+                        1.0612751245 + 0.6662394404j,
+                    ],
+                )
+
+    @api_link(
         target="torch.acosh",
         ref="https://pytorch.org/docs/stable/generated/torch.acosh.html",
     )
