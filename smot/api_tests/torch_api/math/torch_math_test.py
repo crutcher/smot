@@ -348,3 +348,62 @@ class TrigMathTest(unittest.TestCase):
                     ],
                     close=True,
                 )
+
+    @api_link(
+        target="torch.atanh",
+        ref="https://pytorch.org/docs/stable/generated/torch.atanh.html",
+    )
+    @api_link(
+        target="torch.arctanh",
+        ref="https://pytorch.org/docs/stable/generated/torch.arctanh.html",
+        alias="torch.atanh",
+    )
+    def test_atanh(self) -> None:
+        for op, bound_op in [
+            (torch.atanh, torch.Tensor.atanh),
+            (torch.arctanh, torch.Tensor.arctanh),
+        ]:
+            with PairedOpChecker(op, bound_op) as checker:
+                checker.assert_case_returns(
+                    [],
+                    returns=[],
+                )
+                checker.assert_case_returns(
+                    torch.nan,
+                    returns=torch.nan,
+                )
+                checker.assert_case_returns(
+                    -3,
+                    returns=torch.nan,
+                )
+                checker.assert_case_returns(
+                    0.5,
+                    returns=0.5493061543,
+                )
+                checker.assert_case_returns(
+                    [
+                        [0],
+                        [1],
+                        [torch.pi],
+                        [0.2],
+                    ],
+                    returns=[
+                        [0.0000000000],
+                        [torch.inf],
+                        [torch.nan],
+                        [0.2027325481],
+                    ],
+                    close=True,
+                )
+                checker.assert_case_returns(
+                    [True, False],
+                    returns=[torch.inf, 0.0],
+                )
+                checker.assert_case_returns(
+                    [0j, 1 + 1j],
+                    returns=[
+                        0.0000000000 + 0.0000000000j,
+                        0.4023594856 + 1.0172219276j,
+                    ],
+                    close=True,
+                )
