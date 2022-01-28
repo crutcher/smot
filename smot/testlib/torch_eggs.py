@@ -1,7 +1,6 @@
 import contextlib
 import numbers
 import typing
-from typing import Callable, Tuple
 
 import hamcrest
 from hamcrest.core.base_matcher import BaseMatcher
@@ -304,6 +303,7 @@ def assert_tensor_sequence_equals(
 
     :param actual: the `actual` to test.
     :param expected: the expected values.
+    :param view_of: if present, also check that actual is a view of the reference Tensor.
     :return: the `actual`
     """
     hamcrest.assert_that(
@@ -324,116 +324,3 @@ def reset_generator_seed(seed: int = 3 * 17 * 53 + 1) -> typing.Iterator:
     """
     torch.manual_seed(seed)
     yield
-
-
-def assert_tensor_uniop_unsupported(
-    op: Callable[[torch.Tensor], torch.Tensor],
-    source: TensorConvertable,
-) -> None:
-    t_source: torch.Tensor = torch.as_tensor(source)
-    eggs.assert_raises(
-        lambda: op(t_source),
-        RuntimeError,
-        "not implemented",
-    )
-
-
-def assert_tensor_uniop(
-    op: Callable[[torch.Tensor], torch.Tensor],
-    source: TensorConvertable,
-    expected: TensorConvertable,
-    *,
-    close: bool = False,
-    supports_out: bool = True,
-) -> None:
-    t_source = torch.as_tensor(source)
-    t_expected = torch.as_tensor(expected)
-
-    result = op(t_source)
-    assert_tensor_equals(
-        result,
-        t_expected,
-        close=close,
-    )
-
-    # use the shape of expected to build an out.
-    out = torch.empty_like(result)
-
-    if supports_out:
-        eggs.assert_match(
-            op(t_source, out=out),  # type: ignore
-            hamcrest.same_instance(out),
-        )
-        assert_tensor_equals(
-            out,
-            t_expected,
-            close=close,
-        )
-
-    else:
-        eggs.assert_raises(
-            lambda: op(t_source, out=out),  # type: ignore
-            TypeError,
-        )
-
-
-def assert_tensor_uniop_pair(
-    torch_op: Callable[[torch.Tensor], torch.Tensor],
-    tensor_op: Callable[[torch.Tensor], torch.Tensor],
-    source: TensorConvertable,
-    expected: TensorConvertable,
-    close: bool = False,
-) -> None:
-    source = torch.as_tensor(source)
-    expected = torch.as_tensor(expected)
-
-    assert_tensor_uniop(
-        torch_op,
-        source,
-        expected,
-        close=close,
-    )
-    assert_tensor_uniop(
-        tensor_op,
-        source,
-        expected,
-        close=close,
-        supports_out=False,
-    )
-
-
-def assert_tensor_uniop_pair_cases(
-    torch_op: Callable[[torch.Tensor], torch.Tensor],
-    tensor_op: Callable[[torch.Tensor], torch.Tensor],
-    *cases: Tuple[
-        TensorConvertable,
-        TensorConvertable,
-    ],
-    unsupported: typing.Optional[
-        typing.Sequence[
-            TensorConvertable,
-        ]
-    ] = None,
-    close: bool = False,
-) -> None:
-    for source, expected in cases:
-        assert_tensor_uniop_pair(
-            torch_op,
-            tensor_op,
-            source,
-            expected,
-            close=close,
-        )
-
-    if unsupported:
-        for source in unsupported:
-            source = torch.as_tensor(source)
-
-            assert_tensor_uniop_unsupported(
-                torch_op,
-                source,
-            )
-            assert_tensor_uniop_unsupported(
-                tensor_op,
-                source,
-            )
