@@ -117,6 +117,13 @@ Aliases:
 Aliases:
     * [torch.asin](#torchasin)
 
+#### torch.arctan
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L239](smot/api_tests/torch_api/math/torch_math_test.py#L239)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.arctan.html](https://pytorch.org/docs/stable/generated/torch.arctan.html)
+
+Aliases:
+    * [torch.atan](#torchatan)
+
 #### torch.as_strided
   * Tests: [smot/api_tests/torch_api/creation/torch_as_strided_test.py](smot/api_tests/torch_api/creation/torch_as_strided_test.py) [L13](smot/api_tests/torch_api/creation/torch_as_strided_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.as_strided.html](https://pytorch.org/docs/stable/generated/torch.as_strided.html)
@@ -130,6 +137,11 @@ Aliases:
 #### torch.asin
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L120](smot/api_tests/torch_api/math/torch_math_test.py#L120)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.asin.html](https://pytorch.org/docs/stable/generated/torch.asin.html)
+
+
+#### torch.atan
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L239](smot/api_tests/torch_api/math/torch_math_test.py#L239)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.atan.html](https://pytorch.org/docs/stable/generated/torch.atan.html)
 
 
 #### torch.bernoulli

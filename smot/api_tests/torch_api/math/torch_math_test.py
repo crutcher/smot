@@ -226,3 +226,62 @@ class TrigMathTest(unittest.TestCase):
                     ],
                     close=True,
                 )
+
+    @api_link(
+        target="torch.atan",
+        ref="https://pytorch.org/docs/stable/generated/torch.atan.html",
+    )
+    @api_link(
+        target="torch.arctan",
+        ref="https://pytorch.org/docs/stable/generated/torch.arctan.html",
+        alias="torch.atan",
+    )
+    def test_atan(self) -> None:
+        for op, bound_op in [
+            (torch.atan, torch.Tensor.atan),
+            (torch.arctan, torch.Tensor.arctan),
+        ]:
+            with PairedOpChecker(op, bound_op) as checker:
+                checker.assert_case_returns(
+                    [],
+                    returns=[],
+                )
+                checker.assert_case_returns(
+                    torch.nan,
+                    returns=torch.nan,
+                )
+                checker.assert_case_returns(
+                    -3,
+                    returns=-1.2490457296,
+                )
+                checker.assert_case_returns(
+                    2,
+                    returns=1.1071487665,
+                )
+                checker.assert_case_returns(
+                    [
+                        [0],
+                        [1],
+                        [torch.pi],
+                        [2],
+                    ],
+                    returns=[
+                        [0.0000000000],
+                        [0.7853981853],
+                        [1.2626272440],
+                        [1.1071487665],
+                    ],
+                    close=True,
+                )
+                checker.assert_case_returns(
+                    [True, False],
+                    returns=[0.7853981853, 0.0000000000],
+                )
+                checker.assert_case_returns(
+                    [0j, 1 + 1j],
+                    returns=[
+                        0.0000000000 + 0.0000000000j,
+                        1.0172219276 + 0.4023594856j,
+                    ],
+                    close=True,
+                )
