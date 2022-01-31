@@ -1,9 +1,9 @@
-from typing import Callable
 import unittest
 
 import torch
 
 from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
+    assert_cellwise_bin_op_returns,
     assert_cellwise_unary_op_returns,
     assert_tensor_uniop_not_implemented,
 )
@@ -443,6 +443,42 @@ class TrigMathTest(unittest.TestCase):
                 assert_cellwise_unary_op_returns(
                     op,
                     input,
+                    expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.atan2",
+        ref="https://pytorch.org/docs/stable/generated/torch.atan2.html",
+    )
+    @api_link(
+        target="torch.Tensor.atan2",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.atan2.html",
+    )
+    def test_atan2(self) -> None:
+        for op, supports_out in [
+            (torch.atan2, True),
+            (torch.Tensor.atan2, False),
+        ]:
+            for input, other, expected in [
+                (
+                    [0.0, torch.pi, torch.pi],
+                    [0.0, 1.0, torch.pi],
+                    # yields.
+                    [0.0000000000, 1.2626272440, 0.7853981853],
+                ),
+                (
+                    [False, True, True],
+                    [0.0, 1.0, torch.pi],
+                    # yields.
+                    [0.0000000000, 0.7853981853, 0.3081690669],
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    input,
+                    other,
                     expected,
                     close=True,
                     supports_out=supports_out,
