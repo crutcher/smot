@@ -622,3 +622,48 @@ class MathOpTest(unittest.TestCase):
                     expected,
                     supports_out=supports_out,
                 )
+
+    @api_link(
+        target="torch.bitwise_left_shift",
+        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_left_shift.html",
+    )
+    @api_link(
+        target="torch.Tensor.bitwise_left_shift",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_left_shift.html",
+    )
+    def test_bitwise_left_shift(self) -> None:
+        for op, supports_out in [
+            (torch.bitwise_left_shift, True),
+            (torch.Tensor.bitwise_left_shift, False),
+        ]:
+            for input, other, expected in [
+                (
+                    torch.tensor(0x1, dtype=torch.uint8),
+                    torch.tensor(7, dtype=torch.uint8),
+                    torch.tensor(0x80, dtype=torch.uint8),
+                ),
+                (
+                    torch.tensor(0x1, dtype=torch.uint8),
+                    torch.tensor(8, dtype=torch.uint8),
+                    # conversion shift dtype affects overflow / output type:
+                    torch.tensor(0, dtype=torch.uint8),
+                ),
+                (
+                    torch.tensor(0x1, dtype=torch.uint8),
+                    torch.tensor(8, dtype=torch.int8),
+                    # conversion shift dtype affects overflow / output type:
+                    torch.tensor(0x100, dtype=torch.int16),
+                ),
+                (
+                    torch.tensor([0x1, 0x1, 0x2, 0x3], dtype=torch.int32),
+                    torch.tensor([0, 1, 0, 3], dtype=torch.int32),
+                    torch.tensor([0x1, 0x2, 0x2, 0x18], dtype=torch.int32),
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    input,
+                    other,
+                    expected,
+                    supports_out=supports_out,
+                )

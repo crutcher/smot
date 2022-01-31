@@ -158,6 +158,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_and.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_and.html)
 
 
+#### torch.Tensor.bitwise_left_shift
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L634](smot/api_tests/torch_api/math/torch_math_test.py#L634)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_left_shift.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_left_shift.html)
+
+
 #### torch.Tensor.bitwise_not
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L495](smot/api_tests/torch_api/math/torch_math_test.py#L495)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html)
@@ -290,6 +295,11 @@ Aliases:
 #### torch.bitwise_and
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L533](smot/api_tests/torch_api/math/torch_math_test.py#L533)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_and.html](https://pytorch.org/docs/stable/generated/torch.bitwise_and.html)
+
+
+#### torch.bitwise_left_shift
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L634](smot/api_tests/torch_api/math/torch_math_test.py#L634)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_left_shift.html](https://pytorch.org/docs/stable/generated/torch.bitwise_left_shift.html)
 
 
 #### torch.bitwise_not
