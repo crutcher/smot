@@ -7,7 +7,7 @@ from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_unary_op_returns,
     assert_tensor_uniop_not_implemented,
 )
-from smot.doc_link.link_annotations import api_link, WEIRD_API
+from smot.doc_link.link_annotations import WEIRD_API, api_link
 
 
 class MathOpTest(unittest.TestCase):
@@ -662,6 +662,53 @@ class MathOpTest(unittest.TestCase):
                     torch.tensor([0x1, 0x1, 0x2, 0x3], dtype=torch.int32),
                     torch.tensor([0, 1, 0, 3], dtype=torch.int32),
                     torch.tensor([0x1, 0x2, 0x2, 0x18], dtype=torch.int32),
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    input,
+                    other,
+                    expected,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.bitwise_right_shift",
+        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_right_shift.html",
+    )
+    @api_link(
+        target="torch.Tensor.bitwise_right_shift",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_right_shift.html",
+    )
+    def test_bitwise_right_shift(self) -> None:
+        for op, supports_out in [
+            (torch.bitwise_right_shift, True),
+            (torch.Tensor.bitwise_right_shift, False),
+        ]:
+            for input, other, expected in [
+                (
+                    torch.tensor(0x80, dtype=torch.uint8),
+                    torch.tensor(7, dtype=torch.uint8),
+                    torch.tensor(0x1, dtype=torch.uint8),
+                ),
+                (
+                    # Unlike left_shift, underflow is not determined by shift dtype.
+                    # See left_shift weirdness.
+                    torch.tensor(0x1, dtype=torch.uint8),
+                    torch.tensor(1, dtype=torch.uint8),
+                    torch.tensor(0, dtype=torch.uint8),
+                ),
+                (
+                    # Unlike left_shift, underflow is not determined by shift dtype.
+                    # See left_shift weirdness.
+                    torch.tensor(0x1, dtype=torch.uint8),
+                    torch.tensor(1, dtype=torch.int8),
+                    torch.tensor(0, dtype=torch.int16),
+                ),
+                (
+                    torch.tensor([0x1, 0x2, 0x2, 0x18], dtype=torch.int32),
+                    torch.tensor([0, 1, 0, 3], dtype=torch.int32),
+                    torch.tensor([0x1, 0x1, 0x2, 0x3], dtype=torch.int32),
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
