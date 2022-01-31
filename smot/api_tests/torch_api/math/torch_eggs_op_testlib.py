@@ -18,7 +18,7 @@ def hide_tracebacks(mode: bool = True) -> None:
 
 
 # hide by default.
-# hide_tracebacks(True)
+hide_tracebacks(True)
 
 
 def assert_tensor_uniop_not_implemented(
