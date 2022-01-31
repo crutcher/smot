@@ -7,17 +7,7 @@ A repository of datascience / ai apis explored in far too much detail.
 You're probably most interested in the public api unittests in [api_tests](smot/api_tests):
   * [torch_api](smot/api_tests/torch_api)
     * torch
-      * Tensors
-        * [x] creation ops
-        * [x] indexing, slicing, joining, mutating ops
-      * [x] Generators
-      * [ ] Random Sampling
-      * [ ] Serialization
-      * [ ] Parallelism
-      * [ ] Locally disabling gradient computation
-      * [ ] Math
-      * [ ] Utilities
-    * [ ] torch.???
+      * I am currently working my way through the unary and binary cell-wise operations.
 
 These exist, but they're mostly empty at the moment.
   * [numpy_api](smot/api_tests/numpy_api)
