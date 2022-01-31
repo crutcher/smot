@@ -183,6 +183,16 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html)
 
 
+#### torch.Tensor.ceil
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L730](smot/api_tests/torch_api/math/torch_math_test.py#L730)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.ceil.html](https://pytorch.org/docs/stable/generated/torch.Tensor.ceil.html)
+
+
+#### torch.Tensor.floor
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L762](smot/api_tests/torch_api/math/torch_math_test.py#L762)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
+
+
 #### torch.Tensor.normal_
   * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L70](smot/api_tests/torch_api/random/torch_normal_test.py#L70)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html)
@@ -332,6 +342,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.cat.html](https://pytorch.org/docs/stable/generated/torch.cat.html)
 
 
+#### torch.ceil
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L730](smot/api_tests/torch_api/math/torch_math_test.py#L730)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.ceil.html](https://pytorch.org/docs/stable/generated/torch.ceil.html)
+
+
 #### torch.chunk
   * Tests: [smot/api_tests/torch_api/restructure/torch_chunk_test.py](smot/api_tests/torch_api/restructure/torch_chunk_test.py) [L14](smot/api_tests/torch_api/restructure/torch_chunk_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.chunk.html](https://pytorch.org/docs/stable/generated/torch.chunk.html)
@@ -400,6 +415,11 @@ Aliases:
 #### torch.eye
   * Tests: [smot/api_tests/torch_api/creation/torch_eye_test.py](smot/api_tests/torch_api/creation/torch_eye_test.py) [L14](smot/api_tests/torch_api/creation/torch_eye_test.py#L14)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.eye.html](https://pytorch.org/docs/stable/generated/torch.eye.html)
+
+
+#### torch.floor
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L762](smot/api_tests/torch_api/math/torch_math_test.py#L762)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.floor.html](https://pytorch.org/docs/stable/generated/torch.floor.html)
 
 
 #### torch.from_numpy

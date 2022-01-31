@@ -718,3 +718,67 @@ class MathOpTest(unittest.TestCase):
                     expected,
                     supports_out=supports_out,
                 )
+
+    @api_link(
+        target="torch.ceil",
+        ref="https://pytorch.org/docs/stable/generated/torch.ceil.html",
+    )
+    @api_link(
+        target="torch.Tensor.ceil",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.ceil.html",
+    )
+    def test_ceil(self) -> None:
+        for op, supports_out in [
+            (torch.ceil, True),
+            (torch.Tensor.ceil, False),
+        ]:
+            for input, expected in [
+                (
+                    [-0.3, -0.0, 0.0, 0.3, 1.2, 4.0],
+                    [0.0, 0.0, 0.0, 1.0, 2.0, 4.0],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected,
+                    supports_out=supports_out,
+                )
+
+            for not_implemented in [
+                torch.tensor(0, dtype=torch.int64),
+                torch.tensor(False, dtype=torch.bool),
+            ]:
+                assert_tensor_uniop_not_implemented(op, not_implemented)
+
+    @api_link(
+        target="torch.floor",
+        ref="https://pytorch.org/docs/stable/generated/torch.floor.html",
+    )
+    @api_link(
+        target="torch.Tensor.floor",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html",
+    )
+    def test_floor(self) -> None:
+        for op, supports_out in [
+            (torch.floor, True),
+            (torch.Tensor.floor, False),
+        ]:
+            for input, expected in [
+                (
+                    [-0.3, -0.0, 0.0, 0.3, 1.2, 4.0],
+                    [-1.0, 0.0, 0.0, 0.0, 1.0, 4.0],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected,
+                    supports_out=supports_out,
+                )
+
+            for not_implemented in [
+                torch.tensor(0, dtype=torch.int64),
+                torch.tensor(False, dtype=torch.bool),
+            ]:
+                assert_tensor_uniop_not_implemented(op, not_implemented)
