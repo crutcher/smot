@@ -542,9 +542,77 @@ class MathOpTest(unittest.TestCase):
                     torch.tensor([False, False, False, True], dtype=torch.bool),
                 ),
                 (
-                    torch.tensor([0x1, 0x1 | 0x2, 0x1 | 0x2 | 0x8], dtype=torch.bool),
-                    torch.tensor([0x1, 0x2, 0x2 | 0x4 | 0x8], dtype=torch.bool),
-                    torch.tensor([0x1, 0x2, 0x2 | 0x8], dtype=torch.bool),
+                    torch.tensor([0x1, 0x1 | 0x2, 0x1 | 0x2 | 0x8], dtype=torch.int32),
+                    torch.tensor([0x1, 0x2, 0x2 | 0x4 | 0x8], dtype=torch.int32),
+                    torch.tensor([0x1, 0x2, 0x2 | 0x8], dtype=torch.int32),
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    input,
+                    other,
+                    expected,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.bitwise_or",
+        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_or.html",
+    )
+    @api_link(
+        target="torch.Tensor.bitwise_or",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_or.html",
+    )
+    def test_bitwise_or(self) -> None:
+        for op, supports_out in [
+            (torch.bitwise_or, True),
+            (torch.Tensor.bitwise_or, False),
+        ]:
+            for input, other, expected in [
+                (
+                    torch.tensor([False, False, True, True], dtype=torch.bool),
+                    torch.tensor([False, True, False, True], dtype=torch.bool),
+                    torch.tensor([False, True, True, True], dtype=torch.bool),
+                ),
+                (
+                    torch.tensor([0x1, 0x1 | 0x2, 0x1 | 0x2 | 0x8], dtype=torch.int32),
+                    torch.tensor([0x1, 0x2, 0x2 | 0x4 | 0x8], dtype=torch.int32),
+                    torch.tensor(
+                        [0x1, 0x1 | 0x2, 0x1 | 0x2 | 0x4 | 0x8], dtype=torch.int32
+                    ),
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    input,
+                    other,
+                    expected,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.bitwise_xor",
+        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_xor.html",
+    )
+    @api_link(
+        target="torch.Tensor.bitwise_xor",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html",
+    )
+    def test_bitwise_xor(self) -> None:
+        for op, supports_out in [
+            (torch.bitwise_xor, True),
+            (torch.Tensor.bitwise_xor, False),
+        ]:
+            for input, other, expected in [
+                (
+                    torch.tensor([False, False, True, True], dtype=torch.bool),
+                    torch.tensor([False, True, False, True], dtype=torch.bool),
+                    torch.tensor([False, True, True, False], dtype=torch.bool),
+                ),
+                (
+                    torch.tensor([0x1, 0x1 | 0x2, 0x1 | 0x2 | 0x8], dtype=torch.int32),
+                    torch.tensor([0x1, 0x2, 0x2 | 0x4 | 0x8], dtype=torch.int32),
+                    torch.tensor([0x0, 0x1, 0x1 | 0x4], dtype=torch.int32),
                 ),
             ]:
                 assert_cellwise_bin_op_returns(

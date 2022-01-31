@@ -163,6 +163,16 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html)
 
 
+#### torch.Tensor.bitwise_or
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L566](smot/api_tests/torch_api/math/torch_math_test.py#L566)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_or.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_or.html)
+
+
+#### torch.Tensor.bitwise_xor
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L601](smot/api_tests/torch_api/math/torch_math_test.py#L601)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html)
+
+
 #### torch.Tensor.normal_
   * Tests: [smot/api_tests/torch_api/random/torch_normal_test.py](smot/api_tests/torch_api/random/torch_normal_test.py) [L70](smot/api_tests/torch_api/random/torch_normal_test.py#L70)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html](https://pytorch.org/docs/stable/generated/torch.Tensor.normal_.html)
@@ -285,6 +295,16 @@ Aliases:
 #### torch.bitwise_not
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L495](smot/api_tests/torch_api/math/torch_math_test.py#L495)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_not.html](https://pytorch.org/docs/stable/generated/torch.bitwise_not.html)
+
+
+#### torch.bitwise_or
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L566](smot/api_tests/torch_api/math/torch_math_test.py#L566)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_or.html](https://pytorch.org/docs/stable/generated/torch.bitwise_or.html)
+
+
+#### torch.bitwise_xor
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L601](smot/api_tests/torch_api/math/torch_math_test.py#L601)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_xor.html](https://pytorch.org/docs/stable/generated/torch.bitwise_xor.html)
 
 
 #### torch.cat
