@@ -1,5 +1,4 @@
-from dataclasses import dataclass
-from typing import Any, Callable
+from typing import Any, Callable, Union
 
 import hamcrest
 import torch
@@ -23,7 +22,7 @@ hide_tracebacks(True)
 
 
 def assert_tensor_uniop_not_implemented(
-    op: Callable[[torch.Tensor], torch.Tensor],
+    op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     source: TensorConvertable,
 ) -> None:
     t_source: torch.Tensor = torch.as_tensor(source)
@@ -34,21 +33,40 @@ def assert_tensor_uniop_not_implemented(
     )
 
 
-def assert_tensor_uniop(
-    op: Callable[[torch.Tensor], torch.Tensor],
-    source: TensorConvertable,
+def assert_cellwise_unary_op_returns(
+    op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
+    input: TensorConvertable,
     expected: TensorConvertable,
     *,
     close: bool = False,
     supports_out: bool = True,
 ) -> None:
-    t_source = torch.as_tensor(source)
+    """
+    Assert that the given op is a well behaving cell-wise unitary operation.
+
+    :param op: the operation to test.
+    :param input: the input.
+    :param expected: the expected result.
+    :param close: should the expected result be evaluated as "close" or exact?
+    :param supports_out: does this operation support the `out` keyword?
+    """
+    t_input = torch.as_tensor(input)
     t_expected = torch.as_tensor(expected)
 
-    result = op(t_source)
+    result = op(t_input)
     assert_tensor_equals(
         result,
         t_expected,
+        close=close,
+    )
+
+    # check structural transforms work.
+    tile_pattern = (2, 3, 1)
+    tiled_input = torch.tile(t_input, tile_pattern)
+    tiled_expected = torch.tile(t_expected, tile_pattern)
+    assert_tensor_equals(
+        op(tiled_input),
+        tiled_expected,
         close=close,
     )
 
@@ -57,7 +75,7 @@ def assert_tensor_uniop(
 
     if supports_out:
         eggs.assert_match(
-            op(t_source, out=out),  # type: ignore
+            op(t_input, out=out),  # type: ignore
             hamcrest.same_instance(out),
         )
         assert_tensor_equals(
@@ -68,57 +86,6 @@ def assert_tensor_uniop(
 
     else:
         eggs.assert_raises(
-            lambda: op(t_source, out=out),  # type: ignore
+            lambda: op(t_input, out=out),  # type: ignore
             TypeError,
-        )
-
-
-@dataclass
-class PairedOpChecker:
-    torch_op: Callable[[torch.Tensor], torch.Tensor]
-    tensor_op: Callable[[torch.Tensor], torch.Tensor]
-
-    def __enter__(self) -> "PairedOpChecker":
-        return self
-
-    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
-        pass
-
-    def assert_case_returns(
-        self,
-        input: Any,
-        *,
-        returns: Any,
-        close: bool = False,
-    ) -> None:
-        input = torch.as_tensor(input)
-        returns = torch.as_tensor(returns)
-
-        assert_tensor_uniop(
-            self.torch_op,
-            input,
-            returns,
-            close=close,
-        )
-        assert_tensor_uniop(
-            self.tensor_op,
-            input,
-            returns,
-            close=close,
-            supports_out=False,
-        )
-
-    def assert_case_not_implemented(
-        self,
-        input: Any,
-    ) -> None:
-        source = torch.as_tensor(input)
-
-        assert_tensor_uniop_not_implemented(
-            self.torch_op,
-            source,
-        )
-        assert_tensor_uniop_not_implemented(
-            self.tensor_op,
-            source,
         )
