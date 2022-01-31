@@ -189,7 +189,7 @@ Aliases:
 
 
 #### torch.Tensor.floor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L762](smot/api_tests/torch_api/math/torch_math_test.py#L762)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L767](smot/api_tests/torch_api/math/torch_math_test.py#L767)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
 
 
@@ -418,7 +418,7 @@ Aliases:
 
 
 #### torch.floor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L762](smot/api_tests/torch_api/math/torch_math_test.py#L762)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L767](smot/api_tests/torch_api/math/torch_math_test.py#L767)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.floor.html](https://pytorch.org/docs/stable/generated/torch.floor.html)
 
 

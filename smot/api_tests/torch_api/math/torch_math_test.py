@@ -734,8 +734,12 @@ class MathOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                    [-0.3, -0.0, 0.0, 0.3, 1.2, 4.0],
-                    [0.0, 0.0, 0.0, 1.0, 2.0, 4.0],
+                    torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float64),
+                    torch.tensor([0.0, 0.0, 0.0, 1.0, 2.0, 4.0], dtype=torch.float64),
+                ),
+                (
+                    torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float32),
+                    torch.tensor([0.0, 0.0, 0.0, 1.0, 2.0, 4.0], dtype=torch.float32),
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -748,6 +752,7 @@ class MathOpTest(unittest.TestCase):
             for not_implemented in [
                 torch.tensor(0, dtype=torch.int64),
                 torch.tensor(False, dtype=torch.bool),
+                torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
                 assert_tensor_uniop_not_implemented(op, not_implemented)
 
@@ -766,8 +771,12 @@ class MathOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                    [-0.3, -0.0, 0.0, 0.3, 1.2, 4.0],
-                    [-1.0, 0.0, 0.0, 0.0, 1.0, 4.0],
+                    torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float64),
+                    torch.tensor([-1.0, -0.0, 0.0, 0.0, 1.0, 4.0], dtype=torch.float64),
+                ),
+                (
+                    torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float32),
+                    torch.tensor([-1.0, -0.0, 0.0, 0.0, 1.0, 4.0], dtype=torch.float32),
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -780,5 +789,6 @@ class MathOpTest(unittest.TestCase):
             for not_implemented in [
                 torch.tensor(0, dtype=torch.int64),
                 torch.tensor(False, dtype=torch.bool),
+                torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
                 assert_tensor_uniop_not_implemented(op, not_implemented)

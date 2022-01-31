@@ -29,7 +29,7 @@ def assert_tensor_uniop_not_implemented(
     eggs.assert_raises(
         lambda: op(t_source),
         RuntimeError,
-        "not implemented",
+        r"not (implemented|supported)",
     )
 
 
