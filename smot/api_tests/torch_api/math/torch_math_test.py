@@ -7,7 +7,7 @@ from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_unary_op_returns,
     assert_tensor_uniop_not_implemented,
 )
-from smot.doc_link.link_annotations import api_link
+from smot.doc_link.link_annotations import api_link, WEIRD_API
 
 
 class MathOpTest(unittest.TestCase):
@@ -636,6 +636,10 @@ class MathOpTest(unittest.TestCase):
             (torch.bitwise_left_shift, True),
             (torch.Tensor.bitwise_left_shift, False),
         ]:
+            WEIRD_API(
+                target="torch.bitwise_left_shift",
+                note="conversion shift dtype affects overflow / output type.",
+            )
             for input, other, expected in [
                 (
                     torch.tensor(0x1, dtype=torch.uint8),
