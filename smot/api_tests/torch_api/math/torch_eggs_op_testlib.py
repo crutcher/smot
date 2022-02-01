@@ -1,4 +1,4 @@
-from typing import Any, Callable, Tuple, Union
+from typing import Any, Callable, List, Union
 
 import hamcrest
 import torch
@@ -18,41 +18,46 @@ def hide_tracebacks(mode: bool = True) -> None:
 
 
 # hide by default.
-hide_tracebacks(True)
+hide_tracebacks(False)
 
 
-def assert_tensor_uniop_not_implemented(
+def assert_tensor_op_not_implemented(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
-    source: TensorConvertable,
+    *args: TensorConvertable,
+    **kwargs: Any,
 ) -> None:
-    t_source: torch.Tensor = torch.as_tensor(source)
+    t_source: List[torch.Tensor] = [torch.as_tensor(a) for a in args]
     eggs.assert_raises(
-        lambda: op(t_source),
+        lambda: op(*t_source, **kwargs),
         RuntimeError,
         r"not (implemented|supported)",
     )
 
 
-def _assert_cellwise_op_returns(
+def assert_cellwise_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
-    input: Tuple[torch.Tensor, ...],
+    *args: torch.Tensor,
     expected: TensorConvertable,
-    *,
     close: bool = False,
     supports_out: bool = True,
+    **kwargs: Any,
 ) -> None:
     """
     Assert that the given op is a well behaving cell-wise unitary operation.
 
     :param op: the operation to test.
-    :param input: the input.
+    :param args: the input.
     :param expected: the expected result.
     :param close: should the expected result be evaluated as "close" or exact?
     :param supports_out: does this operation support the `out` keyword?
     """
     t_expected = torch.as_tensor(expected)
 
-    result = op(*input)
+    if "args" in kwargs:
+        args = kwargs["args"]
+        del kwargs["args"]
+
+    result = op(*args, **kwargs)
     assert_tensor_equals(
         result,
         t_expected,
@@ -61,10 +66,10 @@ def _assert_cellwise_op_returns(
 
     # check structural transforms work.
     tile_pattern = (2, 3, 1)
-    tiled_input = tuple(torch.tile(x, tile_pattern) for x in input)
+    tiled_input = tuple(torch.tile(x, tile_pattern) for x in args)
     tiled_expected = torch.tile(t_expected, tile_pattern)
     assert_tensor_equals(
-        op(*tiled_input),
+        op(*tiled_input, **kwargs),
         tiled_expected,
         close=close,
     )
@@ -74,7 +79,7 @@ def _assert_cellwise_op_returns(
 
     if supports_out:
         eggs.assert_match(
-            op(*input, out=out),  # type: ignore
+            op(*args, out=out, **kwargs),  # type: ignore
             hamcrest.same_instance(out),
         )
         assert_tensor_equals(
@@ -85,7 +90,7 @@ def _assert_cellwise_op_returns(
 
     else:
         eggs.assert_raises(
-            lambda: op(*input, out=out),  # type: ignore
+            lambda: op(*args, out=out, **kwargs),  # type: ignore
             TypeError,
         )
 
@@ -93,8 +98,8 @@ def _assert_cellwise_op_returns(
 def assert_cellwise_unary_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     input: TensorConvertable,
-    expected: TensorConvertable,
     *,
+    expected: TensorConvertable,
     close: bool = False,
     supports_out: bool = True,
 ) -> None:
@@ -107,9 +112,9 @@ def assert_cellwise_unary_op_returns(
     :param close: should the expected result be evaluated as "close" or exact?
     :param supports_out: does this operation support the `out` keyword?
     """
-    _assert_cellwise_op_returns(
-        op=op,
-        input=(torch.as_tensor(input),),
+    assert_cellwise_op_returns(
+        op,
+        *(torch.as_tensor(input),),
         expected=expected,
         close=close,
         supports_out=supports_out,
@@ -120,8 +125,8 @@ def assert_cellwise_bin_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     input: TensorConvertable,
     other: TensorConvertable,
-    expected: TensorConvertable,
     *,
+    expected: TensorConvertable,
     close: bool = False,
     supports_out: bool = True,
 ) -> None:
@@ -135,9 +140,9 @@ def assert_cellwise_bin_op_returns(
     :param close: should the expected result be evaluated as "close" or exact?
     :param supports_out: does this operation support the `out` keyword?
     """
-    _assert_cellwise_op_returns(
-        op=op,
-        input=(torch.as_tensor(input), torch.as_tensor(other)),
+    assert_cellwise_op_returns(
+        op,
+        *(torch.as_tensor(input), torch.as_tensor(other)),
         expected=expected,
         close=close,
         supports_out=supports_out,

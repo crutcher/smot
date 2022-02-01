@@ -4,8 +4,9 @@ import torch
 
 from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_bin_op_returns,
+    assert_cellwise_op_returns,
     assert_cellwise_unary_op_returns,
-    assert_tensor_uniop_not_implemented,
+    assert_tensor_op_not_implemented,
 )
 from smot.doc_link.link_annotations import WEIRD_API, api_link
 
@@ -63,16 +64,13 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, expected=expected, supports_out=supports_out
                 )
 
             for not_implemented in [
                 [True, False],
             ]:
-                assert_tensor_uniop_not_implemented(op, not_implemented)
+                assert_tensor_op_not_implemented(op, not_implemented)
 
     @api_link(
         target="torch.acos",
@@ -130,11 +128,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -192,11 +186,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -262,11 +252,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -341,11 +327,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -391,11 +373,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -441,11 +419,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    close=True,
-                    supports_out=supports_out,
+                    op, input, expected=expected, close=True, supports_out=supports_out
                 )
 
     @api_link(
@@ -479,7 +453,7 @@ class MathOpTest(unittest.TestCase):
                     op,
                     input,
                     other,
-                    expected,
+                    expected=expected,
                     close=True,
                     supports_out=supports_out,
                 )
@@ -516,10 +490,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -548,11 +519,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
-                    op,
-                    input,
-                    other,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, other, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -583,11 +550,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
-                    op,
-                    input,
-                    other,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, other, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -616,11 +579,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
-                    op,
-                    input,
-                    other,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, other, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -665,11 +624,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
-                    op,
-                    input,
-                    other,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, other, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -712,11 +667,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
-                    op,
-                    input,
-                    other,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, other, expected=expected, supports_out=supports_out
                 )
 
     @api_link(
@@ -743,10 +694,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, expected=expected, supports_out=supports_out
                 )
 
             for not_implemented in [
@@ -754,7 +702,7 @@ class MathOpTest(unittest.TestCase):
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_uniop_not_implemented(op, not_implemented)
+                assert_tensor_op_not_implemented(op, not_implemented)
 
     @api_link(
         target="torch.floor",
@@ -780,10 +728,7 @@ class MathOpTest(unittest.TestCase):
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
-                    op,
-                    input,
-                    expected,
-                    supports_out=supports_out,
+                    op, input, expected=expected, supports_out=supports_out
                 )
 
             for not_implemented in [
@@ -791,4 +736,72 @@ class MathOpTest(unittest.TestCase):
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_uniop_not_implemented(op, not_implemented)
+                assert_tensor_op_not_implemented(op, not_implemented)
+
+    @api_link(
+        target="torch.clamp",
+        ref="https://pytorch.org/docs/stable/generated/torch.clamp.html",
+    )
+    @api_link(
+        target="torch.Tensor.clamp",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.clamp.html",
+    )
+    @api_link(
+        target="torch.clip",
+        ref="https://pytorch.org/docs/stable/generated/torch.clip.html",
+        alias="torch.clamp",
+    )
+    @api_link(
+        target="torch.Tensor.clamp",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.clip.html",
+        alias="torch.Tensor.clamp",
+    )
+    def test_clamp(self) -> None:
+        for op, supports_out in [
+            (torch.clamp, True),
+            (torch.clip, True),
+            (torch.Tensor.clamp, False),
+            (torch.Tensor.clip, False),
+        ]:
+            for input in [
+                torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
+                torch.tensor(True, dtype=torch.complex128),
+            ]:
+                assert_tensor_op_not_implemented(op, input, max=input)
+
+            for input in [
+                torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float64),
+                torch.tensor([0, 1, 8], dtype=torch.int64),
+            ]:
+                # using only min, only max, == to the source acts as identity.
+                assert_cellwise_op_returns(
+                    op,
+                    input,
+                    max=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+                assert_cellwise_op_returns(
+                    op,
+                    input,
+                    min=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+                assert_cellwise_op_returns(
+                    op,
+                    input,
+                    min=input,
+                    max=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+
+                assert_cellwise_op_returns(
+                    op,
+                    input + 2,
+                    min=input - 5,
+                    max=input + 5,
+                    expected=input + 2,
+                    supports_out=supports_out,
+                )
