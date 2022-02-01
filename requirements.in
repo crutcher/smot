@@ -3,11 +3,6 @@
 # to add the links to.
 -c constraints.in
 
-# torch
-torch
-torchaudio
-torchvision
-
 # Python
 pip-tools
 nbqa  # run python code tests on .ipynb
@@ -57,6 +52,7 @@ testfixtures
 #   -f https://storage.googleapis.com/jax-releases/jax_releases.html
 #   jax[cuda]
 jax
+flax
 
 # numpy
 numpy
@@ -76,8 +72,13 @@ torchaudio
 pytorch-lightning
 
 # tensorboard
+tensorflow
+tensorflow-datasets
 tensorboard
 tensorboard-plugin-profile
+
+# jax examples
+ml-collections
 
 # jupyter
 jupyter
