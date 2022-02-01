@@ -805,3 +805,33 @@ class MathOpTest(unittest.TestCase):
                     expected=input + 2,
                     supports_out=supports_out,
                 )
+
+                assert_cellwise_op_returns(
+                    op,
+                    input + 2,
+                    max=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+                assert_cellwise_op_returns(
+                    op,
+                    input + 2,
+                    min=input,
+                    expected=input + 2,
+                    supports_out=supports_out,
+                )
+
+                assert_cellwise_op_returns(
+                    op,
+                    input - 2,
+                    min=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+                assert_cellwise_op_returns(
+                    op,
+                    input - 2,
+                    max=input,
+                    expected=input - 2,
+                    supports_out=supports_out,
+                )
