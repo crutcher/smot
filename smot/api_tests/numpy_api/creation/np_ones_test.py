@@ -14,7 +14,7 @@ class OnesTest(unittest.TestCase):
     def test_default(self) -> None:
         t = np.ones((1, 2))
 
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             t,
             [[1.0, 1.0]],
         )

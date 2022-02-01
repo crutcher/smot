@@ -12,7 +12,7 @@ from smot.testlib import np_eggs
 )
 class EmptyTest(unittest.TestCase):
     def test_empty_zero(self) -> None:
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             np.empty(0),
             np.ones(0),
         )

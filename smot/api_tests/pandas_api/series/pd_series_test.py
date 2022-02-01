@@ -24,7 +24,7 @@ class SeriesTest(unittest.TestCase):
                 )
             ),
         )
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             s.values,
             np.array(["a", "b", "c"], dtype=object),
         )

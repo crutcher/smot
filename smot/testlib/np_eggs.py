@@ -43,7 +43,8 @@ class NDArrayStructureMatcher(BaseMatcher):
                 self.expected.dtype,
             )
             return True
-        except AssertionError:
+        except AssertionError as e:
+            raise e
             return False
 
     def describe_to(self, description: Description) -> None:
@@ -117,14 +118,15 @@ class NDArrayMatcher(NDArrayStructureMatcher):
         mismatch_description.append_description_of(item)
 
 
-def expect_ndarray(
+def matches_ndarray(
     expected: typing.Union[
         numbers.Number,
         typing.Sequence,
         nptyping.NDArray,
     ],
+    close: bool = False,
 ) -> NDArrayMatcher:
-    return NDArrayMatcher(expected, close=False)
+    return NDArrayMatcher(expected, close=close)
 
 
 def expect_ndarray_seq(
@@ -134,20 +136,21 @@ def expect_ndarray_seq(
         nptyping.NDArray,
     ],
 ) -> Matcher:
-    return hamcrest.contains_exactly(*[expect_ndarray(e) for e in expected])
+    return hamcrest.contains_exactly(*[matches_ndarray(e) for e in expected])
 
 
-def assert_ndarray(
+def assert_ndarray_equals(
     actual: np.ndarray,
     expected: typing.Union[
         numbers.Number,
         typing.Sequence,
         nptyping.NDArray,
     ],
+    close: bool = False,
 ) -> None:
     hamcrest.assert_that(
         actual,
-        expect_ndarray(expected),
+        matches_ndarray(expected, close=close),
     )
 
 
@@ -165,16 +168,6 @@ def assert_ndarray_seq(
     )
 
 
-def expect_ndarray_close(
-    expected: typing.Union[
-        numbers.Number,
-        typing.Sequence,
-        nptyping.NDArray,
-    ],
-) -> NDArrayMatcher:
-    return NDArrayMatcher(expected, close=True)
-
-
 def assert_ndarray_close(
     actual: np.ndarray,
     expected: typing.Union[
@@ -185,5 +178,5 @@ def assert_ndarray_close(
 ) -> None:
     hamcrest.assert_that(
         actual,
-        expect_ndarray_close(expected),
+        matches_ndarray(expected, close=True),
     )

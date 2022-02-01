@@ -22,13 +22,13 @@ class FullLikeTest(unittest.TestCase):
     def test_full_like(self) -> None:
         for dtype in [np.int8, np.float32]:
             src: np.typing.ArrayLike = np.array([1], dtype=dtype)
-            np_eggs.assert_ndarray(
+            np_eggs.assert_ndarray_equals(
                 np.full_like(src, 2),
                 np.array([2], dtype=dtype),
             )
 
             src = np.array([[1], [1]], dtype=dtype)
-            np_eggs.assert_ndarray(
+            np_eggs.assert_ndarray_equals(
                 np.full_like(src, 2),
                 np.array([[2], [2]], dtype=dtype),
             )

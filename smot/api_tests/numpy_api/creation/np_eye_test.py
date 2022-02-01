@@ -13,13 +13,13 @@ from smot.testlib import np_eggs
 class EyeTest(unittest.TestCase):
     def test_eye_zero(self) -> None:
         # eye(0) still returns a (0,0) ndarray.
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             np.eye(0),
             np.ones((0, 0)),
         )
 
     def test_eye(self) -> None:
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             np.eye(3),
             [
                 [1.0, 0.0, 0.0],
@@ -28,7 +28,7 @@ class EyeTest(unittest.TestCase):
             ],
         )
 
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             np.eye(3, 2),
             [
                 [1.0, 0.0],
@@ -37,7 +37,7 @@ class EyeTest(unittest.TestCase):
             ],
         )
 
-        np_eggs.assert_ndarray(
+        np_eggs.assert_ndarray_equals(
             np.eye(3, 4),
             [
                 [1.0, 0.0, 0.0, 0.0],

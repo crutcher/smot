@@ -1,4 +1,9 @@
 
+#### jax.numpy.zeros
+  * Tests: [smot/api_tests/jax_api/jnp/jnp_zeros_test.py](smot/api_tests/jax_api/jnp/jnp_zeros_test.py) [L13](smot/api_tests/jax_api/jnp/jnp_zeros_test.py#L13)
+  * Docs: [https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.zeros.html](https://jax.readthedocs.io/en/latest/_autosummary/jax.numpy.zeros.html)
+
+
 #### numpy.empty
   * Tests: [smot/api_tests/numpy_api/creation/np_empty_test.py](smot/api_tests/numpy_api/creation/np_empty_test.py) [L13](smot/api_tests/numpy_api/creation/np_empty_test.py#L13)
   * Docs: [https://numpy.org/doc/stable/reference/generated/numpy.empty.html](https://numpy.org/doc/stable/reference/generated/numpy.empty.html)

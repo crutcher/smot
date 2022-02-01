@@ -57,7 +57,7 @@ def _find_target(qual_name: str) -> LinkTarget:
         try:
             mod = __import__(
                 probe_name,
-                fromlist=[None] if "." in probe_name else [],  # type: ignore
+                fromlist=[p] if "." in probe_name else [],  # type: ignore
             )
         except ImportError:
             break

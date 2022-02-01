@@ -19,7 +19,7 @@ class OnesLikeTest(unittest.TestCase):
                 dtype=dtype,
             )
 
-            np_eggs.assert_ndarray(
+            np_eggs.assert_ndarray_equals(
                 np.ones_like(source),
                 np.ones(
                     source.shape,
