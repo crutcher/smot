@@ -21,7 +21,7 @@ def hide_tracebacks(mode: bool = True) -> None:
 hide_tracebacks(False)
 
 
-def assert_tensor_op_not_implemented(
+def assert_tensor_op_throws_not_implemented(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     *args: TensorConvertable,
     **kwargs: Any,

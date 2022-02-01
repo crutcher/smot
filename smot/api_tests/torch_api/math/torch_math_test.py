@@ -6,7 +6,7 @@ from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_bin_op_returns,
     assert_cellwise_op_returns,
     assert_cellwise_unary_op_returns,
-    assert_tensor_op_not_implemented,
+    assert_tensor_op_throws_not_implemented,
 )
 from smot.doc_link.link_annotations import WEIRD_API, api_link
 
@@ -70,7 +70,7 @@ class MathOpTest(unittest.TestCase):
             for not_implemented in [
                 [True, False],
             ]:
-                assert_tensor_op_not_implemented(op, not_implemented)
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
         target="torch.acos",
@@ -702,7 +702,7 @@ class MathOpTest(unittest.TestCase):
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_op_not_implemented(op, not_implemented)
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
         target="torch.floor",
@@ -736,7 +736,7 @@ class MathOpTest(unittest.TestCase):
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_op_not_implemented(op, not_implemented)
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
         target="torch.clamp",
@@ -767,7 +767,11 @@ class MathOpTest(unittest.TestCase):
                 torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
                 torch.tensor(True, dtype=torch.complex128),
             ]:
-                assert_tensor_op_not_implemented(op, input, max=input)
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    input,
+                    max=input,
+                )
 
             for input in [
                 torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float64),
