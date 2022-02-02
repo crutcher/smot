@@ -229,9 +229,16 @@ Aliases:
 
 
 #### torch.Tensor.div
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L641](smot/api_tests/torch_api/math/torch_math_test.py#L641)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.div.html](https://pytorch.org/docs/stable/generated/torch.Tensor.div.html)
 
+
+#### torch.Tensor.divide
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.divide.html](https://pytorch.org/docs/stable/generated/torch.Tensor.divide.html)
+
+Aliases:
+    * [torch.Tensor.div](#torchTensordiv)
 
 #### torch.Tensor.floor
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L330](smot/api_tests/torch_api/math/torch_math_test.py#L330)
@@ -470,9 +477,16 @@ Aliases:
 
 
 #### torch.div
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L641](smot/api_tests/torch_api/math/torch_math_test.py#L641)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.div.html](https://pytorch.org/docs/stable/generated/torch.div.html)
 
+
+#### torch.divide
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.divide.html](https://pytorch.org/docs/stable/generated/torch.divide.html)
+
+Aliases:
+    * [torch.div](#torchdiv)
 
 #### torch.dsplit
   * Tests: [smot/api_tests/torch_api/restructure/torch_dsplit_test.py](smot/api_tests/torch_api/restructure/torch_dsplit_test.py) [L13](smot/api_tests/torch_api/restructure/torch_dsplit_test.py#L13)

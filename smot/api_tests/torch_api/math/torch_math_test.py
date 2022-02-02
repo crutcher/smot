@@ -638,10 +638,22 @@ class MathOpTest(unittest.TestCase):
         target="torch.Tensor.div",
         ref="https://pytorch.org/docs/stable/generated/torch.Tensor.div.html",
     )
+    @api_link(
+        target="torch.divide",
+        ref="https://pytorch.org/docs/stable/generated/torch.divide.html",
+        alias="torch.div",
+    )
+    @api_link(
+        target="torch.Tensor.divide",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.divide.html",
+        alias="torch.Tensor.div",
+    )
     def test_div(self) -> None:
         for op, supports_out in [
             (torch.div, True),
+            (torch.divide, True),
             (torch.Tensor.div, False),
+            (torch.Tensor.divide, False),
         ]:
             for x, y, expected in [
                 (

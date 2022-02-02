@@ -4,11 +4,21 @@ from types import ModuleType
 from typing import Any, Callable, List, Optional, TypeVar, Union
 
 from smot.common.runtime import reflection
+from smot.testlib.eggs import hide_module_tracebacks
 
-# unittest integration; hide these frames from tracebacks
-__unittest = True
-# py.test integration; hide these frames from tracebacks
-__tracebackhide__ = True
+
+def hide_tracebacks(mode: bool = True) -> None:
+    """
+    Hint that some unittest stacks (unittest, pytest) should remove
+    frames from tracebacks that include this module.
+
+    :param mode: optional, the traceback mode.
+    """
+    hide_module_tracebacks(globals(), mode)
+
+
+hide_tracebacks(True)
+
 
 T = TypeVar("T")
 
