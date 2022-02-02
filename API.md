@@ -229,7 +229,7 @@ Aliases:
 
 
 #### torch.Tensor.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L64](smot/api_tests/torch_api/math/torch_special_test.py#L64)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html](https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html)
 
 
@@ -482,7 +482,7 @@ Aliases:
 
 
 #### torch.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L64](smot/api_tests/torch_api/math/torch_special_test.py#L64)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
 
 Aliases:
@@ -856,8 +856,13 @@ Aliases:
 
 
 #### torch.special.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L64](smot/api_tests/torch_api/math/torch_special_test.py#L64)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma](https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma)
+
+
+#### torch.special.entr
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L18](smot/api_tests/torch_api/math/torch_special_test.py#L18)
+  * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.entr](https://pytorch.org/docs/stable/generated/special.html#torch.special.entr)
 
 
 #### torch.split
