@@ -229,7 +229,7 @@ Aliases:
 
 
 #### torch.Tensor.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L168](smot/api_tests/torch_api/math/torch_special_test.py#L168)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L180](smot/api_tests/torch_api/math/torch_special_test.py#L180)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html](https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html)
 
 
@@ -492,7 +492,7 @@ Aliases:
 
 
 #### torch.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L168](smot/api_tests/torch_api/math/torch_special_test.py#L168)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L180](smot/api_tests/torch_api/math/torch_special_test.py#L180)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
 
 Aliases:
@@ -876,7 +876,7 @@ Aliases:
 
 
 #### torch.special.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L168](smot/api_tests/torch_api/math/torch_special_test.py#L168)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L180](smot/api_tests/torch_api/math/torch_special_test.py#L180)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma](https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma)
 
 
@@ -896,7 +896,7 @@ Aliases:
 
 
 #### torch.special.erfcx
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L123](smot/api_tests/torch_api/math/torch_special_test.py#L123)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L135](smot/api_tests/torch_api/math/torch_special_test.py#L135)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.erfcx](https://pytorch.org/docs/stable/generated/special.html#torch.special.erfcx)
 
 

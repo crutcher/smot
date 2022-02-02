@@ -72,11 +72,11 @@ class TorchSpecialTest(unittest.TestCase):
         target="torch.Tensor.erfc",
         ref="https://pytorch.org/docs/stable/generated/torch.Tensor.erfc.html",
     )
-    def test_erf_erfc(self) -> None:
-        for erf, erfc, supports_out in [
-            (torch.erf, torch.erfc, True),
-            (torch.special.erf, torch.special.erfc, True),
-            (torch.Tensor.erf, torch.Tensor.erfc, False),
+    def test_erf_erfinv_erfc(self) -> None:
+        for erf, erfinv, erfc, supports_out in [
+            (torch.erf, torch.erfinv, torch.erfc, True),
+            (torch.special.erf, torch.special.erfinv, torch.special.erfc, True),
+            (torch.Tensor.erf, torch.Tensor.erfinv, torch.Tensor.erfc, False),
         ]:
             for input, expected in [
                 (
@@ -94,10 +94,22 @@ class TorchSpecialTest(unittest.TestCase):
                     ),
                 ),
             ]:
+                input = torch.as_tensor(input)
+                expected = torch.as_tensor(expected)
+
                 assert_cellwise_unary_op_returns(
                     erf,
                     input,
                     expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+                # erfinv(erf(x)) == x
+                assert_cellwise_unary_op_returns(
+                    erfinv,
+                    expected,
+                    expected=input.to(expected.dtype),
                     close=True,
                     supports_out=supports_out,
                 )
