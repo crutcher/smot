@@ -766,7 +766,7 @@ class MathOpTest(unittest.TestCase):
         ]:
             for input in [
                 torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
-                torch.tensor(True, dtype=torch.complex128),
+                torch.tensor(True, dtype=torch.bool),
             ]:
                 assert_tensor_op_throws_not_implemented(
                     op,
@@ -932,4 +932,87 @@ class MathOpTest(unittest.TestCase):
                         [-1 + 8j, -2 - 2j, 3 + 3j],
                         dtype=torch.complex128,
                     ),
+                )
+
+    @api_link(
+        target="torch.copysign",
+        ref="https://pytorch.org/docs/stable/generated/torch.copysign.html",
+    )
+    @api_link(
+        target="torch.Tensor.copysign",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html",
+    )
+    def test_copysign(self) -> None:
+
+        for op, supports_out in [
+            (torch.copysign, True),
+            (torch.Tensor.copysign, False),
+        ]:
+
+            for not_supported in [
+                torch.tensor(0.3 + 2.0j, dtype=torch.complex64),
+                torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
+            ]:
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    not_supported,
+                    torch.tensor(1),
+                )
+
+            for x, y, expected in [
+                (
+                    12.0,
+                    -5.0,
+                    -12.0,
+                ),
+                (
+                    torch.tensor([-3, -4], dtype=torch.int64),
+                    torch.tensor([2, -5], dtype=torch.int64),
+                    # will convert from int to float.
+                    torch.tensor([3.0, -4.0], dtype=torch.float32),
+                ),
+                (
+                    torch.tensor([-3, -4], dtype=torch.float16),
+                    torch.tensor([2, -5], dtype=torch.float16),
+                    # will promote to the largest input dtype.
+                    torch.tensor([3.0, -4.0], dtype=torch.float16),
+                ),
+                (
+                    torch.tensor([-3, -4], dtype=torch.float32),
+                    torch.tensor([2, -5], dtype=torch.float16),
+                    # will promote to the largest input dtype.
+                    torch.tensor([3.0, -4.0], dtype=torch.float32),
+                ),
+                (
+                    torch.tensor([-3, -4], dtype=torch.int64),
+                    # Bool signs sources get treated as ints { 0, 1 }.
+                    torch.tensor([False, True]),
+                    torch.tensor([3.0, 4.0], dtype=torch.float32),
+                ),
+                (
+                    # broadcast
+                    torch.tensor([-3, -4], dtype=torch.int64),
+                    torch.tensor(
+                        [
+                            [[-1, -1], [-1, 1]],
+                            [[1, -1], [1, 1]],
+                        ],
+                        dtype=torch.int64,
+                    ),
+                    # will convert from int to float.
+                    torch.tensor(
+                        [
+                            [[-3.0, -4.0], [-3.0, 4.0]],
+                            [[3.0, -4.0], [3.0, 4.0]],
+                        ],
+                        dtype=torch.float32,
+                    ),
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    x,
+                    y,
+                    expected=expected,
+                    supports_out=supports_out,
                 )

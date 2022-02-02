@@ -208,6 +208,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.conj_physical.html](https://pytorch.org/docs/stable/generated/torch.Tensor.conj_physical.html)
 
 
+#### torch.Tensor.copysign
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L945](smot/api_tests/torch_api/math/torch_math_test.py#L945)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html](https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html)
+
+
 #### torch.Tensor.floor
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L716](smot/api_tests/torch_api/math/torch_math_test.py#L716)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
@@ -407,6 +412,11 @@ Aliases:
 #### torch.conj_physical
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L860](smot/api_tests/torch_api/math/torch_math_test.py#L860)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.conj_physical.html](https://pytorch.org/docs/stable/generated/torch.conj_physical.html)
+
+
+#### torch.copysign
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L945](smot/api_tests/torch_api/math/torch_math_test.py#L945)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.copysign.html](https://pytorch.org/docs/stable/generated/torch.copysign.html)
 
 
 #### torch.default_generator
