@@ -77,79 +77,79 @@ Aliases:
     * [torch.Tensor.abs](#torchTensorabs)
 
 #### torch.Tensor.acos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L94](smot/api_tests/torch_api/math/torch_math_test.py#L94)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L31](smot/api_tests/torch_api/math/torch_math_trig_test.py#L31)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.acos.html](https://pytorch.org/docs/stable/generated/torch.Tensor.acos.html)
 
 
 #### torch.Tensor.acosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L277](smot/api_tests/torch_api/math/torch_math_test.py#L277)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L214](smot/api_tests/torch_api/math/torch_math_trig_test.py#L214)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.acosh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.acosh.html)
 
 
 #### torch.Tensor.arccos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L94](smot/api_tests/torch_api/math/torch_math_test.py#L94)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L31](smot/api_tests/torch_api/math/torch_math_trig_test.py#L31)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arccos.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arccos.html)
 
 Aliases:
     * [torch.Tensor.acos](#torchTensoracos)
 
 #### torch.Tensor.arccosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L277](smot/api_tests/torch_api/math/torch_math_test.py#L277)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L214](smot/api_tests/torch_api/math/torch_math_trig_test.py#L214)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arccosh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arccosh.html)
 
 Aliases:
     * [torch.Tensor.acosh](#torchTensoracosh)
 
 #### torch.Tensor.arcsin
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L153](smot/api_tests/torch_api/math/torch_math_test.py#L153)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L90](smot/api_tests/torch_api/math/torch_math_trig_test.py#L90)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arcsin.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arcsin.html)
 
 Aliases:
     * [torch.Tensor.asin](#torchTensorasin)
 
 #### torch.Tensor.arcsinh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L211](smot/api_tests/torch_api/math/torch_math_test.py#L211)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L148](smot/api_tests/torch_api/math/torch_math_trig_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arcsinh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arcsinh.html)
 
 Aliases:
     * [torch.Tensor.asinh](#torchTensorasinh)
 
 #### torch.Tensor.arctan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L352](smot/api_tests/torch_api/math/torch_math_test.py#L352)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L289](smot/api_tests/torch_api/math/torch_math_trig_test.py#L289)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arctan.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arctan.html)
 
 Aliases:
     * [torch.Tensor.atan](#torchTensoratan)
 
 #### torch.Tensor.arctanh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L398](smot/api_tests/torch_api/math/torch_math_test.py#L398)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L335](smot/api_tests/torch_api/math/torch_math_trig_test.py#L335)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.arctanh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.arctanh.html)
 
 Aliases:
     * [torch.Tensor.atanh](#torchTensoratanh)
 
 #### torch.Tensor.asin
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L153](smot/api_tests/torch_api/math/torch_math_test.py#L153)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L90](smot/api_tests/torch_api/math/torch_math_trig_test.py#L90)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.asin.html](https://pytorch.org/docs/stable/generated/torch.Tensor.asin.html)
 
 
 #### torch.Tensor.asinh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L211](smot/api_tests/torch_api/math/torch_math_test.py#L211)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L148](smot/api_tests/torch_api/math/torch_math_trig_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.asinh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.asinh.html)
 
 
 #### torch.Tensor.atan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L352](smot/api_tests/torch_api/math/torch_math_test.py#L352)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L289](smot/api_tests/torch_api/math/torch_math_trig_test.py#L289)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.atan.html](https://pytorch.org/docs/stable/generated/torch.Tensor.atan.html)
 
 
 #### torch.Tensor.atan2
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L434](smot/api_tests/torch_api/math/torch_math_test.py#L434)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L371](smot/api_tests/torch_api/math/torch_math_trig_test.py#L371)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.atan2.html](https://pytorch.org/docs/stable/generated/torch.Tensor.atan2.html)
 
 
 #### torch.Tensor.atanh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L398](smot/api_tests/torch_api/math/torch_math_test.py#L398)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L335](smot/api_tests/torch_api/math/torch_math_trig_test.py#L335)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.atanh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.atanh.html)
 
 
@@ -159,67 +159,67 @@ Aliases:
 
 
 #### torch.Tensor.bitwise_and
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L505](smot/api_tests/torch_api/math/torch_math_test.py#L505)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_and.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_and.html)
 
 
 #### torch.Tensor.bitwise_left_shift
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L594](smot/api_tests/torch_api/math/torch_math_test.py#L594)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L208](smot/api_tests/torch_api/math/torch_math_test.py#L208)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_left_shift.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_left_shift.html)
 
 
 #### torch.Tensor.bitwise_not
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L470](smot/api_tests/torch_api/math/torch_math_test.py#L470)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L84](smot/api_tests/torch_api/math/torch_math_test.py#L84)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html)
 
 
 #### torch.Tensor.bitwise_or
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L534](smot/api_tests/torch_api/math/torch_math_test.py#L534)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L148](smot/api_tests/torch_api/math/torch_math_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_or.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_or.html)
 
 
 #### torch.Tensor.bitwise_right_shift
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L639](smot/api_tests/torch_api/math/torch_math_test.py#L639)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L253](smot/api_tests/torch_api/math/torch_math_test.py#L253)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_right_shift.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_right_shift.html)
 
 
 #### torch.Tensor.bitwise_xor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L565](smot/api_tests/torch_api/math/torch_math_test.py#L565)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L179](smot/api_tests/torch_api/math/torch_math_test.py#L179)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_xor.html)
 
 
 #### torch.Tensor.ceil
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L682](smot/api_tests/torch_api/math/torch_math_test.py#L682)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L296](smot/api_tests/torch_api/math/torch_math_test.py#L296)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.ceil.html](https://pytorch.org/docs/stable/generated/torch.Tensor.ceil.html)
 
 
 #### torch.Tensor.clamp
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L760](smot/api_tests/torch_api/math/torch_math_test.py#L760)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L374](smot/api_tests/torch_api/math/torch_math_test.py#L374)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.clamp.html](https://pytorch.org/docs/stable/generated/torch.Tensor.clamp.html)
 
 
 #### torch.Tensor.conj
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L860](smot/api_tests/torch_api/math/torch_math_test.py#L860)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L474](smot/api_tests/torch_api/math/torch_math_test.py#L474)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.conj.html](https://pytorch.org/docs/stable/generated/torch.Tensor.conj.html)
 
 
 #### torch.Tensor.conj_physical
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L860](smot/api_tests/torch_api/math/torch_math_test.py#L860)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L474](smot/api_tests/torch_api/math/torch_math_test.py#L474)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.conj_physical.html](https://pytorch.org/docs/stable/generated/torch.Tensor.conj_physical.html)
 
 
 #### torch.Tensor.copysign
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L945](smot/api_tests/torch_api/math/torch_math_test.py#L945)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L559](smot/api_tests/torch_api/math/torch_math_test.py#L559)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html](https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html)
 
 
 #### torch.Tensor.cos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L1027](smot/api_tests/torch_api/math/torch_math_test.py#L1027)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L407](smot/api_tests/torch_api/math/torch_math_trig_test.py#L407)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.cos.html](https://pytorch.org/docs/stable/generated/torch.Tensor.cos.html)
 
 
 #### torch.Tensor.floor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L716](smot/api_tests/torch_api/math/torch_math_test.py#L716)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L330](smot/api_tests/torch_api/math/torch_math_test.py#L330)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
 
 
@@ -241,12 +241,12 @@ Aliases:
     * [torch.abs](#torchabs)
 
 #### torch.acos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L94](smot/api_tests/torch_api/math/torch_math_test.py#L94)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L31](smot/api_tests/torch_api/math/torch_math_trig_test.py#L31)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.acos.html](https://pytorch.org/docs/stable/generated/torch.acos.html)
 
 
 #### torch.acosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L277](smot/api_tests/torch_api/math/torch_math_test.py#L277)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L214](smot/api_tests/torch_api/math/torch_math_trig_test.py#L214)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.acosh.html](https://pytorch.org/docs/stable/generated/torch.acosh.html)
 
 
@@ -256,42 +256,42 @@ Aliases:
 
 
 #### torch.arccos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L94](smot/api_tests/torch_api/math/torch_math_test.py#L94)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L31](smot/api_tests/torch_api/math/torch_math_trig_test.py#L31)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arccos.html](https://pytorch.org/docs/stable/generated/torch.arccos.html)
 
 Aliases:
     * [torch.acos](#torchacos)
 
 #### torch.arccosh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L277](smot/api_tests/torch_api/math/torch_math_test.py#L277)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L214](smot/api_tests/torch_api/math/torch_math_trig_test.py#L214)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arccosh.html](https://pytorch.org/docs/stable/generated/torch.arccosh.html)
 
 Aliases:
     * [torch.acosh](#torchacosh)
 
 #### torch.arcsin
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L153](smot/api_tests/torch_api/math/torch_math_test.py#L153)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L90](smot/api_tests/torch_api/math/torch_math_trig_test.py#L90)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arcsin.html](https://pytorch.org/docs/stable/generated/torch.arcsin.html)
 
 Aliases:
     * [torch.asin](#torchasin)
 
 #### torch.arcsinh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L211](smot/api_tests/torch_api/math/torch_math_test.py#L211)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L148](smot/api_tests/torch_api/math/torch_math_trig_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arcsinh.html](https://pytorch.org/docs/stable/generated/torch.arcsinh.html)
 
 Aliases:
     * [torch.asinh](#torchasinh)
 
 #### torch.arctan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L352](smot/api_tests/torch_api/math/torch_math_test.py#L352)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L289](smot/api_tests/torch_api/math/torch_math_trig_test.py#L289)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arctan.html](https://pytorch.org/docs/stable/generated/torch.arctan.html)
 
 Aliases:
     * [torch.atan](#torchatan)
 
 #### torch.arctanh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L398](smot/api_tests/torch_api/math/torch_math_test.py#L398)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L335](smot/api_tests/torch_api/math/torch_math_trig_test.py#L335)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.arctanh.html](https://pytorch.org/docs/stable/generated/torch.arctanh.html)
 
 Aliases:
@@ -308,27 +308,27 @@ Aliases:
 
 
 #### torch.asin
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L153](smot/api_tests/torch_api/math/torch_math_test.py#L153)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L90](smot/api_tests/torch_api/math/torch_math_trig_test.py#L90)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.asin.html](https://pytorch.org/docs/stable/generated/torch.asin.html)
 
 
 #### torch.asinh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L211](smot/api_tests/torch_api/math/torch_math_test.py#L211)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L148](smot/api_tests/torch_api/math/torch_math_trig_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.asinh.html](https://pytorch.org/docs/stable/generated/torch.asinh.html)
 
 
 #### torch.atan
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L352](smot/api_tests/torch_api/math/torch_math_test.py#L352)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L289](smot/api_tests/torch_api/math/torch_math_trig_test.py#L289)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.atan.html](https://pytorch.org/docs/stable/generated/torch.atan.html)
 
 
 #### torch.atan2
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L434](smot/api_tests/torch_api/math/torch_math_test.py#L434)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L371](smot/api_tests/torch_api/math/torch_math_trig_test.py#L371)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.atan2.html](https://pytorch.org/docs/stable/generated/torch.atan2.html)
 
 
 #### torch.atanh
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L398](smot/api_tests/torch_api/math/torch_math_test.py#L398)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L335](smot/api_tests/torch_api/math/torch_math_trig_test.py#L335)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.atanh.html](https://pytorch.org/docs/stable/generated/torch.atanh.html)
 
 
@@ -338,32 +338,32 @@ Aliases:
 
 
 #### torch.bitwise_and
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L505](smot/api_tests/torch_api/math/torch_math_test.py#L505)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L119](smot/api_tests/torch_api/math/torch_math_test.py#L119)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_and.html](https://pytorch.org/docs/stable/generated/torch.bitwise_and.html)
 
 
 #### torch.bitwise_left_shift
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L594](smot/api_tests/torch_api/math/torch_math_test.py#L594)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L208](smot/api_tests/torch_api/math/torch_math_test.py#L208)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_left_shift.html](https://pytorch.org/docs/stable/generated/torch.bitwise_left_shift.html)
 
 
 #### torch.bitwise_not
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L470](smot/api_tests/torch_api/math/torch_math_test.py#L470)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L84](smot/api_tests/torch_api/math/torch_math_test.py#L84)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_not.html](https://pytorch.org/docs/stable/generated/torch.bitwise_not.html)
 
 
 #### torch.bitwise_or
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L534](smot/api_tests/torch_api/math/torch_math_test.py#L534)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L148](smot/api_tests/torch_api/math/torch_math_test.py#L148)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_or.html](https://pytorch.org/docs/stable/generated/torch.bitwise_or.html)
 
 
 #### torch.bitwise_right_shift
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L639](smot/api_tests/torch_api/math/torch_math_test.py#L639)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L253](smot/api_tests/torch_api/math/torch_math_test.py#L253)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_right_shift.html](https://pytorch.org/docs/stable/generated/torch.bitwise_right_shift.html)
 
 
 #### torch.bitwise_xor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L565](smot/api_tests/torch_api/math/torch_math_test.py#L565)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L179](smot/api_tests/torch_api/math/torch_math_test.py#L179)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.bitwise_xor.html](https://pytorch.org/docs/stable/generated/torch.bitwise_xor.html)
 
 
@@ -373,7 +373,7 @@ Aliases:
 
 
 #### torch.ceil
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L682](smot/api_tests/torch_api/math/torch_math_test.py#L682)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L296](smot/api_tests/torch_api/math/torch_math_test.py#L296)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.ceil.html](https://pytorch.org/docs/stable/generated/torch.ceil.html)
 
 
@@ -383,12 +383,12 @@ Aliases:
 
 
 #### torch.clamp
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L760](smot/api_tests/torch_api/math/torch_math_test.py#L760)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L374](smot/api_tests/torch_api/math/torch_math_test.py#L374)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.clamp.html](https://pytorch.org/docs/stable/generated/torch.clamp.html)
 
 
 #### torch.clip
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L760](smot/api_tests/torch_api/math/torch_math_test.py#L760)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L374](smot/api_tests/torch_api/math/torch_math_test.py#L374)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.clip.html](https://pytorch.org/docs/stable/generated/torch.clip.html)
 
 Aliases:
@@ -415,17 +415,17 @@ Aliases:
 
 
 #### torch.conj_physical
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L860](smot/api_tests/torch_api/math/torch_math_test.py#L860)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L474](smot/api_tests/torch_api/math/torch_math_test.py#L474)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.conj_physical.html](https://pytorch.org/docs/stable/generated/torch.conj_physical.html)
 
 
 #### torch.copysign
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L945](smot/api_tests/torch_api/math/torch_math_test.py#L945)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L559](smot/api_tests/torch_api/math/torch_math_test.py#L559)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.copysign.html](https://pytorch.org/docs/stable/generated/torch.copysign.html)
 
 
 #### torch.cos
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L1027](smot/api_tests/torch_api/math/torch_math_test.py#L1027)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L407](smot/api_tests/torch_api/math/torch_math_trig_test.py#L407)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.cos.html](https://pytorch.org/docs/stable/generated/torch.cos.html)
 
 
@@ -475,7 +475,7 @@ Aliases:
 
 
 #### torch.floor
-  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L716](smot/api_tests/torch_api/math/torch_math_test.py#L716)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L330](smot/api_tests/torch_api/math/torch_math_test.py#L330)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.floor.html](https://pytorch.org/docs/stable/generated/torch.floor.html)
 
 
