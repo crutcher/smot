@@ -7,3 +7,8 @@ cd $WORKSPACE_ROOT_DIR
 $GRIND format
 $GRIND gen_api_links
 $GRIND test --slow --testmon
+
+if which cloc > /dev/null; then
+  cloc smot
+fi
+
