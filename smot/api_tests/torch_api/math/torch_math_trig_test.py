@@ -2,8 +2,10 @@ import unittest
 
 import torch
 
-from smot.api_tests.torch_api.math.torch_eggs_op_testlib import assert_cellwise_unary_op_returns, \
-    assert_cellwise_bin_op_returns
+from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
+    assert_cellwise_bin_op_returns,
+    assert_cellwise_unary_op_returns,
+)
 from smot.doc_link.link_annotations import api_link
 
 
@@ -35,32 +37,32 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        torch.tensor(1, dtype=torch.int64),
-                        torch.tensor(0.0, dtype=torch.float32),
+                    torch.tensor(1, dtype=torch.int64),
+                    torch.tensor(0.0, dtype=torch.float32),
                 ),
                 (
-                        torch.tensor(-1, dtype=torch.int64),
-                        torch.tensor(torch.pi, dtype=torch.float32),
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(torch.pi, dtype=torch.float32),
                 ),
                 (
-                        torch.tensor(1.0, dtype=torch.float64),
-                        torch.tensor(0.0, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
+                    torch.tensor(0.0, dtype=torch.float64),
                 ),
                 (
-                        torch.tensor(torch.nan, dtype=torch.float64),
-                        torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
                 ),
                 (
-                        # Boolean values are cast to float { 0.0, 1.0 } inputs.
-                        [False, True],
-                        [1.5707963705, 0.0],
+                    # Boolean values are cast to float { 0.0, 1.0 } inputs.
+                    [False, True],
+                    [1.5707963705, 0.0],
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [
-                            1.5707963705 - 0.0000000000j,
-                            0.9045568705 - 1.0612751245j,
-                        ],
+                    [0j, 1 + 1j],
+                    [
+                        1.5707963705 - 0.0000000000j,
+                        0.9045568705 - 1.0612751245j,
+                    ],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -94,31 +96,31 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        # int64 => float32
-                        torch.tensor(1, dtype=torch.int64),
-                        torch.tensor(1.5707963705, dtype=torch.float32),
+                    # int64 => float32
+                    torch.tensor(1, dtype=torch.int64),
+                    torch.tensor(1.5707963705, dtype=torch.float32),
                 ),
                 (
-                        # int64 => float32
-                        torch.tensor(-1, dtype=torch.int64),
-                        torch.tensor(-1.5707963705, dtype=torch.float32),
+                    # int64 => float32
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(-1.5707963705, dtype=torch.float32),
                 ),
                 (
-                        torch.tensor(1.0, dtype=torch.float64),
-                        torch.tensor(1.5707963705, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
+                    torch.tensor(1.5707963705, dtype=torch.float64),
                 ),
                 (
-                        torch.tensor(torch.nan, dtype=torch.float64),
-                        torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
                 ),
                 (
-                        # Boolean values => float32
-                        [False, True],
-                        torch.tensor([0.0, 1.5707963705], dtype=torch.float32),
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([0.0, 1.5707963705], dtype=torch.float32),
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [0.0j, 0.6662394404 + 1.0612752438j],
+                    [0j, 1 + 1j],
+                    [0.0j, 0.6662394404 + 1.0612752438j],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -152,39 +154,39 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        # int64 => float32
-                        torch.tensor([0, 1, -1, 3], dtype=torch.int64),
-                        [
-                            0.0000000000,
-                            0.8813735843,
-                            -0.8813735843,
-                            1.8184465170,
-                        ],
+                    # int64 => float32
+                    torch.tensor([0, 1, -1, 3], dtype=torch.int64),
+                    [
+                        0.0000000000,
+                        0.8813735843,
+                        -0.8813735843,
+                        1.8184465170,
+                    ],
                 ),
                 (
-                        # int64 => float32
-                        torch.tensor(-1, dtype=torch.int64),
-                        torch.tensor(-0.8813735843, dtype=torch.float32),
+                    # int64 => float32
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(-0.8813735843, dtype=torch.float32),
                 ),
                 (
-                        torch.tensor(1.0, dtype=torch.float64),
-                        torch.tensor(0.8813735843, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
+                    torch.tensor(0.8813735843, dtype=torch.float64),
                 ),
                 (
-                        torch.tensor(torch.nan, dtype=torch.float64),
-                        torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
                 ),
                 (
-                        # Boolean values => float32
-                        [False, True],
-                        torch.tensor([0.0000000000, 0.8813735843], dtype=torch.float32),
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([0.0000000000, 0.8813735843], dtype=torch.float32),
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [
-                            0.0000000000 + 0.0000000000j,
-                            1.0612751245 + 0.6662394404j,
-                        ],
+                    [0j, 1 + 1j],
+                    [
+                        0.0000000000 + 0.0000000000j,
+                        1.0612751245 + 0.6662394404j,
+                    ],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -218,48 +220,48 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        # int64 => float32
-                        torch.tensor(
-                            [
-                                0,
-                                1,
-                                -1,
-                                3,
-                            ],
-                            dtype=torch.int64,
-                        ),
-                        torch.tensor(
-                            [
-                                torch.nan,
-                                0.0,
-                                torch.nan,
-                                1.7627471685,
-                            ],
-                            dtype=torch.float32,
-                        ),
+                    # int64 => float32
+                    torch.tensor(
+                        [
+                            0,
+                            1,
+                            -1,
+                            3,
+                        ],
+                        dtype=torch.int64,
+                    ),
+                    torch.tensor(
+                        [
+                            torch.nan,
+                            0.0,
+                            torch.nan,
+                            1.7627471685,
+                        ],
+                        dtype=torch.float32,
+                    ),
                 ),
                 (
-                        # int64 => float32
-                        [
-                            torch.pi,
-                            2 * torch.pi,
-                        ],
-                        [
-                            1.8115262985,
-                            2.5246307850,
-                        ],
+                    # int64 => float32
+                    [
+                        torch.pi,
+                        2 * torch.pi,
+                    ],
+                    [
+                        1.8115262985,
+                        2.5246307850,
+                    ],
                 ),
                 (
-                        # Boolean values => float32
-                        [False, True],
-                        torch.tensor([torch.nan, 0.0000000000], dtype=torch.float32),
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([torch.nan, 0.0000000000], dtype=torch.float32),
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [
-                            0.0000000000 + 1.5707963705j,
-                            1.0612751245 + 0.9045568705j,
-                        ],
+                    [0j, 1 + 1j],
+                    [
+                        0.0000000000 + 1.5707963705j,
+                        1.0612751245 + 0.9045568705j,
+                    ],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -293,19 +295,19 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        [0, 1, torch.pi, 2],
-                        [0.0000000000, 0.7853981853, 1.2626272440, 1.1071487665],
+                    [0, 1, torch.pi, 2],
+                    [0.0000000000, 0.7853981853, 1.2626272440, 1.1071487665],
                 ),
                 (
-                        [True, False],
-                        [0.7853981853, 0.0000000000],
+                    [True, False],
+                    [0.7853981853, 0.0000000000],
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [
-                            0.0000000000 + 0.0000000000j,
-                            1.0172219276 + 0.4023594856j,
-                        ],
+                    [0j, 1 + 1j],
+                    [
+                        0.0000000000 + 0.0000000000j,
+                        1.0172219276 + 0.4023594856j,
+                    ],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -339,19 +341,19 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        [0, 1, torch.pi, 0.2],
-                        [0.0000000000, torch.inf, torch.nan, 0.2027325481],
+                    [0, 1, torch.pi, 0.2],
+                    [0.0000000000, torch.inf, torch.nan, 0.2027325481],
                 ),
                 (
-                        [False, True],
-                        [0.0, torch.inf],
+                    [False, True],
+                    [0.0, torch.inf],
                 ),
                 (
-                        [0j, 1 + 1j],
-                        [
-                            0.0000000000 + 0.0000000000j,
-                            0.4023594856 + 1.0172219276j,
-                        ],
+                    [0j, 1 + 1j],
+                    [
+                        0.0000000000 + 0.0000000000j,
+                        0.4023594856 + 1.0172219276j,
+                    ],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -373,16 +375,16 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, other, expected in [
                 (
-                        [0.0, torch.pi, torch.pi],
-                        [0.0, 1.0, torch.pi],
-                        # yields.
-                        [0.0000000000, 1.2626272440, 0.7853981853],
+                    [0.0, torch.pi, torch.pi],
+                    [0.0, 1.0, torch.pi],
+                    # yields.
+                    [0.0000000000, 1.2626272440, 0.7853981853],
                 ),
                 (
-                        [False, True, True],
-                        [0.0, 1.0, torch.pi],
-                        # yields.
-                        [0.0000000000, 0.7853981853, 0.3081690669],
+                    [False, True, True],
+                    [0.0, 1.0, torch.pi],
+                    # yields.
+                    [0.0000000000, 0.7853981853, 0.3081690669],
                 ),
             ]:
                 assert_cellwise_bin_op_returns(
@@ -409,35 +411,35 @@ class TrigOpTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        # int64 => float32
-                        torch.tensor(1, dtype=torch.int64),
-                        torch.tensor(0.540302, dtype=torch.float32),
+                    # int64 => float32
+                    torch.tensor(1, dtype=torch.int64),
+                    torch.tensor(0.540302, dtype=torch.float32),
                 ),
                 (
-                        # int64 => float32
-                        torch.tensor(-1, dtype=torch.int64),
-                        torch.tensor(0.540302, dtype=torch.float32),
+                    # int64 => float32
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(0.540302, dtype=torch.float32),
                 ),
                 (
-                        torch.tensor(0.0, dtype=torch.float64),
-                        torch.tensor(1.0, dtype=torch.float64),
+                    torch.tensor(0.0, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
                 ),
                 (
-                        torch.tensor(torch.pi, dtype=torch.float64),
-                        torch.tensor(-1.0, dtype=torch.float64),
+                    torch.tensor(torch.pi, dtype=torch.float64),
+                    torch.tensor(-1.0, dtype=torch.float64),
                 ),
                 (
-                        torch.tensor(torch.nan, dtype=torch.float64),
-                        torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
                 ),
                 (
-                        # Boolean values => float32
-                        [False, True],
-                        torch.tensor([1.0, 0.540302], dtype=torch.float32),
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([1.0, 0.540302], dtype=torch.float32),
                 ),
                 (
-                        [0 + 0j, torch.pi + 0j, 1 + 1j],
-                        [1 + 0.0j, -1 + 0j, 0.8337299228 - 0.9888976812j],
+                    [0 + 0j, torch.pi + 0j, 1 + 1j],
+                    [1 + 0.0j, -1 + 0j, 0.8337299228 - 0.9888976812j],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
