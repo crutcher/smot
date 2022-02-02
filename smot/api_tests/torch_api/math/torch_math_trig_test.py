@@ -5,6 +5,7 @@ import torch
 from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_bin_op_returns,
     assert_cellwise_unary_op_returns,
+    assert_tensor_op_throws_not_implemented,
 )
 from smot.doc_link.link_annotations import api_link
 
@@ -494,6 +495,96 @@ class TrigOpTest(unittest.TestCase):
                 (
                     [0 + 0j, torch.pi + 0j, 1 + 1j],
                     [1 + 0.0j, 11.591953 + 0j, 0.8337299228 + 0.9888976812j],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.deg2rad",
+        ref="https://pytorch.org/docs/stable/generated/torch.deg2rad.html",
+    )
+    @api_link(
+        target="torch.Tensor.deg2rad",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.deg2rad.html",
+    )
+    @api_link(
+        target="torch.rad2deg",
+        ref="https://pytorch.org/docs/stable/generated/torch.rad2deg.html",
+    )
+    @api_link(
+        target="torch.Tensor.rad2deg",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.rad2deg.html",
+    )
+    def test_deg2rad_rad2deg(self) -> None:
+        for op, supports_out in [
+            (torch.deg2rad, True),
+            (torch.Tensor.deg2rad, False),
+        ]:
+            for not_implemented in [
+                torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
+            ]:
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
+
+            for input, expected in [
+                (
+                    torch.tensor([0, 90, 180, 270, 360], dtype=torch.int64),
+                    # int => autoselect tensor dtype
+                    torch.tensor(
+                        [0.0, torch.pi / 2, torch.pi, 3 * torch.pi / 2, 2 * torch.pi],
+                        dtype=torch.float32,
+                    ),
+                ),
+                (
+                    torch.tensor([90.0, -90.0], dtype=torch.float64),
+                    # float => keep tensor dtype
+                    torch.tensor([torch.pi / 2, -torch.pi / 2], dtype=torch.float64),
+                ),
+                (
+                    # bool => long => float
+                    [False, True],
+                    [0.0, torch.pi / 180.0],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+        for op, supports_out in [
+            (torch.rad2deg, True),
+            (torch.Tensor.rad2deg, False),
+        ]:
+            for not_implemented in [
+                torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
+            ]:
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
+
+            for input, expected in [
+                (
+                    torch.tensor(
+                        [0.0, torch.pi / 2, torch.pi, 3 * torch.pi / 2, 2 * torch.pi],
+                        dtype=torch.float32,
+                    ),
+                    # keep dtype
+                    torch.tensor([0.0, 90.0, 180.0, 270.0, 360.0], dtype=torch.float32),
+                ),
+                (
+                    torch.tensor([torch.pi / 2, -torch.pi / 2], dtype=torch.float64),
+                    torch.tensor([90, -90], dtype=torch.float64),
+                ),
+                (
+                    # bool => long => float
+                    [False, True],
+                    [0.0, 180.0 / torch.pi],
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
