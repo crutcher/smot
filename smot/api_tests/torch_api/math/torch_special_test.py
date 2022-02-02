@@ -49,6 +49,14 @@ class TorchSpecialTest(unittest.TestCase):
                 assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
+        target="torch.erf",
+        ref="https://pytorch.org/docs/stable/generated/torch.erf.html",
+    )
+    @api_link(
+        target="torch.erfc",
+        ref="https://pytorch.org/docs/stable/generated/torch.erfc.html",
+    )
+    @api_link(
         target="torch.special.erf",
         ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.erf",
     )
@@ -56,44 +64,93 @@ class TorchSpecialTest(unittest.TestCase):
         target="torch.special.erfc",
         ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.erfc",
     )
+    @api_link(
+        target="torch.Tensor.erf",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.erf.html",
+    )
+    @api_link(
+        target="torch.Tensor.erfc",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.erfc.html",
+    )
     def test_erf_erfc(self) -> None:
-        for input, expected in [
-            (
-                [False, True],
-                torch.tensor(
-                    [0.0, 0.8427007],
-                    dtype=torch.float32,
-                ),
-            ),
-            (
-                [-1.0, 0.0, 0.5, 1.0],
-                torch.tensor(
-                    [-0.8427007, 0.0, 0.5204998851, 0.8427007794],
-                    dtype=torch.float32,
-                ),
-            ),
+        for erf, erfc, supports_out in [
+            (torch.erf, torch.erfc, True),
+            (torch.special.erf, torch.special.erfc, True),
+            (torch.Tensor.erf, torch.Tensor.erfc, False),
         ]:
-            assert_cellwise_unary_op_returns(
-                torch.special.erf,
-                input,
-                expected=expected,
-                close=True,
-                supports_out=True,
-            )
+            for input, expected in [
+                (
+                    [False, True],
+                    torch.tensor(
+                        [0.0, 0.8427007],
+                        dtype=torch.float32,
+                    ),
+                ),
+                (
+                    [-1.0, 0.0, 0.5, 1.0],
+                    torch.tensor(
+                        [-0.8427007, 0.0, 0.5204998851, 0.8427007794],
+                        dtype=torch.float32,
+                    ),
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    erf,
+                    input,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
 
-            assert_cellwise_unary_op_returns(
-                torch.special.erfc,
-                input,
-                expected=1.0 - expected,
-                close=True,
-                supports_out=True,
-            )
+                assert_cellwise_unary_op_returns(
+                    erfc,
+                    input,
+                    expected=1.0 - expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
 
-        for not_implemented in [
-            [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            for not_implemented in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            ]:
+                assert_tensor_op_throws_not_implemented(erf, not_implemented)
+                assert_tensor_op_throws_not_implemented(erfc, not_implemented)
+
+    @api_link(
+        target="torch.special.erfcx",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.erfcx",
+    )
+    def test_erfcx(self) -> None:
+        for erfcx in [
+            torch.special.erfcx,
         ]:
-            assert_tensor_op_throws_not_implemented(torch.special.erf, not_implemented)
-            assert_tensor_op_throws_not_implemented(torch.special.erfc, not_implemented)
+            for input, expected in [
+                (
+                    torch.tensor([0.0, -1.0, 10.0], dtype=torch.float64),
+                    torch.tensor([1.0, 5.00898, 0.05614099], dtype=torch.float64),
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    erfcx,
+                    input,
+                    expected=expected,
+                    close=True,
+                    supports_out=True,
+                )
+
+                # erfcx(x) := exp(x**2) * erfc(x)
+                assert_cellwise_unary_op_returns(
+                    erfcx,
+                    input,
+                    expected=torch.exp(input**2) * torch.special.erfc(input),
+                    close=True,
+                    supports_out=True,
+                )
+
+            for not_implemented in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            ]:
+                assert_tensor_op_throws_not_implemented(erfcx, not_implemented)
 
     @api_link(
         target="torch.digamma",

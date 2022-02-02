@@ -18,7 +18,7 @@ def hide_tracebacks(mode: bool = True) -> None:
 
 
 # hide by default.
-hide_tracebacks(True)
+hide_tracebacks(False)
 
 
 def assert_tensor_op_throws_not_implemented(
