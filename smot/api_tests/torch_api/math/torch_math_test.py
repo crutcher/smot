@@ -629,3 +629,95 @@ class MathOpTest(unittest.TestCase):
                     expected=expected,
                     supports_out=supports_out,
                 )
+
+    @api_link(
+        target="torch.div",
+        ref="https://pytorch.org/docs/stable/generated/torch.div.html",
+    )
+    @api_link(
+        target="torch.Tensor.div",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.div.html",
+    )
+    def test_div(self) -> None:
+        for op, supports_out in [
+            (torch.div, True),
+            (torch.Tensor.div, False),
+        ]:
+            for x, y, expected in [
+                (
+                    [10, 20],
+                    4,
+                    [2.5, 5.0],
+                ),
+                (
+                    [10 + 10j, 20 + 20j],
+                    [4, 4j],
+                    [2.5 + 2.5j, 5.0 - 5j],
+                ),
+                (
+                    [False, False, True, True],
+                    [False, True, False, True],
+                    [torch.nan, 0.0, torch.inf, 1.0],
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    x,
+                    y,
+                    expected=expected,
+                    supports_out=supports_out,
+                )
+
+            # "trunc" depends on out.trunc() being supported.
+            for not_supported in [
+                0.3 + 2.0j,
+            ]:
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    not_supported,
+                    torch.tensor(1),
+                    rounding_mode="trunc",
+                )
+
+            for x, y, expected in [
+                (
+                    [10, 20, -10, -20],
+                    4,
+                    [2, 5, -2, -5],
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    x,
+                    y,
+                    rounding_mode="trunc",
+                    expected=expected,
+                    supports_out=supports_out,
+                )
+
+            # "floor" depends on out.floor() being supported.
+            for not_supported in [
+                0.3 + 2.0j,
+            ]:
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    not_supported,
+                    torch.tensor(1),
+                    rounding_mode="floor",
+                )
+
+            for x, y, expected in [
+                (
+                    [10, 20, -10, -20],
+                    4,
+                    [2, 5, -3, -5],
+                ),
+            ]:
+                assert_cellwise_bin_op_returns(
+                    op,
+                    x,
+                    y,
+                    rounding_mode="floor",
+                    expected=expected,
+                    supports_out=supports_out,
+                )

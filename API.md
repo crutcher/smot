@@ -228,6 +228,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.deg2rad.html](https://pytorch.org/docs/stable/generated/torch.Tensor.deg2rad.html)
 
 
+#### torch.Tensor.div
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L641](smot/api_tests/torch_api/math/torch_math_test.py#L641)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.div.html](https://pytorch.org/docs/stable/generated/torch.Tensor.div.html)
+
+
 #### torch.Tensor.floor
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L330](smot/api_tests/torch_api/math/torch_math_test.py#L330)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
@@ -462,6 +467,11 @@ Aliases:
 #### torch.device
   * Tests: [smot/api_tests/torch_api/torch_device_test.py](smot/api_tests/torch_api/torch_device_test.py) [L15](smot/api_tests/torch_api/torch_device_test.py#L15)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.device.html](https://pytorch.org/docs/stable/generated/torch.device.html)
+
+
+#### torch.div
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L641](smot/api_tests/torch_api/math/torch_math_test.py#L641)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.div.html](https://pytorch.org/docs/stable/generated/torch.div.html)
 
 
 #### torch.dsplit

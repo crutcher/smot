@@ -102,6 +102,7 @@ def assert_cellwise_unary_op_returns(
     expected: TensorConvertable,
     close: bool = False,
     supports_out: bool = True,
+    **kwargs: Any,
 ) -> None:
     """
     Assert that the given op is a well behaving cell-wise unitary operation.
@@ -118,6 +119,7 @@ def assert_cellwise_unary_op_returns(
         expected=expected,
         close=close,
         supports_out=supports_out,
+        **kwargs,
     )
 
 
@@ -129,6 +131,7 @@ def assert_cellwise_bin_op_returns(
     expected: TensorConvertable,
     close: bool = False,
     supports_out: bool = True,
+    **kwargs: Any,
 ) -> None:
     """
     Assert that the given op is a well behaving cell-wise unitary operation.
@@ -146,4 +149,5 @@ def assert_cellwise_bin_op_returns(
         expected=expected,
         close=close,
         supports_out=supports_out,
+        **kwargs,
     )
