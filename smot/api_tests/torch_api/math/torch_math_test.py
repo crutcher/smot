@@ -9,6 +9,7 @@ from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_tensor_op_throws_not_implemented,
 )
 from smot.doc_link.link_annotations import WEIRD_API, api_link
+from smot.testlib import torch_eggs
 
 
 class MathOpTest(unittest.TestCase):
@@ -838,4 +839,97 @@ class MathOpTest(unittest.TestCase):
                     max=input,
                     expected=input - 2,
                     supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.conj",
+        ref="https://pytorch.org/docs/stable/generated/torch.conj.html",
+    )
+    @api_link(
+        target="torch.Tensor.conj",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.conj.html",
+    )
+    @api_link(
+        target="torch.conj_physical",
+        ref="https://pytorch.org/docs/stable/generated/torch.conj_physical.html",
+    )
+    @api_link(
+        target="torch.Tensor.conj_physical",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.conj_physical.html",
+    )
+    def test_conj_physical(self) -> None:
+        for view_op, v_op_supports_out in [
+            (torch.conj, False),
+            (torch.Tensor.conj, False),
+        ]:
+            for copy_op, c_op_supports_out in [
+                (torch.conj_physical, True),
+                (torch.Tensor.conj_physical, False),
+            ]:
+                source = torch.tensor(
+                    [-1 + 1j, -2 + 2j, 3 - 3j],
+                    dtype=torch.complex128,
+                )
+
+                expected = torch.tensor(
+                    [-1 - 1j, -2 - 2j, 3 + 3j],
+                    dtype=torch.complex128,
+                )
+
+                assert_cellwise_op_returns(
+                    view_op,
+                    source,
+                    expected=expected,
+                    supports_out=v_op_supports_out,
+                )
+
+                assert_cellwise_op_returns(
+                    copy_op,
+                    source,
+                    expected=expected,
+                    supports_out=c_op_supports_out,
+                )
+
+                conj_copy = copy_op(source)  # type: ignore
+                torch_eggs.assert_tensor_storage_differs(source, conj_copy)
+                torch_eggs.assert_tensor_equals(
+                    conj_copy,
+                    expected,
+                )
+
+                conj_view = view_op(source)
+                torch_eggs.assert_tensor_equals(
+                    conj_view,
+                    expected,
+                    view_of=source,
+                )
+
+                torch_eggs.assert_tensor_equals(
+                    conj_view.real,
+                    source.real,
+                    view_of=source,
+                )
+                torch_eggs.assert_tensor_equals(
+                    conj_view.imag,
+                    -source.imag,
+                    view_of=source,
+                )
+
+                # Bidirectional conjugate writiable view.
+                conj_view.imag[0] = 8
+
+                torch_eggs.assert_tensor_equals(
+                    source,
+                    torch.tensor(
+                        [-1 - 8j, -2 + 2j, 3 - 3j],
+                        dtype=torch.complex128,
+                    ),
+                )
+
+                torch_eggs.assert_tensor_equals(
+                    conj_view,
+                    torch.tensor(
+                        [-1 + 8j, -2 - 2j, 3 + 3j],
+                        dtype=torch.complex128,
+                    ),
                 )
