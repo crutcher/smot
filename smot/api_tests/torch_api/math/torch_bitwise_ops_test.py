@@ -4,6 +4,7 @@ import torch
 
 from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_cellwise_bin_op_returns,
+    assert_cellwise_unary_op_returns,
 )
 from smot.doc_link.link_annotations import WEIRD_API, api_link
 
@@ -37,6 +38,45 @@ class BitwiseOpsTest(unittest.TestCase):
                 assert_cellwise_bin_op_returns(
                     op, input, other, expected=expected, supports_out=supports_out
                 )
+
+    @api_link(
+        target="torch.bitwise_not",
+        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_not.html",
+    )
+    @api_link(
+        target="torch.Tensor.bitwise_not",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html",
+    )
+    def test_bitwise_not(self) -> None:
+        for op, supports_out in [
+            (torch.bitwise_not, True),
+            (torch.Tensor.bitwise_not, False),
+        ]:
+            for input, expected in [
+                (
+                        torch.tensor(True, dtype=torch.bool),
+                        torch.tensor(False, dtype=torch.bool),
+                ),
+                (
+                        torch.tensor([False, True], dtype=torch.bool),
+                        torch.tensor([True, False], dtype=torch.bool),
+                ),
+                (
+                        torch.tensor(0xFA, dtype=torch.int8),
+                        torch.tensor(0x05, dtype=torch.int8),
+                ),
+                (
+                        torch.tensor(0xFAFAFAFA, dtype=torch.int32),
+                        torch.tensor(0x05050505, dtype=torch.int32),
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected=expected,
+                    supports_out=supports_out,
+                )
+
 
     @api_link(
         target="torch.bitwise_or",

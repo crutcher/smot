@@ -74,41 +74,6 @@ class MathOpTest(unittest.TestCase):
                 assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
-        target="torch.bitwise_not",
-        ref="https://pytorch.org/docs/stable/generated/torch.bitwise_not.html",
-    )
-    @api_link(
-        target="torch.Tensor.bitwise_not",
-        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.bitwise_not.html",
-    )
-    def test_bitwise_not(self) -> None:
-        for op, supports_out in [
-            (torch.bitwise_not, True),
-            (torch.Tensor.bitwise_not, False),
-        ]:
-            for input, expected in [
-                (
-                    torch.tensor(True, dtype=torch.bool),
-                    torch.tensor(False, dtype=torch.bool),
-                ),
-                (
-                    torch.tensor([False, True], dtype=torch.bool),
-                    torch.tensor([True, False], dtype=torch.bool),
-                ),
-                (
-                    torch.tensor(0xFA, dtype=torch.int8),
-                    torch.tensor(0x05, dtype=torch.int8),
-                ),
-                (
-                    torch.tensor(0xFAFAFAFA, dtype=torch.int32),
-                    torch.tensor(0x05050505, dtype=torch.int32),
-                ),
-            ]:
-                assert_cellwise_unary_op_returns(
-                    op, input, expected=expected, supports_out=supports_out
-                )
-
-    @api_link(
         target="torch.ceil",
         ref="https://pytorch.org/docs/stable/generated/torch.ceil.html",
     )
