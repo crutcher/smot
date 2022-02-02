@@ -54,20 +54,20 @@ class BitwiseOpsTest(unittest.TestCase):
         ]:
             for input, expected in [
                 (
-                        torch.tensor(True, dtype=torch.bool),
-                        torch.tensor(False, dtype=torch.bool),
+                    torch.tensor(True, dtype=torch.bool),
+                    torch.tensor(False, dtype=torch.bool),
                 ),
                 (
-                        torch.tensor([False, True], dtype=torch.bool),
-                        torch.tensor([True, False], dtype=torch.bool),
+                    torch.tensor([False, True], dtype=torch.bool),
+                    torch.tensor([True, False], dtype=torch.bool),
                 ),
                 (
-                        torch.tensor(0xFA, dtype=torch.int8),
-                        torch.tensor(0x05, dtype=torch.int8),
+                    torch.tensor(0xFA, dtype=torch.int8),
+                    torch.tensor(0x05, dtype=torch.int8),
                 ),
                 (
-                        torch.tensor(0xFAFAFAFA, dtype=torch.int32),
-                        torch.tensor(0x05050505, dtype=torch.int32),
+                    torch.tensor(0xFAFAFAFA, dtype=torch.int32),
+                    torch.tensor(0x05050505, dtype=torch.int32),
                 ),
             ]:
                 assert_cellwise_unary_op_returns(
@@ -76,7 +76,6 @@ class BitwiseOpsTest(unittest.TestCase):
                     expected=expected,
                     supports_out=supports_out,
                 )
-
 
     @api_link(
         target="torch.bitwise_or",

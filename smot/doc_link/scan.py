@@ -98,7 +98,7 @@ def render_api_index(*, show_help: bool = False) -> str:
             print("Aliases:", file=buffer)
             for a in link.aliases:
                 alias_href = "#" + a.replace(".", "").replace(" ", "-")
-                print(f"    * [{a}]({alias_href})", file=buffer)
+                print(f"  * [{a}]({alias_href})", file=buffer)
 
         if link.link_target:
             if show_help:
