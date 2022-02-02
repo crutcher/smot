@@ -943,7 +943,6 @@ class MathOpTest(unittest.TestCase):
         ref="https://pytorch.org/docs/stable/generated/torch.Tensor.copysign.html",
     )
     def test_copysign(self) -> None:
-
         for op, supports_out in [
             (torch.copysign, True),
             (torch.Tensor.copysign, False),
@@ -1014,5 +1013,59 @@ class MathOpTest(unittest.TestCase):
                     x,
                     y,
                     expected=expected,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.cos",
+        ref="https://pytorch.org/docs/stable/generated/torch.cos.html",
+    )
+    @api_link(
+        target="torch.Tensor.cos",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.cos.html",
+    )
+    def test_cos(self) -> None:
+        for op, supports_out in [
+            (torch.cos, True),
+            (torch.Tensor.cos, False),
+        ]:
+            for input, expected in [
+                (
+                    # int64 => float32
+                    torch.tensor(1, dtype=torch.int64),
+                    torch.tensor(0.540302, dtype=torch.float32),
+                ),
+                (
+                    # int64 => float32
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(0.540302, dtype=torch.float32),
+                ),
+                (
+                    torch.tensor(0.0, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
+                ),
+                (
+                    torch.tensor(torch.pi, dtype=torch.float64),
+                    torch.tensor(-1.0, dtype=torch.float64),
+                ),
+                (
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                ),
+                (
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([1.0, 0.540302], dtype=torch.float32),
+                ),
+                (
+                    [0 + 0j, torch.pi + 0j, 1 + 1j],
+                    [1 + 0.0j, -1 + 0j, 0.8337299228 - 0.9888976812j],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected=expected,
+                    close=True,
                     supports_out=supports_out,
                 )
