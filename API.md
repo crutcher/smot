@@ -218,6 +218,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.cos.html](https://pytorch.org/docs/stable/generated/torch.Tensor.cos.html)
 
 
+#### torch.Tensor.cosh
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L461](smot/api_tests/torch_api/math/torch_math_trig_test.py#L461)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.cosh.html](https://pytorch.org/docs/stable/generated/torch.Tensor.cosh.html)
+
+
 #### torch.Tensor.floor
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L330](smot/api_tests/torch_api/math/torch_math_test.py#L330)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html](https://pytorch.org/docs/stable/generated/torch.Tensor.floor.html)
@@ -427,6 +432,11 @@ Aliases:
 #### torch.cos
   * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L407](smot/api_tests/torch_api/math/torch_math_trig_test.py#L407)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.cos.html](https://pytorch.org/docs/stable/generated/torch.cos.html)
+
+
+#### torch.cosh
+  * Tests: [smot/api_tests/torch_api/math/torch_math_trig_test.py](smot/api_tests/torch_api/math/torch_math_trig_test.py) [L461](smot/api_tests/torch_api/math/torch_math_trig_test.py#L461)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.cosh.html](https://pytorch.org/docs/stable/generated/torch.cosh.html)
 
 
 #### torch.default_generator

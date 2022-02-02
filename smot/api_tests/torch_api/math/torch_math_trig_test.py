@@ -449,3 +449,57 @@ class TrigOpTest(unittest.TestCase):
                     close=True,
                     supports_out=supports_out,
                 )
+
+    @api_link(
+        target="torch.cosh",
+        ref="https://pytorch.org/docs/stable/generated/torch.cosh.html",
+    )
+    @api_link(
+        target="torch.Tensor.cosh",
+        ref="https://pytorch.org/docs/stable/generated/torch.Tensor.cosh.html",
+    )
+    def test_cosh(self) -> None:
+        for op, supports_out in [
+            (torch.cosh, True),
+            (torch.Tensor.cosh, False),
+        ]:
+            for input, expected in [
+                (
+                    # int64 => float32
+                    torch.tensor(0, dtype=torch.int64),
+                    torch.tensor(1.0, dtype=torch.float32),
+                ),
+                (
+                    # int64 => float32
+                    torch.tensor(-1, dtype=torch.int64),
+                    torch.tensor(1.54308, dtype=torch.float32),
+                ),
+                (
+                    torch.tensor(0.0, dtype=torch.float64),
+                    torch.tensor(1.0, dtype=torch.float64),
+                ),
+                (
+                    torch.tensor(torch.pi, dtype=torch.float64),
+                    torch.tensor(11.591953, dtype=torch.float64),
+                ),
+                (
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                    torch.tensor(torch.nan, dtype=torch.float64),
+                ),
+                (
+                    # Boolean values => float32
+                    [False, True],
+                    torch.tensor([1.0, 1.54308], dtype=torch.float32),
+                ),
+                (
+                    [0 + 0j, torch.pi + 0j, 1 + 1j],
+                    [1 + 0.0j, 11.591953 + 0j, 0.8337299228 + 0.9888976812j],
+                ),
+            ]:
+                assert_cellwise_unary_op_returns(
+                    op,
+                    input,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
