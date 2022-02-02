@@ -49,6 +49,53 @@ class TorchSpecialTest(unittest.TestCase):
                 assert_tensor_op_throws_not_implemented(op, not_implemented)
 
     @api_link(
+        target="torch.special.erf",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.erf",
+    )
+    @api_link(
+        target="torch.special.erfc",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.erfc",
+    )
+    def test_erf_erfc(self) -> None:
+        for input, expected in [
+            (
+                [False, True],
+                torch.tensor(
+                    [0.0, 0.8427007],
+                    dtype=torch.float32,
+                ),
+            ),
+            (
+                [-1.0, 0.0, 0.5, 1.0],
+                torch.tensor(
+                    [-0.8427007, 0.0, 0.5204998851, 0.8427007794],
+                    dtype=torch.float32,
+                ),
+            ),
+        ]:
+            assert_cellwise_unary_op_returns(
+                torch.special.erf,
+                input,
+                expected=expected,
+                close=True,
+                supports_out=True,
+            )
+
+            assert_cellwise_unary_op_returns(
+                torch.special.erfc,
+                input,
+                expected=1.0 - expected,
+                close=True,
+                supports_out=True,
+            )
+
+        for not_implemented in [
+            [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+        ]:
+            assert_tensor_op_throws_not_implemented(torch.special.erf, not_implemented)
+            assert_tensor_op_throws_not_implemented(torch.special.erfc, not_implemented)
+
+    @api_link(
         target="torch.digamma",
         ref="https://pytorch.org/docs/stable/generated/torch.abs.html",
         alias="torch.special.digamma",
