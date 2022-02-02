@@ -228,6 +228,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.deg2rad.html](https://pytorch.org/docs/stable/generated/torch.Tensor.deg2rad.html)
 
 
+#### torch.Tensor.digamma
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html](https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html)
+
+
 #### torch.Tensor.div
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.div.html](https://pytorch.org/docs/stable/generated/torch.Tensor.div.html)
@@ -475,6 +480,13 @@ Aliases:
   * Tests: [smot/api_tests/torch_api/torch_device_test.py](smot/api_tests/torch_api/torch_device_test.py) [L15](smot/api_tests/torch_api/torch_device_test.py#L15)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.device.html](https://pytorch.org/docs/stable/generated/torch.device.html)
 
+
+#### torch.digamma
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
+
+Aliases:
+    * [torch.special.digamma](#torchspecialdigamma)
 
 #### torch.div
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L651](smot/api_tests/torch_api/math/torch_math_test.py#L651)
@@ -841,6 +853,11 @@ Aliases:
 #### torch.sparse_coo_tensor
   * Tests: [smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py) [L13](smot/api_tests/torch_api/creation/torch_sparse_coo_tensor_test.py#L13)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html](https://pytorch.org/docs/stable/generated/torch.sparse_coo_tensor.html)
+
+
+#### torch.special.digamma
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L26](smot/api_tests/torch_api/math/torch_special_test.py#L26)
+  * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma](https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma)
 
 
 #### torch.split
