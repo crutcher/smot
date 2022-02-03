@@ -165,6 +165,36 @@ class TorchSpecialTest(unittest.TestCase):
                 assert_tensor_op_throws_not_implemented(erfcx, not_implemented)
 
     @api_link(
+        target="torch.special.expit",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.expit",
+    )
+    def test_expit(self) -> None:
+        for op, supports_out in [
+            (torch.special.expit, True),
+        ]:
+            for source in [
+                torch.randn(4),
+                True,
+                1.0 + 1.0j,
+                torch.nan,
+            ]:
+                source = torch.as_tensor(source)
+
+                t = source
+                if not (torch.is_complex(source) or torch.is_floating_point(source)):
+                    t = source.to(torch.float)
+
+                expected = 1 / (1 + torch.exp(-t))
+
+                assert_cellwise_unary_op_returns(
+                    op,
+                    source,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
         target="torch.digamma",
         ref="https://pytorch.org/docs/stable/generated/torch.abs.html",
         alias="torch.special.digamma",
