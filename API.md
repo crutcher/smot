@@ -229,7 +229,7 @@ Aliases:
 
 
 #### torch.Tensor.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L307](smot/api_tests/torch_api/math/torch_special_test.py#L307)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L319](smot/api_tests/torch_api/math/torch_special_test.py#L319)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html](https://pytorch.org/docs/stable/generated/torch.Tensor.digamma.html)
 
 
@@ -492,7 +492,7 @@ Aliases:
 
 
 #### torch.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L307](smot/api_tests/torch_api/math/torch_special_test.py#L307)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L319](smot/api_tests/torch_api/math/torch_special_test.py#L319)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.abs.html](https://pytorch.org/docs/stable/generated/torch.abs.html)
 
 Aliases:
@@ -549,6 +549,20 @@ Aliases:
   * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L76](smot/api_tests/torch_api/math/torch_special_test.py#L76)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.erfc.html](https://pytorch.org/docs/stable/generated/torch.erfc.html)
 
+
+#### torch.exp2
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L247](smot/api_tests/torch_api/math/torch_special_test.py#L247)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.exp2.html](https://pytorch.org/docs/stable/generated/torch.exp2.html)
+
+Aliases:
+  * [torch.special.exp2](#torchspecialexp2)
+
+#### torch.expm1
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L207](smot/api_tests/torch_api/math/torch_special_test.py#L207)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.expm1.html](https://pytorch.org/docs/stable/generated/torch.expm1.html)
+
+Aliases:
+  * [torch.special.expm1](#torchspecialexpm1)
 
 #### torch.eye
   * Tests: [smot/api_tests/torch_api/creation/torch_eye_test.py](smot/api_tests/torch_api/creation/torch_eye_test.py) [L14](smot/api_tests/torch_api/creation/torch_eye_test.py#L14)
@@ -876,7 +890,7 @@ Aliases:
 
 
 #### torch.special.digamma
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L307](smot/api_tests/torch_api/math/torch_special_test.py#L307)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L319](smot/api_tests/torch_api/math/torch_special_test.py#L319)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma](https://pytorch.org/docs/stable/generated/special.html#torch.special.digamma)
 
 
@@ -901,7 +915,7 @@ Aliases:
 
 
 #### torch.special.exp2
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L236](smot/api_tests/torch_api/math/torch_special_test.py#L236)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L247](smot/api_tests/torch_api/math/torch_special_test.py#L247)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.exp2](https://pytorch.org/docs/stable/generated/special.html#torch.special.exp2)
 
 
@@ -911,12 +925,12 @@ Aliases:
 
 
 #### torch.special.expm1
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L202](smot/api_tests/torch_api/math/torch_special_test.py#L202)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L207](smot/api_tests/torch_api/math/torch_special_test.py#L207)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.expm1](https://pytorch.org/docs/stable/generated/special.html#torch.special.expm1)
 
 
 #### torch.special.gammaln
-  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L270](smot/api_tests/torch_api/math/torch_special_test.py#L270)
+  * Tests: [smot/api_tests/torch_api/math/torch_special_test.py](smot/api_tests/torch_api/math/torch_special_test.py) [L282](smot/api_tests/torch_api/math/torch_special_test.py#L282)
   * Docs: [https://pytorch.org/docs/stable/generated/special.html#torch.special.gammaln](https://pytorch.org/docs/stable/generated/special.html#torch.special.gammaln)
 
 

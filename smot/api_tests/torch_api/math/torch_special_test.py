@@ -196,11 +196,17 @@ class TorchSpecialTest(unittest.TestCase):
                 )
 
     @api_link(
+        target="torch.expm1",
+        ref="https://pytorch.org/docs/stable/generated/torch.expm1.html",
+        alias="torch.special.expm1",
+    )
+    @api_link(
         target="torch.special.expm1",
         ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.expm1",
     )
     def test_expm1(self) -> None:
         for op, supports_out in [
+            (torch.expm1, True),
             (torch.special.expm1, True),
         ]:
             for not_implemented in [
@@ -230,11 +236,17 @@ class TorchSpecialTest(unittest.TestCase):
                 )
 
     @api_link(
+        target="torch.exp2",
+        ref="https://pytorch.org/docs/stable/generated/torch.exp2.html",
+        alias="torch.special.exp2",
+    )
+    @api_link(
         target="torch.special.exp2",
         ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.exp2",
     )
     def test_exp2(self) -> None:
         for op, supports_out in [
+            (torch.exp2, True),
             (torch.special.exp2, True),
         ]:
             for not_implemented in [
