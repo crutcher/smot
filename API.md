@@ -569,6 +569,11 @@ Aliases:
   * Docs: [https://pytorch.org/docs/stable/generated/torch.eye.html](https://pytorch.org/docs/stable/generated/torch.eye.html)
 
 
+#### torch.fake_quantize_per_channel_affine
+  * Tests: [smot/api_tests/torch_api/math/torch_quantize_test.py](smot/api_tests/torch_api/math/torch_quantize_test.py) [L16](smot/api_tests/torch_api/math/torch_quantize_test.py#L16)
+  * Docs: [https://pytorch.org/docs/stable/generated/torch.fake_quantize_per_tensor_affine.html](https://pytorch.org/docs/stable/generated/torch.fake_quantize_per_tensor_affine.html)
+
+
 #### torch.floor
   * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L118](smot/api_tests/torch_api/math/torch_math_test.py#L118)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.floor.html](https://pytorch.org/docs/stable/generated/torch.floor.html)
