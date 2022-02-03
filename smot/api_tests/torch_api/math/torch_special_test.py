@@ -1,6 +1,7 @@
 import unittest
 
 import numpy as np
+import scipy.special
 import torch
 
 from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
@@ -190,6 +191,102 @@ class TorchSpecialTest(unittest.TestCase):
                     op,
                     source,
                     expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.special.expm1",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.expm1",
+    )
+    def test_expm1(self) -> None:
+        for op, supports_out in [
+            (torch.special.expm1, True),
+        ]:
+            for not_implemented in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            ]:
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
+
+            for source in [
+                torch.randn(4),
+                True,
+                torch.nan,
+            ]:
+                source = torch.as_tensor(source)
+
+                t = source
+                if not (torch.is_complex(source) or torch.is_floating_point(source)):
+                    t = source.to(torch.float)
+
+                expected = torch.exp(t) - 1
+
+                assert_cellwise_unary_op_returns(
+                    op,
+                    source,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.special.exp2",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.exp2",
+    )
+    def test_exp2(self) -> None:
+        for op, supports_out in [
+            (torch.special.exp2, True),
+        ]:
+            for not_implemented in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            ]:
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
+
+            for source in [
+                torch.randn(4),
+                True,
+                torch.nan,
+            ]:
+                source = torch.as_tensor(source)
+
+                t = source
+                if not (torch.is_complex(source) or torch.is_floating_point(source)):
+                    t = source.to(torch.float)
+
+                expected = 2**t
+
+                assert_cellwise_unary_op_returns(
+                    op,
+                    source,
+                    expected=expected,
+                    close=True,
+                    supports_out=supports_out,
+                )
+
+    @api_link(
+        target="torch.special.gammaln",
+        ref="https://pytorch.org/docs/stable/generated/special.html#torch.special.gammaln",
+    )
+    def test_gammaln(self) -> None:
+        for op, supports_out in [
+            (torch.special.gammaln, True),
+        ]:
+            for not_implemented in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
+            ]:
+                # The gamma function, not implemented for complex inputs, which is lame?
+                assert_tensor_op_throws_not_implemented(op, not_implemented)
+
+            for source in [
+                [0.0, 1.0, 2.0, 2.5, -2.5],
+            ]:
+                expected = torch.as_tensor(np.log(np.abs(scipy.special.gamma(source))))
+                source_t = torch.as_tensor(source)
+
+                assert_cellwise_unary_op_returns(
+                    op,
+                    source_t,
+                    expected=expected.to(source_t.dtype),
                     close=True,
                     supports_out=supports_out,
                 )
