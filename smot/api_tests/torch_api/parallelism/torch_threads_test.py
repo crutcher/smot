@@ -32,19 +32,14 @@ class ThreadsTest(unittest.TestCase):
             ),
         )
 
-        torch.set_num_threads(2)
+        torch.set_num_threads(1)
         eggs.assert_match(
             torch.get_num_threads(),
-            2,
+            1,
         )
 
     @pytest.mark.forked
     def test_num_interop_threads(self) -> None:
-        eggs.assert_match(
-            torch.get_num_interop_threads(),
-            psutil.cpu_count(logical=False),
-        )
-
         WEIRD_API(
             target="torch.set_num_interop_threads",
             note=(
@@ -53,9 +48,9 @@ class ThreadsTest(unittest.TestCase):
             ),
         )
 
-        torch.set_num_interop_threads(2)
+        torch.set_num_interop_threads(1)
 
         eggs.assert_match(
             torch.get_num_interop_threads(),
-            2,
+            1,
         )

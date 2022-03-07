@@ -1,3 +1,4 @@
+from typing import cast
 import unittest
 
 import hamcrest
@@ -25,6 +26,6 @@ class SeriesTest(unittest.TestCase):
             ),
         )
         np_eggs.assert_ndarray_equals(
-            s.values,
+            cast(np.ndarray, s.values),
             np.array(["a", "b", "c"], dtype=object),
         )
