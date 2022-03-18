@@ -12,7 +12,6 @@ def notebook_relative_dir() -> str:
         reflection.repository_source_root() + "/",
     )
 
-
 def output_path(name: str) -> str:
     d = os.path.join(
         build_paths.build_root(),
@@ -23,3 +22,14 @@ def output_path(name: str) -> str:
         d,
         name,
     )
+
+def output_dir(name: str) -> str:
+    d = output_path(name)
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+def experiment_log_dir() -> str:
+    d = output_dir('tensorboard')
+    os.environ['experiment_log_dir'] = d
+    return d
