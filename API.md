@@ -55,7 +55,7 @@
 
 
 #### pandas.Series
-  * Tests: [smot/api_tests/pandas_api/series/pd_series_test.py](smot/api_tests/pandas_api/series/pd_series_test.py) [L15](smot/api_tests/pandas_api/series/pd_series_test.py#L15)
+  * Tests: [smot/api_tests/pandas_api/series/pd_series_test.py](smot/api_tests/pandas_api/series/pd_series_test.py) [L16](smot/api_tests/pandas_api/series/pd_series_test.py#L16)
   * Docs: [https://pandas.pydata.org/docs/reference/api/pandas.Series.html](https://pandas.pydata.org/docs/reference/api/pandas.Series.html)
 
 
@@ -452,7 +452,7 @@ Aliases:
 
 
 #### torch.conj
-  * Tests: [smot/api_tests/torch_api/restructure/torch_conj_test.py](smot/api_tests/torch_api/restructure/torch_conj_test.py) [L13](smot/api_tests/torch_api/restructure/torch_conj_test.py#L13)
+  * Tests: [smot/api_tests/torch_api/math/torch_math_test.py](smot/api_tests/torch_api/math/torch_math_test.py) [L262](smot/api_tests/torch_api/math/torch_math_test.py#L262)
   * Docs: [https://pytorch.org/docs/stable/generated/torch.conj.html](https://pytorch.org/docs/stable/generated/torch.conj.html)
 
 

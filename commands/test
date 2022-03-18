@@ -2,6 +2,7 @@
 
 
 cd $WORKSPACE_ROOT_DIR
+source venv/bin/activate
 
 $GRIND check || exit
 
