@@ -6,6 +6,5 @@ source venv/bin/activate
 
 $GRIND check || exit
 
-source venv/bin/activate
+exec $GRIND test_nocheck "$@"
 
-pytest --suppress-no-test-exit-code "$@"

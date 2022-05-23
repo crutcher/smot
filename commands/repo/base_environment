@@ -3,7 +3,7 @@
 # Exit on error.
 set -e
 
-PYTHON_VERSION=python3.9
+PYTHON_VERSION=python3.10
 
 cd $WORKSPACE_ROOT_DIR
 

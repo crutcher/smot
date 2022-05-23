@@ -121,10 +121,10 @@ class TypeOpsTest(unittest.TestCase):
         """
         # True:
         # =======
-        t = torch.tensor([1], dtype=torch.complex32)
+        t = torch.tensor([1], dtype=torch.complex64)
         conj_t = torch.conj(t)
 
-        complex_t = torch.tensor([1], dtype=torch.complex32)
+        complex_t = torch.tensor([1], dtype=torch.complex64)
         complex_conj_t = torch.conj(complex_t)
 
         # both torch.is_conj(t) and <tensor>.is_conj()

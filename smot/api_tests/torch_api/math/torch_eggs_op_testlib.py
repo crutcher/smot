@@ -4,7 +4,7 @@ import hamcrest
 import torch
 
 from smot.testlib import eggs
-from smot.testlib.torch_eggs import TensorConvertable, assert_tensor_equals
+from smot.testlib.torch_eggs import assert_tensor_equals
 
 
 def hide_tracebacks(mode: bool = True) -> None:
@@ -23,7 +23,7 @@ hide_tracebacks(False)
 
 def assert_tensor_op_throws_not_implemented(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
-    *args: TensorConvertable,
+    *args: Any,
     **kwargs: Any,
 ) -> None:
     t_source: List[torch.Tensor] = [torch.as_tensor(a) for a in args]
@@ -37,7 +37,7 @@ def assert_tensor_op_throws_not_implemented(
 def assert_cellwise_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     *args: torch.Tensor,
-    expected: TensorConvertable,
+    expected: Any,
     close: bool = False,
     supports_out: bool = True,
     **kwargs: Any,
@@ -97,9 +97,9 @@ def assert_cellwise_op_returns(
 
 def assert_cellwise_unary_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
-    input: TensorConvertable,
+    input: Any,
     *,
-    expected: TensorConvertable,
+    expected: Any,
     close: bool = False,
     supports_out: bool = True,
     **kwargs: Any,
@@ -125,10 +125,10 @@ def assert_cellwise_unary_op_returns(
 
 def assert_cellwise_bin_op_returns(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
-    input: TensorConvertable,
-    other: TensorConvertable,
+    input: Any,
+    other: Any,
     *,
-    expected: TensorConvertable,
+    expected: Any,
     close: bool = False,
     supports_out: bool = True,
     **kwargs: Any,

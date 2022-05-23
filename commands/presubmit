@@ -5,7 +5,10 @@ set -e
 cd $WORKSPACE_ROOT_DIR
 
 $GRIND format
-$GRIND gen_api_links
+
+# disable due to upgrade.
+# $GRIND gen_api_links
+
 $GRIND test --slow --testmon
 
 if which cloc > /dev/null; then

@@ -1,3 +1,4 @@
+from typing import cast
 import unittest
 
 import numpy as np
@@ -9,6 +10,7 @@ from smot.api_tests.torch_api.math.torch_eggs_op_testlib import (
     assert_tensor_op_throws_not_implemented,
 )
 from smot.doc_link.link_annotations import api_link
+from smot.testlib.torch_eggs import TensorConvertable
 
 
 class TorchSpecialTest(unittest.TestCase):
@@ -38,7 +40,7 @@ class TorchSpecialTest(unittest.TestCase):
             ]:
                 assert_cellwise_unary_op_returns(
                     op,
-                    input,
+                    cast(TensorConvertable, input),
                     expected=expected,
                     close=True,
                     supports_out=supports_out,

@@ -12,7 +12,7 @@ from smot.testlib import np_eggs
 )
 class EmptyLikeTest(unittest.TestCase):
     def test_empty_like_scalar(self) -> None:
-        a: np.typing.ArrayLike = np.array(0)
+        a = np.array(0)
 
         np_eggs.assert_ndarray_structure(
             np.empty_like(a),

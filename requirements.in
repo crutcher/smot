@@ -38,22 +38,6 @@ pytest-skip-slow
 PyHamcrest
 testfixtures
 
-# See: https://github.com/google/jax#pip-installation-cpu
-# If you want to install one of the jax[cuda] packages,
-# You need a working jax toolchain for cuda.
-#
-# See: https://github.com/google/jax#pip-installation-gpu-cuda
-#
-# for System76 Pop!_OS:
-# 1) `sudo apt-get install $(cat system76_cuda_apt.txt)`
-#
-# 2) Add to "constraints.in":
-#   # https://github.com/google/jax#pip-installation-gpu-cuda
-#   -f https://storage.googleapis.com/jax-releases/jax_releases.html
-#   jax[cuda]
-jax
-flax
-
 # numpy
 numpy
 nptyping
@@ -72,13 +56,10 @@ torchaudio
 pytorch-lightning
 
 # tensorboard
-tensorflow
-tensorflow-datasets
+# tensorflow
+# tensorflow-datasets
 tensorboard
 tensorboard-plugin-profile
-
-# jax examples
-ml-collections
 
 # jupyter
 jupyter

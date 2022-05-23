@@ -62,9 +62,8 @@ class LinspaceTest(unittest.TestCase):
         )
 
     def test_linspace_100(self) -> None:
-        # steps=100 as a default is deprecated.
         with eggs.ignore_warnings():
             torch_eggs.assert_tensor_equals(
-                torch.linspace(1, 100),
+                torch.linspace(1, 100, steps=100),
                 [float(i) for i in range(1, 101)],
             )

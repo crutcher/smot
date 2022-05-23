@@ -6,18 +6,27 @@ import hamcrest
 from hamcrest.core.base_matcher import BaseMatcher
 from hamcrest.core.description import Description
 from hamcrest.core.matcher import Matcher
-import nptyping
 from overrides import overrides
 import torch
 
 from smot.testlib import eggs
 
-TensorConvertable = typing.Union[
-    torch.Tensor,
-    numbers.Number,
-    typing.Sequence,
-    nptyping.NDArray,
-]
+# int is not a Number?
+# https://github.com/python/mypy/issues/3186
+# https://stackoverflow.com/questions/69334475/how-to-hint-at-number-types-i-e-subclasses-of-number-not-numbers-themselv/69383462#69383462kk
+
+NumberLike = typing.Union[numbers.Number, numbers.Complex, typing.SupportsFloat]
+
+TensorConvertable = typing.Any
+
+# TensorConvertable = typing.Union[
+#    torch.Tensor,
+#    NumberLike,
+#    typing.Sequence,
+#    typing.List,
+#    typing.Tuple,
+#    nptyping.NDArray,
+# ]
 "Types which torch.as_tensor(T) can convert."
 
 

@@ -57,7 +57,7 @@ class TensorTest(unittest.TestCase):
         )
 
     def test_requires_grad(self) -> None:
-        for dtype in [torch.float32, torch.complex32]:
+        for dtype in [torch.float32, torch.complex64]:
             eggs.assert_false(
                 torch.tensor([1], dtype=dtype).requires_grad,
             )

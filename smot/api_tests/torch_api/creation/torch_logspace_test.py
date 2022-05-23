@@ -62,9 +62,8 @@ class LogspaceTest(unittest.TestCase):
         )
 
     def test_logspace_100(self) -> None:
-        # steps=100 as a default is deprecated.
         with eggs.ignore_warnings():
             torch_eggs.assert_tensor_equals(
-                torch.logspace(1, 100),
+                torch.logspace(1, 100, steps=100),
                 [float(f"1.e{i}") for i in range(1, 101)],
             )
