@@ -22,8 +22,6 @@ export WORKSPACE_VENV_DIR="$WORKSPACE_ROOT_DIR/venv"
 # If we want to re-invoke this target; where is it?
 export GRIND="$WORKSPACE_ROOT_DIR/grind"
 
-COMMAND_DIR="$WORKSPACE_ROOT_DIR/commands"
-
 if [ -z "$MARKDOWN_READER" ]; then
   if command -v glow &> /dev/null; then
     export MARKDOWN_READER="glow -w 80"
