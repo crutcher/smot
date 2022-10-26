@@ -70,7 +70,7 @@ class ColumnStackTest(unittest.TestCase):
         )
 
     def test_out(self) -> None:
-        target = torch.arange(6)
+        target = torch.arange(6).reshape((3, 2))
         orig_data_ptr = target.data_ptr()
 
         torch.column_stack(

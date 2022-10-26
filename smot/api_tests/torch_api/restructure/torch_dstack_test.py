@@ -56,7 +56,7 @@ class DstackTest(unittest.TestCase):
         )
 
     def test_out(self) -> None:
-        target = torch.arange(6)
+        target = torch.arange(6).reshape((1, 3, 2))
         orig_data_ptr = target.data_ptr()
 
         torch.dstack(

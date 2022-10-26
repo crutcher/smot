@@ -168,11 +168,39 @@ class MathOpTest(unittest.TestCase):
         ]:
             for input in [
                 torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
-                torch.tensor(True, dtype=torch.bool),
+                # torch.tensor(True, dtype=torch.bool),
             ]:
                 assert_tensor_op_throws_not_implemented(
                     op,
                     input,
+                    max=input,
+                )
+
+            for input in [
+                torch.tensor(True, dtype=torch.bool),
+            ]:
+                # clamp() acts weird for torch.bool,
+                # some things are implemented, some things are not.
+
+                assert_cellwise_op_returns(
+                    op,
+                    input,
+                    max=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+                assert_cellwise_op_returns(
+                    op,
+                    input,
+                    min=input,
+                    expected=input,
+                    supports_out=supports_out,
+                )
+
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    input,
+                    min=input,
                     max=input,
                 )
 

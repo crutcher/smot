@@ -1,4 +1,4 @@
-from typing import Any, Callable, List, Union
+from typing import Any, Callable, List, Type, Union
 
 import hamcrest
 import torch
@@ -21,16 +21,32 @@ def hide_tracebacks(mode: bool = True) -> None:
 hide_tracebacks(False)
 
 
-def assert_tensor_op_throws_not_implemented(
+def assert_tensor_op_throws(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     *args: Any,
+    exception_type: Type[Exception],
+    exception_pattern: str,
     **kwargs: Any,
 ) -> None:
     t_source: List[torch.Tensor] = [torch.as_tensor(a) for a in args]
     eggs.assert_raises(
         lambda: op(*t_source, **kwargs),
-        RuntimeError,
-        r"not (implemented|supported)",
+        exception_type,
+        exception_pattern,
+    )
+
+
+def assert_tensor_op_throws_not_implemented(
+    op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
+    *args: Any,
+    **kwargs: Any,
+) -> None:
+    assert_tensor_op_throws(
+        op,
+        *args,
+        exception_type=RuntimeError,
+        exception_pattern=r"not (implemented|supported)",
+        **kwargs,
     )
 
 
