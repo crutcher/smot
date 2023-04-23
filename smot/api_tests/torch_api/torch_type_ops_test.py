@@ -55,7 +55,7 @@ class TypeOpsTest(unittest.TestCase):
         """
 
         t = torch.tensor([1, 2])
-        ts = t.data.storage()
+        ts = t.data.untyped_storage()
 
         eggs.assert_true(
             torch.is_storage(ts),

@@ -1,6 +1,8 @@
 # intellij project files.
 *.iml
 
+.testmondata*
+
 # Requirements constraints file and pin file are excluded.
 constraints.in
 requirements.txt

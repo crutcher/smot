@@ -62,12 +62,12 @@ class BitwiseOpsTest(unittest.TestCase):
                     torch.tensor([True, False], dtype=torch.bool),
                 ),
                 (
-                    torch.tensor(0xFA, dtype=torch.int8),
-                    torch.tensor(0x05, dtype=torch.int8),
+                    torch.tensor(0xFA, dtype=torch.uint8),
+                    torch.tensor(0x05, dtype=torch.uint8),
                 ),
                 (
-                    torch.tensor(0xFAFAFAFA, dtype=torch.int32),
-                    torch.tensor(0x05050505, dtype=torch.int32),
+                    torch.tensor(0x0AFAFAFA, dtype=torch.int32),
+                    torch.tensor(-0xAFAFAFB, dtype=torch.int32),
                 ),
             ]:
                 assert_cellwise_unary_op_returns(

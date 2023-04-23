@@ -56,8 +56,8 @@ def assert_tensor_views(*views: torch.Tensor) -> None:
 
     for t in views:
         eggs.assert_match(
-            t.storage().data_ptr(),  # type: ignore
-            reference.storage().data_ptr(),  # type: ignore
+            t.untyped_storage().data_ptr(),  # type: ignore
+            reference.untyped_storage().data_ptr(),  # type: ignore
         )
 
 
@@ -71,8 +71,8 @@ def assert_tensor_storage_differs(
     :param reference: the reference tensor.
     """
     eggs.assert_match(
-        tensor.storage().data_ptr(),  # type: ignore
-        hamcrest.not_(reference.storage().data_ptr()),  # type: ignore
+        tensor.untyped_storage().data_ptr(),  # type: ignore
+        hamcrest.not_(reference.untyped_storage().data_ptr()),  # type: ignore
     )
 
 

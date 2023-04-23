@@ -194,6 +194,7 @@ def assert_raises(
     exception: Type[Exception],
     pattern: Optional[str] = None,
     matching: Any = None,
+    reason: Optional[str] = None,
 ) -> None:
     """
     Utility wrapper for ``hamcrest.assert_that(func, hamcrest.raises(...))``.
@@ -211,6 +212,7 @@ def assert_raises(
             pattern=pattern,
             matching=matching,
         ),
+        reason=reason,
     )
 
 

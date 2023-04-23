@@ -1,4 +1,4 @@
-from typing import Any, Callable, List, Type, Union
+from typing import Any, Callable, List, Optional, Type, Union
 
 import hamcrest
 import torch
@@ -18,7 +18,7 @@ def hide_tracebacks(mode: bool = True) -> None:
 
 
 # hide by default.
-hide_tracebacks(False)
+hide_tracebacks(True)
 
 
 def assert_tensor_op_throws(
@@ -26,6 +26,7 @@ def assert_tensor_op_throws(
     *args: Any,
     exception_type: Type[Exception],
     exception_pattern: str,
+    reason: Optional[str] = None,
     **kwargs: Any,
 ) -> None:
     t_source: List[torch.Tensor] = [torch.as_tensor(a) for a in args]
@@ -33,12 +34,14 @@ def assert_tensor_op_throws(
         lambda: op(*t_source, **kwargs),
         exception_type,
         exception_pattern,
+        reason=reason,
     )
 
 
 def assert_tensor_op_throws_not_implemented(
     op: Union[Callable[[torch.Tensor], torch.Tensor], Any],
     *args: Any,
+    reason: Optional[str] = None,
     **kwargs: Any,
 ) -> None:
     assert_tensor_op_throws(
@@ -47,6 +50,7 @@ def assert_tensor_op_throws_not_implemented(
         exception_type=RuntimeError,
         exception_pattern=r"not (implemented|supported)",
         **kwargs,
+        reason=reason,
     )
 
 

@@ -251,12 +251,8 @@ class TorchSpecialTest(unittest.TestCase):
             (torch.exp2, True),
             (torch.special.exp2, True),
         ]:
-            for not_implemented in [
-                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
-            ]:
-                assert_tensor_op_throws_not_implemented(op, not_implemented)
-
             for source in [
+                [0 + 0j, 1 + 1j, 0.5 - 0.5j],
                 torch.randn(4),
                 True,
                 torch.nan,

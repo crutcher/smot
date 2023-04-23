@@ -95,17 +95,24 @@ class MathOpTest(unittest.TestCase):
                     torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float32),
                     torch.tensor([0.0, 0.0, 0.0, 1.0, 2.0, 4.0], dtype=torch.float32),
                 ),
+                (
+                    torch.tensor(0, dtype=torch.int64),
+                    torch.tensor(0, dtype=torch.int64),
+                ),
             ]:
                 assert_cellwise_unary_op_returns(
                     op, input, expected=expected, supports_out=supports_out
                 )
 
             for not_implemented in [
-                torch.tensor(0, dtype=torch.int64),
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_op_throws_not_implemented(op, not_implemented)
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    not_implemented,
+                    reason=str((op, not_implemented)),
+                )
 
     @api_link(
         target="torch.floor",
@@ -129,17 +136,24 @@ class MathOpTest(unittest.TestCase):
                     torch.tensor([-0.3, -0.0, 0.0, 0.3, 1.2, 4.0], dtype=torch.float32),
                     torch.tensor([-1.0, -0.0, 0.0, 0.0, 1.0, 4.0], dtype=torch.float32),
                 ),
+                (
+                    torch.tensor([0, 1, -1], dtype=torch.int),
+                    torch.tensor([0, 1, -1], dtype=torch.int),
+                ),
             ]:
                 assert_cellwise_unary_op_returns(
                     op, input, expected=expected, supports_out=supports_out
                 )
 
             for not_implemented in [
-                torch.tensor(0, dtype=torch.int64),
                 torch.tensor(False, dtype=torch.bool),
                 torch.tensor(0.4 - 0.3j, dtype=torch.complex128),
             ]:
-                assert_tensor_op_throws_not_implemented(op, not_implemented)
+                assert_tensor_op_throws_not_implemented(
+                    op,
+                    not_implemented,
+                    reason=str(not_implemented),
+                )
 
     @api_link(
         target="torch.clamp",
@@ -377,7 +391,6 @@ class MathOpTest(unittest.TestCase):
             (torch.copysign, True),
             (torch.Tensor.copysign, False),
         ]:
-
             for not_supported in [
                 torch.tensor(0.3 + 2.0j, dtype=torch.complex64),
                 torch.tensor(0.3 + 2.0j, dtype=torch.complex128),
